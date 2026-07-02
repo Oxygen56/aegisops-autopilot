@@ -116,6 +116,19 @@ add(checks, "GitHub Pages target URL", pages.includes(" 200") ? "pass" : "warn",
 const pagesReel = httpStatus("https://oxygen56.github.io/aegisops-autopilot/?reel=1");
 add(checks, "GitHub Pages demo reel URL", pagesReel.includes(" 200") ? "pass" : "warn", pagesReel);
 
+const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL;
+if (alibabaProofUrl) {
+  const liveProof = safeRun("pnpm", ["run", "deploy:verify", "--", alibabaProofUrl], 30_000);
+  add(checks, "Live Alibaba deployment proof URL", liveProof.ok ? "pass" : "fail", liveProof.output);
+} else {
+  add(
+    checks,
+    "Live Alibaba deployment proof URL",
+    "warn",
+    "not provided; set ALIBABA_PROOF_URL=https://<your-domain> after account deployment"
+  );
+}
+
 const buidlZip = newestFile("qwencloud-hackathon_");
 add(checks, "Latest BUIDL package", buidlZip ? "pass" : "fail", buidlZip ?? "missing");
 
@@ -134,6 +147,7 @@ const requiredFiles = [
   ".github/workflows/pages.yml",
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "infra/alibaba/DEPLOYMENT.md",
+  "scripts/verifyAlibabaDeployment.ts",
   "src/server/cloud/alibabaProof.ts"
 ];
 const missingFiles = requiredFiles.filter((file) => !exists(file));

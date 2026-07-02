@@ -75,8 +75,13 @@ const items: AuditItem[] = [
   {
     area: "Alibaba Cloud deployment proof",
     status: "external-action",
-    evidence: requireEvidence(["src/server/cloud/alibabaProof.ts", "infra/alibaba/DEPLOYMENT.md", "Dockerfile"]),
-    note: "Code-level proof and deployment instructions are present; a live Alibaba Cloud URL still requires account credentials and deployment."
+    evidence: requireEvidence([
+      "src/server/cloud/alibabaProof.ts",
+      "infra/alibaba/DEPLOYMENT.md",
+      "scripts/verifyAlibabaDeployment.ts",
+      "Dockerfile"
+    ]),
+    note: "Code-level proof, deployment instructions, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
   },
   {
     area: "Working demo or test build",
@@ -138,6 +143,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
+  ["scripts/verifyAlibabaDeployment.ts", "local-dev"],
   ["src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["tests/orchestrator.test.ts", "must not mutate without approval"]
 ];

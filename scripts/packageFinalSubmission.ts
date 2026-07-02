@@ -72,8 +72,8 @@ run("zip", [
 
 // Second pass records the exact package names created above, then patches both zips.
 run("pnpm", ["run", "final:preflight"]);
-zipAdd(buidlZip, ["reports/final_preflight.md"]);
-zipAdd(fullZip, ["reports/final_preflight.md"]);
+zipAdd(buidlZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
+zipAdd(fullZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
 
 console.log(`BUIDL package: ${buidlZip}`);
 console.log(`Full package: ${fullZip}`);

@@ -40,6 +40,8 @@ Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/
 
 Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
+Verification command after deployment: `pnpm run deploy:verify -- https://<your-domain>`
+
 ## Live Demo
 
 Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -102,6 +104,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.
+- `reports/alibaba_deployment_proof.md`: generated after live Alibaba deployment with `pnpm run deploy:verify`.
 
 ## License
 

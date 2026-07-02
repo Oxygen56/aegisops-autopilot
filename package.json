@@ -10,6 +10,8 @@
     "build:pages": "GITHUB_PAGES=1 pnpm run build",
     "preview": "pnpm run serve:api",
     "docker:smoke": "bash scripts/docker_smoke.sh",
+    "deploy:verify": "tsx scripts/verifyAlibabaDeployment.ts",
+    "deploy:verify:smoke": "tsx scripts/verifyAlibabaDeploymentSmoke.ts",
     "test": "tsx tests/orchestrator.test.ts",
     "eval": "tsx src/server/evals/runEval.ts",
     "eval:ablation": "tsx src/server/evals/runAblation.ts",

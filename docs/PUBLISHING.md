@@ -115,6 +115,12 @@ If deployed live, also include:
 https://<your-domain>/api/alibaba/proof
 ```
 
+After deployment, generate the proof report:
+
+```bash
+pnpm run deploy:verify -- https://<your-domain>
+```
+
 ## Devpost Final Fields
 
 Use `submissions/FINAL_SUBMISSION_RUNBOOK.md`, `submissions/devpost_fields.md`, and `buidl/BUIDL_SUBMISSION.md`.

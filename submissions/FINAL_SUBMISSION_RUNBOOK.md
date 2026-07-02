@@ -20,7 +20,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Architecture diagram | `docs/ARCHITECTURE.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly |
-| Alibaba Cloud proof | Code link below; add live `/api/alibaba/proof` URL after deployment |
+| Alibaba Cloud proof | Code link below; run `pnpm run deploy:verify -- https://<your-domain>` after deployment |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
 ## Links To Paste
@@ -71,8 +71,9 @@ https://<your-domain>/api/alibaba/proof
 6. Add repository, StackBlitz, GitHub Pages, architecture, and proof-code links.
 7. Upload the public demo video link after publishing the local `.m4v`.
 8. Add the optional blog/social link if published.
-9. Run `pnpm run final:preflight` immediately before clicking submit.
-10. Submit before the deadline.
+9. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
+10. Run `pnpm run final:preflight` immediately before clicking submit.
+11. Submit before the deadline.
 
 ## Final 30-Minute Check
 
@@ -88,7 +89,7 @@ Then verify:
 - StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
 - The Alibaba proof code link opens without login.
-- If a live Alibaba URL is available, `/api/alibaba/proof` returns no secrets.
+- If a live Alibaba URL is available, `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
 
 ## Judge Narrative
 

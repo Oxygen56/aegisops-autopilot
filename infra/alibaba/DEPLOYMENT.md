@@ -83,3 +83,25 @@ curl -sS https://<your-domain>/api/tools
 ```
 
 The proof endpoint must not return API keys or private runtime data.
+
+## Generate Devpost Proof Report
+
+After the public service is reachable, run:
+
+```bash
+ALIBABA_PROOF_URL=https://<your-domain> pnpm run deploy:verify
+```
+
+or:
+
+```bash
+pnpm run deploy:verify -- https://<your-domain>
+```
+
+This verifies `/api/health`, `/api/alibaba/proof`, and `/api/tools`, rejects `local-dev` proof, checks for leaked Qwen/Alibaba credential patterns, and writes:
+
+```text
+reports/alibaba_deployment_proof.md
+```
+
+Paste the live `/api/alibaba/proof` URL and the repository proof-code URL into Devpost.

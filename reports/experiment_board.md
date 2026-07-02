@@ -36,6 +36,7 @@ Direction: `maximize`
 | 1.0 | pass | pages-workflow-gate | 0 | 25.425 | experiments/runs/20260703-021550_pages-workflow-gate |
 | 1.0 | pass | final-preflight-pages-gate | 0 | 20.292 | experiments/runs/20260703-022409_final-preflight-pages-gate |
 | 1.0 | pass | final-runbook-package-script-gate | 0 | 20.858 | experiments/runs/20260703-023144_final-runbook-package-script-gate |
+| 1.0 | pass | alibaba-proof-verifier-gate | 0 | 26.034 | experiments/runs/20260703-024012_alibaba-proof-verifier-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

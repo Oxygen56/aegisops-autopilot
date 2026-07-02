@@ -8,6 +8,7 @@ pnpm run eval
 pnpm run eval:ablation
 pnpm run smoke
 pnpm run smoke:mcp
+pnpm run deploy:verify:smoke
 pnpm run judge:transcript
 pnpm run submission:audit
 
