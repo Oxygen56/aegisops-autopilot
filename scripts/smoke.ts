@@ -1,8 +1,9 @@
 import { spawn } from "node:child_process";
 
-const server = spawn("pnpm", ["run", "serve:api"], {
+const server = spawn("pnpm", ["exec", "tsx", "src/server/index.ts"], {
   stdio: ["ignore", "pipe", "pipe"],
-  env: { ...process.env, PORT: "8788", QWEN_OFFLINE: "1" }
+  env: { ...process.env, PORT: "8788", QWEN_OFFLINE: "1" },
+  detached: process.platform !== "win32"
 });
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -20,6 +21,27 @@ async function fetchWithRetry(url: string, init?: RequestInit): Promise<Response
     await wait(250);
   }
   throw lastError instanceof Error ? lastError : new Error(String(lastError));
+}
+
+async function stopServer(): Promise<void> {
+  if (server.exitCode !== null || server.signalCode !== null) return;
+  const closed = new Promise<void>((resolve) => {
+    server.once("close", () => resolve());
+  });
+  if (process.platform === "win32") {
+    server.kill("SIGTERM");
+  } else if (server.pid) {
+    process.kill(-server.pid, "SIGTERM");
+  }
+  await Promise.race([closed, wait(1500)]);
+  if (server.exitCode === null && server.signalCode === null) {
+    if (process.platform === "win32") {
+      server.kill("SIGKILL");
+    } else if (server.pid) {
+      process.kill(-server.pid, "SIGKILL");
+    }
+    await Promise.race([closed, wait(1500)]);
+  }
 }
 
 try {
@@ -52,5 +74,5 @@ try {
 
   console.log(`smoke passed: ${run.id} score=${run.scorecard.overall}`);
 } finally {
-  server.kill("SIGTERM");
+  await stopServer();
 }
