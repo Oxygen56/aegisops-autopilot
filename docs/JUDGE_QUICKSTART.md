@@ -30,7 +30,7 @@ Expected evidence:
 - reversible remediation plan
 - approval record and verification metrics
 
-Then run `Support export may contain private notes` without approval.
+Then run `Support automation started attaching raw customer transcripts` without approval.
 
 Expected evidence:
 

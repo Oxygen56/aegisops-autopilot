@@ -22,6 +22,7 @@
     "model:ops": "tsx scripts/modelOpsReport.ts",
     "judge:evidence": "tsx scripts/judgeEvidenceBundle.ts",
     "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
+    "video:audit": "tsx scripts/videoAssetAudit.ts",
     "final:preflight": "tsx scripts/finalPreflight.ts",
     "submission:package": "tsx scripts/packageFinalSubmission.ts",
     "submission:validate": "tsx scripts/validateSubmissionPackages.ts",

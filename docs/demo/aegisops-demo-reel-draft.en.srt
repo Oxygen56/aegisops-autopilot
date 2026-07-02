@@ -1,39 +1,39 @@
 1
-00:00:00,000 --> 00:00:05,000
-AegisOps Autopilot is a Track 4 production incident response agent.
+00:00:00,000 --> 00:00:06,000
+AegisOps Autopilot is a Track 4 production incident autopilot for Qwen Cloud.
 
 2
-00:00:05,000 --> 00:00:10,000
-It turns ambiguous alerts into a traced remediation workflow.
+00:00:06,000 --> 00:00:12,000
+It turns ambiguous alerts into memory-backed diagnosis, tool evidence, and reversible remediation.
 
 3
-00:00:10,000 --> 00:00:15,000
-The workflow starts with incident context and persistent operational memory.
+00:00:12,000 --> 00:00:18,000
+The checkout workflow shows incident context, persistent operational memory, and Qwen-backed reasoning.
 
 4
-00:00:15,000 --> 00:00:21,000
-Qwen Cloud diagnosis is supported by log, metric, change graph, and policy tools.
+00:00:18,000 --> 00:00:24,000
+Human approval gates pause unsafe production mutation while preserving the audit trail.
 
 5
-00:00:21,000 --> 00:00:27,000
-The agent council reviews evidence before proposing a narrow reversible plan.
+00:00:24,000 --> 00:00:31,000
+The same five incident tools are exposed through Qwen Function Calling, OpenAPI, and MCP stdio.
 
 6
-00:00:27,000 --> 00:00:33,000
-Human approval gates block risky production mutation until an operator approves.
+00:00:31,000 --> 00:00:38,000
+The dashboard maps the official 30/30/25/15 rubric to concrete repository evidence.
 
 7
-00:00:33,000 --> 00:00:39,000
-Tool evidence remains visible for audit even when remediation is paused.
+00:00:38,000 --> 00:00:45,000
+Deterministic evals and ablations verify the full workflow against a single-agent baseline.
 
 8
-00:00:39,000 --> 00:00:44,000
-The same tool surface is exposed through OpenAPI and MCP stdio.
+00:00:45,000 --> 00:00:52,000
+The full workflow scores 0.988, compared with 0.420 for the weaker baseline.
 
 9
-00:00:44,000 --> 00:00:49,000
-Deterministic evals and ablations verify the full workflow against a baseline.
+00:00:52,000 --> 00:00:59,000
+Alibaba deployment proof and verification scripts are included without exposing secrets.
 
 10
-00:00:49,000 --> 00:00:55,000
-Alibaba deployment proof and verification scripts are included for Devpost judges.
+00:00:59,000 --> 00:01:05,000
+Judges can run the project through StackBlitz, GitHub Pages, or a local clone.

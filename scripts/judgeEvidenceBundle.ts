@@ -134,6 +134,7 @@ const items: EvidenceItem[] = [
         "reports/judge_demo_transcript.md",
         "submissions/devpost_fields.md",
         "docs/VIDEO_UPLOAD_METADATA.md",
+        "reports/video_asset_audit.md",
         "src/client/main.tsx"
       ]) &&
         includes("src/client/main.tsx", "Judge rubric evidence")
@@ -145,9 +146,10 @@ const items: EvidenceItem[] = [
       "reports/judge_demo_transcript.md",
       "submissions/devpost_fields.md",
       "docs/VIDEO_UPLOAD_METADATA.md",
+      "reports/video_asset_audit.md",
       "src/client/main.tsx"
     ],
-    proof: "A judge can follow a five-minute path, inspect deterministic transcript and evidence files, or see the weighted rubric evidence directly in the demo UI."
+    proof: "A judge can follow a five-minute path, inspect deterministic transcript and video asset checks, or see the weighted rubric evidence directly in the demo UI."
   },
   {
     section: "Submission Readiness",
@@ -171,8 +173,8 @@ const items: EvidenceItem[] = [
     section: "Submission Readiness",
     claim: "Public video upload and final Devpost submission are account-gated",
     status: "ACCOUNT-GATED",
-    evidence: ["docs/demo/aegisops-demo-reel-draft.m4v", "docs/VIDEO_UPLOAD_METADATA.md", "submissions/FINAL_SUBMISSION_RUNBOOK.md"],
-    proof: "Local video, captions, metadata, and submit runbook are present; public upload and Devpost submit require account-owner action."
+    evidence: ["docs/demo/aegisops-demo-reel-draft.m4v", "docs/VIDEO_UPLOAD_METADATA.md", "reports/video_asset_audit.md", "submissions/FINAL_SUBMISSION_RUNBOOK.md"],
+    proof: "Local video, captions, metadata, video asset audit, and submit runbook are present; public upload and Devpost submit require account-owner action."
   }
 ];
 

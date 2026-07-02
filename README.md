@@ -82,6 +82,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Experiment ledger: `reports/experiment_board.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
+- Video asset audit: `reports/video_asset_audit.md`
 - Final preflight: `pnpm run final:preflight` writes `reports/final_preflight.md`
 - Submission audit: `reports/submission_audit.md`
 - Qwen integration audit: `reports/qwen_integration_audit.md`
@@ -105,6 +106,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Static demo screenshot: `docs/screenshots/pages-static-reel.png`
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`
 - Demo video upload metadata: `docs/VIDEO_UPLOAD_METADATA.md`
+- Video asset audit: `reports/video_asset_audit.md`
 - Alibaba proof recording: `docs/ALIBABA_PROOF_RECORDING.md`
 - Demo script: `docs/DEMO_SCRIPT.md`
 - Judge notes: `docs/JUDGE_NOTES.md`

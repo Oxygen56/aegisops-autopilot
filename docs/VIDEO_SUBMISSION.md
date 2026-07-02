@@ -6,12 +6,13 @@ Devpost requires a public YouTube, Vimeo, or Youku link, and judges are not requ
 
 - Upload-friendly draft: `docs/demo/aegisops-demo-reel-draft.m4v`
 - Original screen recording: `docs/demo/aegisops-demo-reel-draft.mov`
-- Duration: 55 seconds
+- Duration: about 65 seconds
 - Content: auto-playing AegisOps demo reel that calls the local backend and shows:
   - Track 4 positioning
   - SEV1 incident workflow
   - human approval pause
   - custom Qwen tools and MCP surface
+  - official 30/30/25/15 rubric evidence
   - ablation evidence
   - Alibaba Cloud deployment proof endpoint
 
@@ -23,10 +24,16 @@ Start the local app first:
 pnpm run dev
 ```
 
-Then record the Chrome demo reel:
+Then record the Chrome demo reel. By default this records `http://127.0.0.1:5184/?reel=1` for 65 seconds:
 
 ```bash
 pnpm run video:record
+```
+
+For a different local port or already-hosted URL:
+
+```bash
+DEMO_REEL_URL=http://127.0.0.1:5173/?reel=1 DEMO_REEL_SECONDS=65 pnpm run video:record
 ```
 
 ## Upload Step

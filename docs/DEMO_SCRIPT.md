@@ -2,7 +2,7 @@
 
 Target length: 2 minutes 30 seconds.
 
-Fast path: use the generated 55-second draft video in `docs/demo/aegisops-demo-reel-draft.m4v`, or re-record it with `docs/VIDEO_SUBMISSION.md`.
+Fast path: use the generated 65-second draft video in `docs/demo/aegisops-demo-reel-draft.m4v`, or re-record it with `docs/VIDEO_SUBMISSION.md`.
 
 ## 0:00-0:20
 

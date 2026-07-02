@@ -33,7 +33,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
 | Proof of Alibaba Cloud deployment/API usage | External action | Code proof exists in `src/server/cloud/alibabaProof.ts`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md` |
-| Public demo video about 3 minutes | External action | Local video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; public upload still required |
+| Public demo video about 3 minutes | External action | Local 65-second video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; consistency audit exists at `reports/video_asset_audit.md`; public upload still required |
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
 | Track identification | Verified | `Track 4: Autopilot Agent` in `README.md`, `reports/brief.md`, and `submissions/devpost_fields.md` |
 | Optional blog/social post for Blog Post Prize | External action | Draft exists at `submissions/blog_post_draft.md`; public publication still required |

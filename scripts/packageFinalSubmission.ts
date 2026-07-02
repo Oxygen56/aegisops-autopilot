@@ -37,6 +37,8 @@ fs.mkdirSync(packageDir, { recursive: true });
 
 run("pnpm", ["run", "qwen:audit"]);
 run("pnpm", ["run", "model:ops"]);
+run("pnpm", ["run", "video:audit"]);
+run("pnpm", ["run", "submission:audit"]);
 run("pnpm", ["run", "judge:evidence"]);
 
 // First pass creates a report from the current clean repo and remote state.

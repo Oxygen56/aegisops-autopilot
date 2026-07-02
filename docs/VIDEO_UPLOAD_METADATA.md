@@ -45,11 +45,12 @@ docs/JUDGE_PACKET.md in the repository
 
 ```text
 00:00 Track 4 positioning
-00:07 Incident intake and dashboard
-00:15 Memory, Function Calling tools, and Qwen diagnosis
-00:27 Human approval and remediation plan
-00:38 MCP/OpenAPI tool surface
-00:46 Evaluation and Alibaba proof endpoint
+00:09 SEV1 incident workflow
+00:18 Human approval pause
+00:27 MCP/OpenAPI tool surface
+00:36 Judge rubric evidence
+00:45 Evaluation and ablation proof
+00:54 Alibaba deployment proof endpoint
 ```
 
 ## Tags

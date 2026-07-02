@@ -80,7 +80,7 @@ Static Pages screenshot: `docs/screenshots/pages-static-reel.png`
 
 Local draft: `docs/demo/aegisops-demo-reel-draft.m4v`
 
-Upload metadata and captions: `docs/VIDEO_UPLOAD_METADATA.md`, `docs/demo/aegisops-demo-reel-draft.en.srt`
+Upload metadata, captions, and audit: `docs/VIDEO_UPLOAD_METADATA.md`, `docs/demo/aegisops-demo-reel-draft.en.srt`, `reports/video_asset_audit.md`
 
 TODO: Upload the local draft to YouTube/Vimeo/Youku and paste the public URL here.
 
@@ -120,6 +120,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate, judging rubric, and account-gated boundaries.
 - `src/client/main.tsx`: visible `Judge rubric evidence` dashboard panel for the official 30/30/25/15 review path.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
+- `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
 - `docs/IMPACT_CASE.md`: target users, KPI model, adoption path, and impact evidence boundaries.

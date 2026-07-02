@@ -129,9 +129,12 @@ const items: AuditItem[] = [
       "docs/VIDEO_SUBMISSION.md",
       "docs/VIDEO_UPLOAD_METADATA.md",
       "docs/demo/aegisops-demo-reel-draft.m4v",
-      "docs/demo/aegisops-demo-reel-draft.en.srt"
+      "docs/demo/aegisops-demo-reel-draft.en.srt",
+      "scripts/record_demo.sh",
+      "scripts/videoAssetAudit.ts",
+      "reports/video_asset_audit.md"
     ]),
-    note: "The local upload-ready video, upload metadata, and captions exist; the video still must be uploaded publicly to YouTube, Vimeo, or Youku."
+    note: "The local upload-ready video, upload metadata, captions, recording script, and video asset audit exist; the video still must be uploaded publicly to YouTube, Vimeo, or Youku."
   },
   {
     area: "Optional blog or social post prize",
@@ -180,6 +183,9 @@ const requiredTextChecks: Array<[string, string]> = [
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
   ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
+  ["docs/VIDEO_UPLOAD_METADATA.md", "00:36 Judge rubric evidence"],
+  ["docs/demo/aegisops-demo-reel-draft.en.srt", "30/30/25/15 rubric"],
+  ["reports/video_asset_audit.md", "Video Asset Audit"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
   ["scripts/validateSubmissionPackages.ts", "docs/JUDGE_PACKET.md"],

@@ -12,6 +12,7 @@ pnpm run qwen:audit
 pnpm run model:ops
 pnpm run deploy:verify:smoke
 pnpm run judge:transcript
+pnpm run video:audit
 pnpm run submission:audit
 pnpm run judge:evidence
 
@@ -45,7 +46,9 @@ bash -n infra/alibaba/deploy-acr-ecs.sh
 test -s scripts/qwenIntegrationAudit.ts
 test -s scripts/modelOpsReport.ts
 test -s scripts/judgeEvidenceBundle.ts
+test -s scripts/videoAssetAudit.ts
 test -s reports/judge_demo_transcript.md
+test -s reports/video_asset_audit.md
 test -s reports/submission_audit.md
 test -s reports/judge_evidence_bundle.md
 

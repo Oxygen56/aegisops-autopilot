@@ -93,6 +93,7 @@ The CI release gate includes:
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, token estimates, latency budget, and fallback behavior.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.
+- `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.
 - `docs/ALIBABA_PROOF_RECORDING.md`: separate Alibaba Cloud proof recording checklist and upload metadata.
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
 - `reports/submission_audit.md`: requirement-to-evidence audit.
