@@ -24,7 +24,8 @@ AegisOps automates the incident workflow end to end:
 
 ## Demo
 
-- Live URL: TODO after Alibaba Cloud deployment.
+- Live URL: https://oxygen56.github.io/aegisops-autopilot/
+- Demo reel URL: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 - Video: local draft at `docs/demo/aegisops-demo-reel-draft.m4v`; TODO upload to YouTube/Vimeo/Youku and paste public URL.
 - Local run: `pnpm install && pnpm run test && pnpm run build && pnpm run dev`
 - Repository: https://github.com/Oxygen56/aegisops-autopilot
@@ -43,6 +44,7 @@ AegisOps automates the incident workflow end to end:
 - Alibaba Cloud proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts.
 - Architecture diagram: `docs/ARCHITECTURE.md`.
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`.
+- Static demo screenshot: `docs/screenshots/pages-static-reel.png`.
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`.
 
 ## Evidence

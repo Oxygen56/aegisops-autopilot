@@ -68,6 +68,22 @@ docs/demo/aegisops-demo-reel-draft.m4v
 
 to YouTube, Vimeo, or Youku. The video is under three minutes. Paste the public URL into Devpost.
 
+## Live Static Demo
+
+GitHub Pages target:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/
+```
+
+Demo reel:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/?reel=1
+```
+
+The static demo uses deterministic offline fixtures when `/api/*` is unavailable. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
+
 ## Alibaba Cloud Deployment
 
 Deploy the Docker container following `infra/alibaba/DEPLOYMENT.md`.

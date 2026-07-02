@@ -22,6 +22,22 @@ pnpm run dev
 
 Open the Vite URL shown by the command and run the incident demo.
 
+## Live Static Demo
+
+GitHub Pages demo:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/
+```
+
+Demo reel:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/?reel=1
+```
+
+The Pages build runs without a private backend by falling back to deterministic offline fixtures. Live Qwen Cloud mode still uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+
 ## Environment
 
 ```bash
@@ -64,6 +80,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
+- Static demo screenshot: `docs/screenshots/pages-static-reel.png`
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`
 - Demo script: `docs/DEMO_SCRIPT.md`
 - Judge notes: `docs/JUDGE_NOTES.md`

@@ -7,6 +7,7 @@
     "dev": "concurrently -k -n api,web \"pnpm run serve:api\" \"vite --host 0.0.0.0\"",
     "serve:api": "tsx src/server/index.ts",
     "build": "tsc -p tsconfig.json && vite build",
+    "build:pages": "GITHUB_PAGES=1 pnpm run build",
     "preview": "pnpm run serve:api",
     "test": "tsx tests/orchestrator.test.ts",
     "eval": "tsx src/server/evals/runEval.ts",
@@ -16,7 +17,7 @@
     "smoke:mcp": "tsx scripts/mcpSmoke.ts",
     "secret:scan": "bash scripts/secret_scan.sh",
     "release:check": "bash scripts/release_check.sh",
-    "ci": "pnpm run release:check",
+    "ci": "pnpm run release:check && pnpm run build:pages",
     "video:record": "bash scripts/record_demo.sh"
   },
   "dependencies": {

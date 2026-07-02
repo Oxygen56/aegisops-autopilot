@@ -17,6 +17,7 @@ import {
   XCircle
 } from "lucide-react";
 import type { Incident, WorkflowResult } from "../server/agent/types";
+import { runStaticWorkflow, staticIncidents } from "./staticDemo";
 import "./styles.css";
 
 interface IncidentsResponse {
@@ -33,6 +34,42 @@ function scorePercent(value: number): string {
   return `${Math.round(value * 100)}%`;
 }
 
+async function fetchIncidents(): Promise<Incident[]> {
+  try {
+    const response = await fetch("/api/incidents");
+    if (!response.ok) throw new Error(`incident API returned ${response.status}`);
+    const payload = (await response.json()) as IncidentsResponse;
+    return payload.incidents;
+  } catch {
+    return staticIncidents;
+  }
+}
+
+async function runWorkflowRequest(incidentId: string, autoApprove: boolean, approver: string): Promise<WorkflowResult> {
+  try {
+    const response = await fetch("/api/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ incidentId, autoApprove, approver })
+    });
+    if (!response.ok) throw new Error(await response.text());
+    return (await response.json()) as WorkflowResult;
+  } catch {
+    return runStaticWorkflow(incidentId, autoApprove);
+  }
+}
+
+async function fetchToolCount(): Promise<number> {
+  try {
+    const response = await fetch("/api/tools");
+    if (!response.ok) throw new Error(`tools API returned ${response.status}`);
+    const payload = (await response.json()) as { tools: unknown[] };
+    return payload.tools.length;
+  } catch {
+    return 5;
+  }
+}
+
 function App() {
   const isReel = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("reel") === "1";
   const [incidents, setIncidents] = useState<Incident[]>([]);
@@ -43,32 +80,25 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/incidents")
-      .then((response) => response.json() as Promise<IncidentsResponse>)
-      .then((payload) => {
-        setIncidents(payload.incidents);
-        setSelectedId(payload.incidents[0]?.id ?? selectedId);
+    fetchIncidents()
+      .then((items) => {
+        setIncidents(items);
+        setSelectedId(items[0]?.id ?? selectedId);
       })
       .catch((err: unknown) => setError(err instanceof Error ? err.message : String(err)));
   }, []);
+
+  const selected = useMemo(() => incidents.find((incident) => incident.id === selectedId), [incidents, selectedId]);
 
   if (isReel) {
     return <DemoReel />;
   }
 
-  const selected = useMemo(() => incidents.find((incident) => incident.id === selectedId), [incidents, selectedId]);
-
   async function runWorkflow() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ incidentId: selectedId, autoApprove, approver: "judge-demo" })
-      });
-      if (!response.ok) throw new Error(await response.text());
-      setResult((await response.json()) as WorkflowResult);
+      setResult(await runWorkflowRequest(selectedId, autoApprove, "judge-demo"));
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
@@ -260,21 +290,13 @@ function DemoReel() {
     let alive = true;
 
     async function load() {
-      const approvedRun = await fetch("/api/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ incidentId: "checkout-tax-latency", autoApprove: true, approver: "demo-reel" })
-      }).then((response) => response.json() as Promise<WorkflowResult>);
-      const pausedRun = await fetch("/api/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ incidentId: "support-pii-leak-risk", autoApprove: false, approver: "demo-reel" })
-      }).then((response) => response.json() as Promise<WorkflowResult>);
-      const tools = await fetch("/api/tools").then((response) => response.json() as Promise<{ tools: unknown[] }>);
+      const approvedRun = await runWorkflowRequest("checkout-tax-latency", true, "demo-reel");
+      const pausedRun = await runWorkflowRequest("support-pii-leak-risk", false, "demo-reel");
+      const tools = await fetchToolCount();
       if (!alive) return;
       setApproved(approvedRun);
       setPaused(pausedRun);
-      setToolCount(tools.tools.length);
+      setToolCount(tools);
     }
 
     void load();

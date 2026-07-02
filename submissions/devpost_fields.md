@@ -40,6 +40,14 @@ Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/
 
 Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
+## Live Demo
+
+GitHub Pages static demo: https://oxygen56.github.io/aegisops-autopilot/
+
+Demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1
+
+The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
+
 ## Architecture Diagram
 
 See `docs/ARCHITECTURE.md`.
@@ -47,6 +55,8 @@ See `docs/ARCHITECTURE.md`.
 ## Screenshots
 
 Dashboard screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
+
+Static Pages screenshot: `docs/screenshots/pages-static-reel.png`
 
 ## Demo Video
 
