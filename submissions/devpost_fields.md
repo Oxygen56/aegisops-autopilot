@@ -97,6 +97,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
+- `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 
 ## License

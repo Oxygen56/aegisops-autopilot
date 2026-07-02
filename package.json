@@ -16,6 +16,7 @@
     "mcp:stdio": "tsx src/server/mcp/aegisopsMcp.ts",
     "smoke": "tsx scripts/smoke.ts",
     "smoke:mcp": "tsx scripts/mcpSmoke.ts",
+    "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
     "submission:audit": "tsx scripts/submissionAudit.ts",
     "secret:scan": "bash scripts/secret_scan.sh",
     "release:check": "bash scripts/release_check.sh",

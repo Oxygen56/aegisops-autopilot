@@ -112,7 +112,12 @@ const items: AuditItem[] = [
   {
     area: "Judging evidence and reproducibility",
     status: "verified",
-    evidence: requireEvidence(["reports/eval_report.md", "reports/ablation_report.md", "reports/experiment_board.md"]),
+    evidence: requireEvidence([
+      "reports/eval_report.md",
+      "reports/ablation_report.md",
+      "reports/experiment_board.md",
+      "reports/judge_demo_transcript.md"
+    ]),
     note: "The project includes deterministic fixture evaluation, ablation results, and contestctl run ledger."
   },
   {

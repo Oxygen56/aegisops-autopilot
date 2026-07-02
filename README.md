@@ -79,8 +79,8 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
 - Experiment ledger: `reports/experiment_board.md`
+- Judge demo transcript: `reports/judge_demo_transcript.md`
 - Submission audit: `reports/submission_audit.md`
-- Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 
 ## Submission Assets
 
@@ -88,6 +88,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
+- Judge demo transcript: `reports/judge_demo_transcript.md`
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
 - Static demo screenshot: `docs/screenshots/pages-static-reel.png`
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`
