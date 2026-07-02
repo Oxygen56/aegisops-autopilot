@@ -33,6 +33,10 @@ function exists(relativePath: string): boolean {
   return fs.existsSync(path.join(root, relativePath));
 }
 
+function firstExisting(relativePaths: string[]): string | undefined {
+  return relativePaths.find(exists);
+}
+
 function newestFile(prefix: string): string | undefined {
   const dir = path.join(root, "buidl/package");
   if (!fs.existsSync(dir)) return undefined;
@@ -129,6 +133,19 @@ if (alibabaProofUrl) {
   );
 }
 
+const workbenchScreenshot = firstExisting([
+  "docs/screenshots/alibaba-workbench-proof.png",
+  "docs/screenshots/alibaba-workbench-proof.jpg",
+  "docs/screenshots/alibaba-workbench-proof.jpeg",
+  "docs/screenshots/alibaba-workbench-proof.webp"
+]);
+add(
+  checks,
+  "Alibaba Workbench screenshot proof",
+  workbenchScreenshot ? "pass" : "warn",
+  workbenchScreenshot ?? "not present; capture after account deployment using docs/ALIBABA_WORKBENCH_SCREENSHOT.md"
+);
+
 const buidlZip = newestFile("qwencloud-hackathon_");
 add(checks, "Latest BUIDL package", buidlZip ? "pass" : "fail", buidlZip ?? "missing");
 
@@ -146,6 +163,7 @@ const requiredFiles = [
   "docs/RUBRIC_SCORECARD.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
   "docs/ALIBABA_PROOF_RECORDING.md",
+  "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
   "reports/qwen_integration_audit.md",
   "reports/model_ops_report.md",
   "reports/build_provenance.md",
@@ -209,9 +227,10 @@ const lines = [
   "## Final Account-Gated Actions",
   "",
   "1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then paste the live `/api/alibaba/proof` URL into Devpost.",
-  "2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public video URL into Devpost.",
-  "3. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
-  "4. Submit the Devpost form from the account owner session before the deadline.",
+  "2. Capture and attach or link the Alibaba Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
+  "3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public video URL into Devpost.",
+  "4. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
+  "5. Submit the Devpost form from the account owner session before the deadline.",
   "",
   "Primary runnable workspace:",
   "",

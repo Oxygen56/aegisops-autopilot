@@ -35,6 +35,7 @@ const requiredShared = [
   "docs/VIDEO_SUBMISSION.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
   "docs/ALIBABA_PROOF_RECORDING.md",
+  "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "docs/demo/aegisops-demo-reel-draft.en.srt",
   "agents/aegisops/openapi.yaml",

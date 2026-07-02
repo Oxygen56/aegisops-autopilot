@@ -12,13 +12,14 @@ Recommended length: 45-75 seconds.
 
 1. Deploy the container using `infra/alibaba/DEPLOYMENT.md`.
 2. Confirm the live service has `QWEN_API_KEY` or `DASHSCOPE_API_KEY` configured in the cloud runtime, not in the repository.
-3. Run:
+3. Capture the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
+4. Run:
 
 ```bash
 pnpm run deploy:verify -- https://<your-domain>
 ```
 
-4. Confirm `reports/alibaba_deployment_proof.md` is generated and contains no secrets.
+5. Confirm `reports/alibaba_deployment_proof.md` is generated and contains no secrets.
 
 ## Recording Sequence
 
@@ -53,7 +54,20 @@ Show:
 - Region or runtime metadata.
 - Secret-safe response fields only.
 
-4. Run the verifier locally:
+4. Open the Alibaba Cloud Workbench screenshot:
+
+```text
+docs/screenshots/alibaba-workbench-proof.png
+```
+
+Show:
+
+- Running Alibaba Cloud ECS, Function Compute, or equivalent runtime.
+- Region and resource status.
+- Public endpoint or service identity when safe.
+- No secrets, private keys, or billing/account details.
+
+5. Run the verifier locally:
 
 ```bash
 pnpm run deploy:verify -- https://<your-domain>
@@ -67,7 +81,7 @@ Show:
 - leaked credential checks passed.
 - `reports/alibaba_deployment_proof.md` written.
 
-5. Open the generated report:
+6. Open the generated report:
 
 ```text
 reports/alibaba_deployment_proof.md
@@ -108,7 +122,9 @@ After upload, paste the proof recording URL alongside the Alibaba Cloud proof co
 Required links:
 
 ```text
-Proof code: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
+Qwen base URL proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
+Proof endpoint code: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 Live proof: https://<your-domain>/api/alibaba/proof
+Workbench screenshot: attach docs/screenshots/alibaba-workbench-proof.png or include the uploaded screenshot URL
 Proof recording: https://<public-video-url>
 ```

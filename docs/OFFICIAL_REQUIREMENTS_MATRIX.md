@@ -32,7 +32,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Functional source code, assets, and instructions | Verified | `README.md`, `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `Dockerfile` |
 | Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
 | New or significantly updated project evidence | Verified | `docs/BUILD_PROVENANCE.md`, `reports/build_provenance.md`, `reports/experiment_board.md` |
-| Proof of Alibaba Cloud deployment/API usage | External action | Code proof exists in `src/server/cloud/alibabaProof.ts`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
+| Proof of Alibaba Cloud deployment/API usage | External action | Qwen Base URL proof exists in `src/server/agent/qwenClient.ts`; Alibaba proof code exists in `src/server/cloud/alibabaProof.ts`; Workbench screenshot instructions exist in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md` |
 | Public demo video about 3 minutes | External action | Local 65-second video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; consistency audit exists at `reports/video_asset_audit.md`; public upload still required |
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
@@ -53,7 +53,8 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 These cannot be completed from the repository alone:
 
 1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then verify with `pnpm run deploy:verify -- https://<your-domain>`.
-2. Record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
-3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` and `docs/demo/aegisops-demo-reel-draft.en.srt`.
-4. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
-5. Submit the Devpost form from the account-owner session before the deadline.
+2. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
+3. Record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
+4. Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` and `docs/demo/aegisops-demo-reel-draft.en.srt`.
+5. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
+6. Submit the Devpost form from the account-owner session before the deadline.

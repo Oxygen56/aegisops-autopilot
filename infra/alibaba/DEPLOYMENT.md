@@ -142,3 +142,17 @@ reports/alibaba_deployment_proof.md
 ```
 
 Paste the live `/api/alibaba/proof` URL and the repository proof-code URL into Devpost.
+
+## Workbench Screenshot Proof
+
+The Devpost update titled "Proof of Deployment 101" asks for visual evidence from Alibaba Cloud Workbench in addition to code proof. After the service is running, capture a public-safe screenshot and follow:
+
+```text
+docs/ALIBABA_WORKBENCH_SCREENSHOT.md
+```
+
+Recommended destination:
+
+```text
+docs/screenshots/alibaba-workbench-proof.png
+```

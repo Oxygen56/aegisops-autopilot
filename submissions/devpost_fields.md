@@ -44,13 +44,19 @@ The dashboard includes a `Judge rubric evidence` panel that maps the official 30
 
 ## Alibaba Cloud Deployment Proof
 
+Qwen Cloud Base URL code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
+
 Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 
 Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
 Verification command after deployment: `pnpm run deploy:verify -- https://<your-domain>`
 
+Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
+
 Separate proof recording checklist: `docs/ALIBABA_PROOF_RECORDING.md`
+
+TODO: Attach or link the Alibaba Cloud Workbench screenshot after account deployment.
 
 TODO: Upload the separate Alibaba Cloud proof recording and paste the public URL here.
 
@@ -131,6 +137,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video title, description, tags, chapters, thumbnail, and captions.
+- `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`: Alibaba Cloud Workbench screenshot proof checklist.
 - `docs/ALIBABA_PROOF_RECORDING.md`: separate Alibaba Cloud proof recording script and upload metadata.
 - `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment pack and proof endpoint instructions.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.

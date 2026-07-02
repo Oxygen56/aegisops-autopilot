@@ -56,7 +56,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Code repository, license, runnable instructions, and packaging scripts exist | `README.md`<br>`LICENSE`<br>`package.json`<br>`scripts/packageFinalSubmission.ts`<br>`scripts/validateSubmissionPackages.ts` | Repository has license, install/run instructions, and deterministic package validation. |
-| ACCOUNT-GATED | Live Alibaba deployment proof is prepared but account-gated | `infra/alibaba/DEPLOYMENT.md`<br>`scripts/verifyAlibabaDeployment.ts`<br>`docs/ALIBABA_PROOF_RECORDING.md` | Deployment scripts and verifier exist; public URL requires Alibaba account credentials and a chosen deployment target. |
+| ACCOUNT-GATED | Live Alibaba deployment proof is prepared but account-gated | `src/server/agent/qwenClient.ts`<br>`infra/alibaba/DEPLOYMENT.md`<br>`scripts/verifyAlibabaDeployment.ts`<br>`docs/ALIBABA_WORKBENCH_SCREENSHOT.md`<br>`docs/ALIBABA_PROOF_RECORDING.md` | Deployment scripts, Qwen Base URL code proof, Workbench screenshot checklist, proof recording checklist, and verifier exist; public URL and screenshot require Alibaba account credentials and a chosen deployment target. |
 | ACCOUNT-GATED | Public video upload and final Devpost submission are account-gated | `docs/demo/aegisops-demo-reel-draft.m4v`<br>`docs/VIDEO_UPLOAD_METADATA.md`<br>`reports/video_asset_audit.md`<br>`submissions/FINAL_SUBMISSION_RUNBOOK.md` | Local video, captions, metadata, video asset audit, and submit runbook are present; public upload and Devpost submit require account-owner action. |
 
 ## Recommended Judge Commands

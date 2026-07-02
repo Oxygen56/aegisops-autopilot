@@ -22,7 +22,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Significant update / provenance evidence | `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` |
-| Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
+| Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, capture Workbench screenshot with `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
 ## Links To Paste
@@ -57,6 +57,12 @@ Alibaba Cloud proof code:
 https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 ```
 
+Qwen Cloud Base URL code proof:
+
+```text
+https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
+```
+
 Live proof endpoint after account deployment:
 
 ```text
@@ -72,12 +78,13 @@ https://<your-domain>/api/alibaba/proof
 5. Paste the relevant sections from `submissions/devpost_fields.md`.
 6. Add repository, StackBlitz, GitHub Pages, architecture, and proof-code links.
 7. Upload the public demo video using `docs/VIDEO_UPLOAD_METADATA.md`, attach `docs/demo/aegisops-demo-reel-draft.en.srt`, then paste the public video link.
-8. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
-9. Add the optional blog/social link if published.
-10. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
-11. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
-12. Run `pnpm run final:preflight` immediately before clicking submit.
-13. Submit before the deadline.
+8. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
+9. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
+10. Add the optional blog/social link if published.
+11. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
+12. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
+13. Run `pnpm run final:preflight` immediately before clicking submit.
+14. Submit before the deadline.
 
 ## Final 30-Minute Check
 
@@ -96,6 +103,8 @@ Then verify:
 - The public video link opens in a private/incognito window.
 - The public video has the prepared title, description, chapters, thumbnail, and captions.
 - The separate Alibaba proof recording link opens in a private/incognito window.
+- The Alibaba Workbench screenshot is attached or publicly linked and does not expose secrets.
+- The Qwen base URL proof link opens without login.
 - The Alibaba proof code link opens without login.
 - If a live Alibaba URL is available, `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
 

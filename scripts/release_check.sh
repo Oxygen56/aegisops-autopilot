@@ -31,6 +31,7 @@ test -s docs/RUBRIC_SCORECARD.md
 test -s docs/VIDEO_SUBMISSION.md
 test -s docs/VIDEO_UPLOAD_METADATA.md
 test -s docs/ALIBABA_PROOF_RECORDING.md
+test -s docs/ALIBABA_WORKBENCH_SCREENSHOT.md
 test -s submissions/devpost_fields.md
 test -s docs/demo/aegisops-demo-reel-draft.m4v
 test -s docs/demo/aegisops-demo-reel-draft.en.srt

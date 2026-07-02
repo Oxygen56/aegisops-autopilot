@@ -101,10 +101,11 @@ const items: AuditItem[] = [
       "infra/alibaba/docker-compose.ecs.yml",
       "infra/alibaba/ecs.env.example",
       "docs/ALIBABA_PROOF_RECORDING.md",
+      "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "scripts/verifyAlibabaDeployment.ts",
       "Dockerfile"
     ]),
-    note: "Code-level proof, ACR/ECS deployment pack, proof-recording checklist, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
+    note: "Code-level proof, ACR/ECS deployment pack, Workbench screenshot checklist, proof-recording checklist, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
   },
   {
     area: "Working demo or test build",
@@ -182,6 +183,8 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
+  ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "Alibaba Workbench Screenshot Proof"],
+  ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["docs/BUILD_PROVENANCE.md", "Build Provenance"],
   ["reports/build_provenance.md", "Build Provenance"],
@@ -243,9 +246,10 @@ const lines = [
   "## Final External Actions",
   "",
   "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
-  "2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public URL into Devpost.",
-  "3. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
-  "4. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
+  "2. Capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
+  "3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public URL into Devpost.",
+  "4. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
+  "5. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
   ""
 ];
 

@@ -178,8 +178,14 @@ const items: EvidenceItem[] = [
     section: "Submission Readiness",
     claim: "Live Alibaba deployment proof is prepared but account-gated",
     status: "ACCOUNT-GATED",
-    evidence: ["infra/alibaba/DEPLOYMENT.md", "scripts/verifyAlibabaDeployment.ts", "docs/ALIBABA_PROOF_RECORDING.md"],
-    proof: "Deployment scripts and verifier exist; public URL requires Alibaba account credentials and a chosen deployment target."
+    evidence: [
+      "src/server/agent/qwenClient.ts",
+      "infra/alibaba/DEPLOYMENT.md",
+      "scripts/verifyAlibabaDeployment.ts",
+      "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
+      "docs/ALIBABA_PROOF_RECORDING.md"
+    ],
+    proof: "Deployment scripts, Qwen Base URL code proof, Workbench screenshot checklist, proof recording checklist, and verifier exist; public URL and screenshot require Alibaba account credentials and a chosen deployment target."
   },
   {
     section: "Submission Readiness",
