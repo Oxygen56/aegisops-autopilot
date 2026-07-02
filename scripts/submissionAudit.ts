@@ -124,6 +124,7 @@ const items: AuditItem[] = [
     area: "Devpost copy and final checklist",
     status: "verified",
     evidence: requireEvidence([
+      "submissions/FINAL_SUBMISSION_RUNBOOK.md",
       "submissions/devpost_fields.md",
       "buidl/BUIDL_SUBMISSION.md",
       "buidl/SUBMISSION_CHECKLIST.md",
@@ -135,6 +136,7 @@ const items: AuditItem[] = [
 
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
+  ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
   ["src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["tests/orchestrator.test.ts", "must not mutate without approval"]

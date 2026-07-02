@@ -22,7 +22,8 @@
 - Track selected: Track 4 Autopilot Agent.
 - Secondary fit: Track 3 Agent Society and Track 1 MemoryAgent features are included as differentiators, but the submission should identify Track 4.
 - Submission requirements: public open-source code repository with license, text description, proof of Alibaba Cloud deployment/API usage, architecture diagram, public demo video under 3 minutes, working demo or test build, English materials.
-- Judging: Stage one pass/fail for theme/API fit; stage two equally applies Innovation & AI Creativity 30%, Technical Depth & Engineering 30%, Problem Value & Impact 25%, Presentation & Documentation 15%.
+- Judging: Stage one pass/fail for theme/API fit; stage two applies Technical Depth & Engineering 30%, Innovation & AI Creativity 30%, Problem Value & Impact 25%, Presentation & Documentation 15%.
+- Prize target: Track 4 winner, $7,000 cash + $3,000 cloud credits, blog feature, swag, and Ambassador opportunity.
 - Allowed external data/models: third-party SDK/API/data only when authorized and licensed.
 - Internet at inference/submission: expected for Qwen Cloud API and hosted demo.
 - Compute limits: Qwen Cloud credits; avoid requiring paid resources for local judging.
@@ -52,3 +53,4 @@
 - Devpost official rules: https://qwencloud-hackathon.devpost.com/rules
 - Devpost resources and Qwen Cloud API base URL: https://qwencloud-hackathon.devpost.com/resources
 - Alibaba Cloud Model Studio OpenAI-compatible API docs: https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope
+- Last live rule refresh: 2026-07-03

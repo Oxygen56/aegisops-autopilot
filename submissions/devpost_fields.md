@@ -101,6 +101,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
+- `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.
 
 ## License
 

@@ -117,6 +117,6 @@ https://<your-domain>/api/alibaba/proof
 
 ## Devpost Final Fields
 
-Use `submissions/devpost_fields.md` and `buidl/BUIDL_SUBMISSION.md`.
+Use `submissions/FINAL_SUBMISSION_RUNBOOK.md`, `submissions/devpost_fields.md`, and `buidl/BUIDL_SUBMISSION.md`.
 
 Final submit is irreversible after the deadline, so the account owner should review and click submit.
