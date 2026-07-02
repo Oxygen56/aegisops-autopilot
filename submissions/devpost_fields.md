@@ -38,6 +38,8 @@ MCP stdio server: `src/server/mcp/aegisopsMcp.ts`, runnable with `pnpm run mcp:s
 
 The five tool calls are `log_search`, `metric_probe`, `change_graph`, `policy_check`, and `remediation_simulator`. The same registry backs the live Qwen Function Calling loop, the HTTP/OpenAPI tool endpoints, and the MCP stdio server.
 
+The dashboard includes a `Judge rubric evidence` panel that maps the official 30/30/25/15 criteria to concrete repository evidence, so judges can quickly verify Qwen integration depth, engineering controls, impact, and documentation readiness from the running demo.
+
 ## Alibaba Cloud Deployment Proof
 
 Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
@@ -116,6 +118,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate, judging rubric, and account-gated boundaries.
+- `src/client/main.tsx`: visible `Judge rubric evidence` dashboard panel for the official 30/30/25/15 review path.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.

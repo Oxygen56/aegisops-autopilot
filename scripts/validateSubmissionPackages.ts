@@ -58,6 +58,8 @@ const requiredShared = [
   "reports/eval_report.md",
   "reports/ablation_report.md",
   "reports/experiment_board.md",
+  "src/client/main.tsx",
+  "src/client/styles.css",
   "src/server/cloud/alibabaProof.ts",
   "src/server/agent/qwenClient.ts",
   "src/server/agent/orchestrator.ts",

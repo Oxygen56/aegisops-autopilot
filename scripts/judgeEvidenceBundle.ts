@@ -133,8 +133,10 @@ const items: EvidenceItem[] = [
         "docs/ARCHITECTURE.md",
         "reports/judge_demo_transcript.md",
         "submissions/devpost_fields.md",
-        "docs/VIDEO_UPLOAD_METADATA.md"
-      ])
+        "docs/VIDEO_UPLOAD_METADATA.md",
+        "src/client/main.tsx"
+      ]) &&
+        includes("src/client/main.tsx", "Judge rubric evidence")
     ),
     evidence: [
       "docs/JUDGE_PACKET.md",
@@ -142,9 +144,10 @@ const items: EvidenceItem[] = [
       "docs/ARCHITECTURE.md",
       "reports/judge_demo_transcript.md",
       "submissions/devpost_fields.md",
-      "docs/VIDEO_UPLOAD_METADATA.md"
+      "docs/VIDEO_UPLOAD_METADATA.md",
+      "src/client/main.tsx"
     ],
-    proof: "A judge can follow a five-minute path or inspect deterministic transcript and evidence files."
+    proof: "A judge can follow a five-minute path, inspect deterministic transcript and evidence files, or see the weighted rubric evidence directly in the demo UI."
   },
   {
     section: "Submission Readiness",

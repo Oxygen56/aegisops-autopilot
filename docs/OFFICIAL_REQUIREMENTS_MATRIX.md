@@ -45,7 +45,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Technical Depth & Engineering | 30% | `reports/judge_evidence_bundle.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `src/server/mcp/aegisopsMcp.ts`, `reports/model_ops_report.md` |
 | Innovation & AI Creativity | 30% | `reports/judge_evidence_bundle.md`, `docs/ARCHITECTURE.md`, `src/server/agent/orchestrator.ts`, `reports/ablation_report.md`, `reports/judge_demo_transcript.md` |
 | Problem Value & Impact | 25% | `reports/judge_evidence_bundle.md`, `docs/IMPACT_CASE.md`, `src/server/agent/fixtures.ts`, `reports/eval_report.md` |
-| Presentation & Documentation | 15% | `reports/judge_evidence_bundle.md`, `docs/JUDGE_PACKET.md`, `docs/JUDGE_QUICKSTART.md`, `docs/RUBRIC_SCORECARD.md`, `docs/VIDEO_UPLOAD_METADATA.md` |
+| Presentation & Documentation | 15% | `reports/judge_evidence_bundle.md`, `docs/JUDGE_PACKET.md`, `docs/JUDGE_QUICKSTART.md`, `docs/RUBRIC_SCORECARD.md`, `src/client/main.tsx`, `docs/VIDEO_UPLOAD_METADATA.md` |
 
 ## Final Account-Gated Items
 

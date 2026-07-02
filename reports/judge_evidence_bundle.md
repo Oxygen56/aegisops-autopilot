@@ -48,7 +48,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
-| VERIFIED | Judge path, architecture, transcript, Devpost copy, and video metadata are prepared | `docs/JUDGE_PACKET.md`<br>`docs/JUDGE_QUICKSTART.md`<br>`docs/ARCHITECTURE.md`<br>`reports/judge_demo_transcript.md`<br>`submissions/devpost_fields.md`<br>`docs/VIDEO_UPLOAD_METADATA.md` | A judge can follow a five-minute path or inspect deterministic transcript and evidence files. |
+| VERIFIED | Judge path, architecture, transcript, Devpost copy, and video metadata are prepared | `docs/JUDGE_PACKET.md`<br>`docs/JUDGE_QUICKSTART.md`<br>`docs/ARCHITECTURE.md`<br>`reports/judge_demo_transcript.md`<br>`submissions/devpost_fields.md`<br>`docs/VIDEO_UPLOAD_METADATA.md`<br>`src/client/main.tsx` | A judge can follow a five-minute path, inspect deterministic transcript and evidence files, or see the weighted rubric evidence directly in the demo UI. |
 
 ## Submission Readiness
 

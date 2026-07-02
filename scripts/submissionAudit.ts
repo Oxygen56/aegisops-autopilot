@@ -109,10 +109,12 @@ const items: AuditItem[] = [
       "docs/JUDGE_PACKET.md",
       "docs/JUDGE_QUICKSTART.md",
       "docs/DEMO_SCRIPT.md",
+      "src/client/main.tsx",
+      "src/client/styles.css",
       "docs/screenshots/aegisops-dashboard-viewport.png",
       "docs/screenshots/pages-static-reel.png"
     ]),
-    note: "Local judging path, StackBlitz workspace, and static GitHub Pages fallback are documented."
+    note: "Local judging path, StackBlitz workspace, static GitHub Pages fallback, and visible rubric-evidence UI are documented."
   },
   {
     area: "GitHub Pages static target",
@@ -172,6 +174,8 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["src/client/main.tsx", "Judge rubric evidence"],
+  ["src/client/main.tsx", "Why this is built for Track 4 winner review"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
   ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],

@@ -20,6 +20,7 @@ Point out:
 - Tool layer collects log, metric, change, and policy evidence.
 - Qwen diagnosis is generated through the OpenAI-compatible Qwen Cloud path when an API key is present.
 - The same tools are exposed through OpenAPI and MCP for custom skill integration.
+- The `Judge rubric evidence` panel maps the official 30/30/25/15 criteria to repository proof.
 
 ## 0:55-1:35
 
