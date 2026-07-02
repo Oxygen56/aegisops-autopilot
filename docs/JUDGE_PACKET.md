@@ -84,6 +84,7 @@ The CI release gate includes:
 - `docs/RUBRIC_SCORECARD.md`: official 30/30/25/15 rubric mapping.
 - `docs/ARCHITECTURE.md`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.
+- `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
 - `reports/submission_audit.md`: requirement-to-evidence audit.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order.

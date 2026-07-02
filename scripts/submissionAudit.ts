@@ -106,8 +106,13 @@ const items: AuditItem[] = [
   {
     area: "Demo video under three minutes",
     status: "external-action",
-    evidence: requireEvidence(["docs/VIDEO_SUBMISSION.md", "docs/demo/aegisops-demo-reel-draft.m4v"]),
-    note: "The local upload-ready video exists; it still must be uploaded publicly to YouTube, Vimeo, or Youku."
+    evidence: requireEvidence([
+      "docs/VIDEO_SUBMISSION.md",
+      "docs/VIDEO_UPLOAD_METADATA.md",
+      "docs/demo/aegisops-demo-reel-draft.m4v",
+      "docs/demo/aegisops-demo-reel-draft.en.srt"
+    ]),
+    note: "The local upload-ready video, upload metadata, and captions exist; the video still must be uploaded publicly to YouTube, Vimeo, or Youku."
   },
   {
     area: "Optional blog or social post prize",
@@ -144,6 +149,7 @@ const items: AuditItem[] = [
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
   ["scripts/validateSubmissionPackages.ts", "docs/JUDGE_PACKET.md"],

@@ -21,8 +21,10 @@ test -s docs/JUDGE_QUICKSTART.md
 test -s docs/QWEN_TOOLS.md
 test -s docs/RUBRIC_SCORECARD.md
 test -s docs/VIDEO_SUBMISSION.md
+test -s docs/VIDEO_UPLOAD_METADATA.md
 test -s submissions/devpost_fields.md
 test -s docs/demo/aegisops-demo-reel-draft.m4v
+test -s docs/demo/aegisops-demo-reel-draft.en.srt
 test -s docs/screenshots/aegisops-dashboard-viewport.png
 test -s docs/screenshots/pages-static-reel.png
 test -s agents/aegisops/openapi.yaml

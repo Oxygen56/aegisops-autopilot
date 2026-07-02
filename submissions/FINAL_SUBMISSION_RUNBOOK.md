@@ -20,7 +20,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Architecture diagram | `docs/ARCHITECTURE.md` |
 | Judge packet | `docs/JUDGE_PACKET.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
-| Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly |
+| Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` |
 | Alibaba Cloud proof | Code link below; run `pnpm run deploy:verify -- https://<your-domain>` after deployment |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
@@ -70,7 +70,7 @@ https://<your-domain>/api/alibaba/proof
 4. Track: `Track 4: Autopilot Agent`.
 5. Paste the relevant sections from `submissions/devpost_fields.md`.
 6. Add repository, StackBlitz, GitHub Pages, architecture, and proof-code links.
-7. Upload the public demo video link after publishing the local `.m4v`.
+7. Upload the public demo video using `docs/VIDEO_UPLOAD_METADATA.md`, attach `docs/demo/aegisops-demo-reel-draft.en.srt`, then paste the public video link.
 8. Add the optional blog/social link if published.
 9. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
 10. Run `pnpm run final:preflight` immediately before clicking submit.
@@ -91,6 +91,7 @@ Then verify:
 - `reports/package_validation.md` has `Failures: 0`.
 - StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
+- The public video has the prepared title, description, chapters, thumbnail, and captions.
 - The Alibaba proof code link opens without login.
 - If a live Alibaba URL is available, `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
 

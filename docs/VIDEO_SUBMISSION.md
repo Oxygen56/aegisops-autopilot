@@ -33,4 +33,6 @@ pnpm run video:record
 
 Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku as a public or unlisted public-viewable video, then paste that URL into Devpost.
 
+Use `docs/VIDEO_UPLOAD_METADATA.md` for the title, description, tags, chapters, and upload settings. Upload `docs/demo/aegisops-demo-reel-draft.en.srt` as English captions.
+
 Do not upload secrets, `.env` files, private logs, or unpublished customer data.

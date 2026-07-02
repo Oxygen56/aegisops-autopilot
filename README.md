@@ -95,6 +95,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
 - Static demo screenshot: `docs/screenshots/pages-static-reel.png`
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`
+- Demo video upload metadata: `docs/VIDEO_UPLOAD_METADATA.md`
 - Demo script: `docs/DEMO_SCRIPT.md`
 - Judge notes: `docs/JUDGE_NOTES.md`
 - Publishing: `docs/PUBLISHING.md`

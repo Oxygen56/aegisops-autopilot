@@ -70,6 +70,8 @@ Static Pages screenshot: `docs/screenshots/pages-static-reel.png`
 
 Local draft: `docs/demo/aegisops-demo-reel-draft.m4v`
 
+Upload metadata and captions: `docs/VIDEO_UPLOAD_METADATA.md`, `docs/demo/aegisops-demo-reel-draft.en.srt`
+
 TODO: Upload the local draft to YouTube/Vimeo/Youku and paste the public URL here.
 
 ## Blog / Social Post
@@ -108,6 +110,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.
+- `docs/VIDEO_UPLOAD_METADATA.md`: public video title, description, tags, chapters, thumbnail, and captions.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.
 - `reports/alibaba_deployment_proof.md`: generated after live Alibaba deployment with `pnpm run deploy:verify`.
 
