@@ -58,6 +58,7 @@ QWEN_MODEL=qwen-plus
 
 AegisOps exposes a judge-verifiable tool surface for Qwen-style orchestration:
 
+- Qwen request body: five OpenAI-compatible function schemas in the `tools` field
 - OpenAPI spec: `agents/aegisops/openapi.yaml`
 - Capability manifest: `agents/aegisops/cap-manifest.json`
 - MCP stdio server: `pnpm run mcp:stdio`

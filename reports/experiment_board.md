@@ -54,6 +54,8 @@ Direction: `maximize`
 | 1.0 | pass | final-submission-package-alibaba-proof-recording | 0 | 12.552 | experiments/runs/20260703-034247_final-submission-package-alibaba-proof-recording |
 | 1.0 | pass | qwen-function-tools-gate | 0 | 26.871 | experiments/runs/20260703-034858_qwen-function-tools-gate |
 | 1.0 | pass | qwen-function-tools-final-gate | 0 | 26.937 | experiments/runs/20260703-035024_qwen-function-tools-final-gate |
+| 1.0 | pass | final-submission-package-qwen-function-tools | 0 | 11.563 | experiments/runs/20260703-035250_final-submission-package-qwen-function-tools |
+| 1.0 | pass | devpost-qwen-tools-copy-gate | 0 | 29.436 | experiments/runs/20260703-035450_devpost-qwen-tools-copy-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

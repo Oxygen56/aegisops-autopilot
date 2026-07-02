@@ -20,11 +20,13 @@ The impact target is practical production operations: reduce triage time, improv
 
 ## How We Built It
 
-The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client compatible with the OpenAI chat-completions interface. The backend includes a persistent memory layer, deterministic incident fixtures, a five-tool registry for logs/metrics/change graph/policy/dry-run execution, a risk-scored remediation planner, an OpenAPI tool surface, a lightweight MCP stdio server, and an Alibaba Cloud proof endpoint.
+The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client compatible with the OpenAI chat-completions interface. The backend includes a persistent memory layer, deterministic incident fixtures, a five-tool registry for logs/metrics/change graph/policy/dry-run execution, OpenAI-compatible Qwen Function Calling schemas, a risk-scored remediation planner, an OpenAPI tool surface, a lightweight MCP stdio server, and an Alibaba Cloud proof endpoint.
 
 ## Qwen Cloud Usage
 
 `src/server/agent/qwenClient.ts` calls Qwen Cloud through `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` by default and accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY`. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
+
+The diagnosis request sends five OpenAI-compatible function tool schemas in the Qwen `tools` field. Evidence tools execute server-side before diagnosis, and `tool_choice=none` preserves the human approval boundary during the diagnosis step.
 
 ## Custom Tool / MCP Integration
 
@@ -34,7 +36,7 @@ Capability manifest: `agents/aegisops/cap-manifest.json`
 
 MCP stdio server: `src/server/mcp/aegisopsMcp.ts`, runnable with `pnpm run mcp:stdio`.
 
-The five tool calls are `log_search`, `metric_probe`, `change_graph`, `policy_check`, and `remediation_simulator`.
+The five tool calls are `log_search`, `metric_probe`, `change_graph`, `policy_check`, and `remediation_simulator`. The same registry backs the Qwen Function Calling schema, the HTTP/OpenAPI tool endpoints, and the MCP stdio server.
 
 ## Alibaba Cloud Deployment Proof
 
@@ -110,7 +112,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
-- `reports/qwen_integration_audit.md`: automated Qwen endpoint, custom tool, OpenAPI, and MCP integration audit.
+- `reports/qwen_integration_audit.md`: automated Qwen endpoint, Function Calling schema, custom tool, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.

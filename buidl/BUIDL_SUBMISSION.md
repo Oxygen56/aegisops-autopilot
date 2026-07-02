@@ -20,7 +20,7 @@ AegisOps automates the incident workflow end to end:
 6. Requires human approval for risky production actions.
 7. Generates reversible remediation commands and verification checks.
 8. Stores post-incident learning for future cases.
-9. Exposes the tools through OpenAPI and MCP stdio surfaces for portable agent integration.
+9. Sends the same tool registry to Qwen as OpenAI-compatible function schemas and exposes it through OpenAPI plus MCP stdio for portable agent integration.
 
 ## Demo
 
@@ -37,7 +37,7 @@ AegisOps automates the incident workflow end to end:
 - Frontend: React/Vite judge dashboard in `src/client/main.tsx`.
 - Backend: TypeScript Node API in `src/server/index.ts`.
 - Orchestration: `src/server/agent/orchestrator.ts`.
-- Qwen Cloud integration: `src/server/agent/qwenClient.ts`.
+- Qwen Cloud integration: `src/server/agent/qwenClient.ts`, including OpenAI-compatible `tools` request schemas.
 - Persistent memory: `src/server/agent/memory.ts`.
 - Tool layer: `src/server/agent/tools.ts`.
 - Tool registry: `src/server/agent/toolRegistry.ts`.
@@ -55,6 +55,7 @@ AegisOps automates the incident workflow end to end:
 - Build: `pnpm run build` passed; logged in `experiments/runs/20260703-002530_production-build-final`.
 - Smoke: `pnpm run smoke` passed with score `0.988`; logged in `experiments/runs/20260703-002543_api-smoke-tools-final`.
 - MCP smoke: `pnpm run smoke:mcp` passed; logged in `experiments/runs/20260703-002619_mcp-smoke-final`.
+- Qwen integration audit: `reports/qwen_integration_audit.md` verifies the Qwen endpoint, credential env vars, offline fallback, Function Calling schemas, OpenAPI tools, MCP stdio, and CI coverage.
 - Eval: `reports/eval_report.md` shows average overall score `0.988` across three deterministic incidents.
 - Ablation: `reports/ablation_report.md` shows full workflow average `0.988` versus `0.420` for a single-agent baseline.
 - Deployment: Dockerfile and Alibaba proof endpoint are ready; live deployment requires the user's Alibaba/Qwen credentials.
@@ -62,7 +63,7 @@ AegisOps automates the incident workflow end to end:
 
 ## Judging Rubric Mapping
 
-- Innovation: combines Qwen Cloud reasoning, persistent memory, multi-agent review, policy-aware tools, MCP/OpenAPI custom tool surfaces, and approval-gated remediation.
+- Innovation: combines Qwen Cloud reasoning, OpenAI-compatible function tool schemas, persistent memory, multi-agent review, policy-aware tools, MCP/OpenAPI custom tool surfaces, and approval-gated remediation.
 - Technical implementation: typed workflow, deterministic fixtures, tests, Docker target, deployment proof endpoint, and modular agent/tool design.
 - Impact: addresses real incident response pain where MTTR and safety both matter.
 - Usability: dashboard exposes every decision, evidence source, tool call, and approval state.
