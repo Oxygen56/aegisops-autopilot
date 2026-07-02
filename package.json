@@ -21,6 +21,7 @@
     "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
     "final:preflight": "tsx scripts/finalPreflight.ts",
     "submission:package": "tsx scripts/packageFinalSubmission.ts",
+    "submission:validate": "tsx scripts/validateSubmissionPackages.ts",
     "submission:audit": "tsx scripts/submissionAudit.ts",
     "secret:scan": "bash scripts/secret_scan.sh",
     "release:check": "bash scripts/release_check.sh",

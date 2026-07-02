@@ -46,6 +46,8 @@ https://github.com/Oxygen56/aegisops-autopilot
 ```bash
 pnpm run release:check
 pnpm run final:preflight
+pnpm run submission:package
+pnpm run submission:validate
 ```
 
 This runs:

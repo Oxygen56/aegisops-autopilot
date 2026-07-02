@@ -82,11 +82,13 @@ https://<your-domain>/api/alibaba/proof
 pnpm run ci
 pnpm run final:preflight
 pnpm run submission:package
+pnpm run submission:validate
 ```
 
 Then verify:
 
 - `reports/final_preflight.md` has `Fail: 0`.
+- `reports/package_validation.md` has `Failures: 0`.
 - StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
 - The Alibaba proof code link opens without login.

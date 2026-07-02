@@ -149,6 +149,7 @@ const requiredFiles = [
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "infra/alibaba/DEPLOYMENT.md",
   "scripts/verifyAlibabaDeployment.ts",
+  "scripts/validateSubmissionPackages.ts",
   "src/server/cloud/alibabaProof.ts"
 ];
 const missingFiles = requiredFiles.filter((file) => !exists(file));

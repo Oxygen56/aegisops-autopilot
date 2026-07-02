@@ -134,9 +134,10 @@ const items: AuditItem[] = [
       "submissions/devpost_fields.md",
       "buidl/BUIDL_SUBMISSION.md",
       "buidl/SUBMISSION_CHECKLIST.md",
-      "docs/RUBRIC_SCORECARD.md"
+      "docs/RUBRIC_SCORECARD.md",
+      "scripts/validateSubmissionPackages.ts"
     ]),
-    note: "Submission copy, BUIDL summary, and final external-action checklist are prepared."
+    note: "Submission copy, BUIDL summary, final external-action checklist, and package validation are prepared."
   }
 ];
 
@@ -145,6 +146,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
+  ["scripts/validateSubmissionPackages.ts", "docs/JUDGE_PACKET.md"],
   ["scripts/verifyAlibabaDeployment.ts", "local-dev"],
   ["src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["tests/orchestrator.test.ts", "must not mutate without approval"]

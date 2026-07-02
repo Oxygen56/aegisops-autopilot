@@ -46,6 +46,8 @@ zipAdd(buidlZip, [
   "agents",
   "docs",
   "infra",
+  "Dockerfile",
+  "LICENSE",
   "package.json",
   "pnpm-lock.yaml",
   "scripts",
@@ -74,6 +76,10 @@ run("zip", [
 run("pnpm", ["run", "final:preflight"]);
 zipAdd(buidlZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
 zipAdd(fullZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
+
+run("pnpm", ["run", "submission:validate"]);
+zipAdd(buidlZip, ["reports/package_validation.md"]);
+zipAdd(fullZip, ["reports/package_validation.md"]);
 
 console.log(`BUIDL package: ${buidlZip}`);
 console.log(`Full package: ${fullZip}`);
