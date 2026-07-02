@@ -89,6 +89,7 @@ const items: AuditItem[] = [
     evidence: requireEvidence([
       "README.md",
       ".stackblitzrc",
+      "docs/JUDGE_PACKET.md",
       "docs/JUDGE_QUICKSTART.md",
       "docs/DEMO_SCRIPT.md",
       "docs/screenshots/aegisops-dashboard-viewport.png",
@@ -141,6 +142,7 @@ const items: AuditItem[] = [
 
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
+  ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
   ["scripts/verifyAlibabaDeployment.ts", "local-dev"],

@@ -88,6 +88,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Brief: `reports/brief.md`
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
+- Judge packet: `docs/JUDGE_PACKET.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Rubric scorecard: `docs/RUBRIC_SCORECARD.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
@@ -98,5 +99,6 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Judge notes: `docs/JUDGE_NOTES.md`
 - Publishing: `docs/PUBLISHING.md`
 - Devpost copy: `submissions/devpost_fields.md`
+- Final submission runbook: `submissions/FINAL_SUBMISSION_RUNBOOK.md`
 - Alibaba deployment: `infra/alibaba/DEPLOYMENT.md`
 - Full package: `buidl/package/`

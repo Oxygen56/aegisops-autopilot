@@ -139,6 +139,7 @@ const requiredFiles = [
   "README.md",
   "LICENSE",
   "docs/JUDGE_QUICKSTART.md",
+  "docs/JUDGE_PACKET.md",
   "docs/RUBRIC_SCORECARD.md",
   "reports/judge_demo_transcript.md",
   "reports/submission_audit.md",

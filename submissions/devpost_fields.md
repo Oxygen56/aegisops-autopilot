@@ -56,6 +56,10 @@ The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. T
 
 See `docs/ARCHITECTURE.md`.
 
+## Judge Packet
+
+Fastest evidence path: `docs/JUDGE_PACKET.md`
+
 ## Screenshots
 
 Dashboard screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
@@ -103,6 +107,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
+- `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.
 - `reports/alibaba_deployment_proof.md`: generated after live Alibaba deployment with `pnpm run deploy:verify`.
 

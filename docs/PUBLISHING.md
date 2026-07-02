@@ -123,6 +123,6 @@ pnpm run deploy:verify -- https://<your-domain>
 
 ## Devpost Final Fields
 
-Use `submissions/FINAL_SUBMISSION_RUNBOOK.md`, `submissions/devpost_fields.md`, and `buidl/BUIDL_SUBMISSION.md`.
+Use `docs/JUDGE_PACKET.md`, `submissions/FINAL_SUBMISSION_RUNBOOK.md`, `submissions/devpost_fields.md`, and `buidl/BUIDL_SUBMISSION.md`.
 
 Final submit is irreversible after the deadline, so the account owner should review and click submit.

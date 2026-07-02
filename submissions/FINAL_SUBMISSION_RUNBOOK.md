@@ -18,6 +18,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Text description | `submissions/devpost_fields.md` |
 | Track | `Track 4: Autopilot Agent` |
 | Architecture diagram | `docs/ARCHITECTURE.md` |
+| Judge packet | `docs/JUDGE_PACKET.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly |
 | Alibaba Cloud proof | Code link below; run `pnpm run deploy:verify -- https://<your-domain>` after deployment |
@@ -105,6 +106,7 @@ and post-incident learning.
 Then point judges to:
 
 - `docs/JUDGE_QUICKSTART.md` for the fastest test path.
+- `docs/JUDGE_PACKET.md` for the one-page evidence map.
 - `docs/RUBRIC_SCORECARD.md` for the 30/30/25/15 rubric mapping.
 - `reports/judge_demo_transcript.md` for deterministic evidence.
 - `reports/submission_audit.md` for requirement coverage.
