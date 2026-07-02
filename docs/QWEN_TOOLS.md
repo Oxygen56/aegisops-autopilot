@@ -1,12 +1,12 @@
 # Qwen Tool And MCP Integration
 
-AegisOps exposes its incident-response capabilities in two judge-verifiable forms:
+AegisOps exposes its incident-response capabilities in three judge-verifiable forms:
 
 - OpenAI-compatible Qwen Function Calling tool schemas in the `/chat/completions` request body.
 - HTTP/OpenAPI tool endpoints for Qwen-compatible agent orchestration.
 - A lightweight MCP stdio server for environments that can attach MCP tools.
 
-## Qwen Function Tool Schema
+## Qwen Function Tool Loop
 
 Source: `src/server/agent/toolRegistry.ts`
 
@@ -18,7 +18,9 @@ The workflow passes five incident-scoped tools to Qwen Cloud with the OpenAI-com
 - `policy_check`
 - `remediation_simulator`
 
-The production-safety design intentionally executes evidence tools server-side before diagnosis and sends `tool_choice=none` for the diagnosis request. This keeps Qwen aware of the available function contracts while preventing an unapproved model-generated tool call from mutating production state during the diagnosis step.
+In live Qwen mode, AegisOps sets `tool_choice=auto`, accepts Qwen `tool_calls`, executes only the incident-scoped server-side tools from the registry, appends tool results as `role=tool` messages, and asks Qwen for the final diagnosis. The loop is capped at two tool-call rounds.
+
+The production-safety design still executes the core evidence tools server-side before diagnosis. Qwen-selected tools are read-only evidence probes or dry-run simulations, and production mutation remains behind the separate human approval gate.
 
 ## HTTP Tool Surface
 
@@ -74,7 +76,7 @@ Run:
 pnpm run qwen:audit
 ```
 
-This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, Qwen Function Calling tool schemas, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
+This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, Qwen Function Calling tool schemas, live tool-call loop, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
 
 ## Model Ops Report
 

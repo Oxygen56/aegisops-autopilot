@@ -13,7 +13,7 @@ aegisops-autopilot
 Recommended GitHub description:
 
 ```text
-Qwen-powered production incident autopilot with memory, custom tools, MCP integration, and human approval gates.
+Qwen-powered production incident autopilot with memory, Function Calling tools, MCP integration, and human approval gates.
 ```
 
 Recommended topics:
@@ -59,6 +59,7 @@ This runs:
 - ablation eval
 - HTTP API smoke
 - MCP smoke
+- Qwen Function Calling audit
 - required artifact checks
 
 ## Demo Video

@@ -2,13 +2,26 @@ import type { Incident, QwenCompletion, ToolCall } from "./types";
 import type { QwenFunctionTool } from "./toolRegistry";
 
 interface ChatMessage {
-  role: "system" | "user" | "assistant";
+  role: "system" | "user" | "assistant" | "tool";
   content: string;
+  tool_calls?: QwenToolCall[];
+  tool_call_id?: string;
+}
+
+interface QwenToolCall {
+  id?: string;
+  type?: "function";
+  function?: {
+    name?: string;
+    arguments?: string | Record<string, unknown>;
+  };
 }
 
 interface CompletionOptions {
   tools?: QwenFunctionTool[];
   toolChoice?: "none" | "auto";
+  toolExecutor?: (name: string, input: Record<string, unknown>) => Promise<unknown>;
+  maxToolRounds?: number;
 }
 
 function getEnv(name: string): string | undefined {
@@ -44,39 +57,66 @@ export class QwenClient {
       return this.fallbackCompletion(started, "deterministic-fixture", fallback);
     }
 
-    const requestBody: Record<string, unknown> = {
-      model: this.model,
-      temperature: 0.2,
-      messages
-    };
-    if (options.tools && options.tools.length > 0) {
-      requestBody.tools = options.tools;
-      requestBody.tool_choice = options.toolChoice ?? "none";
-    }
-
     try {
-      const response = await fetch(`${this.baseUrl.replace(/\/$/, "")}/chat/completions`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestBody)
-      });
+      const workingMessages = [...messages];
+      const toolCallNames: string[] = [];
+      let toolRounds = 0;
+      const maxToolRounds = options.maxToolRounds ?? 2;
 
-      if (!response.ok) {
-        throw new Error(`Qwen Cloud request failed: ${response.status}`);
+      for (;;) {
+        const requestBody = this.buildRequestBody(workingMessages, options);
+        const response = await fetch(`${this.baseUrl.replace(/\/$/, "")}/chat/completions`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Qwen Cloud request failed: ${response.status}`);
+        }
+
+        const payload = (await response.json()) as {
+          choices?: Array<{ message?: { content?: string | null; tool_calls?: QwenToolCall[] } }>;
+        };
+        const assistantMessage = payload.choices?.[0]?.message;
+        const content = assistantMessage?.content ?? "";
+        const toolCalls = assistantMessage?.tool_calls ?? [];
+
+        if (toolCalls.length === 0 || !options.toolExecutor || options.toolChoice === "none") {
+          return {
+            providerMode: "qwen-cloud",
+            model: this.model,
+            content: content || fallback(),
+            latencyMs: Math.round(performance.now() - started),
+            toolRounds,
+            toolCallNames
+          };
+        }
+
+        if (toolRounds >= maxToolRounds) {
+          return this.fallbackCompletion(started, `${this.model}-tool-loop-limit-fallback`, fallback);
+        }
+
+        toolRounds += 1;
+        workingMessages.push({
+          role: "assistant",
+          content,
+          tool_calls: toolCalls
+        });
+        for (const toolCall of toolCalls) {
+          const name = toolCall.function?.name ?? "unknown_tool";
+          toolCallNames.push(name);
+          const toolResult = await this.executeToolCall(toolCall, options.toolExecutor);
+          workingMessages.push({
+            role: "tool",
+            tool_call_id: toolCall.id ?? `tool-call-${toolCallNames.length}`,
+            content: JSON.stringify(toolResult)
+          });
+        }
       }
-
-      const payload = (await response.json()) as {
-        choices?: Array<{ message?: { content?: string } }>;
-      };
-      return {
-        providerMode: "qwen-cloud",
-        model: this.model,
-        content: payload.choices?.[0]?.message?.content ?? fallback(),
-        latencyMs: Math.round(performance.now() - started)
-      };
     } catch (error) {
       if (this.strict) {
         throw error;
@@ -90,9 +130,48 @@ export class QwenClient {
       providerMode: "offline-fixture",
       model,
       content: fallback(),
-      latencyMs: Math.round(performance.now() - started)
+      latencyMs: Math.round(performance.now() - started),
+      toolRounds: 0,
+      toolCallNames: []
     };
   }
+
+  private buildRequestBody(messages: ChatMessage[], options: CompletionOptions): Record<string, unknown> {
+    const requestBody: Record<string, unknown> = {
+      model: this.model,
+      temperature: 0.2,
+      messages
+    };
+    if (options.tools && options.tools.length > 0) {
+      requestBody.tools = options.tools;
+      requestBody.tool_choice = options.toolChoice ?? "none";
+    }
+    return requestBody;
+  }
+
+  private async executeToolCall(
+    toolCall: QwenToolCall,
+    toolExecutor: (name: string, input: Record<string, unknown>) => Promise<unknown>
+  ): Promise<unknown> {
+    const name = toolCall.function?.name ?? "unknown_tool";
+    try {
+      return await toolExecutor(name, parseToolArguments(toolCall.function?.arguments));
+    } catch (error) {
+      return {
+        error: error instanceof Error ? error.message : String(error),
+        tool: name
+      };
+    }
+  }
+}
+
+function parseToolArguments(value: string | Record<string, unknown> | undefined): Record<string, unknown> {
+  if (!value) return {};
+  if (typeof value !== "string") return value;
+  const trimmed = value.trim();
+  if (!trimmed) return {};
+  const parsed = JSON.parse(trimmed) as unknown;
+  return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? (parsed as Record<string, unknown>) : {};
 }
 
 export function fallbackDiagnosis(incident: Incident, toolCalls: ToolCall[]): string {

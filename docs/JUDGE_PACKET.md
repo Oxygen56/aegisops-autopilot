@@ -4,7 +4,7 @@ This is the fastest evidence path for Qwen Cloud Hackathon judges.
 
 ## One-Minute Summary
 
-AegisOps Autopilot is a Track 4 Autopilot Agent for production incident response. It converts an ambiguous alert into memory recall, Qwen Cloud diagnosis, five external tool calls, agent review, risk scoring, human approval, reversible remediation, verification checks, and post-incident learning.
+AegisOps Autopilot is a Track 4 Autopilot Agent for production incident response. It converts an ambiguous alert into memory recall, Qwen Cloud diagnosis with a capped Function Calling tool loop, five external tool calls, agent review, risk scoring, human approval, reversible remediation, verification checks, and post-incident learning.
 
 Primary repository:
 
@@ -44,8 +44,8 @@ No private key is required for this path. With `QWEN_API_KEY` or `DASHSCOPE_API_
 
 | criterion | weight | concrete evidence |
 | --- | ---: | --- |
-| Technical Depth & Engineering | 30% | Typed Node/React workflow, Qwen client, persistent memory, tool registry, OpenAPI, MCP stdio, Docker target, CI/release gate |
-| Innovation & AI Creativity | 30% | Agent council, memory-backed diagnosis, five custom incident tools, human approval, reversible remediation, post-incident learning |
+| Technical Depth & Engineering | 30% | Typed Node/React workflow, Qwen Function Calling client, persistent memory, tool registry, OpenAPI, MCP stdio, Docker target, CI/release gate |
+| Innovation & AI Creativity | 30% | Agent council, memory-backed diagnosis, live Qwen tool calls, five custom incident tools, human approval, reversible remediation, post-incident learning |
 | Problem Value & Impact | 25% | Reliability, privacy, and billing incident scenarios; MTTR reduction without unsafe production mutation |
 | Presentation & Documentation | 15% | Judge quickstart, architecture diagram, video pack, scorecard, transcript, submission audit, final runbook |
 

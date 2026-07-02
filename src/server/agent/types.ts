@@ -103,4 +103,6 @@ export interface QwenCompletion {
   model: string;
   content: string;
   latencyMs: number;
+  toolRounds: number;
+  toolCallNames: string[];
 }

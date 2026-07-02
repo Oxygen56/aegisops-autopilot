@@ -3,7 +3,7 @@
 ## Innovation & AI Creativity (30%)
 
 - Uses Qwen Cloud as the diagnosis and planning reasoner through an OpenAI-compatible endpoint.
-- Provides custom Qwen tool surfaces: OpenAPI endpoints plus a lightweight MCP stdio server.
+- Provides a capped live Qwen Function Calling loop plus OpenAPI endpoints and a lightweight MCP stdio server.
 - Adds persistent memory recall and post-incident learning.
 - Uses an agent council pattern with incident commander, diagnostician, reliability engineer, security reviewer, and human approver.
 - Includes policy-aware tool calls and approval gates instead of direct unsafe mutation.
@@ -11,7 +11,7 @@
 ## Technical Depth & Engineering (30%)
 
 - Modular server architecture with typed incidents, memories, tools, and workflow results.
-- Tool registry exposes five incident-response tools and keeps every tool incident-scoped.
+- Tool registry exposes five incident-response tools and keeps every Qwen/OpenAPI/MCP tool incident-scoped.
 - Deterministic offline mode for repeatable judging.
 - Tests cover memory recall, tool coverage, approval blocking, and reversible remediation.
 - Ablation report shows the full workflow average `0.988` versus `0.420` for a single-agent baseline.

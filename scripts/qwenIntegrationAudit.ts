@@ -95,6 +95,17 @@ add(
 
 add(
   checks,
+  "Qwen Function Calling loop executes model-selected tools",
+  qwenClient.includes("tool_calls") &&
+    qwenClient.includes('role: "tool"') &&
+    qwenClient.includes("toolExecutor") &&
+    orchestrator.includes("toolChoice: \"auto\"") &&
+    orchestrator.includes("executeAegisTool"),
+  "Qwen live mode can receive tool_calls, execute incident-scoped tools, append role=tool output, and ask Qwen for the final response"
+);
+
+add(
+  checks,
   "MCP stdio exposes list and call methods",
   mcpServer.includes("tools/list") &&
     mcpServer.includes("tools/call") &&
@@ -130,7 +141,7 @@ const lines = [
   "",
   "## Judge-Relevant Claim",
   "",
-  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API, sends OpenAI-compatible function tool schemas in the Qwen request body, and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
+  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API, sends OpenAI-compatible function tool schemas in the Qwen request body, supports live Qwen tool-call round trips with role=tool outputs, and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
   ""
 ];
 

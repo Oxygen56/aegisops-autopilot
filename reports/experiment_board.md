@@ -59,6 +59,8 @@ Direction: `maximize`
 | 1.0 | pass | final-submission-package-devpost-qwen-tools | 0 | 14.605 | experiments/runs/20260703-035729_final-submission-package-devpost-qwen-tools |
 | 1.0 | pass | judge-evidence-bundle-gate | 0 | 27.06 | experiments/runs/20260703-040509_judge-evidence-bundle-gate |
 | 1.0 | pass | judge-evidence-bundle-final-gate | 0 | 26.564 | experiments/runs/20260703-040618_judge-evidence-bundle-final-gate |
+| 1.0 | pass | final-submission-package-judge-evidence | 0 | 12.77 | experiments/runs/20260703-040902_final-submission-package-judge-evidence |
+| 1.0 | pass | qwen-live-tool-loop-gate | 0 | 26.73 | experiments/runs/20260703-041735_qwen-live-tool-loop-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

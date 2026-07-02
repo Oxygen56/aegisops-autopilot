@@ -6,7 +6,7 @@ AegisOps is a production-incident autopilot for Track 4: Autopilot Agent. It tur
 
 The implementation is designed for two judging modes:
 
-- **Live Qwen mode:** set `DASHSCOPE_API_KEY` or `QWEN_API_KEY` and the server calls Qwen Cloud through the OpenAI-compatible endpoint.
+- **Live Qwen mode:** set `DASHSCOPE_API_KEY` or `QWEN_API_KEY` and the server calls Qwen Cloud through the OpenAI-compatible endpoint, including a capped Function Calling loop for incident tools.
 - **Offline demo mode:** no secret is required; deterministic fixtures exercise the same orchestration path for judges and CI.
 
 ## Quick Start
@@ -58,7 +58,7 @@ QWEN_MODEL=qwen-plus
 
 AegisOps exposes a judge-verifiable tool surface for Qwen-style orchestration:
 
-- Qwen request body: five OpenAI-compatible function schemas in the `tools` field
+- Qwen request body: five OpenAI-compatible function schemas in the `tools` field, live `tool_calls`, and `role=tool` result messages
 - OpenAPI spec: `agents/aegisops/openapi.yaml`
 - Capability manifest: `agents/aegisops/cap-manifest.json`
 - MCP stdio server: `pnpm run mcp:stdio`

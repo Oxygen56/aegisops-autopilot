@@ -55,7 +55,7 @@ The repository does not claim these KPI movements as production-verified. It pro
 ## Why This Is More Than A Chatbot
 
 - It uses Qwen Cloud as the reasoning layer, but the winning value comes from the surrounding system: scoped tools, memory, risk scoring, approval gates, and verification.
-- It exposes the same incident tool surface through HTTP/OpenAPI and MCP stdio, making the agent composable instead of dashboard-only.
+- It exposes the same incident tool surface through Qwen Function Calling, HTTP/OpenAPI, and MCP stdio, making the agent composable instead of dashboard-only.
 - It demonstrates three business-relevant incident categories: reliability latency, privacy/PII handling, and billing-risk workflows.
 - It is designed for conservative production adoption: every risky step is visible, reversible, and accountable.
 

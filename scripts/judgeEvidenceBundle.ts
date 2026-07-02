@@ -58,12 +58,12 @@ const items: EvidenceItem[] = [
     section: "Stage One Viability",
     claim: "Project uses Qwen Cloud models and API surface",
     status: verified(
-      includes("src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1") &&
+        includes("src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1") &&
         includes("reports/qwen_integration_audit.md", "Failures: 0") &&
-        includes("reports/qwen_integration_audit.md", "Qwen request body carries function tool schemas")
+        includes("reports/qwen_integration_audit.md", "Qwen Function Calling loop executes model-selected tools")
     ),
     evidence: ["src/server/agent/qwenClient.ts", "reports/qwen_integration_audit.md", "docs/QWEN_TOOLS.md"],
-    proof: "Automated audit verifies endpoint, credentials, offline fallback, tool schemas, OpenAPI tools, MCP, and CI coverage."
+    proof: "Automated audit verifies endpoint, credentials, offline fallback, live tool-call loop, OpenAPI tools, MCP, and CI coverage."
   },
   {
     section: "Stage One Viability",
@@ -92,12 +92,13 @@ const items: EvidenceItem[] = [
     claim: "Custom tool system is portable through Qwen Function Calling, HTTP/OpenAPI, and MCP",
     status: verified(
       includes("docs/QWEN_TOOLS.md", "OpenAI-compatible Qwen Function Calling") &&
+        includes("docs/QWEN_TOOLS.md", "role=tool") &&
         includes("agents/aegisops/openapi.yaml", "/api/tools/log_search") &&
         includes("src/server/mcp/aegisopsMcp.ts", "tools/list") &&
-        includes("tests/orchestrator.test.ts", "Qwen request should carry five OpenAI-compatible tool schemas")
+        includes("tests/orchestrator.test.ts", "Qwen tool loop should make a follow-up model call")
     ),
     evidence: ["docs/QWEN_TOOLS.md", "agents/aegisops/openapi.yaml", "src/server/mcp/aegisopsMcp.ts", "tests/orchestrator.test.ts"],
-    proof: "One registry backs Qwen request schemas, HTTP endpoints, and MCP stdio calls."
+    proof: "One registry backs Qwen request schemas, live role=tool round trips, HTTP endpoints, and MCP stdio calls."
   },
   {
     section: "Innovation & AI Creativity",

@@ -17,28 +17,31 @@ This deterministic report documents model/provider choices, estimated token foot
 | Strict provider mode | `QWEN_STRICT=1` throws on Qwen provider failure |
 | Default provider failure behavior | safe deterministic fallback, preserving approval gates |
 | Sampling temperature | `0.2` |
-| Function tool schemas | five OpenAI-compatible `tools` definitions sent with `tool_choice=none` |
+| Function tool schemas | five OpenAI-compatible `tools` definitions sent with `tool_choice=auto` in live mode |
+| Function tool loop | up to two Qwen tool-call rounds; tool outputs are appended as `role=tool` messages |
 
 ## Per-Incident Budget
 
-| incident | severity | Qwen calls | Qwen tool schemas | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| checkout-tax-latency | sev1 | 1 | 5 | 4 | 36ms | 1641 | 161 | 1802 | required |
-| support-pii-leak-risk | sev2 | 1 | 5 | 4 | 36ms | 1665 | 165 | 1830 | required |
-| billing-duplicate-webhooks | sev1 | 1 | 5 | 4 | 36ms | 1658 | 174 | 1832 | required |
+| incident | severity | offline Qwen calls | max live Qwen calls | Qwen tool schemas | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| checkout-tax-latency | sev1 | 1 | 3 | 5 | 4 | 36ms | 1641 | 161 | 1802 | required |
+| support-pii-leak-risk | sev2 | 1 | 3 | 5 | 4 | 36ms | 1665 | 165 | 1830 | required |
+| billing-duplicate-webhooks | sev1 | 1 | 3 | 5 | 4 | 36ms | 1658 | 174 | 1832 | required |
 
 ## Suite Summary
 
 - Total estimated tokens across deterministic judge incidents: 5464
 - Max estimated tokens for one incident run: 1832
-- Qwen calls per workflow run: 1
+- Offline judge path Qwen calls per workflow run: 1
+- Live Qwen Function Calling path: 1 diagnosis call plus up to 2 tool-result follow-up calls.
 - Function tool schema budget included in each Qwen request: 392 estimated input tokens.
 - Evidence tools before Qwen diagnosis: 4, executed in parallel in the Node workflow.
 - Approved remediation adds one dry-run simulator call after the human gate.
 
 ## Cost And Latency Controls
 
-- One Qwen chat-completions request per incident run; no recursive autonomous model loop.
+- Offline judging uses one deterministic Qwen-shaped completion per incident run.
+- Live Qwen mode limits Function Calling to two tool-call rounds; there is no unbounded autonomous loop.
 - Tool outputs are summarized and incident-scoped instead of sending raw private logs.
 - Offline fixture mode keeps the same orchestration shape for judges without consuming Qwen credits.
 - Qwen provider failure falls back to deterministic diagnosis by default; `QWEN_STRICT=1` is available for environments that prefer hard failure.

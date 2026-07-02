@@ -11,7 +11,7 @@ AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent
 ## Short Description
 
 ```text
-AegisOps Autopilot is a Qwen-powered production incident response agent for Track 4: Autopilot Agent. The demo shows memory recall, Qwen diagnosis, custom tools, MCP/OpenAPI surfaces, risk-scored remediation, and human approval gates.
+AegisOps Autopilot is a Qwen-powered production incident response agent for Track 4: Autopilot Agent. The demo shows memory recall, Qwen diagnosis, Function Calling tools, MCP/OpenAPI surfaces, risk-scored remediation, and human approval gates.
 ```
 
 ## Full Description
@@ -21,7 +21,7 @@ AegisOps Autopilot is a Track 4: Autopilot Agent submission for the Qwen Cloud H
 
 It turns ambiguous production alerts into a traced remediation workflow:
 - persistent incident memory recall
-- Qwen Cloud diagnosis through the DashScope OpenAI-compatible API
+- Qwen Cloud diagnosis through the DashScope OpenAI-compatible API and Function Calling loop
 - five custom incident tools for logs, metrics, change graph, policy, and dry-run remediation
 - agent council review
 - human approval before risky mutation
@@ -46,7 +46,7 @@ docs/JUDGE_PACKET.md in the repository
 ```text
 00:00 Track 4 positioning
 00:07 Incident intake and dashboard
-00:15 Memory, tools, and Qwen diagnosis
+00:15 Memory, Function Calling tools, and Qwen diagnosis
 00:27 Human approval and remediation plan
 00:38 MCP/OpenAPI tool surface
 00:46 Evaluation and Alibaba proof endpoint

@@ -75,6 +75,53 @@ try {
     )
   );
 
+  const qwenToolLoopBodies: Array<Record<string, unknown>> = [];
+  globalThis.fetch = async (_url, init) => {
+    qwenToolLoopBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+    if (qwenToolLoopBodies.length === 1) {
+      return Response.json({
+        choices: [
+          {
+            message: {
+              content: "",
+              tool_calls: [
+                {
+                  id: "call-policy",
+                  type: "function",
+                  function: {
+                    name: "policy_check",
+                    arguments: '{"incidentId":"support-pii-leak-risk"}'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      });
+    }
+    return Response.json({ choices: [{ message: { content: "tool-grounded diagnosis" } }] });
+  };
+
+  const qwenToolLoopResult = await new QwenClient().complete(
+    [{ role: "user", content: "Should support automation send customer drafts?" }],
+    () => "fallback",
+    {
+      tools: listQwenToolSchemas(),
+      toolChoice: "auto",
+      toolExecutor: executeAegisTool
+    }
+  );
+
+  assert.equal(qwenToolLoopResult.providerMode, "qwen-cloud");
+  assert.equal(qwenToolLoopResult.content, "tool-grounded diagnosis");
+  assert.equal(qwenToolLoopResult.toolRounds, 1);
+  assert.deepEqual(qwenToolLoopResult.toolCallNames, ["policy_check"]);
+  assert.equal(qwenToolLoopBodies.length, 2, "Qwen tool loop should make a follow-up model call");
+  assert.equal(qwenToolLoopBodies[0].tool_choice, "auto");
+  const secondMessages = qwenToolLoopBodies[1].messages as Array<{ role?: string; tool_call_id?: string; content?: string }>;
+  assert.ok(secondMessages.some((message) => message.role === "tool" && message.tool_call_id === "call-policy"));
+  assert.ok(secondMessages.some((message) => message.role === "tool" && /human approval/i.test(String(message.content))));
+
   globalThis.fetch = async () => new Response("provider unavailable", { status: 503 });
 
   const providerFailure = await runIncidentWorkflow({
