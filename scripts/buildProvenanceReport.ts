@@ -41,7 +41,16 @@ function exists(relativePath: string): boolean {
   return fs.existsSync(path.join(root, relativePath));
 }
 
+function isShallowRepository(): boolean {
+  try {
+    return run("git", ["rev-parse", "--is-shallow-repository"]) === "true";
+  } catch {
+    return false;
+  }
+}
+
 const commits = parseCommits();
+const shallowRepository = isShallowRepository();
 
 const milestones: Milestone[] = [
   {
@@ -122,6 +131,7 @@ const lines = [
   "## Summary",
   "",
   `- Commit count: ${commits.length}`,
+  `- Shallow repository: ${shallowRepository ? "yes" : "no"}`,
   `- First tracked commit: ${firstCommit ? `${firstCommit.short} ${firstCommit.date} ${firstCommit.subject}` : "missing"}`,
   `- Latest tracked commit: ${latestCommit ? `${latestCommit.short} ${latestCommit.date} ${latestCommit.subject}` : "missing"}`,
   `- Milestones checked: ${milestoneRows.length}`,
@@ -151,6 +161,10 @@ const lines = [
   "## Claim Boundary",
   "",
   "This report proves the repository contains a substantial, reviewable implementation trail for the current submission. Live Alibaba deployment, public video upload, optional blog publication, and final Devpost submission still require account-owner action.",
+  "",
+  "## CI Note",
+  "",
+  "This audit requires enough Git history to find milestone commits. GitHub Actions uses `actions/checkout` with `fetch-depth: 0` for CI and Pages so the provenance check remains reproducible.",
   ""
 ];
 
@@ -158,6 +172,9 @@ fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, `${lines.join("\n")}\n`, "utf8");
 
 if (failures.length > 0) {
+  if (shallowRepository) {
+    console.error("Build provenance audit is running in a shallow clone. Use actions/checkout with fetch-depth: 0.");
+  }
   console.error(failures.map((row) => `${row.label}: ${row.missingEvidence.join(", ") || "missing commit"}`).join("\n"));
   process.exitCode = 1;
 } else {

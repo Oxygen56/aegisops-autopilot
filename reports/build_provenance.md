@@ -6,9 +6,10 @@ This report documents contest-period implementation evidence for the Devpost New
 
 ## Summary
 
-- Commit count: 40
+- Commit count: 41
+- Shallow repository: no
 - First tracked commit: e4f518b 2026-07-03T00:46:35+08:00 Prepare AegisOps Qwen hackathon submission
-- Latest tracked commit: 1e564fb 2026-07-03T04:58:23+08:00 Record video asset refresh run
+- Latest tracked commit: a3e1933 2026-07-03T05:05:25+08:00 Add build provenance evidence
 - Milestones checked: 10
 - Failures: 0
 
@@ -31,6 +32,7 @@ This report documents contest-period implementation evidence for the Devpost New
 
 | commit | date | subject |
 | --- | --- | --- |
+| a3e1933 | 2026-07-03T05:05:25+08:00 | Add build provenance evidence |
 | 1e564fb | 2026-07-03T04:58:23+08:00 | Record video asset refresh run |
 | 9582f4c | 2026-07-03T04:56:58+08:00 | Refresh demo video asset evidence |
 | cbef681 | 2026-07-03T04:44:39+08:00 | Fix demo reel slide cycle |
@@ -50,9 +52,12 @@ This report documents contest-period implementation evidence for the Devpost New
 | d3a7b76 | 2026-07-03T03:08:14+08:00 | Add Alibaba ECS deployment pack |
 | c3e3467 | 2026-07-03T03:01:04+08:00 | Add demo video upload metadata |
 | 9829778 | 2026-07-03T02:53:18+08:00 | Validate final submission packages |
-| c39e48f | 2026-07-03T02:46:42+08:00 | Add judge evidence packet |
 
 ## Claim Boundary
 
 This report proves the repository contains a substantial, reviewable implementation trail for the current submission. Live Alibaba deployment, public video upload, optional blog publication, and final Devpost submission still require account-owner action.
+
+## CI Note
+
+This audit requires enough Git history to find milestone commits. GitHub Actions uses `actions/checkout` with `fetch-depth: 0` for CI and Pages so the provenance check remains reproducible.
 
