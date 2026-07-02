@@ -24,6 +24,7 @@ const requiredShared = [
   "pnpm-lock.yaml",
   ".stackblitzrc",
   ".github/workflows/pages.yml",
+  "docs/IMPACT_CASE.md",
   "docs/JUDGE_PACKET.md",
   "docs/JUDGE_QUICKSTART.md",
   "docs/RUBRIC_SCORECARD.md",

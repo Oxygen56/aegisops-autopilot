@@ -22,6 +22,7 @@
 - Incident response is high-value: reducing MTTR while preventing unsafe automation matters to any production engineering team.
 - The demo covers latency, privacy, and billing incidents, showing applicability across reliability, security, and finance-risk workflows.
 - The product can expand into real integrations with SLS, CloudMonitor, Git providers, ticketing systems, and deployment controllers.
+- `docs/IMPACT_CASE.md` maps the value claim to target users, KPI movement, adoption stages, and clear boundaries around synthetic fixture evidence.
 
 ## Presentation & Documentation (15%)
 

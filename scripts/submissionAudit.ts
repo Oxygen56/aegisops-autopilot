@@ -73,6 +73,12 @@ const items: AuditItem[] = [
     note: "The architecture document maps Qwen Cloud, the Node API, memory, tools, MCP, frontend, and Alibaba deployment target."
   },
   {
+    area: "Problem value and impact case",
+    status: "verified",
+    evidence: requireEvidence(["docs/IMPACT_CASE.md", "reports/ablation_report.md", "reports/judge_demo_transcript.md"]),
+    note: "Target users, KPI model, adoption path, and impact boundaries are documented without claiming production-verified MTTR."
+  },
+  {
     area: "Alibaba Cloud deployment proof",
     status: "external-action",
     evidence: requireEvidence([
@@ -151,6 +157,7 @@ const items: AuditItem[] = [
 
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
+  ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],

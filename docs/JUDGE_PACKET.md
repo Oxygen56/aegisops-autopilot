@@ -82,6 +82,7 @@ The CI release gate includes:
 
 - `docs/JUDGE_QUICKSTART.md`: fastest hands-on path.
 - `docs/RUBRIC_SCORECARD.md`: official 30/30/25/15 rubric mapping.
+- `docs/IMPACT_CASE.md`: problem value, adoption path, KPI model, and impact boundaries.
 - `docs/ARCHITECTURE.md`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.

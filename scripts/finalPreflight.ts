@@ -138,6 +138,7 @@ add(checks, "Latest full submission package", fullZip ? "pass" : "fail", fullZip
 const requiredFiles = [
   "README.md",
   "LICENSE",
+  "docs/IMPACT_CASE.md",
   "docs/JUDGE_QUICKSTART.md",
   "docs/JUDGE_PACKET.md",
   "docs/RUBRIC_SCORECARD.md",

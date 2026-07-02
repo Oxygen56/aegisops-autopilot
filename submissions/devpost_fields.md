@@ -16,6 +16,8 @@ Qwen-powered production incident autopilot with memory, agent review, tool-backe
 
 AegisOps turns ambiguous production alerts into a traced remediation workflow. It recalls relevant incident memory, gathers log/metric/change/policy evidence, asks Qwen Cloud to diagnose and plan, convenes specialized agent roles, proposes reversible remediation, requires human approval for risky actions, and stores post-incident lessons.
 
+The impact target is practical production operations: reduce triage time, improve evidence completeness, and prevent unsafe autonomous mutation for reliability, privacy, and billing-risk incidents. The repository includes `docs/IMPACT_CASE.md` with target users, KPI model, adoption path, and evidence boundaries.
+
 ## How We Built It
 
 The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client compatible with the OpenAI chat-completions interface. The backend includes a persistent memory layer, deterministic incident fixtures, a five-tool registry for logs/metrics/change graph/policy/dry-run execution, a risk-scored remediation planner, an OpenAPI tool surface, a lightweight MCP stdio server, and an Alibaba Cloud proof endpoint.
@@ -107,6 +109,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
+- `docs/IMPACT_CASE.md`: target users, KPI model, adoption path, and impact evidence boundaries.
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.

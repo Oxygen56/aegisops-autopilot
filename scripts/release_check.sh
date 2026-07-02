@@ -16,6 +16,7 @@ test -s LICENSE
 test -s README.md
 test -s .stackblitzrc
 test -s docs/ARCHITECTURE.md
+test -s docs/IMPACT_CASE.md
 test -s docs/JUDGE_PACKET.md
 test -s docs/JUDGE_QUICKSTART.md
 test -s docs/QWEN_TOOLS.md
