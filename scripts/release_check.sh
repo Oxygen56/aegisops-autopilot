@@ -17,6 +17,7 @@ test -s .stackblitzrc
 test -s docs/ARCHITECTURE.md
 test -s docs/JUDGE_QUICKSTART.md
 test -s docs/QWEN_TOOLS.md
+test -s docs/RUBRIC_SCORECARD.md
 test -s docs/VIDEO_SUBMISSION.md
 test -s submissions/devpost_fields.md
 test -s docs/demo/aegisops-demo-reel-draft.m4v

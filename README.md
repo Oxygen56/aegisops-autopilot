@@ -88,6 +88,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
+- Rubric scorecard: `docs/RUBRIC_SCORECARD.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
 - Static demo screenshot: `docs/screenshots/pages-static-reel.png`

@@ -123,7 +123,12 @@ const items: AuditItem[] = [
   {
     area: "Devpost copy and final checklist",
     status: "verified",
-    evidence: requireEvidence(["submissions/devpost_fields.md", "buidl/BUIDL_SUBMISSION.md", "buidl/SUBMISSION_CHECKLIST.md"]),
+    evidence: requireEvidence([
+      "submissions/devpost_fields.md",
+      "buidl/BUIDL_SUBMISSION.md",
+      "buidl/SUBMISSION_CHECKLIST.md",
+      "docs/RUBRIC_SCORECARD.md"
+    ]),
     note: "Submission copy, BUIDL summary, and final external-action checklist are prepared."
   }
 ];

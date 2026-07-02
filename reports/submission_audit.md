@@ -26,7 +26,7 @@ External-action items require account access or irreversible publishing outside 
 | External action | Demo video under three minutes | `docs/VIDEO_SUBMISSION.md`<br>`docs/demo/aegisops-demo-reel-draft.m4v` | The local upload-ready video exists; it still must be uploaded publicly to YouTube, Vimeo, or Youku. |
 | External action | Optional blog or social post prize | `submissions/blog_post_draft.md`<br>`submissions/devpost_fields.md` | A publish-ready post draft is present; it still must be published publicly and linked in Devpost. |
 | Verified | Judging evidence and reproducibility | `reports/eval_report.md`<br>`reports/ablation_report.md`<br>`reports/experiment_board.md`<br>`reports/judge_demo_transcript.md` | The project includes deterministic fixture evaluation, ablation results, and contestctl run ledger. |
-| Verified | Devpost copy and final checklist | `submissions/devpost_fields.md`<br>`buidl/BUIDL_SUBMISSION.md`<br>`buidl/SUBMISSION_CHECKLIST.md` | Submission copy, BUIDL summary, and final external-action checklist are prepared. |
+| Verified | Devpost copy and final checklist | `submissions/devpost_fields.md`<br>`buidl/BUIDL_SUBMISSION.md`<br>`buidl/SUBMISSION_CHECKLIST.md`<br>`docs/RUBRIC_SCORECARD.md` | Submission copy, BUIDL summary, and final external-action checklist are prepared. |
 
 ## Final External Actions
 
