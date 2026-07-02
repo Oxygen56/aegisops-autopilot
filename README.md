@@ -94,6 +94,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 
 - Brief: `reports/brief.md`
 - Architecture: `docs/ARCHITECTURE.md`
+- Upload-ready architecture diagram: `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Judge packet: `docs/JUDGE_PACKET.md`
 - Build provenance: `docs/BUILD_PROVENANCE.md`

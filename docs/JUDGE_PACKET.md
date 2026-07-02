@@ -88,7 +88,7 @@ The CI release gate includes:
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
 - `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md`: contest-period build history and significant-update evidence.
 - `docs/IMPACT_CASE.md`: problem value, adoption path, KPI model, and impact boundaries.
-- `docs/ARCHITECTURE.md`: architecture diagram and component map.
+- `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, and `docs/architecture/aegisops-architecture.png`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.
 - `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate and judging rubric.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, OpenAPI, and MCP integration audit.

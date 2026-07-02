@@ -82,8 +82,13 @@ const items: AuditItem[] = [
   {
     area: "Architecture diagram",
     status: "verified",
-    evidence: requireEvidence(["docs/ARCHITECTURE.md"]),
-    note: "The architecture document maps Qwen Cloud, the Node API, memory, tools, MCP, frontend, and Alibaba deployment target."
+    evidence: requireEvidence([
+      "docs/ARCHITECTURE.md",
+      "docs/architecture/aegisops-architecture.svg",
+      "docs/architecture/aegisops-architecture.png",
+      "scripts/generateArchitectureDiagram.ts"
+    ]),
+    note: "The architecture document plus upload-ready SVG and PNG diagrams map Qwen Cloud, the Node API, memory, tools, MCP, frontend, and Alibaba deployment target."
   },
   {
     area: "Problem value and impact case",
@@ -186,6 +191,11 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "Alibaba Workbench Screenshot Proof"],
   ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["docs/ARCHITECTURE.md", "docs/architecture/aegisops-architecture.svg"],
+  ["docs/ARCHITECTURE.md", "docs/architecture/aegisops-architecture.png"],
+  ["docs/architecture/aegisops-architecture.svg", "AegisOps Autopilot Architecture"],
+  ["docs/architecture/aegisops-architecture.svg", "Qwen Cloud reasoning"],
+  ["docs/architecture/aegisops-architecture.svg", "Alibaba Cloud runtime"],
   ["docs/BUILD_PROVENANCE.md", "Build Provenance"],
   ["reports/build_provenance.md", "Build Provenance"],
   ["reports/build_provenance.md", "Upload-ready demo video asset evidence"],

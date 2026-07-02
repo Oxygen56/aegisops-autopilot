@@ -17,7 +17,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Open-source license | `LICENSE` in the repo |
 | Text description | `submissions/devpost_fields.md` |
 | Track | `Track 4: Autopilot Agent` |
-| Architecture diagram | `docs/ARCHITECTURE.md` |
+| Architecture diagram | `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, and `docs/architecture/aegisops-architecture.png` |
 | Judge packet | `docs/JUDGE_PACKET.md` |
 | Significant update / provenance evidence | `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
@@ -49,6 +49,18 @@ Static demo reel:
 
 ```text
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
+```
+
+Architecture diagram asset:
+
+```text
+https://github.com/Oxygen56/aegisops-autopilot/blob/main/docs/architecture/aegisops-architecture.svg
+```
+
+Architecture diagram PNG:
+
+```text
+https://github.com/Oxygen56/aegisops-autopilot/blob/main/docs/architecture/aegisops-architecture.png
 ```
 
 Alibaba Cloud proof code:
@@ -102,6 +114,7 @@ Then verify:
 - StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
 - The public video has the prepared title, description, chapters, thumbnail, and captions.
+- The architecture diagram asset opens without login.
 - The separate Alibaba proof recording link opens in a private/incognito window.
 - The Alibaba Workbench screenshot is attached or publicly linked and does not expose secrets.
 - The Qwen base URL proof link opens without login.

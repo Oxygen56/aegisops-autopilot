@@ -37,6 +37,7 @@ fs.mkdirSync(packageDir, { recursive: true });
 
 run("pnpm", ["run", "qwen:audit"]);
 run("pnpm", ["run", "model:ops"]);
+run("pnpm", ["run", "architecture:diagram"]);
 run("pnpm", ["run", "provenance:audit"]);
 run("pnpm", ["run", "video:audit"]);
 run("pnpm", ["run", "submission:audit"]);

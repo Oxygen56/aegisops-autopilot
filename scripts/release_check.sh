@@ -10,6 +10,7 @@ pnpm run smoke
 pnpm run smoke:mcp
 pnpm run qwen:audit
 pnpm run model:ops
+pnpm run architecture:diagram
 pnpm run provenance:audit
 pnpm run deploy:verify:smoke
 pnpm run judge:transcript
@@ -21,6 +22,8 @@ test -s LICENSE
 test -s README.md
 test -s .stackblitzrc
 test -s docs/ARCHITECTURE.md
+test -s docs/architecture/aegisops-architecture.svg
+test -s docs/architecture/aegisops-architecture.png
 test -s docs/IMPACT_CASE.md
 test -s docs/JUDGE_PACKET.md
 test -s docs/JUDGE_QUICKSTART.md
@@ -49,6 +52,7 @@ test -s infra/alibaba/ecs.env.example
 bash -n infra/alibaba/deploy-acr-ecs.sh
 test -s scripts/qwenIntegrationAudit.ts
 test -s scripts/modelOpsReport.ts
+test -s scripts/generateArchitectureDiagram.ts
 test -s scripts/buildProvenanceReport.ts
 test -s scripts/judgeEvidenceBundle.ts
 test -s scripts/videoAssetAudit.ts

@@ -1,5 +1,12 @@
 # AegisOps Architecture
 
+Upload-ready diagram asset:
+
+```text
+docs/architecture/aegisops-architecture.svg
+docs/architecture/aegisops-architecture.png
+```
+
 ```mermaid
 flowchart LR
   A["Incident alert"] --> B["Memory recall"]

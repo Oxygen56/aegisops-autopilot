@@ -74,6 +74,8 @@ The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. T
 
 See `docs/ARCHITECTURE.md`.
 
+Upload-ready diagram assets: `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png`
+
 ## Judge Packet
 
 Fastest evidence path: `docs/JUDGE_PACKET.md`
@@ -132,6 +134,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
+- `docs/architecture/aegisops-architecture.svg` and `docs/architecture/aegisops-architecture.png`: upload-ready architecture diagram showing Qwen Cloud, the backend, memory, tools, dashboard, MCP/OpenAPI, and Alibaba Cloud proof runtime.
 - `docs/IMPACT_CASE.md`: target users, KPI model, adoption path, and impact evidence boundaries.
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.

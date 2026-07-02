@@ -20,6 +20,7 @@
     "smoke:mcp": "tsx scripts/mcpSmoke.ts",
     "qwen:audit": "tsx scripts/qwenIntegrationAudit.ts",
     "model:ops": "tsx scripts/modelOpsReport.ts",
+    "architecture:diagram": "tsx scripts/generateArchitectureDiagram.ts",
     "provenance:audit": "tsx scripts/buildProvenanceReport.ts",
     "judge:evidence": "tsx scripts/judgeEvidenceBundle.ts",
     "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
