@@ -18,6 +18,7 @@
     "secret:scan": "bash scripts/secret_scan.sh",
     "release:check": "bash scripts/release_check.sh",
     "ci": "pnpm run release:check && pnpm run build:pages",
+    "pages:publish": "bash scripts/publish_pages.sh",
     "video:record": "bash scripts/record_demo.sh"
   },
   "dependencies": {
