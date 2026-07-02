@@ -71,6 +71,7 @@ Direction: `maximize`
 | 1.0 | pass | build-provenance-gate | 0 | 27.642 | experiments/runs/20260703-050438_build-provenance-gate |
 | 1.0 | pass | build-provenance-ci-fetch-depth-gate | 0 | 27.654 | experiments/runs/20260703-050702_build-provenance-ci-fetch-depth-gate |
 | 1.0 | pass | stable-build-provenance-report | 0 | 27.752 | experiments/runs/20260703-051147_stable-build-provenance-report |
+| 1.0 | pass | alibaba-workbench-proof-gate | 0 | 27.474 | experiments/runs/20260703-052041_alibaba-workbench-proof-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |
