@@ -10,6 +10,7 @@ pnpm run smoke
 pnpm run smoke:mcp
 pnpm run qwen:audit
 pnpm run model:ops
+pnpm run provenance:audit
 pnpm run deploy:verify:smoke
 pnpm run judge:transcript
 pnpm run video:audit
@@ -23,6 +24,7 @@ test -s docs/ARCHITECTURE.md
 test -s docs/IMPACT_CASE.md
 test -s docs/JUDGE_PACKET.md
 test -s docs/JUDGE_QUICKSTART.md
+test -s docs/BUILD_PROVENANCE.md
 test -s docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 test -s docs/QWEN_TOOLS.md
 test -s docs/RUBRIC_SCORECARD.md
@@ -38,6 +40,7 @@ test -s agents/aegisops/openapi.yaml
 test -s agents/aegisops/cap-manifest.json
 test -s reports/qwen_integration_audit.md
 test -s reports/model_ops_report.md
+test -s reports/build_provenance.md
 test -s infra/alibaba/DEPLOYMENT.md
 test -s infra/alibaba/deploy-acr-ecs.sh
 test -s infra/alibaba/docker-compose.ecs.yml
@@ -45,6 +48,7 @@ test -s infra/alibaba/ecs.env.example
 bash -n infra/alibaba/deploy-acr-ecs.sh
 test -s scripts/qwenIntegrationAudit.ts
 test -s scripts/modelOpsReport.ts
+test -s scripts/buildProvenanceReport.ts
 test -s scripts/judgeEvidenceBundle.ts
 test -s scripts/videoAssetAudit.ts
 test -s reports/judge_demo_transcript.md

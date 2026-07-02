@@ -86,6 +86,7 @@ The CI release gate includes:
 - `docs/JUDGE_QUICKSTART.md`: fastest hands-on path.
 - `docs/RUBRIC_SCORECARD.md`: official 30/30/25/15 rubric mapping.
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
+- `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md`: contest-period build history and significant-update evidence.
 - `docs/IMPACT_CASE.md`: problem value, adoption path, KPI model, and impact boundaries.
 - `docs/ARCHITECTURE.md`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.

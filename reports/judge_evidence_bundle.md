@@ -6,7 +6,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 
 ## Summary
 
-- Verified items: 9
+- Verified items: 10
 - Account-gated items: 2
 - Missing items: 0
 
@@ -24,6 +24,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | VERIFIED | Submission fits Track 4: Autopilot Agent | `README.md`<br>`submissions/devpost_fields.md`<br>`reports/brief.md` | Track is named consistently in the public repository, Devpost copy, and contest brief. |
 | VERIFIED | Project uses Qwen Cloud models and API surface | `src/server/agent/qwenClient.ts`<br>`reports/qwen_integration_audit.md`<br>`docs/QWEN_TOOLS.md` | Automated audit verifies endpoint, credentials, offline fallback, live tool-call loop, OpenAPI tools, MCP, and CI coverage. |
 | VERIFIED | Judges can run the project without private credentials | `docs/JUDGE_QUICKSTART.md`<br>`.stackblitzrc`<br>`reports/qwen_integration_audit.md` | StackBlitz/local judging uses deterministic fixtures while preserving the same orchestration path. |
+| VERIFIED | Contest-period build provenance is documented | `docs/BUILD_PROVENANCE.md`<br>`reports/build_provenance.md`<br>`reports/experiment_board.md` | Generated provenance report maps Git history to major contest-delivery milestones and evidence files. |
 
 ## Technical Depth & Engineering
 

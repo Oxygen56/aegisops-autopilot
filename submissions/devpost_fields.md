@@ -18,6 +18,8 @@ AegisOps turns ambiguous production alerts into a traced remediation workflow. I
 
 The impact target is practical production operations: reduce triage time, improve evidence completeness, and prevent unsafe autonomous mutation for reliability, privacy, and billing-risk incidents. The repository includes `docs/IMPACT_CASE.md` with target users, KPI model, adoption path, and evidence boundaries.
 
+The repository also includes `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md`, which map Git history to major contest-delivery milestones for the Devpost New & Existing project rule.
+
 ## How We Built It
 
 The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client compatible with the OpenAI chat-completions interface. The backend includes a persistent memory layer, deterministic incident fixtures, a five-tool registry for logs/metrics/change graph/policy/dry-run execution, an OpenAI-compatible Qwen Function Calling loop, a risk-scored remediation planner, an OpenAPI tool surface, a lightweight MCP stdio server, and an Alibaba Cloud proof endpoint.
@@ -116,6 +118,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, Function Calling loop, custom tool, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
+- `reports/build_provenance.md`: generated Git-history milestone report for contest-period implementation evidence.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate, judging rubric, and account-gated boundaries.
 - `src/client/main.tsx`: visible `Judge rubric evidence` dashboard panel for the official 30/30/25/15 review path.

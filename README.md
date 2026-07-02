@@ -87,6 +87,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Submission audit: `reports/submission_audit.md`
 - Qwen integration audit: `reports/qwen_integration_audit.md`
 - Model ops report: `reports/model_ops_report.md`
+- Build provenance: `reports/build_provenance.md`
 - Visible rubric evidence UI: `src/client/main.tsx` renders the 30/30/25/15 judging map in the dashboard
 
 ## Submission Assets
@@ -95,6 +96,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Judge packet: `docs/JUDGE_PACKET.md`
+- Build provenance: `docs/BUILD_PROVENANCE.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Rubric scorecard: `docs/RUBRIC_SCORECARD.md`

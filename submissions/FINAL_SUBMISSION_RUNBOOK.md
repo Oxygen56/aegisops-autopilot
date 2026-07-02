@@ -19,6 +19,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Track | `Track 4: Autopilot Agent` |
 | Architecture diagram | `docs/ARCHITECTURE.md` |
 | Judge packet | `docs/JUDGE_PACKET.md` |
+| Significant update / provenance evidence | `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` |
 | Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
@@ -114,6 +115,7 @@ Then point judges to:
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md` for official Devpost requirement coverage.
 - `docs/JUDGE_QUICKSTART.md` for the fastest test path.
 - `docs/JUDGE_PACKET.md` for the one-page evidence map.
+- `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` for the build history and significant-update evidence.
 - `docs/RUBRIC_SCORECARD.md` for the 30/30/25/15 rubric mapping.
 - `reports/judge_demo_transcript.md` for deterministic evidence.
 - `reports/submission_audit.md` for requirement coverage.

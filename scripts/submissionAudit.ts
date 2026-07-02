@@ -55,6 +55,12 @@ const items: AuditItem[] = [
     note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and has automated integration and model-ops evidence."
   },
   {
+    area: "New and existing project provenance",
+    status: "verified",
+    evidence: requireEvidence(["docs/BUILD_PROVENANCE.md", "reports/build_provenance.md", "scripts/buildProvenanceReport.ts", "reports/experiment_board.md"]),
+    note: "The repository includes a generated build-provenance report from Git history and a contestctl experiment ledger for major implementation milestones."
+  },
+  {
     area: "Custom tool and MCP integration",
     status: "verified",
     evidence: requireEvidence([
@@ -177,6 +183,9 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["docs/BUILD_PROVENANCE.md", "Build Provenance"],
+  ["reports/build_provenance.md", "Build Provenance"],
+  ["reports/build_provenance.md", "Upload-ready demo video asset evidence"],
   ["src/client/main.tsx", "Judge rubric evidence"],
   ["src/client/main.tsx", "Why this is built for Track 4 winner review"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],

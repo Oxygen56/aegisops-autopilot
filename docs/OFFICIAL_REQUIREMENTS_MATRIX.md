@@ -31,6 +31,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Open-source license visible in repository | Verified | `LICENSE` |
 | Functional source code, assets, and instructions | Verified | `README.md`, `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `Dockerfile` |
 | Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
+| New or significantly updated project evidence | Verified | `docs/BUILD_PROVENANCE.md`, `reports/build_provenance.md`, `reports/experiment_board.md` |
 | Proof of Alibaba Cloud deployment/API usage | External action | Code proof exists in `src/server/cloud/alibabaProof.ts`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md` |
 | Public demo video about 3 minutes | External action | Local 65-second video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; consistency audit exists at `reports/video_asset_audit.md`; public upload still required |

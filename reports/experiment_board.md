@@ -68,6 +68,7 @@ Direction: `maximize`
 | 1.0 | pass | final-submission-package-rubric-evidence-ui | 0 | 11.988 | experiments/runs/20260703-044120_final-submission-package-rubric-evidence-ui |
 | 1.0 | pass | demo-reel-slide-count-gate | 0 | 26.933 | experiments/runs/20260703-044356_demo-reel-slide-count-gate |
 | 1.0 | pass | video-asset-refresh-gate | 0 | 27.196 | experiments/runs/20260703-045611_video-asset-refresh-gate |
+| 1.0 | pass | build-provenance-gate | 0 | 27.642 | experiments/runs/20260703-050438_build-provenance-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

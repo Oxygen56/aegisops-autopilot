@@ -77,6 +77,18 @@ const items: EvidenceItem[] = [
     proof: "StackBlitz/local judging uses deterministic fixtures while preserving the same orchestration path."
   },
   {
+    section: "Stage One Viability",
+    claim: "Contest-period build provenance is documented",
+    status: verified(
+      includes("docs/BUILD_PROVENANCE.md", "Build Provenance") &&
+        includes("reports/build_provenance.md", "Milestones checked") &&
+        includes("reports/build_provenance.md", "Visible judge rubric evidence UI") &&
+        includes("reports/build_provenance.md", "Upload-ready demo video asset evidence")
+    ),
+    evidence: ["docs/BUILD_PROVENANCE.md", "reports/build_provenance.md", "reports/experiment_board.md"],
+    proof: "Generated provenance report maps Git history to major contest-delivery milestones and evidence files."
+  },
+  {
     section: "Technical Depth & Engineering",
     claim: "Non-trivial typed architecture with error handling and fallback",
     status: verified(
