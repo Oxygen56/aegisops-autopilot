@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.github
+.env
+.env.*
+data/runtime
+experiments/runs
+buidl/package
+docs/demo/*.mov
+docs/demo/thumbs
+*.log
+.DS_Store

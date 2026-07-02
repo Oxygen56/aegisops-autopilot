@@ -1,0 +1,35 @@
+{
+  "summary": {
+    "fullAverage": 0.988,
+    "noMemoryAverage": 0.738,
+    "noApprovalExecutionAverage": 0.863,
+    "singleAgentBaselineAverage": 0.42,
+    "averageGainOverSingleAgent": 0.568
+  },
+  "rows": [
+    {
+      "incidentId": "checkout-tax-latency",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "support-pii-leak-risk",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "billing-duplicate-webhooks",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    }
+  ]
+}

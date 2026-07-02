@@ -1,0 +1,93 @@
+openapi: 3.1.0
+info:
+  title: AegisOps Autopilot Tool API
+  version: 0.1.0
+  description: Tool endpoints for Qwen-powered incident diagnosis and approval-gated remediation.
+servers:
+  - url: http://localhost:8787
+paths:
+  /api/tools:
+    get:
+      operationId: listAegisOpsTools
+      summary: List available AegisOps tools
+      responses:
+        "200":
+          description: Tool definitions
+  /api/tools/log_search:
+    post:
+      operationId: logSearch
+      summary: Search logs for incident evidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentToolInput"
+      responses:
+        "200":
+          description: Tool call result
+  /api/tools/metric_probe:
+    post:
+      operationId: metricProbe
+      summary: Probe service metrics and SLIs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentToolInput"
+      responses:
+        "200":
+          description: Tool call result
+  /api/tools/change_graph:
+    post:
+      operationId: changeGraph
+      summary: Inspect recent changes near the alert window
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentToolInput"
+      responses:
+        "200":
+          description: Tool call result
+  /api/tools/policy_check:
+    post:
+      operationId: policyCheck
+      summary: Check approval and mutation policy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentToolInput"
+      responses:
+        "200":
+          description: Tool call result
+  /api/tools/remediation_simulator:
+    post:
+      operationId: remediationSimulator
+      summary: Dry-run a reversible remediation plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentToolInput"
+      responses:
+        "200":
+          description: Tool call result
+components:
+  schemas:
+    IncidentToolInput:
+      type: object
+      required:
+        - incidentId
+      properties:
+        incidentId:
+          type: string
+          enum:
+            - checkout-tax-latency
+            - support-pii-leak-risk
+            - billing-duplicate-webhooks

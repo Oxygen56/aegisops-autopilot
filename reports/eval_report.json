@@ -1,0 +1,65 @@
+{
+  "averageOverall": 0.988,
+  "runs": [
+    {
+      "incidentId": "checkout-tax-latency",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "support-pii-leak-risk",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "billing-duplicate-webhooks",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    }
+  ]
+}

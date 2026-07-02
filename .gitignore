@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+data/runtime/*.jsonl
+data/runtime/*.json
+experiments/runs/
+buidl/package/*.zip
+docs/demo/*.mov
+docs/demo/thumbs/
+*.log
+.DS_Store

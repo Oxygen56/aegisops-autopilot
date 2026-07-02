@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+pnpm run secret:scan
+pnpm run test
+pnpm run build
+pnpm run eval
+pnpm run eval:ablation
+pnpm run smoke
+pnpm run smoke:mcp
+
+test -s LICENSE
+test -s README.md
+test -s docs/ARCHITECTURE.md
+test -s docs/QWEN_TOOLS.md
+test -s docs/VIDEO_SUBMISSION.md
+test -s submissions/devpost_fields.md
+test -s docs/demo/aegisops-demo-reel-draft.m4v
+test -s docs/screenshots/aegisops-dashboard-viewport.png
+test -s agents/aegisops/openapi.yaml
+test -s agents/aegisops/cap-manifest.json
+
+echo "release check passed"

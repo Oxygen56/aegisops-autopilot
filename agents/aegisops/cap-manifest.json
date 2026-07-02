@@ -1,0 +1,59 @@
+{
+  "name": "aegisops-autopilot",
+  "version": "0.1.0",
+  "description": "Qwen-powered production incident autopilot with persistent memory, tool evidence, risk-scored planning, and human approval gates.",
+  "primaryTrack": "Track 4: Autopilot Agent",
+  "secondarySignals": ["Track 1: MemoryAgent", "Track 3: Agent Society"],
+  "qwenCloud": {
+    "baseUrlEnv": "QWEN_BASE_URL",
+    "apiKeyEnv": ["QWEN_API_KEY", "DASHSCOPE_API_KEY"],
+    "defaultBaseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+    "defaultModel": "qwen-plus",
+    "clientFile": "src/server/agent/qwenClient.ts"
+  },
+  "toolSurfaces": {
+    "http": {
+      "openapi": "agents/aegisops/openapi.yaml",
+      "basePath": "/api/tools"
+    },
+    "mcp": {
+      "transport": "stdio",
+      "command": "pnpm run mcp:stdio",
+      "serverFile": "src/server/mcp/aegisopsMcp.ts"
+    }
+  },
+  "tools": [
+    {
+      "name": "log_search",
+      "risk": "low",
+      "purpose": "Search incident-correlated log patterns and return audit-safe excerpts."
+    },
+    {
+      "name": "metric_probe",
+      "risk": "low",
+      "purpose": "Probe SLI and health signals for the affected service."
+    },
+    {
+      "name": "change_graph",
+      "risk": "low",
+      "purpose": "Inspect recent changes overlapping the alert window."
+    },
+    {
+      "name": "policy_check",
+      "risk": "medium",
+      "purpose": "Evaluate hard stops, approval requirements, and mutation policy."
+    },
+    {
+      "name": "remediation_simulator",
+      "risk": "medium",
+      "purpose": "Dry-run reversible remediation plans without production mutation."
+    }
+  ],
+  "judgeEvidence": [
+    "reports/eval_report.md",
+    "reports/ablation_report.md",
+    "docs/ARCHITECTURE.md",
+    "docs/QWEN_TOOLS.md",
+    "infra/alibaba/DEPLOYMENT.md"
+  ]
+}
