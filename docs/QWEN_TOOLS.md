@@ -20,7 +20,7 @@ The workflow passes five incident-scoped tools to Qwen Cloud with the OpenAI-com
 
 In live Qwen mode, AegisOps sets `tool_choice=auto`, accepts Qwen `tool_calls`, executes only the incident-scoped server-side tools from the registry, appends tool results as `role=tool` messages, and asks Qwen for the final diagnosis. The loop is capped at two tool-call rounds.
 
-The production-safety design still executes the core evidence tools server-side before diagnosis. Qwen-selected tools are read-only evidence probes or dry-run simulations, and production mutation remains behind the separate human approval gate.
+The production-safety design still executes the core evidence tools server-side before diagnosis. Qwen-selected tools are read-only evidence probes or dry-run simulations, and production mutation remains behind the separate human approval gate. The server also overrides any model-supplied `incidentId` with the active workflow incident before executing tools, so a model-selected tool cannot pivot into another incident fixture.
 
 ## HTTP Tool Surface
 
@@ -76,7 +76,7 @@ Run:
 pnpm run qwen:audit
 ```
 
-This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, Qwen Function Calling tool schemas, live tool-call loop, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
+This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, Qwen Function Calling tool schemas, live tool-call loop, active-incident scoping, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
 
 ## Model Ops Report
 

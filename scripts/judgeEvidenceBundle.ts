@@ -93,12 +93,13 @@ const items: EvidenceItem[] = [
     status: verified(
       includes("docs/QWEN_TOOLS.md", "OpenAI-compatible Qwen Function Calling") &&
         includes("docs/QWEN_TOOLS.md", "role=tool") &&
+        includes("reports/qwen_integration_audit.md", "Qwen tool calls are scoped to the active incident") &&
         includes("agents/aegisops/openapi.yaml", "/api/tools/log_search") &&
         includes("src/server/mcp/aegisopsMcp.ts", "tools/list") &&
         includes("tests/orchestrator.test.ts", "Qwen tool loop should make a follow-up model call")
     ),
     evidence: ["docs/QWEN_TOOLS.md", "agents/aegisops/openapi.yaml", "src/server/mcp/aegisopsMcp.ts", "tests/orchestrator.test.ts"],
-    proof: "One registry backs Qwen request schemas, live role=tool round trips, HTTP endpoints, and MCP stdio calls."
+    proof: "One registry backs Qwen request schemas, live role=tool round trips, active-incident scoping, HTTP endpoints, and MCP stdio calls."
   },
   {
     section: "Innovation & AI Creativity",

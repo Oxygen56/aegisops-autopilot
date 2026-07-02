@@ -148,7 +148,7 @@ export async function runIncidentWorkflow(options: RunOptions): Promise<Workflow
     {
       tools: listQwenToolSchemas(),
       toolChoice: "auto",
-      toolExecutor: (name, input) => executeAegisTool(name, { incidentId: incident.id, ...input }),
+      toolExecutor: (name, input) => executeAegisTool(name, { ...input, incidentId: incident.id }),
       maxToolRounds: 2
     }
   );

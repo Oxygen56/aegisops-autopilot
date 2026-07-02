@@ -26,7 +26,7 @@ The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client c
 
 `src/server/agent/qwenClient.ts` calls Qwen Cloud through `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` by default and accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY`. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
-The live Qwen path sends five OpenAI-compatible function tool schemas in the Qwen `tools` field with `tool_choice=auto`. When Qwen returns `tool_calls`, the server executes only incident-scoped tools, appends `role=tool` outputs, and asks Qwen for the final diagnosis. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
+The live Qwen path sends five OpenAI-compatible function tool schemas in the Qwen `tools` field with `tool_choice=auto`. When Qwen returns `tool_calls`, the server executes only incident-scoped tools, overrides any model-supplied incident ID with the active workflow incident, appends `role=tool` outputs, and asks Qwen for the final diagnosis. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
 ## Custom Tool / MCP Integration
 

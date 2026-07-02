@@ -122,6 +122,48 @@ try {
   assert.ok(secondMessages.some((message) => message.role === "tool" && message.tool_call_id === "call-policy"));
   assert.ok(secondMessages.some((message) => message.role === "tool" && /human approval/i.test(String(message.content))));
 
+  const scopedWorkflowBodies: Array<Record<string, unknown>> = [];
+  globalThis.fetch = async (_url, init) => {
+    scopedWorkflowBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+    if (scopedWorkflowBodies.length === 1) {
+      return Response.json({
+        choices: [
+          {
+            message: {
+              content: "",
+              tool_calls: [
+                {
+                  id: "call-policy-scope",
+                  type: "function",
+                  function: {
+                    name: "policy_check",
+                    arguments: '{"incidentId":"support-pii-leak-risk"}'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      });
+    }
+    return Response.json({ choices: [{ message: { content: "incident-scoped diagnosis" } }] });
+  };
+
+  const scopedWorkflow = await runIncidentWorkflow({
+    incidentId: "checkout-tax-latency",
+    autoApprove: false,
+    memoryStore: new MemoryStore(undefined, false)
+  });
+
+  assert.equal(scopedWorkflow.providerMode, "qwen-cloud");
+  assert.equal(scopedWorkflow.findings[1].stance, "incident-scoped diagnosis");
+  assert.equal(scopedWorkflowBodies.length, 2, "workflow tool call should be followed by a Qwen summary request");
+  const scopedSecondMessages = scopedWorkflowBodies[1].messages as Array<{ role?: string; content?: string }>;
+  const scopedToolMessage = scopedSecondMessages.find((message) => message.role === "tool");
+  assert.ok(scopedToolMessage, "workflow should append a tool result message");
+  assert.match(String(scopedToolMessage.content), /Do not disable fraud checks/i);
+  assert.doesNotMatch(String(scopedToolMessage.content), /No outbound customer message/i);
+
   globalThis.fetch = async () => new Response("provider unavailable", { status: 503 });
 
   const providerFailure = await runIncidentWorkflow({

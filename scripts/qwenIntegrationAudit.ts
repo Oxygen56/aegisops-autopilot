@@ -106,6 +106,15 @@ add(
 
 add(
   checks,
+  "Qwen tool calls are scoped to the active incident",
+  orchestrator.includes("{ ...input, incidentId: incident.id }") &&
+    includes("tests/orchestrator.test.ts", "Do not disable fraud checks") &&
+    includes("tests/orchestrator.test.ts", "No outbound customer message"),
+  "The workflow overrides model-supplied incidentId before executing tools and tests the cross-incident guard"
+);
+
+add(
+  checks,
   "MCP stdio exposes list and call methods",
   mcpServer.includes("tools/list") &&
     mcpServer.includes("tools/call") &&
@@ -141,7 +150,7 @@ const lines = [
   "",
   "## Judge-Relevant Claim",
   "",
-  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API, sends OpenAI-compatible function tool schemas in the Qwen request body, supports live Qwen tool-call round trips with role=tool outputs, and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
+  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API, sends OpenAI-compatible function tool schemas in the Qwen request body, supports live Qwen tool-call round trips with role=tool outputs, scopes model-selected tool calls to the active incident, and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
   ""
 ];
 

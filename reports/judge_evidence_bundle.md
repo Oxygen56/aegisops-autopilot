@@ -30,7 +30,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Non-trivial typed architecture with error handling and fallback | `src/server/agent/orchestrator.ts`<br>`src/server/agent/qwenClient.ts`<br>`tests/orchestrator.test.ts`<br>`reports/model_ops_report.md` | Tests and model-ops report cover provider failure, deterministic fallback, and approval preservation. |
-| VERIFIED | Custom tool system is portable through Qwen Function Calling, HTTP/OpenAPI, and MCP | `docs/QWEN_TOOLS.md`<br>`agents/aegisops/openapi.yaml`<br>`src/server/mcp/aegisopsMcp.ts`<br>`tests/orchestrator.test.ts` | One registry backs Qwen request schemas, live role=tool round trips, HTTP endpoints, and MCP stdio calls. |
+| VERIFIED | Custom tool system is portable through Qwen Function Calling, HTTP/OpenAPI, and MCP | `docs/QWEN_TOOLS.md`<br>`agents/aegisops/openapi.yaml`<br>`src/server/mcp/aegisopsMcp.ts`<br>`tests/orchestrator.test.ts` | One registry backs Qwen request schemas, live role=tool round trips, active-incident scoping, HTTP endpoints, and MCP stdio calls. |
 
 ## Innovation & AI Creativity
 
