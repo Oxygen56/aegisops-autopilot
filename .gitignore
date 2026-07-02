@@ -10,3 +10,4 @@ docs/demo/*.mov
 docs/demo/thumbs/
 *.log
 .DS_Store
+reports/final_preflight.md

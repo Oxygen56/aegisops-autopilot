@@ -80,6 +80,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Ablation eval: `reports/ablation_report.md`
 - Experiment ledger: `reports/experiment_board.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
+- Final preflight: `pnpm run final:preflight` writes `reports/final_preflight.md`
 - Submission audit: `reports/submission_audit.md`
 
 ## Submission Assets

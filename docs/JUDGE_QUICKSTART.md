@@ -56,6 +56,7 @@ pnpm run eval:ablation
 pnpm run smoke
 pnpm run smoke:mcp
 pnpm run submission:audit
+pnpm run final:preflight
 ```
 
 ## 4. API Evidence
