@@ -102,6 +102,12 @@ const items: AuditItem[] = [
     note: "The local upload-ready video exists; it still must be uploaded publicly to YouTube, Vimeo, or Youku."
   },
   {
+    area: "Optional blog or social post prize",
+    status: "external-action",
+    evidence: requireEvidence(["submissions/blog_post_draft.md", "submissions/devpost_fields.md"]),
+    note: "A publish-ready post draft is present; it still must be published publicly and linked in Devpost."
+  },
+  {
     area: "Judging evidence and reproducibility",
     status: "verified",
     evidence: requireEvidence(["reports/eval_report.md", "reports/ablation_report.md", "reports/experiment_board.md"]),
@@ -163,8 +169,9 @@ const lines = [
   "",
   "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
   "2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public URL into Devpost.",
-  "3. Recheck the GitHub Pages URL; if it still returns 404, use the documented StackBlitz backup workspace as the working demo link.",
-  "4. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
+  "3. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
+  "4. Recheck the GitHub Pages URL; if it still returns 404, use the documented StackBlitz backup workspace as the working demo link.",
+  "5. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
   ""
 ];
 

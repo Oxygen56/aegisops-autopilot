@@ -16,4 +16,5 @@
 - [ ] GitHub Pages target is returning 200 before final submit.
 - [ ] Alibaba Cloud live deployment URL is published.
 - [ ] Demo video under three minutes is uploaded to YouTube/Vimeo/Youku.
+- [ ] Optional blog/social post is published and linked.
 - [ ] Devpost final submit button is clicked by the account owner.

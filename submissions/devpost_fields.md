@@ -66,6 +66,12 @@ Local draft: `docs/demo/aegisops-demo-reel-draft.m4v`
 
 TODO: Upload the local draft to YouTube/Vimeo/Youku and paste the public URL here.
 
+## Blog / Social Post
+
+Draft: `submissions/blog_post_draft.md`
+
+TODO: Publish the draft publicly and paste the URL here for the optional Blog Post Prize.
+
 ## Repository
 
 https://github.com/Oxygen56/aegisops-autopilot

@@ -26,6 +26,7 @@ Direction: `maximize`
 | 1.0 | pass | ci-pages-relative-base | 0 | 8.352 | experiments/runs/20260703-012223_ci-pages-relative-base |
 | 1.0 | pass | submission-audit-release-gate | 0 | 8.357 | experiments/runs/20260703-013709_submission-audit-release-gate |
 | 1.0 | pass | demo-link-audit-docker-script | 0 | 8.392 | experiments/runs/20260703-013903_demo-link-audit-docker-script |
+| 1.0 | pass | blog-prize-audit-gate | 0 | 8.37 | experiments/runs/20260703-014120_blog-prize-audit-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |
