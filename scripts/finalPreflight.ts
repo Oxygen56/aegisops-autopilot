@@ -53,6 +53,26 @@ function httpStatus(url: string): string {
   return statuses.at(-1) ?? "no HTTP status";
 }
 
+function workflowRun(workflow: string): { ok: boolean; fields: string[]; output: string } {
+  const result = safeRun("gh", [
+    "run",
+    "list",
+    "--repo",
+    "Oxygen56/aegisops-autopilot",
+    "--workflow",
+    workflow,
+    "--branch",
+    "main",
+    "--limit",
+    "1",
+    "--json",
+    "databaseId,workflowName,status,conclusion,headSha,url",
+    "--jq",
+    ".[0] | [.databaseId,.workflowName,.status,.conclusion,.headSha,.url] | @tsv"
+  ]);
+  return { ok: result.ok, fields: result.output.split("\t"), output: result.output };
+}
+
 function add(checks: Check[], name: string, status: Check["status"], evidence: string): void {
   checks.push({ name, status, evidence: evidence.replace(/\r?\n/g, " ").slice(0, 500) });
 }
@@ -71,24 +91,20 @@ add(
   `HEAD=${head.output || "unknown"} origin/main=${originMain.output || "unknown"}`
 );
 
-const latestRun = safeRun("gh", [
-  "run",
-  "list",
-  "--repo",
-  "Oxygen56/aegisops-autopilot",
-  "--limit",
-  "1",
-  "--json",
-  "databaseId,status,conclusion,headSha,url",
-  "--jq",
-  ".[0] | [.databaseId,.status,.conclusion,.headSha,.url] | @tsv"
-]);
-const latestRunFields = latestRun.output.split("\t");
+const ciRun = workflowRun("CI");
 add(
   checks,
-  "Latest GitHub CI/check run",
-  latestRun.ok && latestRunFields[1] === "completed" && latestRunFields[2] === "success" ? "pass" : "warn",
-  latestRun.output || "no run found"
+  "Latest GitHub CI run",
+  ciRun.ok && ciRun.fields[2] === "completed" && ciRun.fields[3] === "success" ? "pass" : "warn",
+  ciRun.output || "no CI run found"
+);
+
+const pagesRun = workflowRun("Deploy GitHub Pages");
+add(
+  checks,
+  "Latest GitHub Pages workflow run",
+  pagesRun.ok && pagesRun.fields[2] === "completed" && pagesRun.fields[3] === "success" ? "pass" : "warn",
+  pagesRun.output || "no Pages workflow run found"
 );
 
 const stackblitz = httpStatus("https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev");
@@ -96,6 +112,9 @@ add(checks, "Primary StackBlitz demo URL", stackblitz.includes(" 200") ? "pass" 
 
 const pages = httpStatus("https://oxygen56.github.io/aegisops-autopilot/");
 add(checks, "GitHub Pages target URL", pages.includes(" 200") ? "pass" : "warn", pages);
+
+const pagesReel = httpStatus("https://oxygen56.github.io/aegisops-autopilot/?reel=1");
+add(checks, "GitHub Pages demo reel URL", pagesReel.includes(" 200") ? "pass" : "warn", pagesReel);
 
 const buidlZip = newestFile("qwencloud-hackathon_");
 add(checks, "Latest BUIDL package", buidlZip ? "pass" : "fail", buidlZip ?? "missing");
@@ -112,6 +131,7 @@ const requiredFiles = [
   "reports/submission_audit.md",
   "submissions/devpost_fields.md",
   "submissions/blog_post_draft.md",
+  ".github/workflows/pages.yml",
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "infra/alibaba/DEPLOYMENT.md",
   "src/server/cloud/alibabaProof.ts"
@@ -158,7 +178,7 @@ const lines = [
   "3. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
   "4. Submit the Devpost form from the account owner session before the deadline.",
   "",
-  "Recommended live demo URL if GitHub Pages is still 404:",
+  "Primary runnable workspace:",
   "",
   "```text",
   "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
