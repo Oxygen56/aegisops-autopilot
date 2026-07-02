@@ -22,17 +22,23 @@ Recommended topics:
 qwen-cloud, ai-agent, autopilot-agent, mcp, incident-response, alibaba-cloud, hackathon
 ```
 
-After creating the GitHub repository:
+Repository created:
+
+```text
+https://github.com/Oxygen56/aegisops-autopilot
+```
+
+If pushing from a fresh clone:
 
 ```bash
-git remote add origin git@github.com:<owner>/aegisops-autopilot.git
+git remote add origin https://github.com/Oxygen56/aegisops-autopilot.git
 git push -u origin main
 ```
 
 Devpost repository URL field:
 
 ```text
-https://github.com/<owner>/aegisops-autopilot
+https://github.com/Oxygen56/aegisops-autopilot
 ```
 
 ## Pre-Push Gate
@@ -69,7 +75,7 @@ Deploy the Docker container following `infra/alibaba/DEPLOYMENT.md`.
 Devpost deployment proof code link:
 
 ```text
-https://github.com/<owner>/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
+https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 ```
 
 If deployed live, also include:

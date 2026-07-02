@@ -27,6 +27,7 @@ AegisOps automates the incident workflow end to end:
 - Live URL: TODO after Alibaba Cloud deployment.
 - Video: local draft at `docs/demo/aegisops-demo-reel-draft.m4v`; TODO upload to YouTube/Vimeo/Youku and paste public URL.
 - Local run: `pnpm install && pnpm run test && pnpm run build && pnpm run dev`
+- Repository: https://github.com/Oxygen56/aegisops-autopilot
 
 ## Technical Architecture
 
@@ -39,7 +40,7 @@ AegisOps automates the incident workflow end to end:
 - Tool registry: `src/server/agent/toolRegistry.ts`.
 - MCP server: `src/server/mcp/aegisopsMcp.ts`.
 - OpenAPI spec: `agents/aegisops/openapi.yaml`.
-- Alibaba Cloud proof: `src/server/cloud/alibabaProof.ts`.
+- Alibaba Cloud proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts.
 - Architecture diagram: `docs/ARCHITECTURE.md`.
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`.
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`.

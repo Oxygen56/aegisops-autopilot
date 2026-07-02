@@ -36,7 +36,7 @@ The five tool calls are `log_search`, `metric_probe`, `change_graph`, `policy_ch
 
 ## Alibaba Cloud Deployment Proof
 
-Code proof: `src/server/cloud/alibabaProof.ts`
+Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 
 Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
@@ -56,7 +56,7 @@ TODO: Upload the local draft to YouTube/Vimeo/Youku and paste the public URL her
 
 ## Repository
 
-TODO: Add public GitHub repository URL after publishing.
+https://github.com/Oxygen56/aegisops-autopilot
 
 ## Testing Instructions
 

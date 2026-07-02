@@ -18,6 +18,7 @@ Direction: `maximize`
 | 1.0 | pass | api-smoke-video-reel | 0 | 1.056 | experiments/runs/20260703-004003_api-smoke-video-reel |
 | 1.0 | pass | production-build-video-pack | 0 | 1.586 | experiments/runs/20260703-004038_production-build-video-pack |
 | 1.0 | pass | release-check-publish-ready | 0 | 5.201 | experiments/runs/20260703-004503_release-check-publish-ready |
+| 1.0 | pass | release-check-public-repo | 0 | 4.994 | experiments/runs/20260703-004841_release-check-public-repo |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |
