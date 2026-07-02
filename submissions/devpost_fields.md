@@ -46,6 +46,8 @@ GitHub Pages static demo: https://oxygen56.github.io/aegisops-autopilot/
 
 Demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
+Backup runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+
 The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
 
 ## Architecture Diagram

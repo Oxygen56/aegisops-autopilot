@@ -26,6 +26,7 @@ AegisOps automates the incident workflow end to end:
 
 - Live URL: https://oxygen56.github.io/aegisops-autopilot/
 - Demo reel URL: https://oxygen56.github.io/aegisops-autopilot/?reel=1
+- Backup runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
 - Video: local draft at `docs/demo/aegisops-demo-reel-draft.m4v`; TODO upload to YouTube/Vimeo/Youku and paste public URL.
 - Local run: `pnpm install && pnpm run test && pnpm run build && pnpm run dev`
 - Repository: https://github.com/Oxygen56/aegisops-autopilot

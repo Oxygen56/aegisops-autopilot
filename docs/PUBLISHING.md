@@ -82,6 +82,12 @@ Demo reel:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
+Backup runnable workspace:
+
+```text
+https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+```
+
 The static demo uses deterministic offline fixtures when `/api/*` is unavailable. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
 
 Deployment command:

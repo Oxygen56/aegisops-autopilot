@@ -36,6 +36,12 @@ Demo reel:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
+Backup runnable workspace:
+
+```text
+https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+```
+
 The Pages build runs without a private backend by falling back to deterministic offline fixtures. Live Qwen Cloud mode still uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
 
 ## Environment
