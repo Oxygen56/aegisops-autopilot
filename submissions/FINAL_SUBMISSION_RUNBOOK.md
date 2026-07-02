@@ -109,6 +109,7 @@ and post-incident learning.
 
 Then point judges to:
 
+- `docs/OFFICIAL_REQUIREMENTS_MATRIX.md` for official Devpost requirement coverage.
 - `docs/JUDGE_QUICKSTART.md` for the fastest test path.
 - `docs/JUDGE_PACKET.md` for the one-page evidence map.
 - `docs/RUBRIC_SCORECARD.md` for the 30/30/25/15 rubric mapping.

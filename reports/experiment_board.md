@@ -47,6 +47,8 @@ Direction: `maximize`
 | 1.0 | pass | qwen-integration-audit-gate | 0 | 27.358 | experiments/runs/20260703-031929_qwen-integration-audit-gate |
 | 1.0 | pass | final-submission-package-qwen-audit | 0 | 11.939 | experiments/runs/20260703-032327_final-submission-package-qwen-audit |
 | 1.0 | pass | model-ops-resilience-gate | 0 | 26.734 | experiments/runs/20260703-032843_model-ops-resilience-gate |
+| 1.0 | pass | final-submission-package-model-ops | 0 | 11.809 | experiments/runs/20260703-033133_final-submission-package-model-ops |
+| 1.0 | pass | official-requirements-matrix-gate | 0 | 26.873 | experiments/runs/20260703-033407_official-requirements-matrix-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

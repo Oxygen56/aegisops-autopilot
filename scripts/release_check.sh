@@ -21,6 +21,7 @@ test -s docs/ARCHITECTURE.md
 test -s docs/IMPACT_CASE.md
 test -s docs/JUDGE_PACKET.md
 test -s docs/JUDGE_QUICKSTART.md
+test -s docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 test -s docs/QWEN_TOOLS.md
 test -s docs/RUBRIC_SCORECARD.md
 test -s docs/VIDEO_SUBMISSION.md

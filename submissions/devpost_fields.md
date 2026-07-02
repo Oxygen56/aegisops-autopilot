@@ -111,6 +111,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
+- `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
 - `docs/IMPACT_CASE.md`: target users, KPI model, adoption path, and impact evidence boundaries.
 - `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.

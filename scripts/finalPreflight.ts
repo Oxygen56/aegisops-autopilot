@@ -141,6 +141,7 @@ const requiredFiles = [
   "docs/IMPACT_CASE.md",
   "docs/JUDGE_QUICKSTART.md",
   "docs/JUDGE_PACKET.md",
+  "docs/OFFICIAL_REQUIREMENTS_MATRIX.md",
   "docs/RUBRIC_SCORECARD.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
   "reports/qwen_integration_audit.md",

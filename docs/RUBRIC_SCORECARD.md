@@ -2,6 +2,8 @@
 
 This scorecard maps AegisOps Autopilot to the Qwen Cloud Hackathon judging criteria.
 
+For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`.
+
 ## Stage One: Baseline Viability
 
 | requirement | evidence | status |

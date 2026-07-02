@@ -151,6 +151,7 @@ const items: AuditItem[] = [
     area: "Devpost copy and final checklist",
     status: "verified",
     evidence: requireEvidence([
+      "docs/OFFICIAL_REQUIREMENTS_MATRIX.md",
       "submissions/FINAL_SUBMISSION_RUNBOOK.md",
       "submissions/devpost_fields.md",
       "buidl/BUIDL_SUBMISSION.md",
@@ -158,13 +159,14 @@ const items: AuditItem[] = [
       "docs/RUBRIC_SCORECARD.md",
       "scripts/validateSubmissionPackages.ts"
     ]),
-    note: "Submission copy, BUIDL summary, final external-action checklist, and package validation are prepared."
+    note: "Official requirement matrix, submission copy, BUIDL summary, final external-action checklist, and package validation are prepared."
   }
 ];
 
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
+  ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["reports/model_ops_report.md", "Cost And Latency Controls"],

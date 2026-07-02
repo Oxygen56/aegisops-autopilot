@@ -93,6 +93,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Judge packet: `docs/JUDGE_PACKET.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Rubric scorecard: `docs/RUBRIC_SCORECARD.md`
+- Official requirements matrix: `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`
 - Impact case: `docs/IMPACT_CASE.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
