@@ -45,8 +45,13 @@ const items: AuditItem[] = [
   {
     area: "Qwen Cloud model usage",
     status: "verified",
-    evidence: requireEvidence(["src/server/agent/qwenClient.ts", "docs/QWEN_TOOLS.md", "submissions/devpost_fields.md"]),
-    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY and defaults to the Qwen/DashScope OpenAI-compatible endpoint."
+    evidence: requireEvidence([
+      "src/server/agent/qwenClient.ts",
+      "docs/QWEN_TOOLS.md",
+      "reports/qwen_integration_audit.md",
+      "submissions/devpost_fields.md"
+    ]),
+    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and has an automated integration audit."
   },
   {
     area: "Custom tool and MCP integration",
@@ -56,9 +61,10 @@ const items: AuditItem[] = [
       "src/server/mcp/aegisopsMcp.ts",
       "agents/aegisops/openapi.yaml",
       "agents/aegisops/cap-manifest.json",
-      "docs/QWEN_TOOLS.md"
+      "docs/QWEN_TOOLS.md",
+      "reports/qwen_integration_audit.md"
     ]),
-    note: "Five incident-scoped tools are exposed through HTTP/OpenAPI and the MCP stdio server."
+    note: "Five incident-scoped tools are exposed through HTTP/OpenAPI and the MCP stdio server, with an automated Qwen integration audit."
   },
   {
     area: "Human-in-the-loop safety gates",
@@ -159,6 +165,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],

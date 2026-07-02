@@ -43,6 +43,8 @@ Direction: `maximize`
 | 1.0 | pass | final-submission-package-video-metadata | 0 | 13.637 | experiments/runs/20260703-030230_final-submission-package-video-metadata |
 | 1.0 | pass | alibaba-ecs-deployment-pack-gate | 0 | 26.972 | experiments/runs/20260703-030710_alibaba-ecs-deployment-pack-gate |
 | 1.0 | pass | impact-case-gate | 0 | 26.175 | experiments/runs/20260703-031237_impact-case-gate |
+| 1.0 | pass | final-submission-package-impact-case | 0 | 11.648 | experiments/runs/20260703-031543_final-submission-package-impact-case |
+| 1.0 | pass | qwen-integration-audit-gate | 0 | 27.358 | experiments/runs/20260703-031929_qwen-integration-audit-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

@@ -50,3 +50,13 @@ Tool call:
 ## Why This Matters For The Hackathon
 
 The Devpost rubric gives 30% weight to Innovation & AI Creativity and specifically calls out sophisticated Qwen Cloud API usage such as custom skills and MCP integrations. This tool surface makes the agent architecture inspectable and portable instead of hiding tool use inside the UI.
+
+## Automated Integration Audit
+
+Run:
+
+```bash
+pnpm run qwen:audit
+```
+
+This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
