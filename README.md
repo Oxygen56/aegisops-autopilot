@@ -80,12 +80,14 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Ablation eval: `reports/ablation_report.md`
 - Experiment ledger: `reports/experiment_board.md`
 - Submission audit: `reports/submission_audit.md`
+- Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 
 ## Submission Assets
 
 - Brief: `reports/brief.md`
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
+- Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
 - Static demo screenshot: `docs/screenshots/pages-static-reel.png`
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`

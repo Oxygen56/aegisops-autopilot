@@ -78,17 +78,19 @@ https://github.com/Oxygen56/aegisops-autopilot
 
 ## Testing Instructions
 
+Fastest judging path: open https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev and follow `docs/JUDGE_QUICKSTART.md`.
+
+Run the checkout latency incident with approval enabled, then run the support PII incident without approval to verify the human approval gate.
+
+For a local clone:
+
 ```bash
 pnpm install
-pnpm run test
-pnpm run build
-pnpm run eval
-pnpm run eval:ablation
-pnpm run smoke
+pnpm run ci
 pnpm run dev
 ```
 
-Then open the local Vite URL and run the incident workflow.
+Then open the local Vite URL and run the incident workflow. Focused verification commands are listed in `docs/JUDGE_QUICKSTART.md`.
 
 ## Evidence
 

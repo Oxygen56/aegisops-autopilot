@@ -84,6 +84,7 @@ const items: AuditItem[] = [
     evidence: requireEvidence([
       "README.md",
       ".stackblitzrc",
+      "docs/JUDGE_QUICKSTART.md",
       "docs/DEMO_SCRIPT.md",
       "docs/screenshots/aegisops-dashboard-viewport.png",
       "docs/screenshots/pages-static-reel.png"
