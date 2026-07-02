@@ -63,6 +63,8 @@ const rubricEvidence = [
   }
 ];
 
+const demoReelSlideCount = 7;
+
 function scorePercent(value: number): string {
   return `${Math.round(value * 100)}%`;
 }
@@ -336,7 +338,7 @@ function DemoReel() {
 
     void load();
     const timer = window.setInterval(() => {
-      setStep((current) => (current + 1) % 6);
+      setStep((current) => (current + 1) % demoReelSlideCount);
     }, 8500);
     return () => {
       alive = false;
