@@ -53,6 +53,7 @@ No private key is required for this path. With `QWEN_API_KEY` or `DASHSCOPE_API_
 
 ```bash
 pnpm run ci
+pnpm run judge:evidence
 pnpm run judge:transcript
 pnpm run submission:audit
 pnpm run final:preflight
@@ -88,6 +89,7 @@ The CI release gate includes:
 - `docs/IMPACT_CASE.md`: problem value, adoption path, KPI model, and impact boundaries.
 - `docs/ARCHITECTURE.md`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.
+- `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate and judging rubric.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, token estimates, latency budget, and fallback behavior.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.

@@ -144,9 +144,10 @@ const items: AuditItem[] = [
       "reports/eval_report.md",
       "reports/ablation_report.md",
       "reports/experiment_board.md",
-      "reports/judge_demo_transcript.md"
+      "reports/judge_demo_transcript.md",
+      "reports/judge_evidence_bundle.md"
     ]),
-    note: "The project includes deterministic fixture evaluation, ablation results, and contestctl run ledger."
+    note: "The project includes deterministic fixture evaluation, ablation results, contestctl run ledger, and a single judge evidence bundle."
   },
   {
     area: "Devpost copy and final checklist",
@@ -158,6 +159,7 @@ const items: AuditItem[] = [
       "buidl/BUIDL_SUBMISSION.md",
       "buidl/SUBMISSION_CHECKLIST.md",
       "docs/RUBRIC_SCORECARD.md",
+      "scripts/judgeEvidenceBundle.ts",
       "scripts/validateSubmissionPackages.ts"
     ]),
     note: "Official requirement matrix, submission copy, BUIDL summary, final external-action checklist, and package validation are prepared."
@@ -172,6 +174,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
+  ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],

@@ -80,6 +80,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
 - Experiment ledger: `reports/experiment_board.md`
+- Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
 - Final preflight: `pnpm run final:preflight` writes `reports/final_preflight.md`
 - Submission audit: `reports/submission_audit.md`
@@ -92,6 +93,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Architecture: `docs/ARCHITECTURE.md`
 - Qwen tools: `docs/QWEN_TOOLS.md`
 - Judge packet: `docs/JUDGE_PACKET.md`
+- Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Rubric scorecard: `docs/RUBRIC_SCORECARD.md`
 - Official requirements matrix: `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`

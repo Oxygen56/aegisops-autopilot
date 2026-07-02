@@ -37,6 +37,7 @@ fs.mkdirSync(packageDir, { recursive: true });
 
 run("pnpm", ["run", "qwen:audit"]);
 run("pnpm", ["run", "model:ops"]);
+run("pnpm", ["run", "judge:evidence"]);
 
 // First pass creates a report from the current clean repo and remote state.
 run("pnpm", ["run", "final:preflight"]);
@@ -77,8 +78,8 @@ run("zip", [
 
 // Second pass records the exact package names created above, then patches both zips.
 run("pnpm", ["run", "final:preflight"]);
-zipAdd(buidlZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
-zipAdd(fullZip, ["reports/final_preflight.md", "reports/alibaba_deployment_proof.md"]);
+zipAdd(buidlZip, ["reports/final_preflight.md", "reports/judge_evidence_bundle.md", "reports/alibaba_deployment_proof.md"]);
+zipAdd(fullZip, ["reports/final_preflight.md", "reports/judge_evidence_bundle.md", "reports/alibaba_deployment_proof.md"]);
 
 run("pnpm", ["run", "submission:validate"]);
 zipAdd(buidlZip, ["reports/package_validation.md"]);
