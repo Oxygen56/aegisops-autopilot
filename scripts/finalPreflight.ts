@@ -144,6 +144,7 @@ const requiredFiles = [
   "docs/OFFICIAL_REQUIREMENTS_MATRIX.md",
   "docs/RUBRIC_SCORECARD.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
+  "docs/ALIBABA_PROOF_RECORDING.md",
   "reports/qwen_integration_audit.md",
   "reports/model_ops_report.md",
   "reports/judge_demo_transcript.md",

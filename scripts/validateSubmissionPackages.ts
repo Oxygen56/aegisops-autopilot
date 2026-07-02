@@ -33,6 +33,7 @@ const requiredShared = [
   "docs/QWEN_TOOLS.md",
   "docs/VIDEO_SUBMISSION.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
+  "docs/ALIBABA_PROOF_RECORDING.md",
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "docs/demo/aegisops-demo-reel-draft.en.srt",
   "agents/aegisops/openapi.yaml",

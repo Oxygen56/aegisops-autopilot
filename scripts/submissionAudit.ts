@@ -94,10 +94,11 @@ const items: AuditItem[] = [
       "infra/alibaba/deploy-acr-ecs.sh",
       "infra/alibaba/docker-compose.ecs.yml",
       "infra/alibaba/ecs.env.example",
+      "docs/ALIBABA_PROOF_RECORDING.md",
       "scripts/verifyAlibabaDeployment.ts",
       "Dockerfile"
     ]),
-    note: "Code-level proof, ACR/ECS deployment pack, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
+    note: "Code-level proof, ACR/ECS deployment pack, proof-recording checklist, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
   },
   {
     area: "Working demo or test build",
@@ -167,6 +168,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
+  ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["reports/model_ops_report.md", "Cost And Latency Controls"],

@@ -21,7 +21,7 @@ Use this runbook for the account-owned Devpost submission. It reflects the offic
 | Judge packet | `docs/JUDGE_PACKET.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` |
-| Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, then run `pnpm run deploy:verify -- https://<your-domain>` after deployment |
+| Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
 ## Links To Paste
@@ -71,11 +71,12 @@ https://<your-domain>/api/alibaba/proof
 5. Paste the relevant sections from `submissions/devpost_fields.md`.
 6. Add repository, StackBlitz, GitHub Pages, architecture, and proof-code links.
 7. Upload the public demo video using `docs/VIDEO_UPLOAD_METADATA.md`, attach `docs/demo/aegisops-demo-reel-draft.en.srt`, then paste the public video link.
-8. Add the optional blog/social link if published.
-9. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
-10. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
-11. Run `pnpm run final:preflight` immediately before clicking submit.
-12. Submit before the deadline.
+8. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
+9. Add the optional blog/social link if published.
+10. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>`.
+11. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
+12. Run `pnpm run final:preflight` immediately before clicking submit.
+13. Submit before the deadline.
 
 ## Final 30-Minute Check
 
@@ -93,6 +94,7 @@ Then verify:
 - StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
 - The public video has the prepared title, description, chapters, thumbnail, and captions.
+- The separate Alibaba proof recording link opens in a private/incognito window.
 - The Alibaba proof code link opens without login.
 - If a live Alibaba URL is available, `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
 

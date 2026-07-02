@@ -31,7 +31,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Open-source license visible in repository | Verified | `LICENSE` |
 | Functional source code, assets, and instructions | Verified | `README.md`, `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `Dockerfile` |
 | Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
-| Proof of Alibaba Cloud deployment/API usage | External action | Code proof exists in `src/server/cloud/alibabaProof.ts`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
+| Proof of Alibaba Cloud deployment/API usage | External action | Code proof exists in `src/server/cloud/alibabaProof.ts`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md` |
 | Public demo video about 3 minutes | External action | Local video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; public upload still required |
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
@@ -52,6 +52,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 These cannot be completed from the repository alone:
 
 1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then verify with `pnpm run deploy:verify -- https://<your-domain>`.
-2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` and `docs/demo/aegisops-demo-reel-draft.en.srt`.
-3. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
-4. Submit the Devpost form from the account-owner session before the deadline.
+2. Record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
+3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` and `docs/demo/aegisops-demo-reel-draft.en.srt`.
+4. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
+5. Submit the Devpost form from the account-owner session before the deadline.

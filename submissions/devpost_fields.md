@@ -44,6 +44,10 @@ Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
 Verification command after deployment: `pnpm run deploy:verify -- https://<your-domain>`
 
+Separate proof recording checklist: `docs/ALIBABA_PROOF_RECORDING.md`
+
+TODO: Upload the separate Alibaba Cloud proof recording and paste the public URL here.
+
 ## Live Demo
 
 Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -117,6 +121,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video title, description, tags, chapters, thumbnail, and captions.
+- `docs/ALIBABA_PROOF_RECORDING.md`: separate Alibaba Cloud proof recording script and upload metadata.
 - `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment pack and proof endpoint instructions.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order, official requirement map, and final 30-minute check.
 - `reports/alibaba_deployment_proof.md`: generated after live Alibaba deployment with `pnpm run deploy:verify`.
