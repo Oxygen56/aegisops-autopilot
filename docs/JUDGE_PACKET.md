@@ -66,6 +66,7 @@ The CI release gate includes:
 - fixture eval
 - ablation eval
 - Qwen integration audit
+- model ops report
 - HTTP API smoke
 - MCP smoke
 - Alibaba deployment verifier smoke
@@ -87,6 +88,7 @@ The CI release gate includes:
 - `docs/ARCHITECTURE.md`: architecture diagram and component map.
 - `docs/QWEN_TOOLS.md`: tool and MCP surface.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, OpenAPI, and MCP integration audit.
+- `reports/model_ops_report.md`: model/provider choices, token estimates, latency budget, and fallback behavior.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
 - `reports/submission_audit.md`: requirement-to-evidence audit.

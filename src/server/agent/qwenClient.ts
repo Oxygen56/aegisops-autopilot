@@ -15,6 +15,7 @@ export class QwenClient {
   readonly model: string;
   private readonly apiKey?: string;
   private readonly offline: boolean;
+  private readonly strict: boolean;
 
   constructor() {
     this.apiKey = getEnv("QWEN_API_KEY") ?? getEnv("DASHSCOPE_API_KEY");
@@ -24,6 +25,7 @@ export class QwenClient {
       "https://dashscope-intl.aliyuncs.com/compatible-mode/v1";
     this.model = getEnv("QWEN_MODEL") ?? "qwen-plus";
     this.offline = getEnv("QWEN_OFFLINE") === "1" || !this.apiKey;
+    this.strict = getEnv("QWEN_STRICT") === "1";
   }
 
   mode(): "qwen-cloud" | "offline-fixture" {
@@ -33,39 +35,49 @@ export class QwenClient {
   async complete(messages: ChatMessage[], fallback: () => string): Promise<QwenCompletion> {
     const started = performance.now();
     if (this.offline) {
+      return this.fallbackCompletion(started, "deterministic-fixture", fallback);
+    }
+
+    try {
+      const response = await fetch(`${this.baseUrl.replace(/\/$/, "")}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this.apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: this.model,
+          temperature: 0.2,
+          messages
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Qwen Cloud request failed: ${response.status}`);
+      }
+
+      const payload = (await response.json()) as {
+        choices?: Array<{ message?: { content?: string } }>;
+      };
       return {
-        providerMode: "offline-fixture",
-        model: "deterministic-fixture",
-        content: fallback(),
+        providerMode: "qwen-cloud",
+        model: this.model,
+        content: payload.choices?.[0]?.message?.content ?? fallback(),
         latencyMs: Math.round(performance.now() - started)
       };
+    } catch (error) {
+      if (this.strict) {
+        throw error;
+      }
+      return this.fallbackCompletion(started, `${this.model}-safe-fallback`, fallback);
     }
+  }
 
-    const response = await fetch(`${this.baseUrl.replace(/\/$/, "")}/chat/completions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.apiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: this.model,
-        temperature: 0.2,
-        messages
-      })
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Qwen Cloud request failed: ${response.status} ${errorText.slice(0, 300)}`);
-    }
-
-    const payload = (await response.json()) as {
-      choices?: Array<{ message?: { content?: string } }>;
-    };
+  private fallbackCompletion(started: number, model: string, fallback: () => string): QwenCompletion {
     return {
-      providerMode: "qwen-cloud",
-      model: this.model,
-      content: payload.choices?.[0]?.message?.content ?? fallback(),
+      providerMode: "offline-fixture",
+      model,
+      content: fallback(),
       latencyMs: Math.round(performance.now() - started)
     };
   }

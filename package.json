@@ -19,6 +19,7 @@
     "smoke": "tsx scripts/smoke.ts",
     "smoke:mcp": "tsx scripts/mcpSmoke.ts",
     "qwen:audit": "tsx scripts/qwenIntegrationAudit.ts",
+    "model:ops": "tsx scripts/modelOpsReport.ts",
     "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
     "final:preflight": "tsx scripts/finalPreflight.ts",
     "submission:package": "tsx scripts/packageFinalSubmission.ts",

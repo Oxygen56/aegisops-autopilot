@@ -36,6 +36,7 @@ function nowSlug(): string {
 fs.mkdirSync(packageDir, { recursive: true });
 
 run("pnpm", ["run", "qwen:audit"]);
+run("pnpm", ["run", "model:ops"]);
 
 // First pass creates a report from the current clean repo and remote state.
 run("pnpm", ["run", "final:preflight"]);

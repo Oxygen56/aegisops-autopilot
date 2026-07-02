@@ -60,3 +60,13 @@ pnpm run qwen:audit
 ```
 
 This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
+
+## Model Ops Report
+
+Run:
+
+```bash
+pnpm run model:ops
+```
+
+This writes `reports/model_ops_report.md` with model/provider choices, estimated token footprint, local latency budget, fallback behavior, and cost controls for the deterministic judge incidents.

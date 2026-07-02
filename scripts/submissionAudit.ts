@@ -49,9 +49,10 @@ const items: AuditItem[] = [
       "src/server/agent/qwenClient.ts",
       "docs/QWEN_TOOLS.md",
       "reports/qwen_integration_audit.md",
+      "reports/model_ops_report.md",
       "submissions/devpost_fields.md"
     ]),
-    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and has an automated integration audit."
+    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and has automated integration and model-ops evidence."
   },
   {
     area: "Custom tool and MCP integration",
@@ -69,8 +70,8 @@ const items: AuditItem[] = [
   {
     area: "Human-in-the-loop safety gates",
     status: "verified",
-    evidence: requireEvidence(["tests/orchestrator.test.ts", "src/server/agent/orchestrator.ts", "docs/JUDGE_NOTES.md"]),
-    note: "Tests prove risky remediation is blocked without approval and approved remediation stays reversible."
+    evidence: requireEvidence(["tests/orchestrator.test.ts", "src/server/agent/orchestrator.ts", "src/server/agent/qwenClient.ts", "docs/JUDGE_NOTES.md"]),
+    note: "Tests prove risky remediation is blocked without approval, approved remediation stays reversible, and Qwen provider fallback does not bypass the human gate."
   },
   {
     area: "Architecture diagram",
@@ -166,6 +167,7 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
+  ["reports/model_ops_report.md", "Cost And Latency Controls"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],

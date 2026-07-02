@@ -107,6 +107,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, custom tool, OpenAPI, and MCP integration audit.
+- `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `docs/RUBRIC_SCORECARD.md`: official judging-criteria mapping to concrete repository evidence.
