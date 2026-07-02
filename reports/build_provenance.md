@@ -6,11 +6,10 @@ This report documents contest-period implementation evidence for the Devpost New
 
 ## Summary
 
-- Commit count: 41
 - Shallow repository: no
 - First tracked commit: e4f518b 2026-07-03T00:46:35+08:00 Prepare AegisOps Qwen hackathon submission
-- Latest tracked commit: a3e1933 2026-07-03T05:05:25+08:00 Add build provenance evidence
 - Milestones checked: 10
+- Milestone commits found: 10
 - Failures: 0
 
 ## Milestones
@@ -28,30 +27,20 @@ This report documents contest-period implementation evidence for the Devpost New
 | PASS | Visible judge rubric evidence UI | 22f7b34 2026-07-03T04:39:51+08:00 Add judge rubric evidence panel | `src/client/main.tsx`<br>`src/client/styles.css`<br>`docs/RUBRIC_SCORECARD.md` |
 | PASS | Upload-ready demo video asset evidence | 9582f4c 2026-07-03T04:56:58+08:00 Refresh demo video asset evidence | `docs/demo/aegisops-demo-reel-draft.m4v`<br>`reports/video_asset_audit.md`<br>`scripts/videoAssetAudit.ts` |
 
-## Recent Commit Trail
+## Milestone Commit Trail
 
 | commit | date | subject |
 | --- | --- | --- |
-| a3e1933 | 2026-07-03T05:05:25+08:00 | Add build provenance evidence |
-| 1e564fb | 2026-07-03T04:58:23+08:00 | Record video asset refresh run |
 | 9582f4c | 2026-07-03T04:56:58+08:00 | Refresh demo video asset evidence |
-| cbef681 | 2026-07-03T04:44:39+08:00 | Fix demo reel slide cycle |
-| 047a0c7 | 2026-07-03T04:41:52+08:00 | Record rubric evidence package run |
 | 22f7b34 | 2026-07-03T04:39:51+08:00 | Add judge rubric evidence panel |
-| da6582b | 2026-07-03T04:29:58+08:00 | Record final package run |
 | b7b8b33 | 2026-07-03T04:24:32+08:00 | Scope Qwen tool calls to active incident |
 | fa71dfa | 2026-07-03T04:18:23+08:00 | Add live Qwen tool call loop |
-| aaaa2b8 | 2026-07-03T04:07:02+08:00 | Add judge evidence bundle |
-| 085b232 | 2026-07-03T03:55:41+08:00 | Highlight Qwen tool schemas in submission copy |
 | 706e663 | 2026-07-03T03:51:19+08:00 | Add Qwen function tool schemas |
-| b0297ba | 2026-07-03T03:41:06+08:00 | Add Alibaba proof recording guide |
-| 99a6fec | 2026-07-03T03:34:53+08:00 | Add official requirements matrix |
-| 11cdeb2 | 2026-07-03T03:29:42+08:00 | Add model ops and Qwen fallback evidence |
 | f132b7f | 2026-07-03T03:20:24+08:00 | Add Qwen integration audit |
-| 3943bf7 | 2026-07-03T03:13:25+08:00 | Add impact case evidence |
 | d3a7b76 | 2026-07-03T03:08:14+08:00 | Add Alibaba ECS deployment pack |
-| c3e3467 | 2026-07-03T03:01:04+08:00 | Add demo video upload metadata |
-| 9829778 | 2026-07-03T02:53:18+08:00 | Validate final submission packages |
+| 1ff3784 | 2026-07-03T02:00:38+08:00 | Add rubric scorecard for judges |
+| 0e9e876 | 2026-07-03T01:07:30+08:00 | Enable GitHub Pages workflow deployment |
+| e4f518b | 2026-07-03T00:46:35+08:00 | Prepare AegisOps Qwen hackathon submission |
 
 ## Claim Boundary
 

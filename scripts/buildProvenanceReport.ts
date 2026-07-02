@@ -118,8 +118,13 @@ const milestoneRows = milestones.map((milestone) => {
 });
 
 const firstCommit = commits[0];
-const latestCommit = commits.at(-1);
 const failures = milestoneRows.filter((row) => row.status === "FAIL");
+const milestoneHashes = new Set(
+  milestoneRows
+    .map((row) => row.commit?.hash)
+    .filter((hash): hash is string => Boolean(hash))
+);
+const milestoneTrail = commits.filter((commit) => milestoneHashes.has(commit.hash));
 
 const lines = [
   "# Build Provenance",
@@ -130,11 +135,10 @@ const lines = [
   "",
   "## Summary",
   "",
-  `- Commit count: ${commits.length}`,
   `- Shallow repository: ${shallowRepository ? "yes" : "no"}`,
   `- First tracked commit: ${firstCommit ? `${firstCommit.short} ${firstCommit.date} ${firstCommit.subject}` : "missing"}`,
-  `- Latest tracked commit: ${latestCommit ? `${latestCommit.short} ${latestCommit.date} ${latestCommit.subject}` : "missing"}`,
   `- Milestones checked: ${milestoneRows.length}`,
+  `- Milestone commits found: ${milestoneTrail.length}`,
   `- Failures: ${failures.length}`,
   "",
   "## Milestones",
@@ -149,12 +153,11 @@ const lines = [
     return `| ${row.status} | ${row.label} | ${commit.replaceAll("|", "\\|")} | ${evidence} |`;
   }),
   "",
-  "## Recent Commit Trail",
+  "## Milestone Commit Trail",
   "",
   "| commit | date | subject |",
   "| --- | --- | --- |",
-  ...commits
-    .slice(-20)
+  ...milestoneTrail
     .reverse()
     .map((commit) => `| ${commit.short} | ${commit.date} | ${commit.subject.replaceAll("|", "\\|")} |`),
   "",
