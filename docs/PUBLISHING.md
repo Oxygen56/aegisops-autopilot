@@ -68,7 +68,13 @@ docs/demo/aegisops-demo-reel-draft.m4v
 
 to YouTube, Vimeo, or Youku. The video is under three minutes. Paste the public URL into Devpost.
 
-## Live Static Demo
+## Working Demo Links
+
+Primary runnable workspace:
+
+```text
+https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+```
 
 GitHub Pages target:
 
@@ -76,19 +82,13 @@ GitHub Pages target:
 https://oxygen56.github.io/aegisops-autopilot/
 ```
 
-Demo reel:
+Pages demo reel target:
 
 ```text
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-Backup runnable workspace:
-
-```text
-https://stackblitz.com/github/Oxygen56/aegisops-autopilot
-```
-
-The static demo uses deterministic offline fixtures when `/api/*` is unavailable. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
+The static demo uses deterministic offline fixtures when `/api/*` is unavailable. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
 
 Deployment command:
 

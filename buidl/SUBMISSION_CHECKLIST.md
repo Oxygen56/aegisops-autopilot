@@ -12,7 +12,8 @@
 - [x] Local demo video draft is generated.
 - [x] Publishing checklist is prepared.
 - [x] Public repository URL is published.
-- [x] Public static demo URL is prepared.
+- [x] Primary runnable workspace is documented.
+- [ ] GitHub Pages target is returning 200 before final submit.
 - [ ] Alibaba Cloud live deployment URL is published.
 - [ ] Demo video under three minutes is uploaded to YouTube/Vimeo/Youku.
 - [ ] Devpost final submit button is clicked by the account owner.

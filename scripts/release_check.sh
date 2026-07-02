@@ -8,6 +8,7 @@ pnpm run eval
 pnpm run eval:ablation
 pnpm run smoke
 pnpm run smoke:mcp
+pnpm run submission:audit
 
 test -s LICENSE
 test -s README.md
@@ -20,5 +21,6 @@ test -s docs/screenshots/aegisops-dashboard-viewport.png
 test -s docs/screenshots/pages-static-reel.png
 test -s agents/aegisops/openapi.yaml
 test -s agents/aegisops/cap-manifest.json
+test -s reports/submission_audit.md
 
 echo "release check passed"

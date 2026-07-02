@@ -22,27 +22,27 @@ pnpm run dev
 
 Open the Vite URL shown by the command and run the incident demo.
 
-## Live Static Demo
+## Working Demo Links
 
-GitHub Pages demo:
-
-```text
-https://oxygen56.github.io/aegisops-autopilot/
-```
-
-Demo reel:
-
-```text
-https://oxygen56.github.io/aegisops-autopilot/?reel=1
-```
-
-Backup runnable workspace:
+Primary runnable workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot
 ```
 
-The Pages build runs without a private backend by falling back to deterministic offline fixtures. Live Qwen Cloud mode still uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+GitHub Pages target:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/
+```
+
+Pages demo reel target:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/?reel=1
+```
+
+The static demo runs without a private backend by falling back to deterministic offline fixtures. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
 
 ## Environment
 
@@ -79,6 +79,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
 - Experiment ledger: `reports/experiment_board.md`
+- Submission audit: `reports/submission_audit.md`
 
 ## Submission Assets
 

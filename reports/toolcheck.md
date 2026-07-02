@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | git | yes | /usr/bin/git |
 | python | no |  |
-| python3 | yes | /usr/bin/python3 |
+| python3 | yes | /opt/homebrew/bin/python3 |
 | kaggle | no |  |
 | mlflow | no |  |
 | dvc | no |  |

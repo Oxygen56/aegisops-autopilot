@@ -14,6 +14,16 @@ docker run --rm -p 8787:8787 \
   aegisops-autopilot:latest
 ```
 
+## Local Container Smoke
+
+When Docker is running locally, verify the same container shape before pushing to Alibaba Cloud:
+
+```bash
+pnpm run docker:smoke
+```
+
+The smoke check builds the image, starts the container on `127.0.0.1:18787`, and verifies `/api/health`, `/api/alibaba/proof`, and `/api/tools`.
+
 ## Container Registry Push Template
 
 Replace the placeholders with your Alibaba Cloud Container Registry namespace and region.

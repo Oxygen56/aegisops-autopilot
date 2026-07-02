@@ -42,13 +42,13 @@ Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
 ## Live Demo
 
-GitHub Pages static demo: https://oxygen56.github.io/aegisops-autopilot/
+Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
 
-Demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1
+GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 
-Backup runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
-The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
+The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. Recheck GitHub Pages before final submission; if it still returns 404, use the StackBlitz workspace as the working demo link. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
 
 ## Architecture Diagram
 
@@ -89,6 +89,7 @@ Then open the local Vite URL and run the incident workflow.
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
+- `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 
 ## License
 
