@@ -19,7 +19,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | --- | --- | --- |
 | Automates a real-world business workflow end to end | Verified | `docs/IMPACT_CASE.md`, `reports/judge_demo_transcript.md`, `src/server/agent/orchestrator.ts` |
 | Handles ambiguous inputs | Verified | `src/server/agent/fixtures.ts`, `docs/DEMO_SCRIPT.md`, `docs/JUDGE_QUICKSTART.md` |
-| Invokes external tools | Verified | `docs/QWEN_TOOLS.md`, `agents/aegisops/openapi.yaml`, `src/server/agent/toolRegistry.ts` |
+| Invokes external tools | Verified | `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `src/server/agent/toolRegistry.ts` |
 | Incorporates human-in-the-loop checkpoints | Verified | `tests/orchestrator.test.ts`, `src/server/agent/orchestrator.ts`, `reports/judge_demo_transcript.md` |
 | Emphasizes production readiness over toy demos | Verified | `reports/model_ops_report.md`, `infra/alibaba/DEPLOYMENT.md`, `Dockerfile`, `scripts/release_check.sh` |
 

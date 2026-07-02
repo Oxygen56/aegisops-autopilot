@@ -2,8 +2,23 @@
 
 AegisOps exposes its incident-response capabilities in two judge-verifiable forms:
 
+- OpenAI-compatible Qwen Function Calling tool schemas in the `/chat/completions` request body.
 - HTTP/OpenAPI tool endpoints for Qwen-compatible agent orchestration.
 - A lightweight MCP stdio server for environments that can attach MCP tools.
+
+## Qwen Function Tool Schema
+
+Source: `src/server/agent/toolRegistry.ts`
+
+The workflow passes five incident-scoped tools to Qwen Cloud with the OpenAI-compatible `tools` request field:
+
+- `log_search`
+- `metric_probe`
+- `change_graph`
+- `policy_check`
+- `remediation_simulator`
+
+The production-safety design intentionally executes evidence tools server-side before diagnosis and sends `tool_choice=none` for the diagnosis request. This keeps Qwen aware of the available function contracts while preventing an unapproved model-generated tool call from mutating production state during the diagnosis step.
 
 ## HTTP Tool Surface
 
@@ -59,7 +74,7 @@ Run:
 pnpm run qwen:audit
 ```
 
-This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
+This writes `reports/qwen_integration_audit.md` and verifies the Qwen Cloud OpenAI-compatible endpoint, credential environment variables, deterministic offline judging fallback, Qwen Function Calling tool schemas, five custom tools, OpenAPI paths, MCP stdio methods, and CI coverage.
 
 ## Model Ops Report
 

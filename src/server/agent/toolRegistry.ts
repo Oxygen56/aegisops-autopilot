@@ -15,6 +15,15 @@ export interface ToolDefinition {
   };
 }
 
+export interface QwenFunctionTool {
+  type: "function";
+  function: {
+    name: AegisToolName;
+    description: string;
+    parameters: ToolDefinition["inputSchema"];
+  };
+}
+
 const toolDefinitions: ToolDefinition[] = [
   {
     name: "log_search",
@@ -71,6 +80,17 @@ function getIncident(incidentId: string): Incident {
 
 export function listToolDefinitions(): ToolDefinition[] {
   return toolDefinitions;
+}
+
+export function listQwenToolSchemas(): QwenFunctionTool[] {
+  return toolDefinitions.map((tool) => ({
+    type: "function",
+    function: {
+      name: tool.name,
+      description: tool.description,
+      parameters: tool.inputSchema
+    }
+  }));
 }
 
 export async function executeAegisTool(name: string, input: Record<string, unknown>): Promise<ToolCall> {

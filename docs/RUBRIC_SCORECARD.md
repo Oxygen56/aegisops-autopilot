@@ -19,7 +19,7 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 
 | criterion | weight | strongest evidence | judge verification |
 | --- | ---: | --- | --- |
-| Innovation & AI Creativity | 30% | Qwen Cloud reasoning path, five custom incident tools, OpenAPI spec, MCP stdio server, persistent memory, agent council, and human approval gate | `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `agents/aegisops/cap-manifest.json`, `src/server/mcp/aegisopsMcp.ts`, `reports/judge_demo_transcript.md` |
+| Innovation & AI Creativity | 30% | Qwen Cloud reasoning path, OpenAI-compatible function tool schemas, five custom incident tools, OpenAPI spec, MCP stdio server, persistent memory, agent council, and human approval gate | `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `agents/aegisops/cap-manifest.json`, `src/server/mcp/aegisopsMcp.ts`, `reports/judge_demo_transcript.md` |
 | Technical Depth & Engineering | 30% | Typed Node/React architecture, deterministic fixture mode, risk-scored remediation planner, policy gate, tests, eval, ablation, model ops report, Docker target, release gate | `pnpm run ci`, `tests/orchestrator.test.ts`, `reports/model_ops_report.md`, `reports/eval_report.md`, `reports/ablation_report.md`, `scripts/release_check.sh`, `Dockerfile` |
 | Problem Value & Impact | 25% | Real production incident response workflow with reliability, privacy, and finance-risk scenarios; KPI model and adoption path for a controlled production pilot | `docs/IMPACT_CASE.md`, `src/server/agent/fixtures.ts`, `docs/JUDGE_NOTES.md`, `docs/ARCHITECTURE.md`, `reports/judge_demo_transcript.md` |
 | Presentation & Documentation | 15% | Judge quickstart, architecture diagram, demo script, video pack, Devpost copy, submission audit, reproducible run ledger | `docs/JUDGE_QUICKSTART.md`, `docs/ARCHITECTURE.md`, `docs/DEMO_SCRIPT.md`, `docs/VIDEO_SUBMISSION.md`, `submissions/devpost_fields.md`, `reports/submission_audit.md`, `reports/experiment_board.md` |
@@ -30,7 +30,7 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 | --- | --- |
 | Automates a real-world business workflow end to end | Handles production incident intake, diagnosis, evidence gathering, remediation planning, approval, dry-run, verification, and post-incident learning |
 | Handles ambiguous inputs | Converts vague production alerts into typed incidents, recalled memories, tool evidence, and concrete runbook actions |
-| Invokes external tools | Uses `log_search`, `metric_probe`, `change_graph`, `policy_check`, and `remediation_simulator`, exposed through HTTP/OpenAPI and MCP |
+| Invokes external tools | Uses `log_search`, `metric_probe`, `change_graph`, `policy_check`, and `remediation_simulator`, passed to Qwen as OpenAI-compatible function schemas and exposed through HTTP/OpenAPI and MCP |
 | Includes human-in-the-loop checkpoints | Blocks risky production mutation without approval and records the approval checklist |
 | Emphasizes production readiness | Includes reversible actions, blast-radius labels, rollback, verification metrics, Docker packaging, secret scan, release checks, and Alibaba deployment proof code |
 

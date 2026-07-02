@@ -1,6 +1,7 @@
 import { incidents } from "./fixtures";
 import { MemoryStore } from "./memory";
 import { QwenClient, fallbackDiagnosis } from "./qwenClient";
+import { listQwenToolSchemas } from "./toolRegistry";
 import { buildRemediationPlan, checkPolicy, inspectChanges, probeMetrics, searchLogs, simulateRemediation } from "./tools";
 import type { AgentFinding, ApprovalDecision, Incident, ToolCall, WorkflowEvent, WorkflowResult } from "./types";
 
@@ -143,7 +144,11 @@ export async function runIncidentWorkflow(options: RunOptions): Promise<Workflow
         )
       }
     ],
-    () => fallbackDiagnosis(incident, evidenceTools)
+    () => fallbackDiagnosis(incident, evidenceTools),
+    {
+      tools: listQwenToolSchemas(),
+      toolChoice: "none"
+    }
   );
   timeline.push(event("qwen", `Diagnosis generated via ${qwen.providerMode}`, qwen.content.slice(0, 240)));
 

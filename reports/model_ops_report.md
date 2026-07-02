@@ -17,20 +17,22 @@ This deterministic report documents model/provider choices, estimated token foot
 | Strict provider mode | `QWEN_STRICT=1` throws on Qwen provider failure |
 | Default provider failure behavior | safe deterministic fallback, preserving approval gates |
 | Sampling temperature | `0.2` |
+| Function tool schemas | five OpenAI-compatible `tools` definitions sent with `tool_choice=none` |
 
 ## Per-Incident Budget
 
-| incident | severity | Qwen calls | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| checkout-tax-latency | sev1 | 1 | 4 | 36ms | 1249 | 161 | 1410 | required |
-| support-pii-leak-risk | sev2 | 1 | 4 | 36ms | 1273 | 165 | 1438 | required |
-| billing-duplicate-webhooks | sev1 | 1 | 4 | 36ms | 1266 | 174 | 1440 | required |
+| incident | severity | Qwen calls | Qwen tool schemas | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| checkout-tax-latency | sev1 | 1 | 5 | 4 | 36ms | 1641 | 161 | 1802 | required |
+| support-pii-leak-risk | sev2 | 1 | 5 | 4 | 36ms | 1665 | 165 | 1830 | required |
+| billing-duplicate-webhooks | sev1 | 1 | 5 | 4 | 36ms | 1658 | 174 | 1832 | required |
 
 ## Suite Summary
 
-- Total estimated tokens across deterministic judge incidents: 4288
-- Max estimated tokens for one incident run: 1440
+- Total estimated tokens across deterministic judge incidents: 5464
+- Max estimated tokens for one incident run: 1832
 - Qwen calls per workflow run: 1
+- Function tool schema budget included in each Qwen request: 392 estimated input tokens.
 - Evidence tools before Qwen diagnosis: 4, executed in parallel in the Node workflow.
 - Approved remediation adds one dry-run simulator call after the human gate.
 

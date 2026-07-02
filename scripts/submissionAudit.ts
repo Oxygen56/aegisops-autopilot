@@ -65,7 +65,7 @@ const items: AuditItem[] = [
       "docs/QWEN_TOOLS.md",
       "reports/qwen_integration_audit.md"
     ]),
-    note: "Five incident-scoped tools are exposed through HTTP/OpenAPI and the MCP stdio server, with an automated Qwen integration audit."
+    note: "Five incident-scoped tools are passed to Qwen as OpenAI-compatible function schemas and exposed through HTTP/OpenAPI plus MCP stdio, with an automated Qwen integration audit."
   },
   {
     area: "Human-in-the-loop safety gates",

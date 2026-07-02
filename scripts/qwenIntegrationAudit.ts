@@ -23,6 +23,8 @@ function add(checks: Check[], name: string, ok: boolean, evidence: string): void
 }
 
 const qwenClient = read("src/server/agent/qwenClient.ts");
+const orchestrator = read("src/server/agent/orchestrator.ts");
+const toolRegistry = read("src/server/agent/toolRegistry.ts");
 const mcpServer = read("src/server/mcp/aegisopsMcp.ts");
 const openapi = read("agents/aegisops/openapi.yaml");
 const manifest = JSON.parse(read("agents/aegisops/cap-manifest.json")) as {
@@ -82,6 +84,17 @@ add(
 
 add(
   checks,
+  "Qwen request body carries function tool schemas",
+  qwenClient.includes("requestBody.tools") &&
+    qwenClient.includes("tool_choice") &&
+    toolRegistry.includes("listQwenToolSchemas") &&
+    requiredTools.every((tool) => toolRegistry.includes(`name: "${tool}"`)) &&
+    orchestrator.includes("listQwenToolSchemas()"),
+  "src/server/agent/qwenClient.ts sends OpenAI-compatible tools from src/server/agent/toolRegistry.ts"
+);
+
+add(
+  checks,
   "MCP stdio exposes list and call methods",
   mcpServer.includes("tools/list") &&
     mcpServer.includes("tools/call") &&
@@ -117,7 +130,7 @@ const lines = [
   "",
   "## Judge-Relevant Claim",
   "",
-  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
+  "AegisOps uses Qwen Cloud as the reasoning layer through the DashScope OpenAI-compatible API, sends OpenAI-compatible function tool schemas in the Qwen request body, and exposes custom incident tools through both HTTP/OpenAPI and MCP stdio. The offline fixture mode is only a credential-free judging fallback; it preserves the same orchestration path and tool evidence shape.",
   ""
 ];
 

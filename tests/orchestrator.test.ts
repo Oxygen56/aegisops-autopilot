@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { listIncidents, runIncidentWorkflow } from "../src/server/agent/orchestrator";
 import { MemoryStore } from "../src/server/agent/memory";
-import { executeAegisTool, listToolDefinitions } from "../src/server/agent/toolRegistry";
+import { QwenClient } from "../src/server/agent/qwenClient";
+import { executeAegisTool, listQwenToolSchemas, listToolDefinitions } from "../src/server/agent/toolRegistry";
 
 const incidentIds = listIncidents().map((incident) => incident.id);
 assert.equal(incidentIds.length, 3, "expected three judge fixtures");
@@ -48,6 +49,32 @@ try {
   process.env.QWEN_BASE_URL = "https://unit-test-qwen.invalid/compatible-mode/v1";
   delete process.env.QWEN_OFFLINE;
   delete process.env.QWEN_STRICT;
+  const qwenRequestBodies: Array<Record<string, unknown>> = [];
+  globalThis.fetch = async (_url, init) => {
+    qwenRequestBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+    return Response.json({ choices: [{ message: { content: "unit-test diagnosis" } }] });
+  };
+
+  const qwenResult = await new QwenClient().complete([{ role: "user", content: "diagnose checkout" }], () => "fallback", {
+    tools: listQwenToolSchemas()
+  });
+
+  assert.equal(qwenResult.providerMode, "qwen-cloud");
+  assert.equal(qwenResult.content, "unit-test diagnosis");
+  assert.equal(qwenRequestBodies.length, 1);
+  assert.equal(qwenRequestBodies[0].tool_choice, "none");
+  const qwenTools = qwenRequestBodies[0].tools as Array<{
+    type?: string;
+    function?: { name?: string; parameters?: { required?: string[] } };
+  }>;
+  assert.equal(qwenTools.length, 5, "Qwen request should carry five OpenAI-compatible tool schemas");
+  assert.ok(qwenTools.every((tool) => tool.type === "function"));
+  assert.ok(
+    qwenTools.some(
+      (tool) => tool.function?.name === "log_search" && tool.function.parameters?.required?.includes("incidentId")
+    )
+  );
+
   globalThis.fetch = async () => new Response("provider unavailable", { status: 503 });
 
   const providerFailure = await runIncidentWorkflow({

@@ -3,10 +3,13 @@ import path from "node:path";
 import { listIncidents } from "../src/server/agent/orchestrator";
 import { MemoryStore } from "../src/server/agent/memory";
 import { fallbackDiagnosis } from "../src/server/agent/qwenClient";
+import { listQwenToolSchemas } from "../src/server/agent/toolRegistry";
 import type { Incident, ToolCall } from "../src/server/agent/types";
 
 const root = process.cwd();
 const outPath = path.join(root, "reports/model_ops_report.md");
+const qwenToolSchemas = listQwenToolSchemas();
+const qwenToolSchemaTokens = estimateTokens(JSON.stringify(qwenToolSchemas));
 const systemPrompt =
   "You are AegisOps, a production incident autopilot. Diagnose conservatively, cite evidence, avoid irreversible actions, and preserve human approval gates.";
 
@@ -81,13 +84,14 @@ const rows = listIncidents().map((incident) => {
     2
   );
   const fallback = fallbackDiagnosis(incident, tools);
-  const inputTokens = estimateTokens(systemPrompt) + estimateTokens(userPayload);
+  const inputTokens = estimateTokens(systemPrompt) + estimateTokens(userPayload) + qwenToolSchemaTokens;
   const outputTokens = estimateTokens(fallback);
   return {
     incidentId: incident.id,
     severity: incident.severity,
     qwenRequests: 1,
     evidenceTools: tools.length,
+    qwenFunctionTools: qwenToolSchemas.length,
     localToolBudgetMsApprovedPath: 36,
     estimatedInputTokens: inputTokens,
     estimatedOutputTokens: outputTokens,
@@ -119,14 +123,15 @@ const lines = [
   "| Strict provider mode | `QWEN_STRICT=1` throws on Qwen provider failure |",
   "| Default provider failure behavior | safe deterministic fallback, preserving approval gates |",
   "| Sampling temperature | `0.2` |",
+  "| Function tool schemas | five OpenAI-compatible `tools` definitions sent with `tool_choice=none` |",
   "",
   "## Per-Incident Budget",
   "",
-  "| incident | severity | Qwen calls | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |",
-  "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+  "| incident | severity | Qwen calls | Qwen tool schemas | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |",
+  "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
   ...rows.map(
     (row) =>
-      `| ${row.incidentId} | ${row.severity} | ${row.qwenRequests} | ${row.evidenceTools} | ${row.localToolBudgetMsApprovedPath}ms | ${row.estimatedInputTokens} | ${row.estimatedOutputTokens} | ${row.estimatedTotalTokens} | ${row.humanApprovalRequired ? "required" : "policy-auto"} |`
+      `| ${row.incidentId} | ${row.severity} | ${row.qwenRequests} | ${row.qwenFunctionTools} | ${row.evidenceTools} | ${row.localToolBudgetMsApprovedPath}ms | ${row.estimatedInputTokens} | ${row.estimatedOutputTokens} | ${row.estimatedTotalTokens} | ${row.humanApprovalRequired ? "required" : "policy-auto"} |`
   ),
   "",
   "## Suite Summary",
@@ -134,6 +139,7 @@ const lines = [
   `- Total estimated tokens across deterministic judge incidents: ${totalTokens}`,
   `- Max estimated tokens for one incident run: ${maxTokens}`,
   "- Qwen calls per workflow run: 1",
+  `- Function tool schema budget included in each Qwen request: ${qwenToolSchemaTokens} estimated input tokens.`,
   "- Evidence tools before Qwen diagnosis: 4, executed in parallel in the Node workflow.",
   "- Approved remediation adds one dry-run simulator call after the human gate.",
   "",

@@ -1,8 +1,14 @@
 import type { Incident, QwenCompletion, ToolCall } from "./types";
+import type { QwenFunctionTool } from "./toolRegistry";
 
 interface ChatMessage {
   role: "system" | "user" | "assistant";
   content: string;
+}
+
+interface CompletionOptions {
+  tools?: QwenFunctionTool[];
+  toolChoice?: "none" | "auto";
 }
 
 function getEnv(name: string): string | undefined {
@@ -32,10 +38,20 @@ export class QwenClient {
     return this.offline ? "offline-fixture" : "qwen-cloud";
   }
 
-  async complete(messages: ChatMessage[], fallback: () => string): Promise<QwenCompletion> {
+  async complete(messages: ChatMessage[], fallback: () => string, options: CompletionOptions = {}): Promise<QwenCompletion> {
     const started = performance.now();
     if (this.offline) {
       return this.fallbackCompletion(started, "deterministic-fixture", fallback);
+    }
+
+    const requestBody: Record<string, unknown> = {
+      model: this.model,
+      temperature: 0.2,
+      messages
+    };
+    if (options.tools && options.tools.length > 0) {
+      requestBody.tools = options.tools;
+      requestBody.tool_choice = options.toolChoice ?? "none";
     }
 
     try {
@@ -45,11 +61,7 @@ export class QwenClient {
           Authorization: `Bearer ${this.apiKey}`,
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          model: this.model,
-          temperature: 0.2,
-          messages
-        })
+        body: JSON.stringify(requestBody)
       });
 
       if (!response.ok) {
