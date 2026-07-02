@@ -27,7 +27,7 @@ Open the Vite URL shown by the command and run the incident demo.
 Primary runnable workspace:
 
 ```text
-https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 ```
 
 GitHub Pages target:
@@ -42,7 +42,7 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-The static demo runs without a private backend by falling back to deterministic offline fixtures. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The static demo runs without a private backend by falling back to deterministic offline fixtures. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
 
 ## Environment
 

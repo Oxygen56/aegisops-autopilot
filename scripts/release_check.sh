@@ -12,6 +12,7 @@ pnpm run submission:audit
 
 test -s LICENSE
 test -s README.md
+test -s .stackblitzrc
 test -s docs/ARCHITECTURE.md
 test -s docs/QWEN_TOOLS.md
 test -s docs/VIDEO_SUBMISSION.md

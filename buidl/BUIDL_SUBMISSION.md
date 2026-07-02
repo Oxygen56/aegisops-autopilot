@@ -24,7 +24,7 @@ AegisOps automates the incident workflow end to end:
 
 ## Demo
 
-- Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+- Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 - GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 - Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 - Video: local draft at `docs/demo/aegisops-demo-reel-draft.m4v`; TODO upload to YouTube/Vimeo/Youku and paste public URL.

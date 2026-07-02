@@ -73,7 +73,7 @@ to YouTube, Vimeo, or Youku. The video is under three minutes. Paste the public 
 Primary runnable workspace:
 
 ```text
-https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 ```
 
 GitHub Pages target:
@@ -88,7 +88,7 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-The static demo uses deterministic offline fixtures when `/api/*` is unavailable. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
+The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The static demo uses deterministic offline fixtures when `/api/*` is unavailable. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
 
 Deployment command:
 

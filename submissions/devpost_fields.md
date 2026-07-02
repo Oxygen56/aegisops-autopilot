@@ -42,13 +42,13 @@ Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
 
 ## Live Demo
 
-Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot
+Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 
 GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 
 Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
-The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. Recheck GitHub Pages before final submission; if it still returns 404, use the StackBlitz workspace as the working demo link. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
+The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The public static demo falls back to deterministic offline fixtures when the private Node API is unavailable. Recheck GitHub Pages before final submission; if it still returns 404, use the StackBlitz workspace as the working demo link. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
 
 ## Architecture Diagram
 

@@ -83,6 +83,7 @@ const items: AuditItem[] = [
     status: "verified",
     evidence: requireEvidence([
       "README.md",
+      ".stackblitzrc",
       "docs/DEMO_SCRIPT.md",
       "docs/screenshots/aegisops-dashboard-viewport.png",
       "docs/screenshots/pages-static-reel.png"
@@ -122,7 +123,7 @@ const items: AuditItem[] = [
 ];
 
 const requiredTextChecks: Array<[string, string]> = [
-  ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot"],
+  ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
   ["src/server/agent/qwenClient.ts", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["tests/orchestrator.test.ts", "must not mutate without approval"]
