@@ -42,7 +42,7 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The static demo runs without a private backend by falling back to deterministic offline fixtures. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
 
 ## Environment
 

@@ -89,13 +89,15 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The static demo uses deterministic offline fixtures when `/api/*` is unavailable. GitHub Pages is configured but should be rechecked before final Devpost submission; use StackBlitz as the working demo link if Pages is still returning 404. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public click-through demo.
+The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo and uses deterministic offline fixtures when `/api/*` is unavailable. It is not a substitute for the Alibaba Cloud proof endpoint, but it gives judges a public fallback demo.
 
 Deployment command:
 
 ```bash
 pnpm run pages:publish
 ```
+
+This validates the Pages build locally, ensures the repository is configured for workflow-based Pages deployments, and triggers `.github/workflows/pages.yml` on `main`.
 
 ## Alibaba Cloud Deployment
 

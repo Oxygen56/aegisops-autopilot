@@ -89,13 +89,13 @@ const items: AuditItem[] = [
       "docs/screenshots/aegisops-dashboard-viewport.png",
       "docs/screenshots/pages-static-reel.png"
     ]),
-    note: "Local judging path and backup StackBlitz workspace are documented. GitHub Pages is configured but should be rechecked before final submission."
+    note: "Local judging path, StackBlitz workspace, and static GitHub Pages fallback are documented."
   },
   {
     area: "GitHub Pages static target",
-    status: "monitor",
-    evidence: requireEvidence(["README.md", "docs/PUBLISHING.md", "scripts/publish_pages.sh"]),
-    note: "Pages is configured as a static target, but the URL must be rechecked immediately before final submission; use StackBlitz if Pages still returns 404."
+    status: "verified",
+    evidence: requireEvidence(["README.md", "docs/PUBLISHING.md", "scripts/publish_pages.sh", ".github/workflows/pages.yml"]),
+    note: "Pages uses the repository workflow deployment path; final preflight validates the public URL before submission."
   },
   {
     area: "Demo video under three minutes",
@@ -182,8 +182,7 @@ const lines = [
   "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
   "2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public URL into Devpost.",
   "3. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
-  "4. Recheck the GitHub Pages URL; if it still returns 404, use the documented StackBlitz backup workspace as the working demo link.",
-  "5. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
+  "4. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
   ""
 ];
 

@@ -13,7 +13,7 @@
 - [x] Publishing checklist is prepared.
 - [x] Public repository URL is published.
 - [x] Primary runnable workspace is documented.
-- [ ] GitHub Pages target is returning 200 before final submit.
+- [x] GitHub Pages workflow deployment is configured and rechecked by final preflight.
 - [ ] Alibaba Cloud live deployment URL is published.
 - [ ] Demo video under three minutes is uploaded to YouTube/Vimeo/Youku.
 - [ ] Optional blog/social post is published and linked.

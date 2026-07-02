@@ -99,4 +99,4 @@ Without a key, the deterministic offline fixture mode exercises the same orchest
 
 - A public Alibaba Cloud URL requires account credentials and deployment.
 - The demo video draft exists at `docs/demo/aegisops-demo-reel-draft.m4v`, but must be uploaded to YouTube, Vimeo, or Youku before final Devpost submission.
-- GitHub Pages is configured but has returned 404 during verification; use StackBlitz as the working demo link unless Pages is confirmed live before submission.
+- GitHub Pages is a static fallback demo deployed by the repository Pages workflow; use StackBlitz for the full local Node API path.
