@@ -78,10 +78,13 @@ const items: AuditItem[] = [
     evidence: requireEvidence([
       "src/server/cloud/alibabaProof.ts",
       "infra/alibaba/DEPLOYMENT.md",
+      "infra/alibaba/deploy-acr-ecs.sh",
+      "infra/alibaba/docker-compose.ecs.yml",
+      "infra/alibaba/ecs.env.example",
       "scripts/verifyAlibabaDeployment.ts",
       "Dockerfile"
     ]),
-    note: "Code-level proof, deployment instructions, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
+    note: "Code-level proof, ACR/ECS deployment pack, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
   },
   {
     area: "Working demo or test build",

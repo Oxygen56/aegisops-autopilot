@@ -88,7 +88,7 @@ The CI release gate includes:
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
 - `reports/submission_audit.md`: requirement-to-evidence audit.
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order.
-- `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud deployment and proof-verification instructions.
+- `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment path and proof verifier.
 
 ## Account-Gated Items
 

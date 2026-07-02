@@ -37,6 +37,43 @@ docker build -t "$IMAGE" .
 docker push "$IMAGE"
 ```
 
+## ACR + ECS Deployment Pack
+
+For the account-owner deployment path, this repository includes:
+
+- `infra/alibaba/deploy-acr-ecs.sh`: builds the container, pushes it to Alibaba Cloud Container Registry, and optionally updates an ECS host over SSH.
+- `infra/alibaba/docker-compose.ecs.yml`: ECS runtime service definition with health checks.
+- `infra/alibaba/ecs.env.example`: secret-safe environment template to copy to the ECS host as `.env`.
+
+Dry-run the exact commands without pushing or SSH:
+
+```bash
+DRY_RUN=1 \
+ALIBABA_ACR_REGION=ap-southeast-1 \
+ALIBABA_ACR_NAMESPACE=<acr-namespace> \
+infra/alibaba/deploy-acr-ecs.sh
+```
+
+Push the image after `docker login` or by passing `ACR_USERNAME` and `ACR_PASSWORD` in the shell:
+
+```bash
+ALIBABA_ACR_REGION=ap-southeast-1 \
+ALIBABA_ACR_NAMESPACE=<acr-namespace> \
+infra/alibaba/deploy-acr-ecs.sh
+```
+
+To deploy on ECS, first create `/home/<user>/aegisops-autopilot/.env` from `infra/alibaba/ecs.env.example` on the ECS instance and fill `QWEN_API_KEY` or `DASHSCOPE_API_KEY` there. Then run:
+
+```bash
+ALIBABA_ACR_REGION=ap-southeast-1 \
+ALIBABA_ACR_NAMESPACE=<acr-namespace> \
+ALIBABA_ECS_HOST=<ecs-public-ip-or-domain> \
+ALIBABA_ECS_USER=<ssh-user> \
+infra/alibaba/deploy-acr-ecs.sh
+```
+
+The script does not write cloud credentials into the repository. Qwen credentials live only in the ECS `.env` file.
+
 ## Runtime Environment Variables
 
 ```text

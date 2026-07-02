@@ -40,6 +40,8 @@ Direction: `maximize`
 | 1.0 | pass | judge-packet-gate | 0 | 26.191 | experiments/runs/20260703-024600_judge-packet-gate |
 | 1.0 | pass | package-validation-gate | 0 | 26.625 | experiments/runs/20260703-025223_package-validation-gate |
 | 1.0 | pass | video-upload-metadata-gate | 0 | 27.02 | experiments/runs/20260703-025934_video-upload-metadata-gate |
+| 1.0 | pass | final-submission-package-video-metadata | 0 | 13.637 | experiments/runs/20260703-030230_final-submission-package-video-metadata |
+| 1.0 | pass | alibaba-ecs-deployment-pack-gate | 0 | 26.972 | experiments/runs/20260703-030710_alibaba-ecs-deployment-pack-gate |
 | 0.988 | overall | fixture-eval-final | 0 | 0.87 | experiments/runs/20260703-002530_fixture-eval-final |
 | 0.95 | overall | fixture-eval | 0 | 1.167 | experiments/runs/20260703-001410_fixture-eval |
 | 0.568 | gain | ablation-eval-final | 0 | 1.013 | experiments/runs/20260703-002530_ablation-eval-final |

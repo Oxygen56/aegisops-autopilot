@@ -101,5 +101,5 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Publishing: `docs/PUBLISHING.md`
 - Devpost copy: `submissions/devpost_fields.md`
 - Final submission runbook: `submissions/FINAL_SUBMISSION_RUNBOOK.md`
-- Alibaba deployment: `infra/alibaba/DEPLOYMENT.md`
+- Alibaba deployment pack: `infra/alibaba/DEPLOYMENT.md`
 - Full package: `buidl/package/`

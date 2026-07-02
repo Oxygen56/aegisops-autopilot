@@ -150,6 +150,9 @@ const requiredFiles = [
   "docs/demo/aegisops-demo-reel-draft.m4v",
   "docs/demo/aegisops-demo-reel-draft.en.srt",
   "infra/alibaba/DEPLOYMENT.md",
+  "infra/alibaba/deploy-acr-ecs.sh",
+  "infra/alibaba/docker-compose.ecs.yml",
+  "infra/alibaba/ecs.env.example",
   "scripts/verifyAlibabaDeployment.ts",
   "scripts/validateSubmissionPackages.ts",
   "src/server/cloud/alibabaProof.ts"

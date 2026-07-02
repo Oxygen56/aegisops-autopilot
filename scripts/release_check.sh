@@ -29,6 +29,11 @@ test -s docs/screenshots/aegisops-dashboard-viewport.png
 test -s docs/screenshots/pages-static-reel.png
 test -s agents/aegisops/openapi.yaml
 test -s agents/aegisops/cap-manifest.json
+test -s infra/alibaba/DEPLOYMENT.md
+test -s infra/alibaba/deploy-acr-ecs.sh
+test -s infra/alibaba/docker-compose.ecs.yml
+test -s infra/alibaba/ecs.env.example
+bash -n infra/alibaba/deploy-acr-ecs.sh
 test -s reports/judge_demo_transcript.md
 test -s reports/submission_audit.md
 
