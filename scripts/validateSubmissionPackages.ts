@@ -111,8 +111,13 @@ const requiredBuidl = [
   "tests/orchestrator.test.ts"
 ];
 
-const forbiddenPrefixes = [".git/", "node_modules/", "dist/", "data/runtime/", "buidl/package/"];
-const forbiddenExact = [".env"];
+const forbiddenPrefixes = [".git/", "node_modules/", "dist/", "data/runtime/", "buidl/package/", "docs/deployment/", "docs/demo/thumbs/"];
+const forbiddenExact = [
+  ".env",
+  "docs/demo/aegisops-demo-reel-draft.mov",
+  "docs/demo/aegisops-demo-reel-draft.m4v",
+  "docs/demo/aegisops-demo-reel-draft.en.srt"
+];
 const forbiddenPatterns = [/^\.env\.(?!example$)/, /(^|\/)\.DS_Store$/];
 
 function run(command: string, args: string[]): string {

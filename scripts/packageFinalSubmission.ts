@@ -29,6 +29,16 @@ function zipAdd(zipPath: string, entries: string[]): void {
   run("zip", ["-qr", zipPath, ...existing]);
 }
 
+function zipDelete(zipPath: string, patterns: string[]): void {
+  for (const pattern of patterns) {
+    try {
+      run("zip", ["-dq", zipPath, pattern]);
+    } catch {
+      // zip exits non-zero when a delete pattern does not match; that is fine for cleanup.
+    }
+  }
+}
+
 function nowSlug(): string {
   return run("date", ["+%Y%m%d-%H%M%S"]);
 }
@@ -63,6 +73,17 @@ zipAdd(buidlZip, [
   "tsconfig.json",
   "vite.config.ts"
 ]);
+zipDelete(buidlZip, [
+  "docs/deployment/*",
+  "docs/deployment/",
+  "docs/demo/aegisops-demo-reel-draft.mov",
+  "docs/demo/aegisops-demo-reel-draft.m4v",
+  "docs/demo/aegisops-demo-reel-draft.en.srt",
+  "docs/demo/thumbs/*",
+  "docs/demo/thumbs/reel/*",
+  "docs/demo/thumbs/reel/",
+  "docs/demo/thumbs/"
+]);
 
 const fullZip = path.join(packageDir, `aegisops_full_submission_${nowSlug()}.zip`);
 run("zip", [
@@ -78,9 +99,22 @@ run("zip", [
   "./docs/deployment/*",
   "./.DS_Store",
   "./docs/demo/*.mov",
+  "./docs/demo/*.m4v",
+  "./docs/demo/aegisops-demo-reel-draft.en.srt",
   "./docs/demo/thumbs/*"
 ]);
 zipAdd(fullZip, ["docs/demo/aegisops-demo-reel-fixed.mov", "docs/demo/aegisops-demo-reel-fixed.en.srt"]);
+zipDelete(fullZip, [
+  "docs/deployment/*",
+  "docs/deployment/",
+  "docs/demo/aegisops-demo-reel-draft.mov",
+  "docs/demo/aegisops-demo-reel-draft.m4v",
+  "docs/demo/aegisops-demo-reel-draft.en.srt",
+  "docs/demo/thumbs/*",
+  "docs/demo/thumbs/reel/*",
+  "docs/demo/thumbs/reel/",
+  "docs/demo/thumbs/"
+]);
 
 // Second pass records the exact package names created above, then patches both zips.
 run("pnpm", ["run", "final:preflight"]);

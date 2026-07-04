@@ -7,6 +7,8 @@ data/runtime/*.json
 experiments/runs/
 buidl/package/*.zip
 docs/demo/*.mov
+docs/demo/*.m4v
+docs/demo/aegisops-demo-reel-draft.en.srt
 !docs/demo/aegisops-demo-reel-fixed.mov
 docs/demo/thumbs/
 docs/deployment/
