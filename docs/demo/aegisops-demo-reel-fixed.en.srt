@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:08,500
+AegisOps Autopilot is a Track 4 production incident autopilot for Qwen Cloud.
+
+2
+00:00:08,500 --> 00:00:17,000
+The checkout workflow shows incident context, persistent operational memory, and Qwen-backed reasoning.
+
+3
+00:00:17,000 --> 00:00:25,500
+Human approval gates pause unsafe production mutation while preserving the audit trail.
+
+4
+00:00:25,500 --> 00:00:34,000
+The same five incident tools are exposed through Qwen Function Calling, OpenAPI, and MCP stdio.
+
+5
+00:00:34,000 --> 00:00:42,500
+The dashboard maps the official 30/30/25/15 rubric to concrete repository evidence.
+
+6
+00:00:42,500 --> 00:00:51,000
+Deterministic evals and ablations verify the full workflow against a single-agent baseline.
+
+7
+00:00:51,000 --> 00:00:59,500
+Alibaba deployment proof and verification scripts are included without exposing secrets.

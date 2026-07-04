@@ -36,10 +36,19 @@ const requiredShared = [
   "docs/QWEN_TOOLS.md",
   "docs/VIDEO_SUBMISSION.md",
   "docs/VIDEO_UPLOAD_METADATA.md",
+  "submissions/devpost_submission_receipt.md",
+  "submissions/devpost_public_page_polish.md",
+  "docs/screenshots/devpost-gallery/README.md",
+  "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
+  "docs/screenshots/devpost-gallery/02-approved-remediation.png",
+  "docs/screenshots/devpost-gallery/03-human-approval-gate.png",
+  "docs/screenshots/devpost-gallery/04-openapi-tool-surface.png",
+  "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
+  "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
   "docs/ALIBABA_PROOF_RECORDING.md",
   "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
-  "docs/demo/aegisops-demo-reel-draft.m4v",
-  "docs/demo/aegisops-demo-reel-draft.en.srt",
+  "docs/demo/aegisops-demo-reel-fixed.mov",
+  "docs/demo/aegisops-demo-reel-fixed.en.srt",
   "agents/aegisops/openapi.yaml",
   "agents/aegisops/cap-manifest.json",
   "infra/alibaba/DEPLOYMENT.md",
@@ -72,6 +81,33 @@ const requiredShared = [
   "src/server/cloud/alibabaProof.ts",
   "src/server/agent/qwenClient.ts",
   "src/server/agent/orchestrator.ts",
+  "tests/orchestrator.test.ts"
+];
+
+const requiredBuidl = [
+  "README.md",
+  "buidl/BUIDL_SUBMISSION.md",
+  "buidl/SUBMISSION_CHECKLIST.md",
+  "reports/brief.md",
+  "reports/final_preflight.md",
+  "reports/judge_evidence_bundle.md",
+  "reports/submission_audit.md",
+  "reports/video_asset_audit.md",
+  "reports/qwen_integration_audit.md",
+  "reports/model_ops_report.md",
+  "reports/build_provenance.md",
+  "reports/eval_report.md",
+  "reports/ablation_report.md",
+  "reports/experiment_board.md",
+  "reports/judge_demo_transcript.md",
+  "submissions/devpost_submission_receipt.md",
+  "docs/screenshots/devpost-gallery/README.md",
+  "src/client/main.tsx",
+  "src/client/styles.css",
+  "src/server/index.ts",
+  "src/server/agent/orchestrator.ts",
+  "src/server/agent/qwenClient.ts",
+  "src/server/cloud/alibabaProof.ts",
   "tests/orchestrator.test.ts"
 ];
 
@@ -113,7 +149,8 @@ function forbiddenEntries(entries: Set<string>): string[] {
 
 function checkPackage(kind: PackageKind, file: string): PackageCheck {
   const entries = listEntries(file);
-  const missing = requiredShared.filter((entry) => !entries.has(entry));
+  const required = kind === "BUIDL" ? requiredBuidl : requiredShared;
+  const missing = required.filter((entry) => !entries.has(entry));
   const forbidden = forbiddenEntries(entries);
   return { kind, file, entries, missing, forbidden };
 }
@@ -152,6 +189,12 @@ const lines = [
   rows,
   "",
   "## Required Entries",
+  "",
+  "### BUIDL",
+  "",
+  ...requiredBuidl.map((entry) => `- \`${entry}\``),
+  "",
+  "### Full",
   "",
   ...requiredShared.map((entry) => `- \`${entry}\``),
   "",

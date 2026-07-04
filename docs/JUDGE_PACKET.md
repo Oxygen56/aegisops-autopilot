@@ -12,6 +12,12 @@ Primary repository:
 https://github.com/Oxygen56/aegisops-autopilot
 ```
 
+Submitted Devpost project:
+
+```text
+https://devpost.com/software/aegisops-autopilot
+```
+
 Primary runnable workspace:
 
 ```text
@@ -95,6 +101,9 @@ The CI release gate includes:
 - `reports/model_ops_report.md`: model/provider choices, token estimates, latency budget, and fallback behavior.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.
 - `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.
+- `submissions/devpost_submission_receipt.md`: observed Devpost success banner, public project URL, embedded video, and edit window.
+- `docs/screenshots/devpost-gallery/README.md`: upload-ready 3:2 Devpost gallery image set.
+- `submissions/devpost_public_page_polish.md`: creator contribution note and post-submit public-page polish checklist.
 - `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`: Alibaba Cloud Workbench screenshot proof checklist from the latest Devpost update.
 - `docs/ALIBABA_PROOF_RECORDING.md`: separate Alibaba Cloud proof recording checklist and upload metadata.
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
@@ -107,6 +116,5 @@ The CI release gate includes:
 These are intentionally not claimed as complete until the account owner performs them:
 
 1. Deploy the container on Alibaba Cloud and run `pnpm run deploy:verify -- https://<your-domain>`.
-2. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku.
+2. Upload the prepared Devpost gallery images and save the creator contribution note.
 3. Optionally publish `submissions/blog_post_draft.md` for the Blog Post Award.
-4. Submit the Devpost form before 2026-07-09 14:00 PDT.

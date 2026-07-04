@@ -1,6 +1,6 @@
 # Demo Video Upload Metadata
 
-Use this when uploading `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku.
+Use this when uploading `docs/demo/aegisops-demo-reel-fixed.mov` to YouTube, Vimeo, or Youku.
 
 ## Title
 
@@ -63,10 +63,18 @@ Qwen Cloud, Alibaba Cloud, AI agent, Autopilot Agent, incident response, MCP, Op
 
 - Visibility: public or unlisted public-viewable.
 - Audience: not made for kids.
-- Captions: upload `docs/demo/aegisops-demo-reel-draft.en.srt`.
-- Thumbnail: use `docs/demo/thumbs/reel/aegisops-demo-reel-draft.mov.png`.
+- Captions: upload `docs/demo/aegisops-demo-reel-fixed.en.srt`.
+- Thumbnail: use any clean frame from `docs/demo/frames/reel/`.
 - License: standard platform license unless the upload account requires otherwise.
 
 ## Devpost Paste
 
-After upload, paste the public video URL into the Devpost video field and into `submissions/devpost_fields.md` before final submit.
+Uploaded YouTube URL:
+
+```text
+https://youtu.be/eAqfwJn9sr8
+```
+
+External access check: YouTube oEmbed returned 200 on 2026-07-04 with the expected title.
+
+Devpost status: this URL is embedded on the submitted public project page.

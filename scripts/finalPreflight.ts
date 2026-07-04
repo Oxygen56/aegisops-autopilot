@@ -120,6 +120,9 @@ add(checks, "GitHub Pages target URL", pages.includes(" 200") ? "pass" : "warn",
 const pagesReel = httpStatus("https://oxygen56.github.io/aegisops-autopilot/?reel=1");
 add(checks, "GitHub Pages demo reel URL", pagesReel.includes(" 200") ? "pass" : "warn", pagesReel);
 
+const devpostPublicPage = httpStatus("https://devpost.com/software/aegisops-autopilot");
+add(checks, "Devpost public project URL", devpostPublicPage.includes(" 200") ? "pass" : "warn", devpostPublicPage);
+
 const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL;
 if (alibabaProofUrl) {
   const liveProof = safeRun("pnpm", ["run", "deploy:verify", "--", alibabaProofUrl], 30_000);
@@ -164,6 +167,15 @@ const requiredFiles = [
   "docs/architecture/aegisops-architecture.svg",
   "docs/architecture/aegisops-architecture.png",
   "docs/VIDEO_UPLOAD_METADATA.md",
+  "submissions/devpost_submission_receipt.md",
+  "submissions/devpost_public_page_polish.md",
+  "docs/screenshots/devpost-gallery/README.md",
+  "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
+  "docs/screenshots/devpost-gallery/02-approved-remediation.png",
+  "docs/screenshots/devpost-gallery/03-human-approval-gate.png",
+  "docs/screenshots/devpost-gallery/04-openapi-tool-surface.png",
+  "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
+  "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
   "docs/ALIBABA_PROOF_RECORDING.md",
   "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
   "reports/qwen_integration_audit.md",
@@ -182,8 +194,8 @@ const requiredFiles = [
   "submissions/devpost_fields.md",
   "submissions/blog_post_draft.md",
   ".github/workflows/pages.yml",
-  "docs/demo/aegisops-demo-reel-draft.m4v",
-  "docs/demo/aegisops-demo-reel-draft.en.srt",
+  "docs/demo/aegisops-demo-reel-fixed.mov",
+  "docs/demo/aegisops-demo-reel-fixed.en.srt",
   "infra/alibaba/DEPLOYMENT.md",
   "infra/alibaba/deploy-acr-ecs.sh",
   "infra/alibaba/docker-compose.ecs.yml",
@@ -219,7 +231,7 @@ const lines = [
   `- Warn: ${warnings}`,
   `- Fail: ${failures}`,
   "",
-  "Warnings may be acceptable when they describe account-gated work, but failures should be fixed before packaging or submitting.",
+  "Warnings may be acceptable when they describe account-gated work, but failures should be fixed before packaging or further public edits.",
   "",
   "## Checks",
   "",
@@ -231,9 +243,8 @@ const lines = [
   "",
   "1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then paste the live `/api/alibaba/proof` URL into Devpost.",
   "2. Capture and attach or link the Alibaba Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public video URL into Devpost.",
+  "3. Upload the prepared Devpost gallery images and save the creator contribution note if making post-submit public-page edits.",
   "4. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
-  "5. Submit the Devpost form from the account owner session before the deadline.",
   "",
   "Primary runnable workspace:",
   "",

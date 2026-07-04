@@ -14,7 +14,10 @@
 - [x] Public repository URL is published.
 - [x] Primary runnable workspace is documented.
 - [x] GitHub Pages workflow deployment is configured and rechecked by final preflight.
+- [x] Demo video under three minutes is uploaded to YouTube and embedded on Devpost.
+- [x] Devpost final submit button is clicked by the account owner.
+- [x] Devpost public project page is live.
+- [x] Devpost image gallery upload set is prepared.
 - [ ] Alibaba Cloud live deployment URL is published.
-- [ ] Demo video under three minutes is uploaded to YouTube/Vimeo/Youku.
+- [ ] Devpost image gallery and creator contribution note are saved as post-submit public-page edits.
 - [ ] Optional blog/social post is published and linked.
-- [ ] Devpost final submit button is clicked by the account owner.

@@ -7,7 +7,9 @@ data/runtime/*.json
 experiments/runs/
 buidl/package/*.zip
 docs/demo/*.mov
+!docs/demo/aegisops-demo-reel-fixed.mov
 docs/demo/thumbs/
+docs/deployment/
 *.log
 .DS_Store
 reports/final_preflight.md

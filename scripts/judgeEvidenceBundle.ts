@@ -147,6 +147,8 @@ const items: EvidenceItem[] = [
         "docs/architecture/aegisops-architecture.png",
         "reports/judge_demo_transcript.md",
         "submissions/devpost_fields.md",
+        "submissions/devpost_submission_receipt.md",
+        "docs/screenshots/devpost-gallery/README.md",
         "docs/VIDEO_UPLOAD_METADATA.md",
         "reports/video_asset_audit.md",
         "src/client/main.tsx"
@@ -161,11 +163,13 @@ const items: EvidenceItem[] = [
       "docs/architecture/aegisops-architecture.png",
       "reports/judge_demo_transcript.md",
       "submissions/devpost_fields.md",
+      "submissions/devpost_submission_receipt.md",
+      "docs/screenshots/devpost-gallery/README.md",
       "docs/VIDEO_UPLOAD_METADATA.md",
       "reports/video_asset_audit.md",
       "src/client/main.tsx"
     ],
-    proof: "A judge can follow a five-minute path, inspect deterministic transcript and video asset checks, or see the weighted rubric evidence directly in the demo UI."
+    proof: "A judge can follow a five-minute path, inspect deterministic transcript and video asset checks, see the weighted rubric evidence directly in the demo UI, and review the submitted Devpost public page."
   },
   {
     section: "Submission Readiness",
@@ -193,10 +197,38 @@ const items: EvidenceItem[] = [
   },
   {
     section: "Submission Readiness",
-    claim: "Public video upload and final Devpost submission are account-gated",
+    claim: "Demo video is uploaded and final Devpost submission is complete",
+    status: verified(
+      includes("submissions/devpost_submission_receipt.md", "Project submitted!") &&
+        includes("submissions/devpost_submission_receipt.md", "https://devpost.com/software/aegisops-autopilot") &&
+        includes("submissions/devpost_submission_receipt.md", "youtube.com/embed/eAqfwJn9sr8") &&
+        includes("docs/VIDEO_UPLOAD_METADATA.md", "https://youtu.be/eAqfwJn9sr8")
+    ),
+    evidence: [
+      "https://devpost.com/software/aegisops-autopilot",
+      "https://youtu.be/eAqfwJn9sr8",
+      "submissions/devpost_submission_receipt.md",
+      "docs/demo/aegisops-demo-reel-fixed.mov",
+      "docs/VIDEO_UPLOAD_METADATA.md",
+      "reports/video_asset_audit.md"
+    ],
+    proof: "The Devpost public page was observed after final submit with the success banner and embedded YouTube video; the video link is public-viewable by link and oEmbed-verified."
+  },
+  {
+    section: "Submission Readiness",
+    claim: "Post-submit Devpost gallery and creator contribution are prepared",
     status: "ACCOUNT-GATED",
-    evidence: ["docs/demo/aegisops-demo-reel-draft.m4v", "docs/VIDEO_UPLOAD_METADATA.md", "reports/video_asset_audit.md", "submissions/FINAL_SUBMISSION_RUNBOOK.md"],
-    proof: "Local video, captions, metadata, video asset audit, and submit runbook are present; public upload and Devpost submit require account-owner action."
+    evidence: [
+      "docs/screenshots/devpost-gallery/README.md",
+      "submissions/devpost_public_page_polish.md",
+      "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
+      "docs/screenshots/devpost-gallery/02-approved-remediation.png",
+      "docs/screenshots/devpost-gallery/03-human-approval-gate.png",
+      "docs/screenshots/devpost-gallery/04-openapi-tool-surface.png",
+      "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
+      "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png"
+    ],
+    proof: "The six 1200x800 upload-ready images and creator contribution text are prepared; saving them on Devpost requires an account-owner public-page edit."
   }
 ];
 
@@ -220,6 +252,7 @@ const lines = [
   "",
   "## Fast Review Links",
   "",
+  "- Devpost public page: https://devpost.com/software/aegisops-autopilot",
   "- Repository: https://github.com/Oxygen56/aegisops-autopilot",
   "- Runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
   "- Static fallback demo: https://oxygen56.github.io/aegisops-autopilot/",
@@ -249,7 +282,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, and documentation. Live Alibaba deployment, public video upload, optional blog publication, and final Devpost submit remain account-gated until the account owner performs them.",
+  "The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, and documentation. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication remain account-gated until the account owner performs them.",
   ""
 ];
 

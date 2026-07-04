@@ -19,4 +19,6 @@ Project repository: https://github.com/Oxygen56/aegisops-autopilot
 
 Runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 
-The next step is to deploy the container on Alibaba Cloud with a live Qwen Cloud key, then attach the `/api/alibaba/proof` endpoint and public demo video to the final Devpost submission.
+Submitted Devpost page: https://devpost.com/software/aegisops-autopilot
+
+The next step is to deploy the container on Alibaba Cloud with a live Qwen Cloud key, then attach the `/api/alibaba/proof` endpoint and public-safe Workbench proof to the submitted Devpost page.

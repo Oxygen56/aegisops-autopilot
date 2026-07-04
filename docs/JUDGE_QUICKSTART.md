@@ -98,5 +98,7 @@ Without a key, the deterministic offline fixture mode exercises the same orchest
 ## 6. Known External Items
 
 - A public Alibaba Cloud URL requires account credentials and deployment.
-- The demo video draft exists at `docs/demo/aegisops-demo-reel-draft.m4v`, but must be uploaded to YouTube, Vimeo, or Youku before final Devpost submission.
+- The submitted Devpost page is https://devpost.com/software/aegisops-autopilot.
+- The demo video is uploaded at https://youtu.be/eAqfwJn9sr8, embedded on Devpost, and the final local asset is `docs/demo/aegisops-demo-reel-fixed.mov`.
+- Optional Devpost gallery and creator contribution updates require account-owner public-page edits.
 - GitHub Pages is a static fallback demo deployed by the repository Pages workflow; use StackBlitz for the full local Node API path.

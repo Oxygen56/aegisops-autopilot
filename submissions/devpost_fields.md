@@ -86,13 +86,26 @@ Dashboard screenshot: `docs/screenshots/aegisops-dashboard-viewport.png`
 
 Static Pages screenshot: `docs/screenshots/pages-static-reel.png`
 
+Devpost gallery upload set: `docs/screenshots/devpost-gallery/`
+
+Recommended gallery order:
+
+1. `01-dashboard-workflow.png`
+2. `02-approved-remediation.png`
+3. `03-human-approval-gate.png`
+4. `04-openapi-tool-surface.png`
+5. `05-architecture-qwen-tools.png`
+6. `06-judge-rubric-evidence.png`
+
 ## Demo Video
 
-Local draft: `docs/demo/aegisops-demo-reel-draft.m4v`
+YouTube demo video: https://youtu.be/eAqfwJn9sr8
 
-Upload metadata, captions, and audit: `docs/VIDEO_UPLOAD_METADATA.md`, `docs/demo/aegisops-demo-reel-draft.en.srt`, `reports/video_asset_audit.md`
+Final local asset: `docs/demo/aegisops-demo-reel-fixed.mov`
 
-TODO: Upload the local draft to YouTube/Vimeo/Youku and paste the public URL here.
+Upload metadata, captions, and audit: `docs/VIDEO_UPLOAD_METADATA.md`, `docs/demo/aegisops-demo-reel-fixed.en.srt`, `reports/video_asset_audit.md`
+
+External access check: YouTube oEmbed returned 200 for `https://youtu.be/eAqfwJn9sr8` on 2026-07-04 with the title `AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent`.
 
 ## Blog / Social Post
 
@@ -103,6 +116,10 @@ TODO: Publish the draft publicly and paste the URL here for the optional Blog Po
 ## Repository
 
 https://github.com/Oxygen56/aegisops-autopilot
+
+## Submitted Devpost Page
+
+https://devpost.com/software/aegisops-autopilot
 
 ## Testing Instructions
 
@@ -136,7 +153,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `docs/OFFICIAL_REQUIREMENTS_MATRIX.md`: official Devpost requirement-to-evidence matrix.
 - `docs/architecture/aegisops-architecture.svg` and `docs/architecture/aegisops-architecture.png`: upload-ready architecture diagram showing Qwen Cloud, the backend, memory, tools, dashboard, MCP/OpenAPI, and Alibaba Cloud proof runtime.
 - `docs/IMPACT_CASE.md`: target users, KPI model, adoption path, and impact evidence boundaries.
-- `pnpm run final:preflight`: latest link/package/CI preflight status before final Devpost submission.
+- `pnpm run final:preflight`: latest link/package/CI preflight status for post-submit maintenance.
 - `reports/submission_audit.md`: Devpost requirement-to-evidence audit and final external-action checklist.
 - `docs/JUDGE_PACKET.md`: one-page judge evidence map and five-minute review path.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video title, description, tags, chapters, thumbnail, and captions.

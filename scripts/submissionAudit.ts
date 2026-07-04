@@ -136,17 +136,43 @@ const items: AuditItem[] = [
   },
   {
     area: "Demo video under three minutes",
-    status: "external-action",
+    status: "verified",
     evidence: requireEvidence([
       "docs/VIDEO_SUBMISSION.md",
       "docs/VIDEO_UPLOAD_METADATA.md",
-      "docs/demo/aegisops-demo-reel-draft.m4v",
-      "docs/demo/aegisops-demo-reel-draft.en.srt",
+      "docs/demo/aegisops-demo-reel-fixed.mov",
+      "docs/demo/aegisops-demo-reel-fixed.en.srt",
+      "submissions/devpost_fields.md",
       "scripts/record_demo.sh",
       "scripts/videoAssetAudit.ts",
       "reports/video_asset_audit.md"
     ]),
-    note: "The local upload-ready video, upload metadata, captions, recording script, and video asset audit exist; the video still must be uploaded publicly to YouTube, Vimeo, or Youku."
+    note: "The final video is uploaded at https://youtu.be/eAqfwJn9sr8, oEmbed-verified, and backed by local video, captions, upload metadata, and video asset audit evidence."
+  },
+  {
+    area: "Devpost final submission and public page",
+    status: "verified",
+    evidence: requireEvidence([
+      "submissions/devpost_submission_receipt.md",
+      "submissions/devpost_fields.md",
+      "submissions/FINAL_SUBMISSION_RUNBOOK.md"
+    ]),
+    note: "The public Devpost page is submitted, the receipt records the success banner and public URL, and the embedded YouTube demo is visible on the public project page."
+  },
+  {
+    area: "Devpost image gallery and creator contribution polish",
+    status: "external-action",
+    evidence: requireEvidence([
+      "docs/screenshots/devpost-gallery/README.md",
+      "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
+      "docs/screenshots/devpost-gallery/02-approved-remediation.png",
+      "docs/screenshots/devpost-gallery/03-human-approval-gate.png",
+      "docs/screenshots/devpost-gallery/04-openapi-tool-surface.png",
+      "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
+      "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
+      "submissions/devpost_public_page_polish.md"
+    ]),
+    note: "The 3:2 gallery images and creator contribution copy are ready; uploading or saving them changes the public Devpost page."
   },
   {
     area: "Optional blog or social post prize",
@@ -205,8 +231,14 @@ const requiredTextChecks: Array<[string, string]> = [
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
   ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
+  ["docs/VIDEO_UPLOAD_METADATA.md", "https://youtu.be/eAqfwJn9sr8"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "00:36 Judge rubric evidence"],
-  ["docs/demo/aegisops-demo-reel-draft.en.srt", "30/30/25/15 rubric"],
+  ["docs/demo/aegisops-demo-reel-fixed.en.srt", "30/30/25/15 rubric"],
+  ["submissions/devpost_submission_receipt.md", "Project submitted!"],
+  ["submissions/devpost_submission_receipt.md", "https://devpost.com/software/aegisops-autopilot"],
+  ["submissions/devpost_submission_receipt.md", "youtube.com/embed/eAqfwJn9sr8"],
+  ["docs/screenshots/devpost-gallery/README.md", "Devpost Gallery Upload Set"],
+  ["submissions/devpost_public_page_polish.md", "Creator Contribution Field"],
   ["reports/video_asset_audit.md", "Video Asset Audit"],
   ["submissions/FINAL_SUBMISSION_RUNBOOK.md", "Track 4: Autopilot Agent"],
   ["submissions/devpost_fields.md", "Track 4: Autopilot Agent"],
@@ -257,9 +289,8 @@ const lines = [
   "",
   "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
   "2. Capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "3. Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku and paste the public URL into Devpost.",
+  "3. Upload the prepared Devpost gallery images and save the creator contribution note if making post-submit public-page edits.",
   "4. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
-  "5. Review `submissions/devpost_fields.md` in Devpost and click final submit before the deadline.",
   ""
 ];
 

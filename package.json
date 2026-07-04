@@ -25,6 +25,8 @@
     "judge:evidence": "tsx scripts/judgeEvidenceBundle.ts",
     "judge:transcript": "tsx scripts/generateJudgeTranscript.ts",
     "video:audit": "tsx scripts/videoAssetAudit.ts",
+    "video:frames": "node scripts/captureDemoFrames.mjs docs/demo/frames/reel",
+    "video:render": "swift scripts/imageSequenceToVideo.swift docs/demo/aegisops-demo-reel-fixed.mov 30 8.5 docs/demo/frames/reel/slide-*.png",
     "final:preflight": "tsx scripts/finalPreflight.ts",
     "submission:package": "tsx scripts/packageFinalSubmission.ts",
     "submission:validate": "tsx scripts/validateSubmissionPackages.ts",

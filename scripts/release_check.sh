@@ -36,8 +36,8 @@ test -s docs/VIDEO_UPLOAD_METADATA.md
 test -s docs/ALIBABA_PROOF_RECORDING.md
 test -s docs/ALIBABA_WORKBENCH_SCREENSHOT.md
 test -s submissions/devpost_fields.md
-test -s docs/demo/aegisops-demo-reel-draft.m4v
-test -s docs/demo/aegisops-demo-reel-draft.en.srt
+test -s docs/demo/aegisops-demo-reel-fixed.mov
+test -s docs/demo/aegisops-demo-reel-fixed.en.srt
 test -s docs/screenshots/aegisops-dashboard-viewport.png
 test -s docs/screenshots/pages-static-reel.png
 test -s agents/aegisops/openapi.yaml

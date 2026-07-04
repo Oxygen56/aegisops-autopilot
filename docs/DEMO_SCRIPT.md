@@ -1,8 +1,8 @@
 # Demo Script
 
-Target length: 2 minutes 30 seconds.
+Target length: 59.5 seconds for the generated final video.
 
-Fast path: use the generated 65-second draft video in `docs/demo/aegisops-demo-reel-draft.m4v`, or re-record it with `docs/VIDEO_SUBMISSION.md`.
+Fast path: use the generated final video in `docs/demo/aegisops-demo-reel-fixed.mov`, uploaded at https://youtu.be/eAqfwJn9sr8, or re-record it with `docs/VIDEO_SUBMISSION.md`.
 
 ## 0:00-0:20
 

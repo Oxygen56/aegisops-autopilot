@@ -75,10 +75,12 @@ run("zip", [
   "./dist/*",
   "./data/runtime/*",
   "./buidl/package/*",
+  "./docs/deployment/*",
   "./.DS_Store",
   "./docs/demo/*.mov",
   "./docs/demo/thumbs/*"
 ]);
+zipAdd(fullZip, ["docs/demo/aegisops-demo-reel-fixed.mov", "docs/demo/aegisops-demo-reel-fixed.en.srt"]);
 
 // Second pass records the exact package names created above, then patches both zips.
 run("pnpm", ["run", "final:preflight"]);

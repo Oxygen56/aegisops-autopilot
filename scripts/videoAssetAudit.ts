@@ -11,11 +11,14 @@ interface Check {
 const root = process.cwd();
 const outPath = path.join(root, "reports/video_asset_audit.md");
 
-const videoPath = "docs/demo/aegisops-demo-reel-draft.m4v";
-const captionsPath = "docs/demo/aegisops-demo-reel-draft.en.srt";
+const videoPath = "docs/demo/aegisops-demo-reel-fixed.mov";
+const captionsPath = "docs/demo/aegisops-demo-reel-fixed.en.srt";
 const submissionPath = "docs/VIDEO_SUBMISSION.md";
 const metadataPath = "docs/VIDEO_UPLOAD_METADATA.md";
 const scriptPath = "scripts/record_demo.sh";
+const frameDir = "docs/demo/frames/reel";
+const frameCaptureScriptPath = "scripts/captureDemoFrames.mjs";
+const frameRenderScriptPath = "scripts/imageSequenceToVideo.swift";
 
 function fullPath(relativePath: string): string {
   return path.join(root, relativePath);
@@ -48,21 +51,21 @@ const checks: Check[] = [];
 const videoExists = fs.existsSync(fullPath(videoPath));
 const videoSize = videoExists ? fs.statSync(fullPath(videoPath)).size : 0;
 add(checks, "Upload video exists", videoExists, videoExists ? `${videoPath} ${videoSize} bytes` : `${videoPath} missing`);
-add(checks, "Upload video is current-size draft", videoSize >= 5_000_000, `${videoSize} bytes`);
+add(checks, "Upload video is current-size final", videoSize >= 5_000_000, `${videoSize} bytes`);
 
 const duration = safeDurationSeconds(videoPath);
 if (duration === undefined) {
   checks.push({ name: "Upload video duration", status: "WARN", evidence: "duration unavailable on this platform; macOS mdls provides this locally" });
 } else {
-  add(checks, "Upload video duration", duration >= 60 && duration < 180, `${duration.toFixed(1)} seconds`);
+  add(checks, "Upload video duration", duration >= 59 && duration < 180, `${duration.toFixed(1)} seconds`);
 }
 
 const captions = read(captionsPath);
 add(checks, "Captions include rubric slide", captions.includes("30/30/25/15 rubric"), captionsPath);
-add(checks, "Captions cover 65 seconds", captions.includes("00:01:05,000"), captionsPath);
+add(checks, "Captions fit generated duration", captions.includes("00:00:59,500"), captionsPath);
 
 const submission = read(submissionPath);
-add(checks, "Submission pack says 65 seconds", submission.includes("about 65 seconds"), submissionPath);
+add(checks, "Submission pack says 59.5 seconds", submission.includes("59.5 seconds"), submissionPath);
 add(checks, "Submission pack lists rubric evidence", submission.includes("official 30/30/25/15 rubric evidence"), submissionPath);
 
 const metadata = read(metadataPath);
@@ -72,6 +75,13 @@ add(checks, "Upload chapters include Alibaba proof", metadata.includes("00:54 Al
 const recordScript = read(scriptPath);
 add(checks, "Recording script defaults to 65 seconds", recordScript.includes("DEMO_REEL_SECONDS:-65"), scriptPath);
 add(checks, "Recording script supports custom URL", recordScript.includes("DEMO_REEL_URL"), scriptPath);
+
+const frameFiles = fs.existsSync(fullPath(frameDir))
+  ? fs.readdirSync(fullPath(frameDir)).filter((name) => /^slide-\d{2}\.png$/.test(name))
+  : [];
+add(checks, "Seven clean source frames exist", frameFiles.length === 7, `${frameDir}: ${frameFiles.length} frames`);
+add(checks, "Frame capture script exists", fs.existsSync(fullPath(frameCaptureScriptPath)), frameCaptureScriptPath);
+add(checks, "Frame render script exists", fs.existsSync(fullPath(frameRenderScriptPath)), frameRenderScriptPath);
 
 const failures = checks.filter((check) => check.status === "FAIL");
 const warnings = checks.filter((check) => check.status === "WARN");
@@ -95,7 +105,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "This audit verifies the local upload-ready video asset, captions, chapter metadata, and recording script are internally consistent. Public upload to YouTube, Vimeo, or Youku remains account-gated.",
+  "This audit verifies the local video asset, captions, chapter metadata, public YouTube upload metadata, and recording script are internally consistent. The submitted Devpost page embeds https://youtu.be/eAqfwJn9sr8.",
   ""
 ];
 

@@ -13,7 +13,7 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 | Runs consistently for judges | `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `pnpm run ci`, and deterministic offline fixtures | Verified |
 | Public open-source repository and license | `README.md`, `LICENSE`, GitHub repository | Verified |
 | Alibaba Cloud deployment proof | `src/server/cloud/alibabaProof.ts`, `infra/alibaba/DEPLOYMENT.md`, `Dockerfile` | Code proof verified; live URL requires account deployment |
-| Demo video under 3 minutes | `docs/demo/aegisops-demo-reel-draft.m4v` | Local draft verified; public upload required |
+| Demo video under 3 minutes | `https://youtu.be/eAqfwJn9sr8`, `docs/demo/aegisops-demo-reel-fixed.mov` | Uploaded and oEmbed-verified on 2026-07-04 |
 
 ## Stage Two: Weighted Judging Criteria
 
@@ -49,5 +49,6 @@ pnpm run docker:smoke
 
 - Live Qwen Cloud mode requires `QWEN_API_KEY` or `DASHSCOPE_API_KEY`.
 - Live Alibaba Cloud deployment requires account credentials and a deployment target.
-- Public demo video requires upload to YouTube, Vimeo, or Youku.
+- Public demo video is uploaded at `https://youtu.be/eAqfwJn9sr8` and embedded in the submitted Devpost page.
+- Devpost gallery and creator contribution updates require account-owner public-page edits.
 - Optional blog/social prize requires publishing `submissions/blog_post_draft.md`.

@@ -101,7 +101,7 @@ const milestones: Milestone[] = [
   {
     label: "Upload-ready demo video asset evidence",
     match: "Refresh demo video asset evidence",
-    evidence: ["docs/demo/aegisops-demo-reel-draft.m4v", "reports/video_asset_audit.md", "scripts/videoAssetAudit.ts"]
+    evidence: ["docs/demo/aegisops-demo-reel-fixed.mov", "reports/video_asset_audit.md", "scripts/videoAssetAudit.ts"]
   }
 ];
 
@@ -163,7 +163,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "This report proves the repository contains a substantial, reviewable implementation trail for the current submission. Live Alibaba deployment, public video upload, optional blog publication, and final Devpost submission still require account-owner action.",
+  "This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication still require account-owner action.",
   "",
   "## CI Note",
   "",

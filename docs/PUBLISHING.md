@@ -64,13 +64,13 @@ This runs:
 
 ## Demo Video
 
-Upload:
+Uploaded:
 
 ```text
-docs/demo/aegisops-demo-reel-draft.m4v
+https://youtu.be/eAqfwJn9sr8
 ```
 
-to YouTube, Vimeo, or Youku. The video is under three minutes. Paste the public URL into Devpost.
+The final local asset is `docs/demo/aegisops-demo-reel-fixed.mov`. The video is under three minutes and should be pasted into Devpost.
 
 ## Working Demo Links
 
@@ -128,4 +128,4 @@ pnpm run deploy:verify -- https://<your-domain>
 
 Use `docs/JUDGE_PACKET.md`, `submissions/FINAL_SUBMISSION_RUNBOOK.md`, `submissions/devpost_fields.md`, and `buidl/BUIDL_SUBMISSION.md`.
 
-Final submit is irreversible after the deadline, so the account owner should review and click submit.
+The submitted public page is `https://devpost.com/software/aegisops-autopilot`. Devpost still allows edits until the hackathon deadline, so only make post-submit public-page edits that improve evidence clarity and do not introduce unverified claims.

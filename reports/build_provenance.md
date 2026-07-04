@@ -25,7 +25,7 @@ This report documents contest-period implementation evidence for the Devpost New
 | PASS | Live Qwen tool-call loop | fa71dfa 2026-07-03T04:18:23+08:00 Add live Qwen tool call loop | `src/server/agent/qwenClient.ts`<br>`src/server/agent/orchestrator.ts`<br>`tests/orchestrator.test.ts` |
 | PASS | Active-incident tool scoping guard | b7b8b33 2026-07-03T04:24:32+08:00 Scope Qwen tool calls to active incident | `src/server/agent/orchestrator.ts`<br>`tests/orchestrator.test.ts`<br>`reports/qwen_integration_audit.md` |
 | PASS | Visible judge rubric evidence UI | 22f7b34 2026-07-03T04:39:51+08:00 Add judge rubric evidence panel | `src/client/main.tsx`<br>`src/client/styles.css`<br>`docs/RUBRIC_SCORECARD.md` |
-| PASS | Upload-ready demo video asset evidence | 9582f4c 2026-07-03T04:56:58+08:00 Refresh demo video asset evidence | `docs/demo/aegisops-demo-reel-draft.m4v`<br>`reports/video_asset_audit.md`<br>`scripts/videoAssetAudit.ts` |
+| PASS | Upload-ready demo video asset evidence | 9582f4c 2026-07-03T04:56:58+08:00 Refresh demo video asset evidence | `docs/demo/aegisops-demo-reel-fixed.mov`<br>`reports/video_asset_audit.md`<br>`scripts/videoAssetAudit.ts` |
 
 ## Milestone Commit Trail
 
@@ -44,7 +44,7 @@ This report documents contest-period implementation evidence for the Devpost New
 
 ## Claim Boundary
 
-This report proves the repository contains a substantial, reviewable implementation trail for the current submission. Live Alibaba deployment, public video upload, optional blog publication, and final Devpost submission still require account-owner action.
+This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication still require account-owner action.
 
 ## CI Note
 

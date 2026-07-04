@@ -10,6 +10,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Deadline | 2026-07-09 14:00 PDT / 2026-07-10 05:00 Beijing time |
 | Project | AegisOps Autopilot |
 | Selected track | Track 4: Autopilot Agent |
+| Submitted Devpost page | `https://devpost.com/software/aegisops-autopilot` |
 | Prize target | Track 4 winner: $7,000 cash + $3,000 cloud credits, blog feature, swag, Ambassador opportunity |
 | Bonus target | Blog Post Award after public blog/social publication |
 
@@ -34,9 +35,11 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | New or significantly updated project evidence | Verified | `docs/BUILD_PROVENANCE.md`, `reports/build_provenance.md`, `reports/experiment_board.md` |
 | Proof of Alibaba Cloud deployment/API usage | External action | Qwen Base URL proof exists in `src/server/agent/qwenClient.ts`; Alibaba proof code exists in `src/server/cloud/alibabaProof.ts`; Workbench screenshot instructions exist in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`; recording instructions exist in `docs/ALIBABA_PROOF_RECORDING.md`; live deployment requires account credentials and `pnpm run deploy:verify -- https://<your-domain>` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png` |
-| Public demo video about 3 minutes | External action | Local 65-second video exists at `docs/demo/aegisops-demo-reel-draft.m4v`; consistency audit exists at `reports/video_asset_audit.md`; public upload still required |
+| Public demo video about 3 minutes | Verified | YouTube link: `https://youtu.be/eAqfwJn9sr8`; final 59.5-second video exists at `docs/demo/aegisops-demo-reel-fixed.mov`; consistency audit exists at `reports/video_asset_audit.md`; oEmbed access check returned 200 on 2026-07-04 |
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
 | Track identification | Verified | `Track 4: Autopilot Agent` in `README.md`, `reports/brief.md`, and `submissions/devpost_fields.md` |
+| Final Devpost submission | Verified | `submissions/devpost_submission_receipt.md`; observed `Project submitted!` banner and public page `https://devpost.com/software/aegisops-autopilot` |
+| Project image gallery polish | External action | Upload-ready 3:2 images exist in `docs/screenshots/devpost-gallery/`; saving them changes the public Devpost page |
 | Optional blog/social post for Blog Post Prize | External action | Draft exists at `submissions/blog_post_draft.md`; public publication still required |
 
 ## Judging Criteria Mapping
@@ -55,6 +58,5 @@ These cannot be completed from the repository alone:
 1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then verify with `pnpm run deploy:verify -- https://<your-domain>`.
 2. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
 3. Record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
-4. Upload `docs/demo/aegisops-demo-reel-draft.m4v` publicly using `docs/VIDEO_UPLOAD_METADATA.md` and `docs/demo/aegisops-demo-reel-draft.en.srt`.
+4. Upload the prepared Devpost image gallery and save the creator contribution note if making post-submit public-page edits.
 5. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
-6. Submit the Devpost form from the account-owner session before the deadline.

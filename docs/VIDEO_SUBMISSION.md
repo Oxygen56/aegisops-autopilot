@@ -4,9 +4,9 @@ Devpost requires a public YouTube, Vimeo, or Youku link, and judges are not requ
 
 ## Local Draft Video
 
-- Upload-friendly draft: `docs/demo/aegisops-demo-reel-draft.m4v`
-- Original screen recording: `docs/demo/aegisops-demo-reel-draft.mov`
-- Duration: about 65 seconds
+- Upload-friendly final: `docs/demo/aegisops-demo-reel-fixed.mov`
+- Source frames: `docs/demo/frames/reel/slide-01.png` through `slide-07.png`
+- Duration: 59.5 seconds
 - Content: auto-playing AegisOps demo reel that calls the local backend and shows:
   - Track 4 positioning
   - SEV1 incident workflow
@@ -16,7 +16,22 @@ Devpost requires a public YouTube, Vimeo, or Youku link, and judges are not requ
   - ablation evidence
   - Alibaba Cloud deployment proof endpoint
 
-## Re-record Command
+## Preferred Regeneration Command
+
+Start the local app first:
+
+```bash
+pnpm run dev
+```
+
+Then regenerate the clean 720p video without depending on screen focus:
+
+```bash
+pnpm run video:frames
+pnpm run video:render
+```
+
+## Screen Recording Fallback
 
 Start the local app first:
 
@@ -38,8 +53,12 @@ DEMO_REEL_URL=http://127.0.0.1:5173/?reel=1 DEMO_REEL_SECONDS=65 pnpm run video:
 
 ## Upload Step
 
-Upload `docs/demo/aegisops-demo-reel-draft.m4v` to YouTube, Vimeo, or Youku as a public or unlisted public-viewable video, then paste that URL into Devpost.
+Uploaded YouTube URL: https://youtu.be/eAqfwJn9sr8
 
-Use `docs/VIDEO_UPLOAD_METADATA.md` for the title, description, tags, chapters, and upload settings. Upload `docs/demo/aegisops-demo-reel-draft.en.srt` as English captions.
+The uploaded video is unlisted public-viewable and passed a YouTube oEmbed access check on 2026-07-04.
+
+If replacing the video, upload `docs/demo/aegisops-demo-reel-fixed.mov` to YouTube, Vimeo, or Youku as a public or unlisted public-viewable video, then paste that URL into Devpost.
+
+Use `docs/VIDEO_UPLOAD_METADATA.md` for the title, description, tags, chapters, and upload settings. Upload `docs/demo/aegisops-demo-reel-fixed.en.srt` as English captions.
 
 Do not upload secrets, `.env` files, private logs, or unpublished customer data.
