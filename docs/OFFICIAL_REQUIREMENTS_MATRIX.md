@@ -39,8 +39,8 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-05.
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
 | Track identification | Verified | `Track 4: Autopilot Agent` in `README.md`, `reports/brief.md`, and `submissions/devpost_fields.md` |
 | Final Devpost submission | Verified | `submissions/devpost_submission_receipt.md`; observed `Project submitted!` banner and public page `https://devpost.com/software/aegisops-autopilot` |
-| Project image gallery polish | Verified | Six gallery images and the creator contribution note are live on `https://devpost.com/software/aegisops-autopilot`; source images are in `docs/screenshots/devpost-gallery/` |
-| Optional blog/social post for Blog Post Prize | Verified | Published URL: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`; source: `public/blog/qwen-cloud-aegisops-autopilot.html` and `submissions/blog_post_draft.md` |
+| Project image gallery polish | Verified | Seven gallery images and the creator contribution note are live on `https://devpost.com/software/aegisops-autopilot`; source images are in `docs/screenshots/devpost-gallery/` plus `docs/screenshots/alibaba-workbench-proof.png` |
+| Optional blog/social post for Blog Post Prize | Verified | Published URL: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`; saved in Devpost Additional info and public Try it out link; source: `public/blog/qwen-cloud-aegisops-autopilot.html` and `submissions/blog_post_draft.md` |
 
 ## Judging Criteria Mapping
 

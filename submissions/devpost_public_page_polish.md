@@ -10,7 +10,7 @@ I built AegisOps Autopilot end to end: the TypeScript Node API, React judge dash
 
 ## Gallery Files
 
-Upload the prepared gallery images from `docs/screenshots/devpost-gallery/` in this order:
+The public gallery has seven images. The first six come from `docs/screenshots/devpost-gallery/` in this order:
 
 1. `01-dashboard-workflow.png`
 2. `02-approved-remediation.png`
@@ -19,10 +19,16 @@ Upload the prepared gallery images from `docs/screenshots/devpost-gallery/` in t
 5. `05-architecture-qwen-tools.png`
 6. `06-judge-rubric-evidence.png`
 
+The seventh public gallery image is `docs/screenshots/alibaba-workbench-proof.png`, uploaded as `software_photos` ID `4864863` with this caption:
+
+```text
+Alibaba Cloud ECS proof: running cn-beijing instance and public IP 101.201.33.56.
+```
+
 ## Public Page Priority
 
 1. Confirm the embedded YouTube video remains `https://youtu.be/eAqfwJn9sr8`.
-2. Upload the six gallery images.
-3. Save the creator contribution field.
+2. Confirm the seven-image gallery remains visible.
+3. Confirm the creator contribution field remains visible.
 4. Keep the live Alibaba Cloud proof links visible.
-5. Add or keep the Blog/Social Post Prize URL: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.
+5. Keep the Blog/Social Post Prize URL visible: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.

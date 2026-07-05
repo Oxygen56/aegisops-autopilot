@@ -172,15 +172,16 @@ const items: AuditItem[] = [
       "docs/screenshots/devpost-gallery/04-openapi-tool-surface.png",
       "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
       "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
+      "docs/screenshots/alibaba-workbench-proof.png",
       "submissions/devpost_public_page_polish.md"
     ]),
-    note: "The six gallery images and creator contribution note are saved on the public Devpost page; public HTML verification shows CloudFront gallery assets and the member contribution bubble."
+    note: "Seven gallery images, including the Alibaba Workbench proof image, and the creator contribution note are saved on the public Devpost page; public HTML verification shows the Workbench proof caption and the member contribution bubble."
   },
   {
     area: "Optional blog or social post prize",
     status: "verified",
     evidence: requireEvidence(["public/blog/qwen-cloud-aegisops-autopilot.html", "submissions/blog_post_draft.md", "submissions/devpost_fields.md"]),
-    note: "The public Blog/Social Post Prize URL is published through GitHub Pages and recorded in the Devpost field draft."
+    note: "The public Blog/Social Post Prize URL is published through GitHub Pages, saved in Devpost Additional info, and visible on the public Devpost page."
   },
   {
     area: "Judging evidence and reproducibility",

@@ -20,4 +20,5 @@
 - [x] Devpost image gallery upload set is prepared.
 - [x] Devpost image gallery and creator contribution note are saved as post-submit public-page edits.
 - [x] Alibaba Cloud live deployment URL is published.
+- [x] Alibaba Cloud Workbench screenshot proof is saved in Devpost Additional info and public gallery.
 - [x] Optional blog/social post is published and linked.

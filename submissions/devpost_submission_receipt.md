@@ -25,7 +25,10 @@ https://devpost.com/software/aegisops-autopilot
 - Runnable workspace: `https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev`
 - Blog/Social Post Prize page: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`
 - Alibaba Workbench screenshot proof: `docs/screenshots/alibaba-workbench-proof.png`
-- Devpost gallery images: six public CloudFront gallery assets, `software_photos` IDs `4862876` through `4862881`
+- Devpost gallery images: seven public CloudFront gallery assets, `software_photos` IDs `4862876` through `4862881` plus `4864863`
+- Public gallery Workbench proof caption: `Alibaba Cloud ECS proof: running cn-beijing instance and public IP 101.201.33.56.`
+- Additional info Blog/Social Post Prize URL: saved
+- Additional info Alibaba screenshot attachment: `alibaba-workbench-proof.png` saved
 - Creator contribution note: saved for member `5901042` and visible in the `Created by` member bubble
 
 ## Remaining Public-Page Polish
@@ -33,4 +36,4 @@ https://devpost.com/software/aegisops-autopilot
 These are optional post-submit edits allowed by Devpost before the deadline:
 
 1. Keep the live Alibaba Cloud proof links visible and public-safe.
-2. Keep the Blog/Social Post Prize URL visible in Devpost.
+2. Optionally record the separate Alibaba proof video if judges request additional visual proof.

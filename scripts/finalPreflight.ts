@@ -126,6 +126,20 @@ add(checks, "Blog/Social Post Prize URL", blogPost.includes(" 200") ? "pass" : "
 const devpostPublicPage = httpStatus("https://devpost.com/software/aegisops-autopilot");
 add(checks, "Devpost public project URL", devpostPublicPage.includes(" 200") ? "pass" : "warn", devpostPublicPage);
 
+const devpostHtml = safeRun("curl", ["-fsSL", "--max-time", "30", "https://devpost.com/software/aegisops-autopilot"], 35_000);
+add(
+  checks,
+  "Devpost public blog link",
+  devpostHtml.ok && devpostHtml.output.includes("qwen-cloud-aegisops-autopilot.html") ? "pass" : "fail",
+  devpostHtml.ok ? "Blog/Social Post Prize URL present on public Devpost page" : devpostHtml.output
+);
+add(
+  checks,
+  "Devpost public Workbench gallery proof",
+  devpostHtml.ok && devpostHtml.output.includes("4864863") && devpostHtml.output.includes("Alibaba Cloud ECS proof") ? "pass" : "fail",
+  devpostHtml.ok ? "Workbench proof gallery image present on public Devpost page" : devpostHtml.output
+);
+
 const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL ?? "http://101.201.33.56";
 if (alibabaProofUrl) {
   const liveProof = safeRun("pnpm", ["run", "deploy:verify", "--", alibabaProofUrl], 30_000);
