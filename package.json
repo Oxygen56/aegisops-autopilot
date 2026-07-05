@@ -28,6 +28,8 @@
     "video:audit": "tsx scripts/videoAssetAudit.ts",
     "video:frames": "node scripts/captureDemoFrames.mjs docs/demo/frames/reel",
     "video:render": "swift scripts/imageSequenceToVideo.swift docs/demo/aegisops-demo-reel-fixed.mov 30 8.5 docs/demo/frames/reel/slide-*.png",
+    "video:proof-frames": "node scripts/generateAlibabaProofFrames.mjs docs/demo/frames/alibaba-proof",
+    "video:proof-render": "swift scripts/imageSequenceToVideo.swift docs/demo/alibaba-backend-proof.mov 30 7 docs/demo/frames/alibaba-proof/slide-*.png",
     "final:preflight": "tsx scripts/finalPreflight.ts",
     "submission:package": "tsx scripts/packageFinalSubmission.ts",
     "submission:validate": "tsx scripts/validateSubmissionPackages.ts",

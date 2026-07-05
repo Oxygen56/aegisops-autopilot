@@ -4,7 +4,9 @@ This is the fastest evidence path for Qwen Cloud Hackathon judges.
 
 ## One-Minute Summary
 
-AegisOps Autopilot is a Track 4 Autopilot Agent for production incident response. It converts an ambiguous alert into memory recall, Qwen Cloud diagnosis with a capped Function Calling tool loop, five external tool calls, agent review, risk scoring, human approval, reversible remediation, verification checks, and post-incident learning.
+AegisOps Autopilot is a Track 4 Autopilot Agent safety harness for production operations, not a passive incident dashboard. Qwen Cloud plans through five external incident tools, the same tools are exposed through OpenAPI and MCP for judge verification, and the human approval gate blocks risky mutation before it touches production.
+
+Ablation result for first-pass judging: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating.
 
 Primary repository:
 
@@ -51,12 +53,12 @@ https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ## Five-Minute Judge Path
 
 1. Open the live Alibaba ECS demo.
-2. Confirm `/api/health` reports `qwen-cloud`.
+2. Confirm `/api/health` exposes Qwen Cloud provider metadata, model, base URL, timestamp, and redacted credential state.
 3. Run the checkout latency incident with human approval enabled.
 4. Run the support PII incident without approval.
 5. Confirm that risky execution is blocked, but tool evidence and policy reasoning remain visible.
 
-No private key is required for this path. The live ECS deployment already uses Qwen Cloud through the DashScope OpenAI-compatible endpoint; the StackBlitz path remains as a fallback.
+No private key is required for this path. The public ECS deployment exposes the full Node API and Qwen Cloud integration metadata without leaking credentials; when `DASHSCOPE_API_KEY` or `QWEN_API_KEY` is present, the same backend switches to live Qwen Cloud mode through the DashScope OpenAI-compatible endpoint. The StackBlitz path remains as a fallback.
 
 ## Prize-Criterion Evidence
 
@@ -126,6 +128,6 @@ The CI release gate includes:
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order.
 - `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment path and proof verifier.
 
-## Remaining Optional Item
+## Remaining External Upload Item
 
-Optionally record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
+Upload the separate Alibaba proof recording generated from `docs/ALIBABA_PROOF_RECORDING.md` to YouTube, Vimeo, or Facebook and paste the public-viewable URL into Devpost.

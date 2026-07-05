@@ -10,11 +10,15 @@ Track 4: Autopilot Agent
 
 ## Tagline
 
-Qwen-powered production incident autopilot with memory, agent review, tool-backed evidence, and human approval gates.
+Qwen Cloud autopilot safety harness: five tools, MCP/OpenAPI proof, and a human approval gate outperform a single-agent baseline.
 
 ## What It Does
 
-AegisOps turns ambiguous production alerts into a traced remediation workflow. It recalls relevant incident memory, gathers log/metric/change/policy evidence, asks Qwen Cloud to diagnose and plan, convenes specialized agent roles, proposes reversible remediation, requires human approval for risky actions, and stores post-incident lessons.
+AegisOps is not a passive incident dashboard. It is a production autopilot safety harness that tests when an AI agent should be allowed to act: Qwen Cloud plans through five external tools, OpenAPI and MCP expose the same tool surface for judge verification, and a human approval gate blocks risky mutations before they touch production.
+
+The ablation result is the headline: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The product story is adversarial by design: make the Qwen-powered autopilot useful enough to remediate real incidents, but constrained enough that it cannot silently ship unsafe changes.
+
+The traced workflow recalls relevant incident memory, gathers log/metric/change/policy evidence, asks Qwen Cloud to diagnose and plan, convenes specialized agent roles, proposes reversible remediation, requires human approval for risky actions, and stores post-incident lessons.
 
 The impact target is practical production operations: reduce triage time, improve evidence completeness, and prevent unsafe autonomous mutation for reliability, privacy, and billing-risk incidents. The repository includes `docs/IMPACT_CASE.md` with target users, KPI model, adoption path, and evidence boundaries.
 
@@ -26,7 +30,7 @@ The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client c
 
 ## Qwen Cloud Usage
 
-`src/server/agent/qwenClient.ts` accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY` and calls Qwen Cloud through the DashScope OpenAI-compatible API. The live Alibaba ECS deployment is configured with `https://dashscope.aliyuncs.com/compatible-mode/v1`; the code default remains `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` for international deployments. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
+`src/server/agent/qwenClient.ts` accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY` and calls Qwen Cloud through the DashScope OpenAI-compatible API. The Alibaba ECS deployment exposes Qwen Cloud provider metadata at `/api/health`, including model, base URL, timestamp, and redacted credential state. Public reviewer mode can run deterministic fixtures so judges can test the same workflow without a private key; setting `DASHSCOPE_API_KEY` or `QWEN_API_KEY` flips the same backend into live Qwen Cloud mode.
 
 The live Qwen path sends five OpenAI-compatible function tool schemas in the Qwen `tools` field with `tool_choice=auto`. When Qwen returns `tool_calls`, the server executes only incident-scoped tools, overrides any model-supplied incident ID with the active workflow incident, appends `role=tool` outputs, and asks Qwen for the final diagnosis. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
@@ -52,17 +56,19 @@ Live demo: `http://101.201.33.56/`
 
 Live proof endpoint: `http://101.201.33.56/api/alibaba/proof`
 
+Live health endpoint with Qwen Cloud metadata: `http://101.201.33.56/api/health`
+
 Verified deployment report: `reports/alibaba_deployment_proof.md`
 
 Verification command: `pnpm run deploy:verify -- http://101.201.33.56`
 
 Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
 
-Separate proof recording checklist: `docs/ALIBABA_PROOF_RECORDING.md`
+Separate proof recording script and upload metadata: `docs/ALIBABA_PROOF_RECORDING.md`
 
-Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
+Separate proof recording local asset: `docs/demo/alibaba-backend-proof.mov`
 
-TODO: Upload the separate Alibaba Cloud proof recording and paste the public URL here.
+TODO before final Devpost edit: upload `docs/demo/alibaba-backend-proof.mov` to YouTube/Vimeo/Facebook and paste the public-viewable proof URL here.
 
 ## Live Demo
 
@@ -74,7 +80,7 @@ GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 
 Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
-The Alibaba ECS deployment runs the full Node API with live Qwen Cloud mode enabled. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback reviewer path. The public GitHub Pages demo is deployed by the repository Pages workflow and falls back to deterministic offline fixtures when the private Node API is unavailable.
+The Alibaba ECS deployment runs the full Node API and exposes Qwen Cloud provider metadata without leaking credentials. Public reviewer mode may use deterministic fixtures to avoid exposing or burning a private API key; the same backend switches to live Qwen Cloud mode when `DASHSCOPE_API_KEY` or `QWEN_API_KEY` is present. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback reviewer path. The public GitHub Pages demo is deployed by the repository Pages workflow and falls back to deterministic offline fixtures when the private Node API is unavailable.
 
 ## Architecture Diagram
 

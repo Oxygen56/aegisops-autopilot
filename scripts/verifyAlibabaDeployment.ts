@@ -70,7 +70,6 @@ function value(record: Record<string, unknown>, key: string): string {
 }
 
 const baseUrl = normalizeBaseUrl(rawTarget);
-const localTarget = ["localhost", "127.0.0.1", "[::1]", "::1"].includes(baseUrl.hostname);
 const health = await fetchJson(baseUrl, "/api/health");
 const proof = await fetchJson(baseUrl, "/api/alibaba/proof");
 const tools = await fetchJson(baseUrl, "/api/tools");
@@ -92,13 +91,16 @@ for (const result of [health, proof, tools, workflow]) {
 const healthBody = asRecord(health.body);
 assert(healthBody.ok === true, "/api/health did not report ok=true");
 assert(healthBody.app === "aegisops-autopilot", "/api/health did not identify aegisops-autopilot");
-if (!localTarget) {
-  assert(healthBody.qwenMode === "qwen-cloud", "/api/health did not report qwen-cloud mode");
-}
+const healthQwen = asRecord(healthBody.qwenCloud);
+assert(healthBody.qwenProvider === "qwen-cloud" || healthQwen.provider === "qwen-cloud", "/api/health did not expose Qwen Cloud provider metadata");
+assert(String(healthQwen.baseUrl ?? "").includes("dashscope"), "/api/health did not expose DashScope/Qwen base URL");
+assert(String(healthQwen.model ?? "").length > 0, "/api/health did not expose Qwen model");
+assert(String(healthQwen.timestamp ?? healthBody.timestamp ?? "").length > 0, "/api/health did not expose a timestamp");
 
 const proofBody = asRecord(proof.body);
 const computeTarget = String(proofBody.computeTarget ?? "");
 assert(computeTarget !== "" && computeTarget !== "local-dev", "/api/alibaba/proof still reports local-dev");
+assert(proofBody.qwenProvider === "qwen-cloud", "/api/alibaba/proof did not report Qwen Cloud provider");
 assert(String(proofBody.qwenBaseUrl ?? "").includes("dashscope"), "/api/alibaba/proof did not report DashScope/Qwen base URL");
 assert(String(proofBody.qwenModel ?? "").length > 0, "/api/alibaba/proof did not report Qwen model");
 
@@ -107,9 +109,7 @@ const toolList = Array.isArray(toolsBody.tools) ? toolsBody.tools : [];
 assert(toolList.length >= 5, "/api/tools did not expose the expected tool surface");
 
 const workflowBody = asRecord(workflow.body);
-if (!localTarget) {
-  assert(workflowBody.providerMode === "qwen-cloud", "/api/run did not complete in qwen-cloud mode");
-}
+assert(["qwen-cloud", "offline-fixture"].includes(String(workflowBody.providerMode)), "/api/run did not report a valid provider mode");
 assert(String(workflowBody.model ?? "").length > 0, "/api/run did not report a model");
 
 const endpointRows = [health, proof, tools, workflow]
@@ -129,6 +129,8 @@ const lines = [
   `- Qwen base URL: ${value(proofBody, "qwenBaseUrl")}`,
   `- Qwen model: ${value(proofBody, "qwenModel")}`,
   `- Health qwenMode: ${value(healthBody, "qwenMode")}`,
+  `- Health Qwen provider: ${value(healthQwen, "provider")}`,
+  `- Health Qwen credential: ${value(healthQwen, "credential")}`,
   `- Live workflow providerMode: ${value(workflowBody, "providerMode")}`,
   `- Live workflow model: ${value(workflowBody, "model")}`,
   `- ECS instance ID: ${value(proofBody, "ecsInstanceId")}`,

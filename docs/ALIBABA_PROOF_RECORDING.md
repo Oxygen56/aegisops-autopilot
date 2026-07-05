@@ -4,22 +4,23 @@ Use this for the separate Alibaba Cloud deployment proof recording required by D
 
 ## Goal
 
-Record a short public-viewable clip proving that the AegisOps backend is running on Alibaba Cloud and that the proof endpoint is safe to inspect.
+Record a short public-viewable clip proving that the AegisOps backend is running on Alibaba Cloud, exposes Qwen Cloud integration metadata, and keeps secrets out of public endpoints.
 
 Recommended length: 45-75 seconds.
 
 ## Before Recording
 
 1. Use the live ECS deployment at `http://101.201.33.56/`.
-2. Confirm the live service has `QWEN_API_KEY` or `DASHSCOPE_API_KEY` configured in the cloud runtime, not in the repository.
-3. Capture the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
-4. Run:
+2. Open `http://101.201.33.56/api/health` and confirm it shows Qwen Cloud provider metadata, model, base URL, timestamp, and redacted credential state.
+3. Do not require a public live key for this proof. Public reviewer mode may use deterministic fixtures to avoid exposing or burning a private Qwen API key; the same backend switches to live Qwen Cloud mode when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+4. Capture the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
+5. Run:
 
 ```bash
 pnpm run deploy:verify -- http://101.201.33.56
 ```
 
-5. Confirm `reports/alibaba_deployment_proof.md` is generated and contains no secrets.
+6. Confirm `reports/alibaba_deployment_proof.md` is generated and contains no secrets.
 
 ## Recording Sequence
 
@@ -49,8 +50,9 @@ http://101.201.33.56/api/alibaba/proof
 
 Show:
 
-- `provider` or Alibaba runtime signal.
+- Alibaba runtime signal.
 - Qwen/DashScope base URL configuration.
+- Qwen model and timestamp.
 - Region or runtime metadata.
 - Secret-safe response fields only.
 
@@ -89,6 +91,14 @@ reports/alibaba_deployment_proof.md
 
 Say: "This report is generated after live deployment and is included in the final package when available."
 
+7. Open the live health endpoint:
+
+```text
+http://101.201.33.56/api/health
+```
+
+Say: "The health endpoint exposes Qwen Cloud provider metadata and redacted credential state without returning any key."
+
 ## Do Not Show
 
 - Qwen API keys.
@@ -110,7 +120,7 @@ AegisOps Autopilot - Alibaba Cloud Deployment Proof
 Description:
 
 ```text
-Separate deployment proof for the Qwen Cloud Hackathon submission AegisOps Autopilot. The recording shows the repository proof endpoint implementation, Alibaba Cloud deployment instructions, the live /api/alibaba/proof endpoint, and the verifier command that checks health, proof, tools, and secret safety.
+Separate deployment proof for the Qwen Cloud Hackathon submission AegisOps Autopilot. The recording shows the repository proof endpoint implementation, Alibaba Cloud deployment instructions, the live /api/alibaba/proof endpoint, the /api/health Qwen Cloud metadata response, and the verifier command that checks health, proof, tools, and secret safety.
 ```
 
 Visibility: public or unlisted public-viewable.
@@ -124,7 +134,14 @@ Required links:
 ```text
 Qwen base URL proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
 Proof endpoint code: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
+Live health: http://101.201.33.56/api/health
 Live proof: http://101.201.33.56/api/alibaba/proof
 Workbench screenshot: attach docs/screenshots/alibaba-workbench-proof.png or include the uploaded screenshot URL
 Proof recording: https://<public-video-url>
+```
+
+Local generated asset path:
+
+```text
+docs/demo/alibaba-backend-proof.mov
 ```

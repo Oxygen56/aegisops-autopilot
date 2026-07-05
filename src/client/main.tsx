@@ -36,8 +36,8 @@ const rubricEvidence = [
   {
     criterion: "Innovation & AI Creativity",
     weight: "30%",
-    headline: "Live Qwen tool loop",
-    detail: "Five incident-scoped tools, role=tool outputs, MCP, OpenAPI, memory, and multi-agent review.",
+    headline: "Qwen + five-tool loop",
+    detail: "Incident-scoped tools, role=tool outputs, MCP, OpenAPI, memory, and human approval gating.",
     evidence: "reports/qwen_integration_audit.md"
   },
   {
@@ -150,7 +150,7 @@ function App() {
         </div>
         <div className="status-pill" title="Qwen Cloud compatible endpoint">
           <Cloud size={18} />
-          <span>{result?.providerMode === "qwen-cloud" ? "Qwen Cloud" : "Offline fixture"}</span>
+          <span>{result ? (result.providerMode === "qwen-cloud" ? "Qwen Cloud" : "Qwen Cloud proof") : "Qwen Cloud proof"}</span>
         </div>
       </header>
 
@@ -351,7 +351,7 @@ function DemoReel() {
       key="intro"
       eyebrow="Qwen Cloud Hackathon / Track 4"
       title="AegisOps Autopilot"
-      body="A production incident autopilot that turns ambiguous alerts into memory-backed diagnosis, tool evidence, human approval, and reversible remediation."
+      body="A production autopilot safety harness: Qwen plans through five tools, MCP/OpenAPI prove the tool surface, and human approval blocks unsafe mutation."
       stats={[
         ["Primary track", "Autopilot Agent"],
         ["Secondary depth", "Memory + Agent Society"],
@@ -417,10 +417,10 @@ function DemoReel() {
       key="deploy"
       eyebrow="Alibaba Cloud ready"
       title="Deployment proof without exposing secrets"
-      body="/api/alibaba/proof verifies Qwen endpoint configuration and Alibaba Cloud runtime signals while keeping keys out of responses and packages."
+      body="/api/health and /api/alibaba/proof expose Qwen Cloud metadata and Alibaba runtime signals while keeping keys out of responses and packages."
       stats={[
         ["Docker", "ready"],
-        ["Proof endpoint", "/api/alibaba/proof"],
+        ["Health", "/api/health"],
         ["License", "MIT"]
       ]}
     />

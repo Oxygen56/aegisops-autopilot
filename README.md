@@ -2,7 +2,9 @@
 
 Qwen Cloud hackathon submission workspace.
 
-AegisOps is a production-incident autopilot for Track 4: Autopilot Agent. It turns ambiguous alerts into a traced remediation workflow: memory recall, multi-agent diagnosis, tool-backed evidence gathering, risk scoring, human approval, patch/runbook generation, and post-incident learning.
+AegisOps is a Track 4 Autopilot Agent safety harness, not a passive incident dashboard. Qwen Cloud plans through five external tools, the same tool surface is exposed through OpenAPI and MCP for judge verification, and a human approval gate blocks risky mutations before they touch production.
+
+The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
 
 The implementation is designed for two judging modes:
 
@@ -60,7 +62,7 @@ Blog/Social Post Prize page:
 https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html
 ```
 
-The Alibaba ECS deployment runs the full Node API with live Qwen Cloud mode enabled. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable.
+The Alibaba ECS deployment runs the full Node API and exposes Qwen Cloud provider metadata at `/api/health` without leaking credentials. Public reviewer mode may run deterministic fixtures to avoid exposing or burning a private API key; setting `DASHSCOPE_API_KEY` or `QWEN_API_KEY` flips the same backend into live Qwen Cloud mode. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable.
 
 ## Environment
 

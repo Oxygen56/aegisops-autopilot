@@ -4,7 +4,7 @@ import path from "node:path";
 import { listIncidents, runIncidentWorkflow } from "./agent/orchestrator";
 import { executeAegisTool, listToolDefinitions } from "./agent/toolRegistry";
 import { MemoryStore } from "./agent/memory";
-import { getAlibabaDeploymentProof } from "./cloud/alibabaProof";
+import { getAlibabaDeploymentProof, getQwenRuntimeStatus } from "./cloud/alibabaProof";
 
 const port = Number(process.env.PORT ?? 8787);
 const distDir = path.resolve(process.cwd(), "dist");
@@ -59,10 +59,26 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);
 
     if (url.pathname === "/api/health") {
+      const qwen = getQwenRuntimeStatus();
       sendJson(res, 200, {
         ok: true,
         app: "aegisops-autopilot",
-        qwenMode: process.env.QWEN_API_KEY || process.env.DASHSCOPE_API_KEY ? "qwen-cloud" : "offline-fixture"
+        timestamp: qwen.timestamp,
+        qwenMode: qwen.mode,
+        qwenProvider: qwen.provider,
+        qwenCloud: {
+          provider: qwen.provider,
+          mode: qwen.mode,
+          baseUrl: qwen.baseUrl,
+          model: qwen.model,
+          timestamp: qwen.timestamp,
+          credential: qwen.credential,
+          offlineReason: qwen.offlineReason
+        },
+        alibabaCloud: {
+          proofEndpoint: "/api/alibaba/proof",
+          computeTarget: "Alibaba Cloud ECS or Function Compute"
+        }
       });
       return;
     }
