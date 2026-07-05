@@ -184,16 +184,19 @@ const items: EvidenceItem[] = [
   },
   {
     section: "Submission Readiness",
-    claim: "Live Alibaba deployment proof is prepared but account-gated",
-    status: "ACCOUNT-GATED",
+    claim: "Live Alibaba deployment proof is public and verified",
+    status: "VERIFIED",
     evidence: [
+      "http://101.201.33.56/",
+      "http://101.201.33.56/api/alibaba/proof",
       "src/server/agent/qwenClient.ts",
       "infra/alibaba/DEPLOYMENT.md",
       "scripts/verifyAlibabaDeployment.ts",
+      "reports/alibaba_deployment_proof.md",
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "docs/ALIBABA_PROOF_RECORDING.md"
     ],
-    proof: "Deployment scripts, Qwen Base URL code proof, Workbench screenshot checklist, proof recording checklist, and verifier exist; public URL and screenshot require Alibaba account credentials and a chosen deployment target."
+    proof: "The public ECS URL is live, /api/health reports qwen-cloud, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, and /api/run was smoke-tested in Qwen Cloud mode."
   },
   {
     section: "Submission Readiness",
@@ -255,7 +258,9 @@ const lines = [
   "",
   "- Devpost public page: https://devpost.com/software/aegisops-autopilot",
   "- Repository: https://github.com/Oxygen56/aegisops-autopilot",
-  "- Runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
+  "- Live Alibaba ECS demo: http://101.201.33.56/",
+  "- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof",
+  "- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
   "- Static fallback demo: https://oxygen56.github.io/aegisops-autopilot/",
   "- Static demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1",
   "",
@@ -283,7 +288,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Live Alibaba deployment and optional blog publication remain account-gated until the account owner performs them.",
+  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Optional blog publication remains external until published.",
   ""
 ];
 

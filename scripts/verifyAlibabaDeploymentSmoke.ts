@@ -2,6 +2,7 @@ import { execFileSync, spawn, type ChildProcess } from "node:child_process";
 import fs from "node:fs";
 
 const reportPath = "reports/alibaba_deployment_proof.md";
+const originalReport = fs.existsSync(reportPath) ? fs.readFileSync(reportPath, "utf8") : undefined;
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -61,7 +62,6 @@ async function expectPass(): Promise<void> {
     }
   } finally {
     await stopServer(server);
-    fs.rmSync(reportPath, { force: true });
   }
 }
 
@@ -80,10 +80,17 @@ async function expectLocalDevReject(): Promise<void> {
     }
   } finally {
     await stopServer(server);
-    fs.rmSync(reportPath, { force: true });
   }
 }
 
-await expectPass();
-await expectLocalDevReject();
-console.log("alibaba deployment verifier smoke passed");
+try {
+  await expectPass();
+  await expectLocalDevReject();
+  console.log("alibaba deployment verifier smoke passed");
+} finally {
+  if (originalReport === undefined) {
+    fs.rmSync(reportPath, { force: true });
+  } else {
+    fs.writeFileSync(reportPath, originalReport, "utf8");
+  }
+}

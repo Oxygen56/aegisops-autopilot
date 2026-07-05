@@ -28,7 +28,7 @@ AegisOps targets the operational gap between a read-only chatbot and a fully aut
 | Prevents unsafe autonomous mutation | `tests/orchestrator.test.ts` proves risky remediation is blocked without approval | Human approval policy is implemented for the demo workflow; production policy integrations would be added per team |
 | Keeps evidence inspectable | Dashboard, OpenAPI, MCP, and transcript expose tool outputs instead of only final answers | External production tools are represented by deterministic fixtures for judge repeatability |
 | Improves over a thin single-agent baseline | `reports/ablation_report.md` shows full workflow average `0.988` versus baseline `0.420` | Local eval measures fixture behavior and safety checks, not live customer incidents |
-| Fits Alibaba/Qwen Cloud productization | `infra/alibaba/DEPLOYMENT.md`, Docker target, Qwen OpenAI-compatible client, and `/api/alibaba/proof` endpoint are included | Live cloud URL requires account deployment and credentials |
+| Fits Alibaba/Qwen Cloud productization | Live ECS demo `http://101.201.33.56/`, proof endpoint `http://101.201.33.56/api/alibaba/proof`, Docker target, Qwen OpenAI-compatible client, and `reports/alibaba_deployment_proof.md` | Public demo is verified; production adoption still needs customer-owned credentials and controls |
 
 ## KPI Model For A Real Pilot
 

@@ -1,10 +1,24 @@
 # Judge Quickstart
 
-This is the shortest path for evaluating AegisOps Autopilot without private credentials.
+This is the shortest path for evaluating AegisOps Autopilot. The live Alibaba Cloud ECS deployment is available without private credentials.
 
-## 1. Open The Runnable Workspace
+## 1. Open The Live Demo
 
-Use the primary workspace:
+Use the live Alibaba Cloud deployment:
+
+```text
+http://101.201.33.56/
+```
+
+The proof endpoint is:
+
+```text
+http://101.201.33.56/api/alibaba/proof
+```
+
+## 2. Fallback Runnable Workspace
+
+If the live service is unavailable, use the fallback StackBlitz workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -18,7 +32,7 @@ pnpm run dev
 
 When the preview opens, select an incident and run the workflow.
 
-## 2. What To Verify In The Dashboard
+## 3. What To Verify In The Dashboard
 
 Run `Checkout p95 latency jumped after tax calculator rollout` with human approval enabled.
 
@@ -38,7 +52,7 @@ Expected evidence:
 - remediation execution is blocked
 - tool-backed policy evidence remains visible for audit
 
-## 3. Local Verification Commands
+## 4. Local Verification Commands
 
 For a local clone:
 
@@ -59,9 +73,19 @@ pnpm run submission:audit
 pnpm run final:preflight
 ```
 
-## 4. API Evidence
+## 5. API Evidence
 
-After `pnpm run dev`, verify these endpoints:
+For the live deployment, verify:
+
+```bash
+curl -sS http://101.201.33.56/api/health
+curl -sS http://101.201.33.56/api/alibaba/proof
+curl -sS -X POST http://101.201.33.56/api/run \
+  -H 'content-type: application/json' \
+  -d '{"incidentId":"checkout-tax-latency","autoApprove":false,"approver":"judge-smoke"}'
+```
+
+For local development after `pnpm run dev`, verify these endpoints:
 
 ```bash
 curl -sS http://127.0.0.1:8787/api/health
@@ -79,7 +103,13 @@ Expected evidence:
 - `/api/alibaba/proof` returns deployment proof fields without secrets
 - `policy_check` explains why human approval is required
 
-## 5. Qwen Cloud Mode
+## 6. Qwen Cloud Mode
+
+The live Alibaba ECS deployment reports `qwen-cloud` mode and uses:
+
+```text
+https://dashscope.aliyuncs.com/compatible-mode/v1
+```
 
 Set either `QWEN_API_KEY` or `DASHSCOPE_API_KEY` to enable live Qwen Cloud calls:
 
@@ -95,9 +125,10 @@ https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 
 Without a key, the deterministic offline fixture mode exercises the same orchestration path for reproducible judging.
 
-## 6. Known External Items
+## 7. Known External Items
 
-- A public Alibaba Cloud URL requires account credentials and deployment.
+- The public Alibaba Cloud URL is live at `http://101.201.33.56/`.
+- Verified deployment evidence is in `reports/alibaba_deployment_proof.md`.
 - The submitted Devpost page is https://devpost.com/software/aegisops-autopilot.
 - The demo video is uploaded at https://youtu.be/eAqfwJn9sr8, embedded on Devpost, and the final local asset is `docs/demo/aegisops-demo-reel-fixed.mov`.
 - Devpost gallery images and the creator contribution note are saved on the public project page.

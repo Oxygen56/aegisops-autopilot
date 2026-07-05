@@ -22,11 +22,11 @@ Use this runbook for post-submit maintenance of the account-owned Devpost submis
 | Architecture diagram | `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, and `docs/architecture/aegisops-architecture.png` |
 | Judge packet | `docs/JUDGE_PACKET.md` |
 | Significant update / provenance evidence | `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` |
-| Working project access | StackBlitz URL and GitHub Pages URL below |
+| Working project access | Live Alibaba ECS URL, proof endpoint, StackBlitz fallback, and GitHub Pages fallback below |
 | Demo video under 3 minutes | YouTube link: `https://youtu.be/eAqfwJn9sr8`; final local asset: `docs/demo/aegisops-demo-reel-fixed.mov` |
 | Devpost image gallery | Live on public page; source images in `docs/screenshots/devpost-gallery/` |
 | Creator contribution note | Live on public page; source text in `submissions/devpost_public_page_polish.md` |
-| Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, capture Workbench screenshot with `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
+| Alibaba Cloud proof | Live demo `http://101.201.33.56/`, proof endpoint `http://101.201.33.56/api/alibaba/proof`, and evidence report `reports/alibaba_deployment_proof.md` |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
 ## Links To Paste
@@ -43,7 +43,19 @@ Devpost public page:
 https://devpost.com/software/aegisops-autopilot
 ```
 
-Primary runnable workspace:
+Primary live demo:
+
+```text
+http://101.201.33.56/
+```
+
+Live proof endpoint:
+
+```text
+http://101.201.33.56/api/alibaba/proof
+```
+
+Fallback runnable workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -85,12 +97,6 @@ Qwen Cloud Base URL code proof:
 https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
 ```
 
-Live proof endpoint after account deployment:
-
-```text
-https://<your-domain>/api/alibaba/proof
-```
-
 ## Devpost Post-Submit Edit Order
 
 The project has already been submitted. Devpost allows edits until the deadline, so use this order for public-page improvements:
@@ -98,9 +104,9 @@ The project has already been submitted. Devpost allows edits until the deadline,
 1. Open the public page: `https://devpost.com/software/aegisops-autopilot`.
 2. Confirm the six-image gallery and creator contribution note remain visible.
 3. Confirm the embedded demo video remains `https://youtu.be/eAqfwJn9sr8`.
-4. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>` and then add the live proof URL.
-5. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md` only after deployment.
-6. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md` only after deployment.
+4. Confirm the live Alibaba URL and proof endpoint remain visible in the Devpost "Try it out" links.
+5. If desired, capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
+6. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
 7. Add the optional blog/social link only after publication.
 8. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
 
@@ -117,7 +123,7 @@ Before any further public edit, verify:
 
 - `reports/final_preflight.md` has `Fail: 0`.
 - `reports/package_validation.md` has `Failures: 0`.
-- StackBlitz, GitHub Pages, and Pages reel return 200.
+- Live Alibaba ECS URL, StackBlitz, GitHub Pages, and Pages reel return 200.
 - The public video link opens in a private/incognito window.
 - The public video has the prepared title, description, chapters, thumbnail, and captions.
 - The architecture diagram asset opens without login.
@@ -126,7 +132,7 @@ Before any further public edit, verify:
 - The Alibaba Workbench screenshot is attached or publicly linked and does not expose secrets if captured.
 - The Qwen base URL proof link opens without login.
 - The Alibaba proof code link opens without login.
-- If a live Alibaba URL is available, `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
+- `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.
 
 ## Judge Narrative
 

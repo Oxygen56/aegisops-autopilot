@@ -18,7 +18,19 @@ Submitted Devpost project:
 https://devpost.com/software/aegisops-autopilot
 ```
 
-Primary runnable workspace:
+Primary live demo:
+
+```text
+http://101.201.33.56/
+```
+
+Live Alibaba proof endpoint:
+
+```text
+http://101.201.33.56/api/alibaba/proof
+```
+
+Fallback runnable workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -38,13 +50,13 @@ https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
 ## Five-Minute Judge Path
 
-1. Open the StackBlitz workspace.
-2. Let it run `pnpm run dev`.
+1. Open the live Alibaba ECS demo.
+2. Confirm `/api/health` reports `qwen-cloud`.
 3. Run the checkout latency incident with human approval enabled.
 4. Run the support PII incident without approval.
 5. Confirm that risky execution is blocked, but tool evidence and policy reasoning remain visible.
 
-No private key is required for this path. With `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, the same server uses Qwen Cloud through the DashScope OpenAI-compatible endpoint.
+No private key is required for this path. The live ECS deployment already uses Qwen Cloud through the DashScope OpenAI-compatible endpoint; the StackBlitz path remains as a fallback.
 
 ## Prize-Criterion Evidence
 
@@ -104,6 +116,7 @@ The CI release gate includes:
 - `submissions/devpost_submission_receipt.md`: observed Devpost success banner, public project URL, embedded video, and edit window.
 - `docs/screenshots/devpost-gallery/README.md`: upload-ready 3:2 Devpost gallery image set.
 - `submissions/devpost_public_page_polish.md`: creator contribution note and post-submit public-page polish checklist.
+- `reports/alibaba_deployment_proof.md`: live ECS URL, proof endpoint, and Qwen Cloud mode smoke test.
 - `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`: Alibaba Cloud Workbench screenshot proof checklist from the latest Devpost update.
 - `docs/ALIBABA_PROOF_RECORDING.md`: separate Alibaba Cloud proof recording checklist and upload metadata.
 - `reports/judge_demo_transcript.md`: deterministic approved and blocked workflow transcript.
@@ -111,9 +124,6 @@ The CI release gate includes:
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order.
 - `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment path and proof verifier.
 
-## Account-Gated Items
+## Remaining External Item
 
-These are intentionally not claimed as complete until the account owner performs them:
-
-1. Deploy the container on Alibaba Cloud and run `pnpm run deploy:verify -- https://<your-domain>`.
-2. Optionally publish `submissions/blog_post_draft.md` for the Blog Post Award.
+Optionally publish `submissions/blog_post_draft.md` for the Blog Post Award.

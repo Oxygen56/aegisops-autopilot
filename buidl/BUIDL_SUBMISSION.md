@@ -24,7 +24,9 @@ AegisOps automates the incident workflow end to end:
 
 ## Demo
 
-- Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
+- Primary live demo: http://101.201.33.56/
+- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof
+- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 - GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 - Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 - Video: https://youtu.be/eAqfwJn9sr8; final local asset at `docs/demo/aegisops-demo-reel-fixed.mov`.

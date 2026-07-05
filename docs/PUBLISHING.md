@@ -74,7 +74,19 @@ The final local asset is `docs/demo/aegisops-demo-reel-fixed.mov`. The video is 
 
 ## Working Demo Links
 
-Primary runnable workspace:
+Primary live demo:
+
+```text
+http://101.201.33.56/
+```
+
+Live Alibaba proof endpoint:
+
+```text
+http://101.201.33.56/api/alibaba/proof
+```
+
+Fallback runnable workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -112,16 +124,17 @@ Devpost deployment proof code link:
 https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 ```
 
-If deployed live, also include:
+Live deployment:
 
 ```text
-https://<your-domain>/api/alibaba/proof
+http://101.201.33.56/
+http://101.201.33.56/api/alibaba/proof
 ```
 
-After deployment, generate the proof report:
+Generate or refresh the proof report:
 
 ```bash
-pnpm run deploy:verify -- https://<your-domain>
+pnpm run deploy:verify -- http://101.201.33.56
 ```
 
 ## Devpost Final Fields

@@ -47,7 +47,7 @@ https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 
 ## Devpost Paste Block
 
-After account deployment, replace placeholders and paste this into the Alibaba Cloud proof field:
+Use this paste block for the Alibaba Cloud proof field:
 
 ```text
 Code proof for Qwen Cloud Base URL:
@@ -56,8 +56,11 @@ https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenCl
 Alibaba Cloud proof endpoint code:
 https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 
+Live demo:
+http://101.201.33.56/
+
 Live proof endpoint:
-https://<your-domain>/api/alibaba/proof
+http://101.201.33.56/api/alibaba/proof
 
 Visual proof:
 Attached Alibaba Cloud Workbench screenshot showing the running ECS/Function Compute resource.
@@ -71,8 +74,8 @@ https://<public-proof-recording-url>
 After the screenshot is captured and the service is live:
 
 ```bash
-pnpm run deploy:verify -- https://<your-domain>
+pnpm run deploy:verify -- http://101.201.33.56
 pnpm run final:preflight
 ```
 
-`pnpm run final:preflight` warns until `docs/screenshots/alibaba-workbench-proof.png` exists, because this visual proof requires account-owner access to Alibaba Cloud.
+`pnpm run final:preflight` warns until `docs/screenshots/alibaba-workbench-proof.png` exists, because the screenshot is optional visual proof separate from the live endpoint verification.

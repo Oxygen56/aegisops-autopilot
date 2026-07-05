@@ -98,7 +98,7 @@ const items: AuditItem[] = [
   },
   {
     area: "Alibaba Cloud deployment proof",
-    status: "external-action",
+    status: "verified",
     evidence: requireEvidence([
       "src/server/cloud/alibabaProof.ts",
       "infra/alibaba/DEPLOYMENT.md",
@@ -108,9 +108,10 @@ const items: AuditItem[] = [
       "docs/ALIBABA_PROOF_RECORDING.md",
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "scripts/verifyAlibabaDeployment.ts",
-      "Dockerfile"
+      "Dockerfile",
+      "reports/alibaba_deployment_proof.md"
     ]),
-    note: "Code-level proof, ACR/ECS deployment pack, Workbench screenshot checklist, proof-recording checklist, and a live URL verifier are present; account credentials are still required for public Alibaba deployment."
+    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports qwen-cloud, /api/alibaba/proof returns ECS and DashScope proof without secrets, and /api/run was smoke-tested in Qwen Cloud mode."
   },
   {
     area: "Working demo or test build",
@@ -210,7 +211,9 @@ const items: AuditItem[] = [
 ];
 
 const requiredTextChecks: Array<[string, string]> = [
+  ["README.md", "http://101.201.33.56/"],
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
+  ["reports/alibaba_deployment_proof.md", "Live workflow providerMode: qwen-cloud"],
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
@@ -287,9 +290,8 @@ const lines = [
   "",
   "## Final External Actions",
   "",
-  "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
-  "2. Capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "3. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
+  "1. Optionally capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
+  "2. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
   ""
 ];
 

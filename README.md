@@ -24,7 +24,19 @@ Open the Vite URL shown by the command and run the incident demo.
 
 ## Working Demo Links
 
-Primary runnable workspace:
+Primary live demo:
+
+```text
+http://101.201.33.56/
+```
+
+Live Alibaba proof endpoint:
+
+```text
+http://101.201.33.56/api/alibaba/proof
+```
+
+Fallback runnable workspace:
 
 ```text
 https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -42,7 +54,7 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
-The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable. Live Qwen Cloud mode uses the Node API when `QWEN_API_KEY` or `DASHSCOPE_API_KEY` is configured.
+The Alibaba ECS deployment runs the full Node API with live Qwen Cloud mode enabled. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable.
 
 ## Environment
 

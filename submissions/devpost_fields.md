@@ -26,7 +26,7 @@ The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client c
 
 ## Qwen Cloud Usage
 
-`src/server/agent/qwenClient.ts` calls Qwen Cloud through `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` by default and accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY`. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
+`src/server/agent/qwenClient.ts` accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY` and calls Qwen Cloud through the DashScope OpenAI-compatible API. The live Alibaba ECS deployment is configured with `https://dashscope.aliyuncs.com/compatible-mode/v1`; the code default remains `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` for international deployments. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
 The live Qwen path sends five OpenAI-compatible function tool schemas in the Qwen `tools` field with `tool_choice=auto`. When Qwen returns `tool_calls`, the server executes only incident-scoped tools, overrides any model-supplied incident ID with the active workflow incident, appends `role=tool` outputs, and asks Qwen for the final diagnosis. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
@@ -48,27 +48,33 @@ Qwen Cloud Base URL code proof: https://github.com/Oxygen56/aegisops-autopilot/b
 
 Code proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
 
-Live proof endpoint after deployment: `https://<your-domain>/api/alibaba/proof`
+Live demo: `http://101.201.33.56/`
 
-Verification command after deployment: `pnpm run deploy:verify -- https://<your-domain>`
+Live proof endpoint: `http://101.201.33.56/api/alibaba/proof`
+
+Verified deployment report: `reports/alibaba_deployment_proof.md`
+
+Verification command: `pnpm run deploy:verify -- http://101.201.33.56`
 
 Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
 
 Separate proof recording checklist: `docs/ALIBABA_PROOF_RECORDING.md`
 
-TODO: Attach or link the Alibaba Cloud Workbench screenshot after account deployment.
+Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
 
 TODO: Upload the separate Alibaba Cloud proof recording and paste the public URL here.
 
 ## Live Demo
 
-Primary runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
+Primary live demo: http://101.201.33.56/
+
+Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 
 GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 
 Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
-The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch. The public GitHub Pages demo is deployed by the repository Pages workflow and falls back to deterministic offline fixtures when the private Node API is unavailable. The full Qwen/Alibaba runtime path is documented in the repository and Docker deployment instructions.
+The Alibaba ECS deployment runs the full Node API with live Qwen Cloud mode enabled. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback reviewer path. The public GitHub Pages demo is deployed by the repository Pages workflow and falls back to deterministic offline fixtures when the private Node API is unavailable.
 
 ## Architecture Diagram
 
@@ -123,7 +129,7 @@ https://devpost.com/software/aegisops-autopilot
 
 ## Testing Instructions
 
-Fastest judging path: open https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev and follow `docs/JUDGE_QUICKSTART.md`.
+Fastest judging path: open http://101.201.33.56/ or the fallback StackBlitz workspace, then follow `docs/JUDGE_QUICKSTART.md`.
 
 Run the checkout latency incident with approval enabled, then run the support PII incident without approval to verify the human approval gate.
 
@@ -145,7 +151,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/build_provenance.md`: generated Git-history milestone report for contest-period implementation evidence.
 - `reports/experiment_board.md`: contestctl run ledger for tests, build, eval, ablation, and smoke.
-- `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate, judging rubric, and account-gated boundaries.
+- `reports/judge_evidence_bundle.md`: single stable evidence index for viability gate, judging rubric, and live deployment proof.
 - `src/client/main.tsx`: visible `Judge rubric evidence` dashboard panel for the official 30/30/25/15 review path.
 - `reports/judge_demo_transcript.md`: deterministic transcript for the approved remediation path and the blocked human-gate path.
 - `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.

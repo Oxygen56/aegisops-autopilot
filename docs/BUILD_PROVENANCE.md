@@ -25,4 +25,4 @@ The command writes `reports/build_provenance.md` from the local Git history and 
 
 ## Claim Boundary
 
-This provenance record proves substantial repository work for the submitted Qwen Cloud Hackathon project. It does not claim live Alibaba deployment or optional blog publication are complete; those remain account-gated until performed by the account owner.
+This provenance record proves substantial repository work for the submitted Qwen Cloud Hackathon project. Live Alibaba deployment is now verified in `reports/alibaba_deployment_proof.md`; optional blog publication remains external until published.

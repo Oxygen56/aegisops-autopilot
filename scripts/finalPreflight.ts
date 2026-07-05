@@ -123,7 +123,7 @@ add(checks, "GitHub Pages demo reel URL", pagesReel.includes(" 200") ? "pass" : 
 const devpostPublicPage = httpStatus("https://devpost.com/software/aegisops-autopilot");
 add(checks, "Devpost public project URL", devpostPublicPage.includes(" 200") ? "pass" : "warn", devpostPublicPage);
 
-const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL;
+const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL ?? "http://101.201.33.56";
 if (alibabaProofUrl) {
   const liveProof = safeRun("pnpm", ["run", "deploy:verify", "--", alibabaProofUrl], 30_000);
   add(checks, "Live Alibaba deployment proof URL", liveProof.ok ? "pass" : "fail", liveProof.output);
@@ -132,7 +132,7 @@ if (alibabaProofUrl) {
     checks,
     "Live Alibaba deployment proof URL",
     "warn",
-    "not provided; set ALIBABA_PROOF_URL=https://<your-domain> after account deployment"
+    "not provided; set ALIBABA_PROOF_URL to the live Alibaba deployment URL"
   );
 }
 
@@ -146,7 +146,7 @@ add(
   checks,
   "Alibaba Workbench screenshot proof",
   workbenchScreenshot ? "pass" : "warn",
-  workbenchScreenshot ?? "not present; capture after account deployment using docs/ALIBABA_WORKBENCH_SCREENSHOT.md"
+  workbenchScreenshot ?? "optional visual proof not present; capture using docs/ALIBABA_WORKBENCH_SCREENSHOT.md"
 );
 
 const buidlZip = newestFile("qwencloud-hackathon_");
@@ -213,7 +213,9 @@ add(
   checks,
   "Cloud credentials in current shell",
   configuredEnv.length > 0 ? "warn" : "warn",
-  configuredEnv.length > 0 ? `${configuredEnv.join(", ")} present; do not commit secrets` : "not present; live Qwen/Alibaba deployment requires account credentials"
+  configuredEnv.length > 0
+    ? `${configuredEnv.join(", ")} present; do not commit secrets`
+    : "not present in local shell; live ECS deployment is configured remotely"
 );
 
 const passes = checks.filter((check) => check.status === "pass").length;
@@ -231,7 +233,7 @@ const lines = [
   `- Warn: ${warnings}`,
   `- Fail: ${failures}`,
   "",
-  "Warnings may be acceptable when they describe account-gated work, but failures should be fixed before packaging or further public edits.",
+  "Warnings may be acceptable when they describe optional public-proof work, but failures should be fixed before packaging or further public edits.",
   "",
   "## Checks",
   "",
@@ -239,13 +241,24 @@ const lines = [
   "| --- | --- | --- |",
   ...checks.map((check) => `| ${check.status.toUpperCase()} | ${check.name} | ${check.evidence.replaceAll("|", "\\|")} |`),
   "",
-  "## Final Account-Gated Actions",
+  "## Final External Actions",
   "",
-  "1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then paste the live `/api/alibaba/proof` URL into Devpost.",
-  "2. Capture and attach or link the Alibaba Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "3. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
+  "1. Optionally capture and attach or link the Alibaba Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
+  "2. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
   "",
-  "Primary runnable workspace:",
+  "Primary live demo:",
+  "",
+  "```text",
+  "http://101.201.33.56/",
+  "```",
+  "",
+  "Live proof endpoint:",
+  "",
+  "```text",
+  "http://101.201.33.56/api/alibaba/proof",
+  "```",
+  "",
+  "Fallback runnable workspace:",
   "",
   "```text",
   "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",

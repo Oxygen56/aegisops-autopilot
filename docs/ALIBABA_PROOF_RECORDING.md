@@ -10,13 +10,13 @@ Recommended length: 45-75 seconds.
 
 ## Before Recording
 
-1. Deploy the container using `infra/alibaba/DEPLOYMENT.md`.
+1. Use the live ECS deployment at `http://101.201.33.56/`.
 2. Confirm the live service has `QWEN_API_KEY` or `DASHSCOPE_API_KEY` configured in the cloud runtime, not in the repository.
 3. Capture the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
 4. Run:
 
 ```bash
-pnpm run deploy:verify -- https://<your-domain>
+pnpm run deploy:verify -- http://101.201.33.56
 ```
 
 5. Confirm `reports/alibaba_deployment_proof.md` is generated and contains no secrets.
@@ -44,7 +44,7 @@ Say: "The backend is packaged as a Docker service for Alibaba Cloud ECS or Funct
 3. Open the live proof endpoint:
 
 ```text
-https://<your-domain>/api/alibaba/proof
+http://101.201.33.56/api/alibaba/proof
 ```
 
 Show:
@@ -70,7 +70,7 @@ Show:
 5. Run the verifier locally:
 
 ```bash
-pnpm run deploy:verify -- https://<your-domain>
+pnpm run deploy:verify -- http://101.201.33.56
 ```
 
 Show:
@@ -124,7 +124,7 @@ Required links:
 ```text
 Qwen base URL proof: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/agent/qwenClient.ts
 Proof endpoint code: https://github.com/Oxygen56/aegisops-autopilot/blob/main/src/server/cloud/alibabaProof.ts
-Live proof: https://<your-domain>/api/alibaba/proof
+Live proof: http://101.201.33.56/api/alibaba/proof
 Workbench screenshot: attach docs/screenshots/alibaba-workbench-proof.png or include the uploaded screenshot URL
 Proof recording: https://<public-video-url>
 ```

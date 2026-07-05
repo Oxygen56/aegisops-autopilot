@@ -6,15 +6,17 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 
 ## Summary
 
-- Verified items: 12
-- Account-gated items: 1
+- Verified items: 13
+- Account-gated items: 0
 - Missing items: 0
 
 ## Fast Review Links
 
 - Devpost public page: https://devpost.com/software/aegisops-autopilot
 - Repository: https://github.com/Oxygen56/aegisops-autopilot
-- Runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
+- Live Alibaba ECS demo: http://101.201.33.56/
+- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof
+- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
 - Static fallback demo: https://oxygen56.github.io/aegisops-autopilot/
 - Static demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 
@@ -57,7 +59,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Code repository, license, runnable instructions, and packaging scripts exist | `README.md`<br>`LICENSE`<br>`package.json`<br>`scripts/packageFinalSubmission.ts`<br>`scripts/validateSubmissionPackages.ts` | Repository has license, install/run instructions, and deterministic package validation. |
-| ACCOUNT-GATED | Live Alibaba deployment proof is prepared but account-gated | `src/server/agent/qwenClient.ts`<br>`infra/alibaba/DEPLOYMENT.md`<br>`scripts/verifyAlibabaDeployment.ts`<br>`docs/ALIBABA_WORKBENCH_SCREENSHOT.md`<br>`docs/ALIBABA_PROOF_RECORDING.md` | Deployment scripts, Qwen Base URL code proof, Workbench screenshot checklist, proof recording checklist, and verifier exist; public URL and screenshot require Alibaba account credentials and a chosen deployment target. |
+| VERIFIED | Live Alibaba deployment proof is public and verified | `http://101.201.33.56/`<br>`http://101.201.33.56/api/alibaba/proof`<br>`src/server/agent/qwenClient.ts`<br>`infra/alibaba/DEPLOYMENT.md`<br>`scripts/verifyAlibabaDeployment.ts`<br>`reports/alibaba_deployment_proof.md`<br>`docs/ALIBABA_WORKBENCH_SCREENSHOT.md`<br>`docs/ALIBABA_PROOF_RECORDING.md` | The public ECS URL is live, /api/health reports qwen-cloud, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, and /api/run was smoke-tested in Qwen Cloud mode. |
 | VERIFIED | Demo video is uploaded and final Devpost submission is complete | `https://devpost.com/software/aegisops-autopilot`<br>`https://youtu.be/eAqfwJn9sr8`<br>`submissions/devpost_submission_receipt.md`<br>`docs/demo/aegisops-demo-reel-fixed.mov`<br>`docs/VIDEO_UPLOAD_METADATA.md`<br>`reports/video_asset_audit.md` | The Devpost public page was observed after final submit with the success banner and embedded YouTube video; the video link is public-viewable by link and oEmbed-verified. |
 | VERIFIED | Post-submit Devpost gallery and creator contribution are live | `https://devpost.com/software/aegisops-autopilot`<br>`docs/screenshots/devpost-gallery/README.md`<br>`submissions/devpost_public_page_polish.md`<br>`docs/screenshots/devpost-gallery/01-dashboard-workflow.png`<br>`docs/screenshots/devpost-gallery/02-approved-remediation.png`<br>`docs/screenshots/devpost-gallery/03-human-approval-gate.png`<br>`docs/screenshots/devpost-gallery/04-openapi-tool-surface.png`<br>`docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png`<br>`docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png` | The six 1200x800 images are saved on Devpost as gallery assets, and the creator contribution text is visible in the public Created by member bubble. |
 
@@ -72,5 +74,5 @@ pnpm run submission:validate
 
 ## Claim Boundary
 
-The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Live Alibaba deployment and optional blog publication remain account-gated until the account owner performs them.
+The repository proves the submitted Devpost project page, live Alibaba ECS deployment, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Optional blog publication remains external until published.
 

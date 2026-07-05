@@ -13,7 +13,7 @@ const root = process.cwd();
 const outPath = path.join(root, "reports/alibaba_deployment_proof.md");
 
 function usage(): never {
-  throw new Error("Usage: pnpm run deploy:verify -- https://<your-domain>");
+  throw new Error("Usage: pnpm run deploy:verify -- http://101.201.33.56");
 }
 
 function normalizeBaseUrl(input: string | undefined): URL {
@@ -23,12 +23,12 @@ function normalizeBaseUrl(input: string | undefined): URL {
   return new URL(url.origin);
 }
 
-async function fetchJson(baseUrl: URL, endpointPath: string): Promise<EndpointResult> {
+async function fetchJson(baseUrl: URL, endpointPath: string, init: RequestInit = {}): Promise<EndpointResult> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15_000);
   try {
     const url = new URL(endpointPath, baseUrl);
-    const response = await fetch(url, { signal: controller.signal });
+    const response = await fetch(url, { ...init, signal: controller.signal });
     const text = await response.text();
     let body: unknown = text;
     try {
@@ -70,11 +70,21 @@ function value(record: Record<string, unknown>, key: string): string {
 }
 
 const baseUrl = normalizeBaseUrl(rawTarget);
+const localTarget = ["localhost", "127.0.0.1", "[::1]", "::1"].includes(baseUrl.hostname);
 const health = await fetchJson(baseUrl, "/api/health");
 const proof = await fetchJson(baseUrl, "/api/alibaba/proof");
 const tools = await fetchJson(baseUrl, "/api/tools");
+const workflow = await fetchJson(baseUrl, "/api/run", {
+  method: "POST",
+  headers: { "content-type": "application/json" },
+  body: JSON.stringify({
+    incidentId: "checkout-tax-latency",
+    autoApprove: false,
+    approver: "deployment-verifier"
+  })
+});
 
-for (const result of [health, proof, tools]) {
+for (const result of [health, proof, tools, workflow]) {
   assert(result.ok, `${result.path} returned HTTP ${result.status}`);
   assertNoSecrets(result.body);
 }
@@ -82,6 +92,9 @@ for (const result of [health, proof, tools]) {
 const healthBody = asRecord(health.body);
 assert(healthBody.ok === true, "/api/health did not report ok=true");
 assert(healthBody.app === "aegisops-autopilot", "/api/health did not identify aegisops-autopilot");
+if (!localTarget) {
+  assert(healthBody.qwenMode === "qwen-cloud", "/api/health did not report qwen-cloud mode");
+}
 
 const proofBody = asRecord(proof.body);
 const computeTarget = String(proofBody.computeTarget ?? "");
@@ -93,7 +106,13 @@ const toolsBody = asRecord(tools.body);
 const toolList = Array.isArray(toolsBody.tools) ? toolsBody.tools : [];
 assert(toolList.length >= 5, "/api/tools did not expose the expected tool surface");
 
-const endpointRows = [health, proof, tools]
+const workflowBody = asRecord(workflow.body);
+if (!localTarget) {
+  assert(workflowBody.providerMode === "qwen-cloud", "/api/run did not complete in qwen-cloud mode");
+}
+assert(String(workflowBody.model ?? "").length > 0, "/api/run did not report a model");
+
+const endpointRows = [health, proof, tools, workflow]
   .map((result) => `| ${result.path} | ${result.status} | ${result.ok ? "pass" : "fail"} |`)
   .join("\n");
 
@@ -109,6 +128,9 @@ const lines = [
   `- Region: ${value(proofBody, "region")}`,
   `- Qwen base URL: ${value(proofBody, "qwenBaseUrl")}`,
   `- Qwen model: ${value(proofBody, "qwenModel")}`,
+  `- Health qwenMode: ${value(healthBody, "qwenMode")}`,
+  `- Live workflow providerMode: ${value(workflowBody, "providerMode")}`,
+  `- Live workflow model: ${value(workflowBody, "model")}`,
   `- ECS instance ID: ${value(proofBody, "ecsInstanceId")}`,
   `- Function Compute name: ${value(proofBody, "functionName")}`,
   `- Tool count: ${toolList.length}`,

@@ -35,4 +35,4 @@
 
 - Synthetic fixtures are used for safety and repeatability.
 - Live Qwen Cloud calls require `QWEN_API_KEY` or `DASHSCOPE_API_KEY`.
-- A public Alibaba Cloud URL still requires account access and deployment credentials.
+- The public Alibaba Cloud ECS URL is live at `http://101.201.33.56/`; see `reports/alibaba_deployment_proof.md`.
