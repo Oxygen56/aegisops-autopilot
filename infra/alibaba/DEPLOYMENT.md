@@ -33,9 +33,14 @@ REGION=ap-southeast-1
 NAMESPACE=<acr-namespace>
 IMAGE=registry.${REGION}.aliyuncs.com/${NAMESPACE}/aegisops-autopilot:latest
 
-docker build -t "$IMAGE" .
+docker build \
+  --build-arg NPM_CONFIG_REGISTRY="${NPM_CONFIG_REGISTRY:-https://registry.npmjs.org/}" \
+  --build-arg PNPM_VERSION="${PNPM_VERSION:-11.7.0}" \
+  -t "$IMAGE" .
 docker push "$IMAGE"
 ```
+
+For Mainland China networks, set `NPM_CONFIG_REGISTRY=https://registry.npmmirror.com` before building if the default npm registry is slow or blocked.
 
 ## ACR + ECS Deployment Pack
 

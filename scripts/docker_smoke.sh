@@ -4,6 +4,8 @@ set -euo pipefail
 image="${IMAGE_NAME:-aegisops-autopilot:smoke}"
 container="aegisops-smoke-$$"
 host_port="${SMOKE_PORT:-18787}"
+npm_registry="${NPM_CONFIG_REGISTRY:-https://registry.npmmirror.com}"
+pnpm_version="${PNPM_VERSION:-11.7.0}"
 
 if ! docker info >/dev/null 2>&1; then
   echo "Docker daemon is not available. Start Docker and rerun pnpm run docker:smoke."
@@ -15,7 +17,10 @@ cleanup() {
 }
 trap cleanup EXIT
 
-docker build -t "$image" .
+docker build \
+  --build-arg "NPM_CONFIG_REGISTRY=${npm_registry}" \
+  --build-arg "PNPM_VERSION=${pnpm_version}" \
+  -t "$image" .
 docker run -d --rm \
   --name "$container" \
   -p "127.0.0.1:${host_port}:8787" \

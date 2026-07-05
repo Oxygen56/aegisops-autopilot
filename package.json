@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.7.0",
   "scripts": {
     "dev": "concurrently -k -n api,web \"pnpm run serve:api\" \"vite --host 0.0.0.0\"",
     "serve:api": "tsx src/server/index.ts",

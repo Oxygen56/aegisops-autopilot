@@ -8,6 +8,8 @@ REPOSITORY="${ALIBABA_ACR_REPOSITORY:-aegisops-autopilot}"
 TAG="${IMAGE_TAG:-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || date +%Y%m%d%H%M%S)}"
 REMOTE_DIR="${ALIBABA_ECS_APP_DIR:-aegisops-autopilot}"
 DRY_RUN="${DRY_RUN:-0}"
+NPM_REGISTRY="${NPM_CONFIG_REGISTRY:-https://registry.npmjs.org/}"
+PNPM_VERSION="${PNPM_VERSION:-11.7.0}"
 
 if [[ -n "${ALIBABA_IMAGE:-}" ]]; then
   IMAGE="$ALIBABA_IMAGE"
@@ -37,7 +39,10 @@ if [[ -n "${ACR_USERNAME:-}" && -n "${ACR_PASSWORD:-}" ]]; then
   fi
 fi
 
-run docker build -t "$IMAGE" "$ROOT"
+run docker build \
+  --build-arg "NPM_CONFIG_REGISTRY=${NPM_REGISTRY}" \
+  --build-arg "PNPM_VERSION=${PNPM_VERSION}" \
+  -t "$IMAGE" "$ROOT"
 run docker push "$IMAGE"
 
 if [[ -z "${ALIBABA_ECS_HOST:-}" ]]; then
