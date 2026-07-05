@@ -70,7 +70,23 @@ install_node() {
 install_pnpm() {
   npm config set registry "$NPM_CONFIG_REGISTRY"
   npm install -g "pnpm@${PNPM_VERSION}" --registry="$NPM_CONFIG_REGISTRY"
-  ln -sf "$(command -v pnpm)" /usr/local/bin/pnpm
+
+  local pnpm_bin pnpm_cjs
+  pnpm_bin="$(command -v pnpm || true)"
+  if [ -n "$pnpm_bin" ] && [ "$pnpm_bin" != "/usr/local/bin/pnpm" ]; then
+    ln -sf "$pnpm_bin" /usr/local/bin/pnpm
+  else
+    pnpm_cjs="$(npm root -g)/pnpm/bin/pnpm.cjs"
+    test -f "$pnpm_cjs"
+    rm -f /usr/local/bin/pnpm
+    {
+      printf '#!/usr/bin/env bash\n'
+      printf 'exec /usr/bin/env node %q "$@"\n' "$pnpm_cjs"
+    } > /usr/local/bin/pnpm
+    chmod +x /usr/local/bin/pnpm
+  fi
+
+  hash -r
   pnpm config set registry "$NPM_CONFIG_REGISTRY"
   log "installed pnpm $(pnpm --version)"
 }
