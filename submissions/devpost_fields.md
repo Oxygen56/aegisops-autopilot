@@ -115,9 +115,9 @@ External access check: YouTube oEmbed returned 200 for `https://youtu.be/eAqfwJn
 
 ## Blog / Social Post
 
-Draft: `submissions/blog_post_draft.md`
+Published URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html
 
-TODO: Publish the draft publicly and paste the URL here for the optional Blog Post Prize.
+Source draft: `submissions/blog_post_draft.md`
 
 ## Repository
 

@@ -54,6 +54,12 @@ Pages demo reel target:
 https://oxygen56.github.io/aegisops-autopilot/?reel=1
 ```
 
+Blog/Social Post Prize page:
+
+```text
+https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html
+```
+
 The Alibaba ECS deployment runs the full Node API with live Qwen Cloud mode enabled. The StackBlitz workspace uses `.stackblitzrc` to run `pnpm run dev` on launch as a fallback. GitHub Pages is deployed by the repository Pages workflow as a static click-through demo that falls back to deterministic offline fixtures when `/api/*` is unavailable.
 
 ## Environment
@@ -122,6 +128,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Demo video pack: `docs/VIDEO_SUBMISSION.md`
 - Demo video upload metadata: `docs/VIDEO_UPLOAD_METADATA.md`
 - Video asset audit: `reports/video_asset_audit.md`
+- Alibaba Workbench screenshot proof: `docs/screenshots/alibaba-workbench-proof.png`
 - Alibaba Workbench screenshot checklist: `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`
 - Alibaba proof recording: `docs/ALIBABA_PROOF_RECORDING.md`
 - Demo script: `docs/DEMO_SCRIPT.md`

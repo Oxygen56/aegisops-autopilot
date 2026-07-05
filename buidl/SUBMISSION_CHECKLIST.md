@@ -20,4 +20,4 @@
 - [x] Devpost image gallery upload set is prepared.
 - [x] Devpost image gallery and creator contribution note are saved as post-submit public-page edits.
 - [x] Alibaba Cloud live deployment URL is published.
-- [ ] Optional blog/social post is published and linked.
+- [x] Optional blog/social post is published and linked.

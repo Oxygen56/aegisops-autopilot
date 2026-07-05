@@ -109,9 +109,10 @@ const items: AuditItem[] = [
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "scripts/verifyAlibabaDeployment.ts",
       "Dockerfile",
-      "reports/alibaba_deployment_proof.md"
+      "reports/alibaba_deployment_proof.md",
+      "docs/screenshots/alibaba-workbench-proof.png"
     ]),
-    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports qwen-cloud, /api/alibaba/proof returns ECS and DashScope proof without secrets, and /api/run was smoke-tested in Qwen Cloud mode."
+    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports qwen-cloud, /api/alibaba/proof returns ECS and DashScope proof without secrets, /api/run was smoke-tested in Qwen Cloud mode, and a public-safe Workbench screenshot is included."
   },
   {
     area: "Working demo or test build",
@@ -177,9 +178,9 @@ const items: AuditItem[] = [
   },
   {
     area: "Optional blog or social post prize",
-    status: "external-action",
-    evidence: requireEvidence(["submissions/blog_post_draft.md", "submissions/devpost_fields.md"]),
-    note: "A publish-ready post draft is present; it still must be published publicly and linked in Devpost."
+    status: "verified",
+    evidence: requireEvidence(["public/blog/qwen-cloud-aegisops-autopilot.html", "submissions/blog_post_draft.md", "submissions/devpost_fields.md"]),
+    note: "The public Blog/Social Post Prize URL is published through GitHub Pages and recorded in the Devpost field draft."
   },
   {
     area: "Judging evidence and reproducibility",
@@ -214,6 +215,9 @@ const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "http://101.201.33.56/"],
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
   ["reports/alibaba_deployment_proof.md", "Live workflow providerMode: qwen-cloud"],
+  ["public/blog/qwen-cloud-aegisops-autopilot.html", "Building AegisOps Autopilot with Qwen Cloud"],
+  ["submissions/devpost_fields.md", "https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html"],
+  ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "docs/screenshots/alibaba-workbench-proof.png"],
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
@@ -290,8 +294,8 @@ const lines = [
   "",
   "## Final External Actions",
   "",
-  "1. Optionally capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "2. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
+  "1. Confirm the Alibaba Cloud Workbench screenshot remains attached or linked in Devpost.",
+  "2. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
   ""
 ];
 

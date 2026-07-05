@@ -26,8 +26,8 @@ Use this runbook for post-submit maintenance of the account-owned Devpost submis
 | Demo video under 3 minutes | YouTube link: `https://youtu.be/eAqfwJn9sr8`; final local asset: `docs/demo/aegisops-demo-reel-fixed.mov` |
 | Devpost image gallery | Live on public page; source images in `docs/screenshots/devpost-gallery/` |
 | Creator contribution note | Live on public page; source text in `submissions/devpost_public_page_polish.md` |
-| Alibaba Cloud proof | Live demo `http://101.201.33.56/`, proof endpoint `http://101.201.33.56/api/alibaba/proof`, and evidence report `reports/alibaba_deployment_proof.md` |
-| Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
+| Alibaba Cloud proof | Live demo `http://101.201.33.56/`, proof endpoint `http://101.201.33.56/api/alibaba/proof`, evidence report `reports/alibaba_deployment_proof.md`, and Workbench screenshot `docs/screenshots/alibaba-workbench-proof.png` |
+| Optional blog/social URL | `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html` |
 
 ## Links To Paste
 
@@ -105,9 +105,9 @@ The project has already been submitted. Devpost allows edits until the deadline,
 2. Confirm the six-image gallery and creator contribution note remain visible.
 3. Confirm the embedded demo video remains `https://youtu.be/eAqfwJn9sr8`.
 4. Confirm the live Alibaba URL and proof endpoint remain visible in the Devpost "Try it out" links.
-5. If desired, capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
-6. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
-7. Add the optional blog/social link only after publication.
+5. Confirm the Alibaba Cloud Workbench screenshot remains at `docs/screenshots/alibaba-workbench-proof.png`.
+6. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md` if judges request extra visual proof.
+7. Confirm the Blog/Social Post Prize URL remains visible in Devpost.
 8. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
 
 ## Final 30-Minute Check
@@ -129,7 +129,8 @@ Before any further public edit, verify:
 - The architecture diagram asset opens without login.
 - The submitted Devpost page opens at `https://devpost.com/software/aegisops-autopilot`.
 - The separate Alibaba proof recording link opens in a private/incognito window if published.
-- The Alibaba Workbench screenshot is attached or publicly linked and does not expose secrets if captured.
+- The Alibaba Workbench screenshot is attached or publicly linked and does not expose secrets.
+- The Blog/Social Post Prize URL opens without login: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.
 - The Qwen base URL proof link opens without login.
 - The Alibaba proof code link opens without login.
 - `reports/alibaba_deployment_proof.md` exists and `/api/alibaba/proof` returns no secrets.

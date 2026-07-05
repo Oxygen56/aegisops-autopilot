@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building AegisOps Autopilot with Qwen Cloud</title>
+    <meta
+      name="description"
+      content="A build journey for AegisOps Autopilot, a Qwen Cloud Track 4 Autopilot Agent for production incident response."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #536178;
+        --line: #d9e1ee;
+        --accent: #0f63c7;
+        --accent-2: #0a8f68;
+        --bg: #f6f8fb;
+        --paper: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.62;
+      }
+
+      main {
+        width: min(880px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 44px 0 64px;
+      }
+
+      article {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: clamp(24px, 5vw, 52px);
+        box-shadow: 0 18px 45px rgb(22 38 66 / 8%);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 1.3rem;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0 0 18px;
+      }
+
+      ul {
+        margin: 0 0 22px;
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .meta {
+        margin-bottom: 26px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .callout {
+        border-left: 4px solid var(--accent-2);
+        background: #eefaf6;
+        padding: 16px 18px;
+        margin: 28px 0;
+      }
+
+      .links {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Building AegisOps Autopilot with Qwen Cloud</h1>
+        <p class="meta">Qwen Cloud Hackathon · Track 4: Autopilot Agent · Published July 5, 2026</p>
+
+        <p>
+          Production incident response is a high-stakes workflow where speed and caution have to coexist. A thin
+          chatbot is not enough. The system needs memory, tool-backed evidence, approval gates, and an audit trail
+          that a human can trust.
+        </p>
+
+        <p>
+          AegisOps Autopilot is my Qwen Cloud Hackathon project for Track 4: Autopilot Agent. It accepts ambiguous
+          production alerts, recalls prior operational lessons, gathers evidence from logs, metrics, change graphs,
+          and policy checks, asks Qwen Cloud to produce a conservative diagnosis, and proposes a reversible
+          remediation plan. Risky actions pause behind a human approval checkpoint instead of mutating production
+          blindly.
+        </p>
+
+        <h2>Why Qwen Cloud Fits This Workflow</h2>
+        <p>
+          Qwen Cloud is the reasoning layer, not the entire system. AegisOps gives Qwen a bounded set of incident
+          tools: log search, metric probing, change graph lookup, policy checking, and remediation simulation. When
+          Qwen returns tool calls, the backend executes only incident-scoped tools, appends the results as tool
+          evidence, and asks Qwen for the final diagnosis.
+        </p>
+
+        <p>
+          The live Alibaba ECS deployment now runs in Qwen Cloud mode through the DashScope OpenAI-compatible API,
+          while the repository still keeps deterministic fixtures for repeatable judging and CI. That combination
+          lets judges inspect both the cloud path and the reproducible fallback path.
+        </p>
+
+        <h2>What I Built</h2>
+        <ul>
+          <li>A TypeScript Node API and React dashboard for incident triage.</li>
+          <li>A Qwen Function Calling loop with five incident-scoped tools.</li>
+          <li>Persistent operational memory and post-incident learning.</li>
+          <li>An agent council with reliability, security, and human approval roles.</li>
+          <li>Risk-scored remediation plans with reversible commands and verification metrics.</li>
+          <li>OpenAPI and MCP surfaces backed by the same tool registry.</li>
+          <li>Evaluation, ablation, model-ops, architecture, and deployment proof reports.</li>
+        </ul>
+
+        <h2>The Hard Part</h2>
+        <p>
+          The hardest part was not wiring up a model call. The hard part was keeping autonomy useful without making it
+          unsafe. A production incident agent needs to say what it knows, where the evidence came from, what it is not
+          allowed to do, and when a human must approve a change. That is why AegisOps treats evidence boundaries and
+          reversibility as first-class product features.
+        </p>
+
+        <div class="callout">
+          <p>
+            The core lesson: an Autopilot Agent should not hide behind a confident answer. It should expose memory,
+            tools, policy checks, approval state, rollback steps, and verification metrics.
+          </p>
+        </div>
+
+        <h2>Current Public Proof</h2>
+        <p>
+          The submitted project is live on Alibaba Cloud ECS at
+          <a href="http://101.201.33.56/">http://101.201.33.56/</a>. The proof endpoint at
+          <a href="http://101.201.33.56/api/alibaba/proof">/api/alibaba/proof</a> returns Alibaba ECS runtime
+          metadata and Qwen/DashScope endpoint configuration without exposing secrets. The public workflow endpoint
+          has also been smoke-tested in <code>qwen-cloud</code> mode.
+        </p>
+
+        <h2>What I Would Improve Next</h2>
+        <p>
+          The next step is to connect AegisOps to real observability systems, expand incident classes, add stricter
+          cost controls, and build team workflows for incident commanders and service owners. The product direction is
+          clear: make high-risk automation inspectable enough for real operations teams to trust.
+        </p>
+
+        <div class="links">
+          <strong>Links</strong>
+          <a href="https://devpost.com/software/aegisops-autopilot">Submitted Devpost page</a>
+          <a href="https://github.com/Oxygen56/aegisops-autopilot">Open-source repository</a>
+          <a href="http://101.201.33.56/">Live Alibaba ECS demo</a>
+          <a href="https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev">Fallback runnable workspace</a>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

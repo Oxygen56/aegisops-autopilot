@@ -13,6 +13,7 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 | Runs consistently for judges | `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `pnpm run ci`, and deterministic offline fixtures | Verified |
 | Public open-source repository and license | `README.md`, `LICENSE`, GitHub repository | Verified |
 | Alibaba Cloud deployment proof | `http://101.201.33.56/`, `http://101.201.33.56/api/alibaba/proof`, `reports/alibaba_deployment_proof.md`, `src/server/cloud/alibabaProof.ts`, `infra/alibaba/DEPLOYMENT.md`, `Dockerfile` | Live ECS URL verified with Qwen Cloud mode |
+| Blog/Social Post Prize URL | `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`, `public/blog/qwen-cloud-aegisops-autopilot.html` | Published |
 | Demo video under 3 minutes | `https://youtu.be/eAqfwJn9sr8`, `docs/demo/aegisops-demo-reel-fixed.mov` | Uploaded and oEmbed-verified on 2026-07-04 |
 
 ## Stage Two: Weighted Judging Criteria
@@ -51,4 +52,4 @@ pnpm run docker:smoke
 - Live Alibaba Cloud deployment is public at `http://101.201.33.56/`.
 - Public demo video is uploaded at `https://youtu.be/eAqfwJn9sr8` and embedded in the submitted Devpost page.
 - Devpost gallery images and creator contribution are live on the submitted public page.
-- Optional blog/social prize requires publishing `submissions/blog_post_draft.md`.
+- Blog/Social Post Prize URL is published at `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.

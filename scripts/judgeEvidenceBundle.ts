@@ -193,10 +193,11 @@ const items: EvidenceItem[] = [
       "infra/alibaba/DEPLOYMENT.md",
       "scripts/verifyAlibabaDeployment.ts",
       "reports/alibaba_deployment_proof.md",
+      "docs/screenshots/alibaba-workbench-proof.png",
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "docs/ALIBABA_PROOF_RECORDING.md"
     ],
-    proof: "The public ECS URL is live, /api/health reports qwen-cloud, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, and /api/run was smoke-tested in Qwen Cloud mode."
+    proof: "The public ECS URL is live, /api/health reports qwen-cloud, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, /api/run was smoke-tested in Qwen Cloud mode, and a public-safe Workbench screenshot is included."
   },
   {
     section: "Submission Readiness",
@@ -233,6 +234,21 @@ const items: EvidenceItem[] = [
       "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png"
     ],
     proof: "The six 1200x800 images are saved on Devpost as gallery assets, and the creator contribution text is visible in the public Created by member bubble."
+  },
+  {
+    section: "Submission Readiness",
+    claim: "Blog/Social Post Prize URL is published",
+    status: verified(
+      allExist(["public/blog/qwen-cloud-aegisops-autopilot.html", "submissions/blog_post_draft.md"]) &&
+        includes("submissions/devpost_fields.md", "https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html")
+    ),
+    evidence: [
+      "https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html",
+      "public/blog/qwen-cloud-aegisops-autopilot.html",
+      "submissions/blog_post_draft.md",
+      "submissions/devpost_fields.md"
+    ],
+    proof: "The build journey post is available through the GitHub Pages site and recorded in the Devpost field draft for the optional Blog Post Prize."
   }
 ];
 
@@ -260,6 +276,7 @@ const lines = [
   "- Repository: https://github.com/Oxygen56/aegisops-autopilot",
   "- Live Alibaba ECS demo: http://101.201.33.56/",
   "- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof",
+  "- Blog/Social Post Prize URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html",
   "- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
   "- Static fallback demo: https://oxygen56.github.io/aegisops-autopilot/",
   "- Static demo reel: https://oxygen56.github.io/aegisops-autopilot/?reel=1",
@@ -288,7 +305,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Optional blog publication remains external until published.",
+  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish.",
   ""
 ];
 

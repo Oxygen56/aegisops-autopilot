@@ -30,6 +30,7 @@ AegisOps automates the incident workflow end to end:
 - GitHub Pages target: https://oxygen56.github.io/aegisops-autopilot/
 - Pages demo reel target: https://oxygen56.github.io/aegisops-autopilot/?reel=1
 - Video: https://youtu.be/eAqfwJn9sr8; final local asset at `docs/demo/aegisops-demo-reel-fixed.mov`.
+- Blog/Social Post Prize URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html
 - Local run: `pnpm install && pnpm run test && pnpm run build && pnpm run dev`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Repository: https://github.com/Oxygen56/aegisops-autopilot

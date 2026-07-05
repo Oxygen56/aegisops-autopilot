@@ -68,6 +68,7 @@ zipAdd(buidlZip, [
   "LICENSE",
   "package.json",
   "pnpm-lock.yaml",
+  "public",
   "scripts",
   "submissions",
   "tsconfig.json",

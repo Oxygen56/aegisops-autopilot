@@ -44,7 +44,7 @@ This report documents contest-period implementation evidence for the Devpost New
 
 ## Claim Boundary
 
-This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment and optional blog publication still require account-owner action.
+This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment, Workbench screenshot proof, and the Blog/Social Post Prize page are verified; the separate Alibaba proof recording remains optional.
 
 ## CI Note
 

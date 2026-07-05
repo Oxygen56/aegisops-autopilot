@@ -120,6 +120,9 @@ add(checks, "GitHub Pages target URL", pages.includes(" 200") ? "pass" : "warn",
 const pagesReel = httpStatus("https://oxygen56.github.io/aegisops-autopilot/?reel=1");
 add(checks, "GitHub Pages demo reel URL", pagesReel.includes(" 200") ? "pass" : "warn", pagesReel);
 
+const blogPost = httpStatus("https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html");
+add(checks, "Blog/Social Post Prize URL", blogPost.includes(" 200") ? "pass" : "warn", blogPost);
+
 const devpostPublicPage = httpStatus("https://devpost.com/software/aegisops-autopilot");
 add(checks, "Devpost public project URL", devpostPublicPage.includes(" 200") ? "pass" : "warn", devpostPublicPage);
 
@@ -166,7 +169,9 @@ const requiredFiles = [
   "docs/RUBRIC_SCORECARD.md",
   "docs/architecture/aegisops-architecture.svg",
   "docs/architecture/aegisops-architecture.png",
+  "docs/screenshots/alibaba-workbench-proof.png",
   "docs/VIDEO_UPLOAD_METADATA.md",
+  "public/blog/qwen-cloud-aegisops-autopilot.html",
   "submissions/devpost_submission_receipt.md",
   "submissions/devpost_public_page_polish.md",
   "docs/screenshots/devpost-gallery/README.md",
@@ -243,8 +248,8 @@ const lines = [
   "",
   "## Final External Actions",
   "",
-  "1. Optionally capture and attach or link the Alibaba Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "2. Publish `submissions/blog_post_draft.md` and paste the public URL into Devpost for the optional Blog Post Prize.",
+  "1. Confirm the Alibaba Workbench screenshot remains available at `docs/screenshots/alibaba-workbench-proof.png`.",
+  "2. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
   "",
   "Primary live demo:",
   "",
@@ -262,6 +267,12 @@ const lines = [
   "",
   "```text",
   "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
+  "```",
+  "",
+  "Blog/Social Post Prize URL:",
+  "",
+  "```text",
+  "https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html",
   "```",
   ""
 ];

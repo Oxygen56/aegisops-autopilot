@@ -23,6 +23,8 @@ https://devpost.com/software/aegisops-autopilot
 - YouTube demo: `https://youtu.be/eAqfwJn9sr8`
 - Repository: `https://github.com/Oxygen56/aegisops-autopilot`
 - Runnable workspace: `https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev`
+- Blog/Social Post Prize page: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`
+- Alibaba Workbench screenshot proof: `docs/screenshots/alibaba-workbench-proof.png`
 - Devpost gallery images: six public CloudFront gallery assets, `software_photos` IDs `4862876` through `4862881`
 - Creator contribution note: saved for member `5901042` and visible in the `Created by` member bubble
 
@@ -30,5 +32,5 @@ https://devpost.com/software/aegisops-autopilot
 
 These are optional post-submit edits allowed by Devpost before the deadline:
 
-1. Add live Alibaba Cloud proof only after account deployment exists and secrets are not visible.
-2. Add the optional blog/social URL only after publication.
+1. Keep the live Alibaba Cloud proof links visible and public-safe.
+2. Keep the Blog/Social Post Prize URL visible in Devpost.

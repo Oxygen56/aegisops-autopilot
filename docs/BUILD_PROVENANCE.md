@@ -25,4 +25,4 @@ The command writes `reports/build_provenance.md` from the local Git history and 
 
 ## Claim Boundary
 
-This provenance record proves substantial repository work for the submitted Qwen Cloud Hackathon project. Live Alibaba deployment is now verified in `reports/alibaba_deployment_proof.md`; optional blog publication remains external until published.
+This provenance record proves substantial repository work for the submitted Qwen Cloud Hackathon project. Live Alibaba deployment is verified in `reports/alibaba_deployment_proof.md`; Workbench screenshot proof is stored at `docs/screenshots/alibaba-workbench-proof.png`; the Blog/Social Post Prize page is published at `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.

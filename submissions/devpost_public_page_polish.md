@@ -24,5 +24,5 @@ Upload the prepared gallery images from `docs/screenshots/devpost-gallery/` in t
 1. Confirm the embedded YouTube video remains `https://youtu.be/eAqfwJn9sr8`.
 2. Upload the six gallery images.
 3. Save the creator contribution field.
-4. Leave Alibaba Cloud proof placeholders untouched until a real deployment URL and public-safe screenshot exist.
-5. Leave the optional blog/social URL blank until the post is actually published.
+4. Keep the live Alibaba Cloud proof links visible.
+5. Add or keep the Blog/Social Post Prize URL: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.

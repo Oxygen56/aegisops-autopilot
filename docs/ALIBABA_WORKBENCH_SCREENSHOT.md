@@ -78,4 +78,4 @@ pnpm run deploy:verify -- http://101.201.33.56
 pnpm run final:preflight
 ```
 
-`pnpm run final:preflight` warns until `docs/screenshots/alibaba-workbench-proof.png` exists, because the screenshot is optional visual proof separate from the live endpoint verification.
+`pnpm run final:preflight` passes the Workbench screenshot check when `docs/screenshots/alibaba-workbench-proof.png` exists. The screenshot is visual proof separate from the live endpoint verification.
