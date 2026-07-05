@@ -1,6 +1,6 @@
 # Final Submission Runbook
 
-Use this runbook for post-submit maintenance of the account-owned Devpost submission. It reflects the official Qwen Cloud Hackathon page checked on 2026-07-03 and the submitted Devpost public page observed after final submit.
+Use this runbook for post-submit maintenance of the account-owned Devpost submission. It reflects the official Qwen Cloud Hackathon page checked on 2026-07-05 and the submitted Devpost public page observed after final submit.
 
 ## Deadline
 
@@ -24,8 +24,8 @@ Use this runbook for post-submit maintenance of the account-owned Devpost submis
 | Significant update / provenance evidence | `docs/BUILD_PROVENANCE.md` and `reports/build_provenance.md` |
 | Working project access | StackBlitz URL and GitHub Pages URL below |
 | Demo video under 3 minutes | YouTube link: `https://youtu.be/eAqfwJn9sr8`; final local asset: `docs/demo/aegisops-demo-reel-fixed.mov` |
-| Devpost image gallery | `docs/screenshots/devpost-gallery/` |
-| Creator contribution note | `submissions/devpost_public_page_polish.md` |
+| Devpost image gallery | Live on public page; source images in `docs/screenshots/devpost-gallery/` |
+| Creator contribution note | Live on public page; source text in `submissions/devpost_public_page_polish.md` |
 | Alibaba Cloud proof | Use `infra/alibaba/DEPLOYMENT.md`, capture Workbench screenshot with `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`, record proof with `docs/ALIBABA_PROOF_RECORDING.md`, then run `pnpm run deploy:verify -- https://<your-domain>` |
 | Optional blog/social URL | Publish `submissions/blog_post_draft.md` and paste the public URL |
 
@@ -96,14 +96,13 @@ https://<your-domain>/api/alibaba/proof
 The project has already been submitted. Devpost allows edits until the deadline, so use this order for public-page improvements:
 
 1. Open the public page: `https://devpost.com/software/aegisops-autopilot`.
-2. Upload the prepared 3:2 image gallery from `docs/screenshots/devpost-gallery/`.
-3. Save the creator contribution note from `submissions/devpost_public_page_polish.md`.
-4. Confirm the embedded demo video remains `https://youtu.be/eAqfwJn9sr8`.
-5. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>` and then add the live proof URL.
-6. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md` only after deployment.
-7. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md` only after deployment.
-8. Add the optional blog/social link only after publication.
-9. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
+2. Confirm the six-image gallery and creator contribution note remain visible.
+3. Confirm the embedded demo video remains `https://youtu.be/eAqfwJn9sr8`.
+4. If the Alibaba service is live, run `pnpm run deploy:verify -- https://<your-domain>` and then add the live proof URL.
+5. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md` only after deployment.
+6. Record and upload the separate Alibaba Cloud proof video using `docs/ALIBABA_PROOF_RECORDING.md` only after deployment.
+7. Add the optional blog/social link only after publication.
+8. If deploying to ECS, use `infra/alibaba/deploy-acr-ecs.sh` and keep Qwen credentials only in the remote `.env`.
 
 ## Final 30-Minute Check
 

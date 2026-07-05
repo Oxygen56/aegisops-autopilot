@@ -163,7 +163,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication still require account-owner action.",
+  "This report proves the repository contains a substantial, reviewable implementation trail for the submitted Devpost project. Live Alibaba deployment and optional blog publication still require account-owner action.",
   "",
   "## CI Note",
   "",

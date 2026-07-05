@@ -50,5 +50,5 @@ pnpm run docker:smoke
 - Live Qwen Cloud mode requires `QWEN_API_KEY` or `DASHSCOPE_API_KEY`.
 - Live Alibaba Cloud deployment requires account credentials and a deployment target.
 - Public demo video is uploaded at `https://youtu.be/eAqfwJn9sr8` and embedded in the submitted Devpost page.
-- Devpost gallery and creator contribution updates require account-owner public-page edits.
+- Devpost gallery images and creator contribution are live on the submitted public page.
 - Optional blog/social prize requires publishing `submissions/blog_post_draft.md`.

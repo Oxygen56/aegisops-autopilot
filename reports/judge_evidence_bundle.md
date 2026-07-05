@@ -6,8 +6,8 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 
 ## Summary
 
-- Verified items: 11
-- Account-gated items: 2
+- Verified items: 12
+- Account-gated items: 1
 - Missing items: 0
 
 ## Fast Review Links
@@ -59,7 +59,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | VERIFIED | Code repository, license, runnable instructions, and packaging scripts exist | `README.md`<br>`LICENSE`<br>`package.json`<br>`scripts/packageFinalSubmission.ts`<br>`scripts/validateSubmissionPackages.ts` | Repository has license, install/run instructions, and deterministic package validation. |
 | ACCOUNT-GATED | Live Alibaba deployment proof is prepared but account-gated | `src/server/agent/qwenClient.ts`<br>`infra/alibaba/DEPLOYMENT.md`<br>`scripts/verifyAlibabaDeployment.ts`<br>`docs/ALIBABA_WORKBENCH_SCREENSHOT.md`<br>`docs/ALIBABA_PROOF_RECORDING.md` | Deployment scripts, Qwen Base URL code proof, Workbench screenshot checklist, proof recording checklist, and verifier exist; public URL and screenshot require Alibaba account credentials and a chosen deployment target. |
 | VERIFIED | Demo video is uploaded and final Devpost submission is complete | `https://devpost.com/software/aegisops-autopilot`<br>`https://youtu.be/eAqfwJn9sr8`<br>`submissions/devpost_submission_receipt.md`<br>`docs/demo/aegisops-demo-reel-fixed.mov`<br>`docs/VIDEO_UPLOAD_METADATA.md`<br>`reports/video_asset_audit.md` | The Devpost public page was observed after final submit with the success banner and embedded YouTube video; the video link is public-viewable by link and oEmbed-verified. |
-| ACCOUNT-GATED | Post-submit Devpost gallery and creator contribution are prepared | `docs/screenshots/devpost-gallery/README.md`<br>`submissions/devpost_public_page_polish.md`<br>`docs/screenshots/devpost-gallery/01-dashboard-workflow.png`<br>`docs/screenshots/devpost-gallery/02-approved-remediation.png`<br>`docs/screenshots/devpost-gallery/03-human-approval-gate.png`<br>`docs/screenshots/devpost-gallery/04-openapi-tool-surface.png`<br>`docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png`<br>`docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png` | The six 1200x800 upload-ready images and creator contribution text are prepared; saving them on Devpost requires an account-owner public-page edit. |
+| VERIFIED | Post-submit Devpost gallery and creator contribution are live | `https://devpost.com/software/aegisops-autopilot`<br>`docs/screenshots/devpost-gallery/README.md`<br>`submissions/devpost_public_page_polish.md`<br>`docs/screenshots/devpost-gallery/01-dashboard-workflow.png`<br>`docs/screenshots/devpost-gallery/02-approved-remediation.png`<br>`docs/screenshots/devpost-gallery/03-human-approval-gate.png`<br>`docs/screenshots/devpost-gallery/04-openapi-tool-surface.png`<br>`docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png`<br>`docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png` | The six 1200x800 images are saved on Devpost as gallery assets, and the creator contribution text is visible in the public Created by member bubble. |
 
 ## Recommended Judge Commands
 
@@ -72,5 +72,5 @@ pnpm run submission:validate
 
 ## Claim Boundary
 
-The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, and documentation. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication remain account-gated until the account owner performs them.
+The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Live Alibaba deployment and optional blog publication remain account-gated until the account owner performs them.
 

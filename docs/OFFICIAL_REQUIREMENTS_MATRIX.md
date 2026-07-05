@@ -1,6 +1,6 @@
 # Official Requirements Matrix
 
-Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
+Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-05.
 
 ## Contest Facts
 
@@ -39,7 +39,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-03.
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
 | Track identification | Verified | `Track 4: Autopilot Agent` in `README.md`, `reports/brief.md`, and `submissions/devpost_fields.md` |
 | Final Devpost submission | Verified | `submissions/devpost_submission_receipt.md`; observed `Project submitted!` banner and public page `https://devpost.com/software/aegisops-autopilot` |
-| Project image gallery polish | External action | Upload-ready 3:2 images exist in `docs/screenshots/devpost-gallery/`; saving them changes the public Devpost page |
+| Project image gallery polish | Verified | Six gallery images and the creator contribution note are live on `https://devpost.com/software/aegisops-autopilot`; source images are in `docs/screenshots/devpost-gallery/` |
 | Optional blog/social post for Blog Post Prize | External action | Draft exists at `submissions/blog_post_draft.md`; public publication still required |
 
 ## Judging Criteria Mapping
@@ -58,5 +58,4 @@ These cannot be completed from the repository alone:
 1. Deploy on Alibaba Cloud with `QWEN_API_KEY` or `DASHSCOPE_API_KEY`, then verify with `pnpm run deploy:verify -- https://<your-domain>`.
 2. Capture the Alibaba Cloud Workbench screenshot using `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.
 3. Record the separate Alibaba proof video using `docs/ALIBABA_PROOF_RECORDING.md`.
-4. Upload the prepared Devpost image gallery and save the creator contribution note if making post-submit public-page edits.
-5. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.
+4. Publish `submissions/blog_post_draft.md` if pursuing the Blog Post Award.

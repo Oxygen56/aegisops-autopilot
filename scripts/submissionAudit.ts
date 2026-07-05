@@ -161,7 +161,7 @@ const items: AuditItem[] = [
   },
   {
     area: "Devpost image gallery and creator contribution polish",
-    status: "external-action",
+    status: "verified",
     evidence: requireEvidence([
       "docs/screenshots/devpost-gallery/README.md",
       "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
@@ -172,7 +172,7 @@ const items: AuditItem[] = [
       "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
       "submissions/devpost_public_page_polish.md"
     ]),
-    note: "The 3:2 gallery images and creator contribution copy are ready; uploading or saving them changes the public Devpost page."
+    note: "The six gallery images and creator contribution note are saved on the public Devpost page; public HTML verification shows CloudFront gallery assets and the member contribution bubble."
   },
   {
     area: "Optional blog or social post prize",
@@ -289,8 +289,7 @@ const lines = [
   "",
   "1. Deploy the container on Alibaba Cloud with QWEN_API_KEY or DASHSCOPE_API_KEY configured, then add the live `/api/alibaba/proof` URL to Devpost.",
   "2. Capture and attach or link the Alibaba Cloud Workbench screenshot described in `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`.",
-  "3. Upload the prepared Devpost gallery images and save the creator contribution note if making post-submit public-page edits.",
-  "4. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
+  "3. Publish `submissions/blog_post_draft.md` as a public blog or social post and paste the URL into Devpost for the optional Blog Post Prize.",
   ""
 ];
 

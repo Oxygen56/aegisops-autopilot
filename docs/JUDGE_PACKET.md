@@ -116,5 +116,4 @@ The CI release gate includes:
 These are intentionally not claimed as complete until the account owner performs them:
 
 1. Deploy the container on Alibaba Cloud and run `pnpm run deploy:verify -- https://<your-domain>`.
-2. Upload the prepared Devpost gallery images and save the creator contribution note.
-3. Optionally publish `submissions/blog_post_draft.md` for the Blog Post Award.
+2. Optionally publish `submissions/blog_post_draft.md` for the Blog Post Award.

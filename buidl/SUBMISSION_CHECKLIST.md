@@ -18,6 +18,6 @@
 - [x] Devpost final submit button is clicked by the account owner.
 - [x] Devpost public project page is live.
 - [x] Devpost image gallery upload set is prepared.
+- [x] Devpost image gallery and creator contribution note are saved as post-submit public-page edits.
 - [ ] Alibaba Cloud live deployment URL is published.
-- [ ] Devpost image gallery and creator contribution note are saved as post-submit public-page edits.
 - [ ] Optional blog/social post is published and linked.

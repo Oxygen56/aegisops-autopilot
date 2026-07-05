@@ -216,9 +216,10 @@ const items: EvidenceItem[] = [
   },
   {
     section: "Submission Readiness",
-    claim: "Post-submit Devpost gallery and creator contribution are prepared",
-    status: "ACCOUNT-GATED",
+    claim: "Post-submit Devpost gallery and creator contribution are live",
+    status: "VERIFIED",
     evidence: [
+      "https://devpost.com/software/aegisops-autopilot",
       "docs/screenshots/devpost-gallery/README.md",
       "submissions/devpost_public_page_polish.md",
       "docs/screenshots/devpost-gallery/01-dashboard-workflow.png",
@@ -228,7 +229,7 @@ const items: EvidenceItem[] = [
       "docs/screenshots/devpost-gallery/05-architecture-qwen-tools.png",
       "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png"
     ],
-    proof: "The six 1200x800 upload-ready images and creator contribution text are prepared; saving them on Devpost requires an account-owner public-page edit."
+    proof: "The six 1200x800 images are saved on Devpost as gallery assets, and the creator contribution text is visible in the public Created by member bubble."
   }
 ];
 
@@ -282,7 +283,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, and documentation. Live Alibaba deployment, post-submit Devpost gallery edits, and optional blog publication remain account-gated until the account owner performs them.",
+  "The repository proves the submitted Devpost project page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish. Live Alibaba deployment and optional blog publication remain account-gated until the account owner performs them.",
   ""
 ];
 
