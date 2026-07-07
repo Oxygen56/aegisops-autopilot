@@ -6,6 +6,7 @@ REPO_URL="${REPO_URL:-https://github.com/Oxygen56/aegisops-autopilot.git}"
 GIT_REF="${GIT_REF:-main}"
 EXPECTED_COMMIT="${EXPECTED_COMMIT:-}"
 REPO_ARCHIVE_URL="${REPO_ARCHIVE_URL:-}"
+CHECKOUT_MODE="${CHECKOUT_MODE:-git}"
 PORT="${PORT:-8787}"
 NODE_VERSION="${NODE_VERSION:-22.12.0}"
 PNPM_VERSION="${PNPM_VERSION:-11.7.0}"
@@ -162,6 +163,12 @@ checkout_repo_from_archive() {
 }
 
 checkout_repo() {
+  if [ "$CHECKOUT_MODE" = "archive" ]; then
+    log "CHECKOUT_MODE=archive; using source archive checkout"
+    checkout_repo_from_archive
+    return
+  fi
+
   if checkout_repo_with_git; then
     return
   fi
