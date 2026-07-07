@@ -4,7 +4,8 @@ set -Eeuo pipefail
 APP_DIR="${APP_DIR:-/opt/aegisops-autopilot}"
 REPO_URL="${REPO_URL:-https://github.com/Oxygen56/aegisops-autopilot.git}"
 GIT_REF="${GIT_REF:-main}"
-EXPECTED_COMMIT="${EXPECTED_COMMIT:-226b5954afc657d8ad802b62f8b031c12d1922e1}"
+EXPECTED_COMMIT="${EXPECTED_COMMIT:-}"
+REPO_ARCHIVE_URL="${REPO_ARCHIVE_URL:-}"
 PORT="${PORT:-8787}"
 NODE_VERSION="${NODE_VERSION:-22.12.0}"
 PNPM_VERSION="${PNPM_VERSION:-11.7.0}"
@@ -91,25 +92,82 @@ install_pnpm() {
   log "installed pnpm $(pnpm --version)"
 }
 
-checkout_repo() {
+checkout_repo_with_git() {
+  local head
   mkdir -p "$(dirname "$APP_DIR")"
   if [ -d "$APP_DIR/.git" ]; then
     log "updating repository in $APP_DIR"
-    git -C "$APP_DIR" fetch --prune origin "$GIT_REF"
-    git -C "$APP_DIR" checkout "$GIT_REF"
+    git -C "$APP_DIR" fetch --prune origin "$GIT_REF" || return 1
+    git -C "$APP_DIR" checkout "$GIT_REF" || return 1
   else
     log "cloning $REPO_URL into $APP_DIR"
     rm -rf "$APP_DIR"
-    git clone --branch "$GIT_REF" "$REPO_URL" "$APP_DIR"
+    git clone --branch "$GIT_REF" "$REPO_URL" "$APP_DIR" || return 1
   fi
 
   if [ -n "$EXPECTED_COMMIT" ]; then
     git -C "$APP_DIR" fetch origin "$EXPECTED_COMMIT" || true
-    git -C "$APP_DIR" reset --hard "$EXPECTED_COMMIT"
+    git -C "$APP_DIR" reset --hard "$EXPECTED_COMMIT" || return 1
   else
-    git -C "$APP_DIR" reset --hard "origin/$GIT_REF"
+    git -C "$APP_DIR" reset --hard "origin/$GIT_REF" || return 1
   fi
-  log "checked out $(git -C "$APP_DIR" rev-parse HEAD)"
+  head="$(git -C "$APP_DIR" rev-parse HEAD)" || return 1
+  log "checked out ${head}"
+}
+
+repo_archive_urls() {
+  local ref repo_path repo_owner repo_name
+  ref="${EXPECTED_COMMIT:-$GIT_REF}"
+  if [ -n "$REPO_ARCHIVE_URL" ]; then
+    printf '%s\n' "$REPO_ARCHIVE_URL"
+  fi
+
+  repo_path="${REPO_URL#https://github.com/}"
+  repo_path="${repo_path#git@github.com:}"
+  repo_path="${repo_path%.git}"
+  if [ "$repo_path" != "$REPO_URL" ] || printf '%s' "$REPO_URL" | grep -q '^git@github.com:'; then
+    repo_owner="${repo_path%%/*}"
+    repo_name="${repo_path#*/}"
+    if [ -n "$repo_owner" ] && [ -n "$repo_name" ] && [ "$repo_owner" != "$repo_name" ]; then
+      printf 'https://codeload.github.com/%s/%s/tar.gz/%s\n' "$repo_owner" "$repo_name" "$ref"
+      printf 'https://github.com/%s/%s/archive/%s.tar.gz\n' "$repo_owner" "$repo_name" "$ref"
+    fi
+  fi
+}
+
+checkout_repo_from_archive() {
+  local ref tarball workdir url extracted
+  ref="${EXPECTED_COMMIT:-$GIT_REF}"
+  tarball="$(mktemp /tmp/aegisops-source.XXXXXX.tar.gz)"
+  workdir="$(mktemp -d /tmp/aegisops-source.XXXXXX)"
+
+  for url in $(repo_archive_urls); do
+    log "downloading source archive from ${url}"
+    if curl -fL --retry 5 --retry-all-errors --connect-timeout 20 --max-time 300 --http1.1 "$url" -o "$tarball"; then
+      break
+    fi
+  done
+
+  test -s "$tarball"
+  tar -xzf "$tarball" -C "$workdir"
+  extracted="$(find "$workdir" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+  test -n "$extracted"
+
+  rm -rf "$APP_DIR"
+  mkdir -p "$APP_DIR"
+  cp -a "$extracted"/. "$APP_DIR"/
+  printf '%s\n' "$ref" > "$APP_DIR/.source-commit"
+  rm -rf "$workdir" "$tarball"
+  log "checked out source archive ${ref}"
+}
+
+checkout_repo() {
+  if checkout_repo_with_git; then
+    return
+  fi
+
+  log "git checkout failed; falling back to source archive"
+  checkout_repo_from_archive
 }
 
 build_app() {
