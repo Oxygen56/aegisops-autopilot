@@ -112,7 +112,7 @@ const items: AuditItem[] = [
       "reports/alibaba_deployment_proof.md",
       "docs/screenshots/alibaba-workbench-proof.png"
     ]),
-    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports qwen-cloud, /api/alibaba/proof returns ECS and DashScope proof without secrets, /api/run was smoke-tested in Qwen Cloud mode, and a public-safe Workbench screenshot is included."
+    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports Qwen Cloud provider metadata, /api/alibaba/proof returns ECS and DashScope proof without secrets, /api/run was smoke-tested in secret-safe public fixture mode, and a public-safe Workbench screenshot is included."
   },
   {
     area: "Working demo or test build",
@@ -215,7 +215,8 @@ const items: AuditItem[] = [
 const requiredTextChecks: Array<[string, string]> = [
   ["README.md", "http://101.201.33.56/"],
   ["README.md", "https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev"],
-  ["reports/alibaba_deployment_proof.md", "Live workflow providerMode: qwen-cloud"],
+  ["reports/alibaba_deployment_proof.md", "Health Qwen provider: qwen-cloud"],
+  ["reports/alibaba_deployment_proof.md", "Health Qwen credential: not-present"],
   ["public/blog/qwen-cloud-aegisops-autopilot.html", "Building AegisOps Autopilot with Qwen Cloud"],
   ["submissions/devpost_fields.md", "https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html"],
   ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "docs/screenshots/alibaba-workbench-proof.png"],

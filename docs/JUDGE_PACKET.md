@@ -118,7 +118,7 @@ The CI release gate includes:
 - `submissions/devpost_submission_receipt.md`: observed Devpost success banner, public project URL, embedded video, and edit window.
 - `docs/screenshots/devpost-gallery/README.md`: upload-ready 3:2 Devpost gallery image set.
 - `submissions/devpost_public_page_polish.md`: live Devpost seven-image gallery, Workbench proof image, blog link, and creator contribution evidence.
-- `reports/alibaba_deployment_proof.md`: live ECS URL, proof endpoint, and Qwen Cloud mode smoke test.
+- `reports/alibaba_deployment_proof.md`: live ECS URL, proof endpoint, Qwen Cloud provider metadata, and secret-safe public workflow smoke test.
 - `docs/screenshots/alibaba-workbench-proof.png`: public-safe Alibaba ECS screenshot showing the running instance and public IP.
 - `public/blog/qwen-cloud-aegisops-autopilot.html`: published Blog/Social Post Prize page.
 - `docs/ALIBABA_WORKBENCH_SCREENSHOT.md`: Alibaba Cloud Workbench screenshot proof checklist from the latest Devpost update.

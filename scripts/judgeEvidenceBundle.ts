@@ -30,6 +30,11 @@ function includes(relativePath: string, needle: string): boolean {
   return read(relativePath).includes(needle);
 }
 
+function includesAny(relativePath: string, needles: string[]): boolean {
+  const text = read(relativePath);
+  return needles.some((needle) => text.includes(needle));
+}
+
 function verified(ok: boolean): Status {
   return ok ? "VERIFIED" : "MISSING";
 }
@@ -47,7 +52,7 @@ const items: EvidenceItem[] = [
     section: "Stage One Viability",
     claim: "Submission fits Track 4: Autopilot Agent",
     status: verified(
-      includes("README.md", "Track 4: Autopilot Agent") &&
+      includesAny("README.md", ["Track 4: Autopilot Agent", "Track 4 Autopilot Agent"]) &&
         includes("submissions/devpost_fields.md", "Track 4: Autopilot Agent") &&
         includes("reports/brief.md", "Track 4")
     ),
@@ -197,7 +202,7 @@ const items: EvidenceItem[] = [
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
       "docs/ALIBABA_PROOF_RECORDING.md"
     ],
-    proof: "The public ECS URL is live, /api/health reports qwen-cloud, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, /api/run was smoke-tested in Qwen Cloud mode, and a public-safe Workbench screenshot is included."
+    proof: "The public ECS URL is live, /api/health reports Qwen Cloud provider metadata, /api/alibaba/proof returns Alibaba ECS and DashScope proof without secrets, /api/run was smoke-tested in secret-safe public fixture mode, and a public-safe Workbench screenshot is included."
   },
   {
     section: "Submission Readiness",

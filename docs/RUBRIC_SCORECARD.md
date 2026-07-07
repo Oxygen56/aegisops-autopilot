@@ -48,7 +48,7 @@ pnpm run docker:smoke
 
 ## Current External Dependencies
 
-- Live Qwen Cloud mode is enabled on the Alibaba ECS deployment.
+- The Alibaba ECS deployment exposes Qwen Cloud provider metadata without returning keys; public workflow execution uses deterministic fixtures unless a Qwen/DashScope key is configured.
 - Live Alibaba Cloud deployment is public at `http://101.201.33.56/`.
 - Public demo video is uploaded at `https://youtu.be/eAqfwJn9sr8` and embedded in the submitted Devpost page.
 - Devpost gallery images and creator contribution are live on the submitted public page.

@@ -104,7 +104,11 @@ run("zip", [
   "./docs/demo/aegisops-demo-reel-draft.en.srt",
   "./docs/demo/thumbs/*"
 ]);
-zipAdd(fullZip, ["docs/demo/aegisops-demo-reel-fixed.mov", "docs/demo/aegisops-demo-reel-fixed.en.srt"]);
+zipAdd(fullZip, [
+  "docs/demo/aegisops-demo-reel-fixed.mov",
+  "docs/demo/aegisops-demo-reel-fixed.en.srt",
+  "docs/demo/alibaba-backend-proof.mov"
+]);
 zipDelete(fullZip, [
   "docs/deployment/*",
   "docs/deployment/",

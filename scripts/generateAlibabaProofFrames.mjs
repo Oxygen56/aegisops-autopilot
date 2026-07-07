@@ -190,16 +190,16 @@ function htmlForSlide(slide, index, count) {
     }
     pre {
       margin: 18px 0 0;
-      max-height: 330px;
+      max-height: 202px;
       overflow: hidden;
       white-space: pre-wrap;
       border: 1px solid rgba(94, 234, 212, 0.25);
       border-radius: 8px;
-      padding: 18px;
+      padding: 14px;
       color: #d9f99d;
       background: rgba(2, 6, 23, 0.9);
-      font-size: 17px;
-      line-height: 1.32;
+      font-size: 14px;
+      line-height: 1.2;
     }
     .proof-image {
       width: 100%;
@@ -253,6 +253,32 @@ async function main() {
   const workbenchImage = `data:image/png;base64,${workbenchPng.toString("base64")}`;
   const qwen = health.qwenCloud ?? {};
   const toolCount = Array.isArray(tools.tools) ? tools.tools.length : "not reported";
+  const healthSnippet = {
+    timestamp: health.timestamp,
+    qwenProvider: health.qwenProvider ?? qwen.provider,
+    qwenMode: health.qwenMode ?? qwen.mode,
+    qwenBaseUrl: qwen.baseUrl,
+    qwenModel: qwen.model,
+    qwenCredential: qwen.credential,
+    alibabaCloud: health.alibabaCloud
+  };
+  const proofSnippet = {
+    timestamp: proof.timestamp,
+    qwenProvider: proof.qwenProvider,
+    qwenMode: proof.qwenMode,
+    qwenBaseUrl: proof.qwenBaseUrl,
+    qwenModel: proof.qwenModel,
+    qwenCredential: proof.qwenCredential,
+    region: proof.region,
+    computeTarget: proof.computeTarget,
+    ecsInstanceId: proof.ecsInstanceId
+  };
+  const toolsSnippet = {
+    toolCount,
+    toolNames: Array.isArray(tools.tools)
+      ? tools.tools.map((tool) => tool.name)
+      : tools
+  };
 
   const slides = [
     {
@@ -274,7 +300,7 @@ async function main() {
         ["Mode", qwen.mode ?? health.qwenMode ?? "reported by API"],
         ["Credential", qwen.credential ?? "redacted"]
       ],
-      code: prettyJson(health)
+      code: prettyJson(healthSnippet)
     },
     {
       eyebrow: "Alibaba runtime signal",
@@ -285,7 +311,7 @@ async function main() {
         ["Region", proof.region ?? "reported by API"],
         ["Model", proof.qwenModel ?? qwen.model ?? "qwen-plus"]
       ],
-      code: prettyJson(proof)
+      code: prettyJson(proofSnippet)
     },
     {
       eyebrow: "Workbench proof",
@@ -307,7 +333,7 @@ async function main() {
         ["OpenAPI", "agents/aegisops/openapi.yaml"],
         ["MCP", "pnpm run mcp:stdio"]
       ],
-      code: prettyJson(tools)
+      code: prettyJson(toolsSnippet)
     },
     {
       eyebrow: "Submission fit",

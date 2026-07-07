@@ -10,6 +10,7 @@ docs/demo/*.mov
 docs/demo/*.m4v
 docs/demo/aegisops-demo-reel-draft.en.srt
 !docs/demo/aegisops-demo-reel-fixed.mov
+docs/demo/frames/
 docs/demo/thumbs/
 docs/deployment/
 docs/screenshots/alibaba-workbench-proof-raw.png
