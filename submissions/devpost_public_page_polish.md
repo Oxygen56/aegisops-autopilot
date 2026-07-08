@@ -32,3 +32,18 @@ Alibaba Cloud ECS proof: running cn-beijing instance and public IP 101.201.33.56
 3. Confirm the creator contribution field remains visible.
 4. Keep the live Alibaba Cloud proof links visible.
 5. Keep the Blog/Social Post Prize URL visible: `https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html`.
+6. Keep the adversarial authority benchmark in the first-screen judge summary: `reports/adversarial_authority_benchmark.md`, 56/56 authority-boundary checks, 14/14 active-incident scoping, 14/14 approval-bypass blocks, 14/14 unknown-tool rejections, and 14/14 policy hard-stop checks.
+
+## 2026-07-08 Adversarial Benchmark Refresh
+
+The public Devpost Project Story was updated after commit `6ad55fd391be843e7caec617a78f51e341c068eb` so the first judge-facing summary includes the new adversarial authority benchmark:
+
+```text
+The adversarial authority benchmark adds 56 corrupted model/tool-boundary attacks with 56/56 authority-boundary checks passed, 14/14 active-incident scoping checks, 14/14 approval-bypass blocks, 14/14 unknown-tool rejections, and 14/14 policy hard-stop checks.
+```
+
+Public verification:
+
+```bash
+curl -fsSL https://devpost.com/software/aegisops-autopilot | rg 'adversarial_authority_benchmark|56/56 authority-boundary'
+```

@@ -158,6 +158,16 @@ add(
   devpostHtml.ok && devpostHtml.output.includes(alibabaProofVideoUrl) ? "pass" : "fail",
   devpostHtml.ok ? `${alibabaProofVideoUrl} present on public Devpost page` : devpostHtml.output
 );
+add(
+  checks,
+  "Devpost public adversarial benchmark proof",
+  devpostHtml.ok &&
+    devpostHtml.output.includes("adversarial_authority_benchmark.md") &&
+    devpostHtml.output.includes("56/56 authority-boundary checks passed")
+    ? "pass"
+    : "fail",
+  devpostHtml.ok ? "Adversarial authority benchmark evidence present on public Devpost page" : devpostHtml.output
+);
 
 const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL ?? "http://101.201.33.56";
 if (alibabaProofUrl) {
