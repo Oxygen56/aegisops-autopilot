@@ -1,0 +1,9 @@
+{
+  "status": "account-gated",
+  "startedAt": "2026-07-08T06:27:06.932Z",
+  "providerMode": "offline-fixture",
+  "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen-plus",
+  "credential": "not-present",
+  "note": "Set QWEN_API_KEY or DASHSCOPE_API_KEY to run a one-shot live Qwen smoke proof. No secret is written to this report."
+}

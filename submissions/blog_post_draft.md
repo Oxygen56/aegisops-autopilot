@@ -6,7 +6,7 @@ AegisOps Autopilot is my Qwen Cloud hackathon project for Track 4: Autopilot Age
 
 The project is built for two judging paths. The live Alibaba ECS deployment calls Qwen Cloud through the OpenAI-compatible DashScope endpoint. Without a key, deterministic offline fixtures exercise the same orchestration path so judges can reproduce the workflow without private credentials.
 
-The most important design decision was to make every agent action inspectable. The dashboard shows recalled memories, tool outputs, agent-council findings, approval status, remediation commands, and verification metrics. The repository also includes an OpenAPI tool surface, an MCP stdio server, eval fixtures, ablation results, Docker packaging, an architecture diagram, and Alibaba Cloud deployment proof code.
+The most important design decision was to make every agent action inspectable. The dashboard shows recalled memories, tool outputs, agent-council findings, approval status, remediation commands, and verification metrics. The repository also includes an OpenAPI tool surface, an MCP stdio server, eval fixtures, a 14-scenario stress benchmark, ablation results, Docker packaging, an architecture diagram, and Alibaba Cloud deployment proof code.
 
 What I learned while building it:
 

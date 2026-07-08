@@ -60,6 +60,226 @@
         "remediation_simulator"
       ],
       "approved": true
+    },
+    {
+      "incidentId": "inventory-cache-stampede",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "auth-token-expiry-loop",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "ml-feature-drift",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "search-index-corruption",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "notification-queue-backlog",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "data-export-permission-drift",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "region-failover-config-drift",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "vendor-api-quota-spike",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "database-migration-lock-contention",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "observability-cardinality-explosion",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
+    },
+    {
+      "incidentId": "workflow-approval-bypass",
+      "providerMode": "offline-fixture",
+      "model": "deterministic-fixture",
+      "scorecard": {
+        "memoryRecall": 1,
+        "toolCoverage": 1,
+        "riskControl": 0.95,
+        "humanGate": 1,
+        "overall": 0.988
+      },
+      "toolCalls": [
+        "log_search",
+        "metric_probe",
+        "change_graph",
+        "policy_check",
+        "remediation_simulator"
+      ],
+      "approved": true
     }
   ]
 }

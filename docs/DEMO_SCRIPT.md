@@ -42,7 +42,7 @@ Show that the system pauses production mutation and keeps drafts blocked.
 
 Open `/api/alibaba/proof`, then show `docs/ARCHITECTURE.md` and `reports/eval_report.md`.
 
-Say: The project includes runnable tests, eval and ablation fixtures, custom Qwen tool surfaces, deployment proof code, and a public open-source package for judges.
+Say: The project includes runnable tests, eval and ablation fixtures, a 14-scenario stress benchmark, custom Qwen tool surfaces, deployment proof code, and a public open-source package for judges.
 
 Optional quick evidence shots:
 

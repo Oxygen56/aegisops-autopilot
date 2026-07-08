@@ -190,11 +190,13 @@ const items: AuditItem[] = [
     evidence: requireEvidence([
       "reports/eval_report.md",
       "reports/ablation_report.md",
+      "reports/stress_benchmark.md",
+      "reports/live_qwen_smoke_proof.md",
       "reports/experiment_board.md",
       "reports/judge_demo_transcript.md",
       "reports/judge_evidence_bundle.md"
     ]),
-    note: "The project includes deterministic fixture evaluation, ablation results, contestctl run ledger, and a single judge evidence bundle."
+    note: "The project includes deterministic fixture evaluation, 14-scenario stress benchmark, ablation results, contestctl run ledger, live Qwen smoke proof entrypoint, and a single judge evidence bundle."
   },
   {
     area: "Devpost copy and final checklist",
@@ -244,6 +246,9 @@ const requiredTextChecks: Array<[string, string]> = [
   ["src/client/main.tsx", "Why this is built for Track 4 winner review"],
   ["reports/qwen_integration_audit.md", "Qwen Cloud OpenAI-compatible endpoint"],
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
+  ["reports/stress_benchmark.md", "Scenarios: 14"],
+  ["reports/stress_benchmark.md", "Human-gate blocked-mutation checks: 14/14"],
+  ["reports/live_qwen_smoke_proof.md", "Live Qwen Smoke Proof"],
   ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "https://youtu.be/eAqfwJn9sr8"],

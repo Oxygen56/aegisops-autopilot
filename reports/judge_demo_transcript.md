@@ -30,7 +30,7 @@ This report is a deterministic run transcript for judges who want evidence befor
 | `mem-human-approval` | 0.390 | `approval`, `production`, `risk-control` | Production routing, payment, queue purge, and outbound customer communication changes require human approval and rollback evidence. |
 | `mem-tax-rollback` | 0.383 | `checkout-api`, `latency`, `feature-flag`, `rollback` | For checkout-api latency isolated to one cell, feature flag rollback is safer than pod restarts and usually restores p95 within two minutes. |
 | `mem-billing-idempotency` | 0.368 | `billing-webhook`, `idempotency`, `retry`, `finance` | Billing webhook retry storms often come from idempotency key drift; validate canonicalized merchant_id before draining queues. |
-| `mem-support-fail-closed` | 0.354 | `support-agent`, `security`, `pii`, `human-review` | Support-agent outbound generation must fail closed when PII redaction or human review is unavailable. |
+| `mem-cache-stampede` | 0.355 | `cache`, `inventory-api`, `latency`, `stampede`, `rollback` | Cache stampedes during traffic spikes should be mitigated with dogpile locks, safe TTL restoration, and narrow SKU or cell rollback before broad service changes. |
 
 ### Tool Calls
 
@@ -64,7 +64,7 @@ This report is a deterministic run transcript for judges who want evidence befor
 | phase | summary | detail |
 | --- | --- | --- |
 | `intake` | Incident accepted | Checkout p95 latency jumped after tax calculator rollout affecting checkout-api |
-| `memory` | 4 relevant memories recalled | mem-human-approval:0.39, mem-tax-rollback:0.383, mem-billing-idempotency:0.368, mem-support-fail-closed:0.354 |
+| `memory` | 4 relevant memories recalled | mem-human-approval:0.39, mem-tax-rollback:0.383, mem-billing-idempotency:0.368, mem-cache-stampede:0.355 |
 | `tools` | Evidence collected | log_search, metric_probe, change_graph, policy_check |
 | `qwen` | Diagnosis generated via offline-fixture | Most likely cause: tax_calculator_v2 increased cache pressure in NA cell-3 and Redis timeouts are blocking checkout confirmation.<br>Evidence: checkout.p95_ms: 2480; tax_cache.miss_rate: 38%; redis timeout: ETIMEDOUT tax-rules-cache:6379. Tool |
 | `dry-run` | Remediation dry-run accepted | dry-run accepted with reversible actions only |
@@ -88,8 +88,8 @@ This report is a deterministic run transcript for judges who want evidence befor
 | --- | ---: | --- | --- |
 | `mem-support-fail-closed` | 0.417 | `support-agent`, `security`, `pii`, `human-review` | Support-agent outbound generation must fail closed when PII redaction or human review is unavailable. |
 | `mem-human-approval` | 0.411 | `approval`, `production`, `risk-control` | Production routing, payment, queue purge, and outbound customer communication changes require human approval and rollback evidence. |
-| `mem-billing-idempotency` | 0.355 | `billing-webhook`, `idempotency`, `retry`, `finance` | Billing webhook retry storms often come from idempotency key drift; validate canonicalized merchant_id before draining queues. |
-| `mem-tax-rollback` | 0.348 | `checkout-api`, `latency`, `feature-flag`, `rollback` | For checkout-api latency isolated to one cell, feature flag rollback is safer than pod restarts and usually restores p95 within two minutes. |
+| `mem-auth-rotation` | 0.381 | `auth-gateway`, `security`, `token`, `jwks`, `approval` | Signing-key rotations require warmed JWKS caches, bounded refresh retry backoff, token redaction, and security approval for grace-period changes. |
+| `mem-permission-fail-closed` | 0.370 | `analytics-export`, `account-workflow`, `security`, `approval`, `entitlement` | Entitlement, export, and account-merge workflows must fail closed when role mapping or approval state is ambiguous. |
 
 ### Tool Calls
 
@@ -122,7 +122,7 @@ This report is a deterministic run transcript for judges who want evidence befor
 | phase | summary | detail |
 | --- | --- | --- |
 | `intake` | Incident accepted | Support automation started attaching raw customer transcripts affecting support-agent |
-| `memory` | 4 relevant memories recalled | mem-support-fail-closed:0.417, mem-human-approval:0.411, mem-billing-idempotency:0.355, mem-tax-rollback:0.348 |
+| `memory` | 4 relevant memories recalled | mem-support-fail-closed:0.417, mem-human-approval:0.411, mem-auth-rotation:0.381, mem-permission-fail-closed:0.37 |
 | `tools` | Evidence collected | log_search, metric_probe, change_graph, policy_check |
 | `qwen` | Diagnosis generated via offline-fixture | Most likely cause: support_resolution_v4 removed explicit redaction and bypassed manual review for low-severity enterprise tickets.<br>Evidence: pii_detector: email and phone tokens in 12 drafts; policy bypass: review_queue=false for enterpris |
 | `approval` | Human approval required | Waiting for human approval before production mutation. |

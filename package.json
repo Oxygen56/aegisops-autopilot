@@ -16,6 +16,8 @@
     "test": "tsx tests/orchestrator.test.ts",
     "eval": "tsx src/server/evals/runEval.ts",
     "eval:ablation": "tsx src/server/evals/runAblation.ts",
+    "benchmark:stress": "tsx scripts/stressBenchmark.ts",
+    "qwen:live-smoke": "tsx scripts/liveQwenSmokeProof.ts",
     "mcp:stdio": "tsx src/server/mcp/aegisopsMcp.ts",
     "smoke": "tsx scripts/smoke.ts",
     "smoke:mcp": "tsx scripts/mcpSmoke.ts",

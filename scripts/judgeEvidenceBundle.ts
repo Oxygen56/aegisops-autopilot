@@ -120,25 +120,40 @@ const items: EvidenceItem[] = [
   },
   {
     section: "Innovation & AI Creativity",
-    claim: "Full workflow beats weaker baselines on deterministic incident fixtures",
+    claim: "Full workflow beats weaker baselines across a 14-scenario stress benchmark",
     status: verified(
       includes("reports/eval_report.md", "Average overall score: 0.988") &&
         includes("reports/ablation_report.md", "Single-agent baseline average: 0.420") &&
-        includes("reports/ablation_report.md", "Average gain over single-agent baseline: 0.568")
+        includes("reports/ablation_report.md", "Average gain over single-agent baseline: 0.568") &&
+        includes("reports/stress_benchmark.md", "Scenarios: 14") &&
+        includes("reports/stress_benchmark.md", "Human-gate blocked-mutation checks: 14/14")
     ),
-    evidence: ["reports/eval_report.md", "reports/ablation_report.md", "reports/experiment_board.md"],
-    proof: "Ablation report quantifies the gain from memory, tools, approval, and multi-agent workflow."
+    evidence: ["reports/eval_report.md", "reports/ablation_report.md", "reports/stress_benchmark.md", "reports/experiment_board.md"],
+    proof: "Stress and ablation reports quantify the gain from memory, tools, approval, and multi-agent workflow across 14 production-style incidents and 70 approved-path tool calls."
+  },
+  {
+    section: "Innovation & AI Creativity",
+    claim: "Live Qwen smoke proof is available without making a public token-burning endpoint",
+    status: verified(
+      includes("package.json", "\"qwen:live-smoke\"") &&
+        includes("scripts/liveQwenSmokeProof.ts", "present-redacted") &&
+        includes("reports/live_qwen_smoke_proof.md", "Live Qwen Smoke Proof")
+    ),
+    evidence: ["scripts/liveQwenSmokeProof.ts", "reports/live_qwen_smoke_proof.md", "package.json"],
+    proof: "The one-shot smoke proof records provider mode, model, base URL, latency, and Qwen tool-schema count when a private credential is present, while public CI stays account-gated and never writes the key."
   },
   {
     section: "Problem Value & Impact",
-    claim: "Business pain is concrete across reliability, privacy, and billing risk",
+    claim: "Business pain is concrete across 14 production incident classes",
     status: verified(
       includes("docs/IMPACT_CASE.md", "Target Users") &&
         includes("reports/judge_demo_transcript.md", "Support PII risk") &&
-        includes("src/server/agent/fixtures.ts", "billing-duplicate-webhooks")
+        includes("src/server/agent/fixtures.ts", "billing-duplicate-webhooks") &&
+        includes("src/server/agent/fixtures.ts", "workflow-approval-bypass") &&
+        includes("reports/stress_benchmark.md", "Services: 14")
     ),
-    evidence: ["docs/IMPACT_CASE.md", "reports/judge_demo_transcript.md", "src/server/agent/fixtures.ts"],
-    proof: "Impact case and fixtures cover platform, SRE, security, and finance-risk incident workflows."
+    evidence: ["docs/IMPACT_CASE.md", "reports/judge_demo_transcript.md", "src/server/agent/fixtures.ts", "reports/stress_benchmark.md"],
+    proof: "Impact case and fixtures now cover reliability, privacy, billing, cache, identity, ML, search, notification, export, edge, vendor, database, observability, and approval-bypass workflows."
   },
   {
     section: "Presentation & Documentation",
@@ -281,6 +296,8 @@ const lines = [
   "- Repository: https://github.com/Oxygen56/aegisops-autopilot",
   "- Live Alibaba ECS demo: http://101.201.33.56/",
   "- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof",
+  "- Stress benchmark: reports/stress_benchmark.md",
+  "- Live Qwen smoke proof: reports/live_qwen_smoke_proof.md",
   "- Blog/Social Post Prize URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html",
   "- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
   "- Static fallback demo: https://oxygen56.github.io/aegisops-autopilot/",
@@ -303,6 +320,8 @@ const lines = [
   "",
   "```bash",
   "pnpm run ci",
+  "pnpm run benchmark:stress",
+  "pnpm run qwen:live-smoke",
   "pnpm run judge:evidence",
   "pnpm run final:preflight",
   "pnpm run submission:validate",
@@ -310,7 +329,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, packaging, documentation, and live Devpost gallery/contribution polish.",
+  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, live Qwen smoke-proof entrypoint, packaging, documentation, and live Devpost gallery/contribution polish.",
   ""
 ];
 

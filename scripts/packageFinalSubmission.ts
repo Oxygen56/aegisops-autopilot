@@ -47,6 +47,8 @@ fs.mkdirSync(packageDir, { recursive: true });
 
 run("pnpm", ["run", "qwen:audit"]);
 run("pnpm", ["run", "model:ops"]);
+run("pnpm", ["run", "benchmark:stress"]);
+run("pnpm", ["run", "qwen:live-smoke"]);
 run("pnpm", ["run", "architecture:diagram"]);
 run("pnpm", ["run", "provenance:audit"]);
 run("pnpm", ["run", "video:audit"]);
@@ -123,8 +125,20 @@ zipDelete(fullZip, [
 
 // Second pass records the exact package names created above, then patches both zips.
 run("pnpm", ["run", "final:preflight"]);
-zipAdd(buidlZip, ["reports/final_preflight.md", "reports/judge_evidence_bundle.md", "reports/alibaba_deployment_proof.md"]);
-zipAdd(fullZip, ["reports/final_preflight.md", "reports/judge_evidence_bundle.md", "reports/alibaba_deployment_proof.md"]);
+zipAdd(buidlZip, [
+  "reports/final_preflight.md",
+  "reports/judge_evidence_bundle.md",
+  "reports/alibaba_deployment_proof.md",
+  "reports/stress_benchmark.md",
+  "reports/live_qwen_smoke_proof.md"
+]);
+zipAdd(fullZip, [
+  "reports/final_preflight.md",
+  "reports/judge_evidence_bundle.md",
+  "reports/alibaba_deployment_proof.md",
+  "reports/stress_benchmark.md",
+  "reports/live_qwen_smoke_proof.md"
+]);
 
 run("pnpm", ["run", "submission:validate"]);
 zipAdd(buidlZip, ["reports/package_validation.md"]);

@@ -4,7 +4,7 @@ Qwen Cloud hackathon submission workspace.
 
 AegisOps is a Track 4 Autopilot Agent safety harness, not a passive incident dashboard. Qwen Cloud plans through five external tools, the same tool surface is exposed through OpenAPI and MCP for judge verification, and a human approval gate blocks risky mutations before they touch production.
 
-The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
+The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The stress benchmark expands this across 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
 
 The implementation is designed for two judging modes:
 
@@ -19,6 +19,7 @@ pnpm run test
 pnpm run build
 pnpm run eval
 pnpm run eval:ablation
+pnpm run benchmark:stress
 pnpm run dev
 ```
 
@@ -99,6 +100,8 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - End-to-end API smoke: `pnpm run smoke`
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
+- Stress benchmark: `reports/stress_benchmark.md`
+- Live Qwen smoke proof entrypoint: `pnpm run qwen:live-smoke` writes `reports/live_qwen_smoke_proof.md`
 - Experiment ledger: `reports/experiment_board.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`

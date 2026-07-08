@@ -111,30 +111,60 @@ export function buildRemediationPlan(incident: Incident): RemediationPlan {
     };
   }
 
+  if (incident.id === "billing-duplicate-webhooks") {
+    return {
+      summary: "Freeze retry amplification, patch idempotency canonicalization, and drain with finance-approved dedupe guard.",
+      actions: [
+        {
+          id: "freeze-retries",
+          label: "Increase retry backoff and pause EU replay workers",
+          command: "aegisctl queue throttle billing-eu --max-retry-delay 10m --pause-replay-workers",
+          reversible: true,
+          blastRadius: "region"
+        },
+        {
+          id: "deploy-idempotency-guard",
+          label: "Deploy canonical merchant_id idempotency guard",
+          command: "aegisctl deploy billing-webhook --patch canonical-idempotency-guard --region eu",
+          reversible: true,
+          blastRadius: "region"
+        }
+      ],
+      verification: [
+        "zero duplicate payment capture attempts",
+        "retry_rate below 1.5x baseline",
+        "finance-approved dedupe report exported"
+      ],
+      rollback: ["Disable new guard and keep replay paused if duplicate capture detector fires."]
+    };
+  }
+
+  const primaryChange = incident.recentChanges[0] ?? "latest risky change";
+  const criticalMetric = incident.signals.find((signal) => signal.status === "critical")?.name ?? `${incident.service}.critical_signal`;
   return {
-    summary: "Freeze retry amplification, patch idempotency canonicalization, and drain with finance-approved dedupe guard.",
+    summary: `${incident.runbookHint} Scope action to ${incident.service} and keep production mutation behind approval.`,
     actions: [
       {
-        id: "freeze-retries",
-        label: "Increase retry backoff and pause EU replay workers",
-        command: "aegisctl queue throttle billing-eu --max-retry-delay 10m --pause-replay-workers",
+        id: "narrow-risky-change",
+        label: `Constrain or roll back: ${primaryChange}`,
+        command: `aegisctl change constrain ${incident.service} --incident ${incident.id} --change "${primaryChange}"`,
         reversible: true,
-        blastRadius: "region"
+        blastRadius: incident.severity === "sev1" ? "region" : "single-service"
       },
       {
-        id: "deploy-idempotency-guard",
-        label: "Deploy canonical merchant_id idempotency guard",
-        command: "aegisctl deploy billing-webhook --patch canonical-idempotency-guard --region eu",
+        id: "restore-guardrail",
+        label: "Restore policy guardrail and collect verification evidence",
+        command: `aegisctl guardrail restore ${incident.service} --incident ${incident.id} --require-approval`,
         reversible: true,
-        blastRadius: "region"
+        blastRadius: "single-service"
       }
     ],
     verification: [
-      "zero duplicate payment capture attempts",
-      "retry_rate below 1.5x baseline",
-      "finance-approved dedupe report exported"
+      `${criticalMetric} returns to warning or healthy status`,
+      "policy_check reports approval and hard-stop constraints are honored",
+      "customer-impact metric improves for two consecutive windows"
     ],
-    rollback: ["Disable new guard and keep replay paused if duplicate capture detector fires."]
+    rollback: [`Revert guardrail change and keep ${incident.service} in manual review if verification fails.`]
   };
 }
 

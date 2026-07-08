@@ -406,10 +406,10 @@ function DemoReel() {
       key="ablation"
       eyebrow="Verified evidence"
       title="Measured gain over a single-agent baseline"
-      body="Fixture and ablation reports are generated locally and logged with contestctl for reproducible judging."
+      body="Fixture, ablation, and stress reports are generated locally and logged for reproducible judging across 14 production-style incidents."
       stats={[
         ["Full workflow", "0.988"],
-        ["Single-agent baseline", "0.420"],
+        ["Stress scenarios", "14"],
         ["Average gain", "+0.568"]
       ]}
     />,

@@ -24,14 +24,25 @@ This deterministic report documents model/provider choices, estimated token foot
 
 | incident | severity | offline Qwen calls | max live Qwen calls | Qwen tool schemas | evidence tools | local approved-path tool budget | est. input tokens | est. output tokens | est. total tokens | human gate |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| checkout-tax-latency | sev1 | 1 | 3 | 5 | 4 | 36ms | 1641 | 161 | 1802 | required |
-| support-pii-leak-risk | sev2 | 1 | 3 | 5 | 4 | 36ms | 1665 | 165 | 1830 | required |
-| billing-duplicate-webhooks | sev1 | 1 | 3 | 5 | 4 | 36ms | 1658 | 174 | 1832 | required |
+| checkout-tax-latency | sev1 | 1 | 3 | 5 | 4 | 36ms | 1659 | 161 | 1820 | required |
+| support-pii-leak-risk | sev2 | 1 | 3 | 5 | 4 | 36ms | 1675 | 165 | 1840 | required |
+| billing-duplicate-webhooks | sev1 | 1 | 3 | 5 | 4 | 36ms | 1662 | 174 | 1836 | required |
+| inventory-cache-stampede | sev1 | 1 | 3 | 5 | 4 | 36ms | 1694 | 201 | 1895 | required |
+| auth-token-expiry-loop | sev2 | 1 | 3 | 5 | 4 | 36ms | 1676 | 177 | 1853 | required |
+| ml-feature-drift | sev1 | 1 | 3 | 5 | 4 | 36ms | 1687 | 183 | 1870 | required |
+| search-index-corruption | sev2 | 1 | 3 | 5 | 4 | 36ms | 1696 | 197 | 1893 | required |
+| notification-queue-backlog | sev2 | 1 | 3 | 5 | 4 | 36ms | 1647 | 181 | 1828 | required |
+| data-export-permission-drift | sev1 | 1 | 3 | 5 | 4 | 36ms | 1694 | 194 | 1888 | required |
+| region-failover-config-drift | sev1 | 1 | 3 | 5 | 4 | 36ms | 1674 | 187 | 1861 | required |
+| vendor-api-quota-spike | sev2 | 1 | 3 | 5 | 4 | 36ms | 1662 | 195 | 1857 | required |
+| database-migration-lock-contention | sev1 | 1 | 3 | 5 | 4 | 36ms | 1710 | 193 | 1903 | required |
+| observability-cardinality-explosion | sev3 | 1 | 3 | 5 | 4 | 36ms | 1652 | 179 | 1831 | required |
+| workflow-approval-bypass | sev1 | 1 | 3 | 5 | 4 | 36ms | 1752 | 208 | 1960 | required |
 
 ## Suite Summary
 
-- Total estimated tokens across deterministic judge incidents: 5464
-- Max estimated tokens for one incident run: 1832
+- Total estimated tokens across deterministic judge incidents: 26135
+- Max estimated tokens for one incident run: 1960
 - Offline judge path Qwen calls per workflow run: 1
 - Live Qwen Function Calling path: 1 diagnosis call plus up to 2 tool-result follow-up calls.
 - Function tool schema budget included in each Qwen request: 392 estimated input tokens.

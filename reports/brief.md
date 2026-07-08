@@ -12,7 +12,7 @@
 
 - Name: `judge_score`
 - Direction: `maximize`
-- Local validation: deterministic fixture eval, smoke test, unit tests, build check, demo script dry run
+- Local validation: 14-scenario deterministic fixture eval, stress benchmark, smoke test, unit tests, build check, demo script dry run
 - Public leaderboard: none
 - Private/final risk: judges may rely heavily on demo video and documentation, so final package must make Qwen Cloud usage, Alibaba Cloud deployment proof, architecture, and runnable workflow obvious.
 
@@ -33,7 +33,7 @@
 ## Data And Submission
 
 - Train: none
-- Test: deterministic incident fixtures in `src/server/fixtures.ts`
+- Test: 14 deterministic incident fixtures in `src/server/agent/fixtures.ts`
 - Sample submission: Devpost form and BUIDL package
 - Required columns: not applicable
 - Known leakage risks: do not include secrets, private logs, credentials, or proprietary incident data in demo fixtures.

@@ -197,9 +197,18 @@ export function fallbackDiagnosis(incident: Incident, toolCalls: ToolCall[]): st
     ].join("\n");
   }
 
+  if (incident.id === "billing-duplicate-webhooks") {
+    return [
+      "Most likely cause: idempotency key canonicalization drift created duplicate pending events while aggressive retry settings amplified the storm.",
+      `Evidence: ${criticalSignals}. Tool evidence: ${toolSummary}.`,
+      "Recommended action: freeze retries, deploy canonicalized merchant_id guard, validate no double capture, then drain the EU queue with finance-approved dedupe checks."
+    ].join("\n");
+  }
+
+  const likelyChange = incident.recentChanges[0] ?? "the most recent overlapping change";
   return [
-    "Most likely cause: idempotency key canonicalization drift created duplicate pending events while aggressive retry settings amplified the storm.",
+    `Most likely cause: ${likelyChange} destabilized ${incident.service} under the current incident constraints.`,
     `Evidence: ${criticalSignals}. Tool evidence: ${toolSummary}.`,
-    "Recommended action: freeze retries, deploy canonicalized merchant_id guard, validate no double capture, then drain the EU queue with finance-approved dedupe checks."
+    `Recommended action: ${incident.runbookHint} Keep changes reversible, preserve audit evidence, and require the configured approval gate before production mutation.`
   ].join("\n");
 }

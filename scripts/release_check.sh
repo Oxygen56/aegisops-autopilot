@@ -6,6 +6,8 @@ pnpm run test
 pnpm run build
 pnpm run eval
 pnpm run eval:ablation
+pnpm run benchmark:stress
+pnpm run qwen:live-smoke
 pnpm run smoke
 pnpm run smoke:mcp
 pnpm run qwen:audit
@@ -43,6 +45,8 @@ test -s docs/screenshots/pages-static-reel.png
 test -s agents/aegisops/openapi.yaml
 test -s agents/aegisops/cap-manifest.json
 test -s reports/qwen_integration_audit.md
+test -s reports/stress_benchmark.md
+test -s reports/live_qwen_smoke_proof.md
 test -s reports/model_ops_report.md
 test -s reports/build_provenance.md
 test -s infra/alibaba/DEPLOYMENT.md

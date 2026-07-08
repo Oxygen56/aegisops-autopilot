@@ -16,7 +16,7 @@ Qwen Cloud autopilot safety harness: five tools, MCP/OpenAPI proof, and a human 
 
 AegisOps is not a passive incident dashboard. It is a production autopilot safety harness that tests when an AI agent should be allowed to act: Qwen Cloud plans through five external tools, OpenAPI and MCP expose the same tool surface for judge verification, and a human approval gate blocks risky mutations before they touch production.
 
-The ablation result is the headline: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The product story is adversarial by design: make the Qwen-powered autopilot useful enough to remediate real incidents, but constrained enough that it cannot silently ship unsafe changes.
+The ablation result is the headline: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The expanded stress benchmark covers 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks. The product story is adversarial by design: make the Qwen-powered autopilot useful enough to remediate real incidents, but constrained enough that it cannot silently ship unsafe changes.
 
 The traced workflow recalls relevant incident memory, gathers log/metric/change/policy evidence, asks Qwen Cloud to diagnose and plan, convenes specialized agent roles, proposes reversible remediation, requires human approval for risky actions, and stores post-incident lessons.
 
@@ -153,6 +153,8 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
+- `reports/stress_benchmark.md`: 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks.
+- `reports/live_qwen_smoke_proof.md`: one-shot live Qwen smoke proof entrypoint, account-gated when no private credential is present.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, Function Calling loop, custom tool, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/build_provenance.md`: generated Git-history milestone report for contest-period implementation evidence.

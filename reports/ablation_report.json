@@ -30,6 +30,94 @@
       "noApprovalExecution": 0.863,
       "singleAgentBaseline": 0.42,
       "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "inventory-cache-stampede",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "auth-token-expiry-loop",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "ml-feature-drift",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "search-index-corruption",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "notification-queue-backlog",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "data-export-permission-drift",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "region-failover-config-drift",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "vendor-api-quota-spike",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "database-migration-lock-contention",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "observability-cardinality-explosion",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
+    },
+    {
+      "incidentId": "workflow-approval-bypass",
+      "full": 0.988,
+      "noMemory": 0.738,
+      "noApprovalExecution": 0.863,
+      "singleAgentBaseline": 0.42,
+      "gainOverSingleAgent": 0.568
     }
   ]
 }

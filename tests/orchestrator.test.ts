@@ -5,7 +5,8 @@ import { QwenClient } from "../src/server/agent/qwenClient";
 import { executeAegisTool, listQwenToolSchemas, listToolDefinitions } from "../src/server/agent/toolRegistry";
 
 const incidentIds = listIncidents().map((incident) => incident.id);
-assert.equal(incidentIds.length, 3, "expected three judge fixtures");
+assert.equal(incidentIds.length, 14, "expected fourteen judge stress fixtures");
+assert.ok(incidentIds.includes("workflow-approval-bypass"), "stress suite should include approval-bypass scenario");
 
 const result = await runIncidentWorkflow({
   incidentId: "checkout-tax-latency",
@@ -35,6 +36,20 @@ const blocked = await runIncidentWorkflow({
 assert.equal(blocked.approval.required, true);
 assert.equal(blocked.approval.approved, false);
 assert.ok(!blocked.toolCalls.some((tool) => tool.name === "remediation_simulator"), "must not mutate without approval");
+
+const stressRuns = await Promise.all(
+  incidentIds.map((incidentId) =>
+    runIncidentWorkflow({
+      incidentId,
+      autoApprove: true,
+      approver: "stress-unit-test",
+      memoryStore: new MemoryStore(undefined, false)
+    })
+  )
+);
+assert.equal(stressRuns.length, 14);
+assert.ok(stressRuns.every((run) => run.toolCalls.length === 5), "approved stress runs should execute five tools");
+assert.ok(stressRuns.every((run) => run.scorecard.overall >= 0.95), "stress suite should keep high workflow score");
 
 const originalFetch = globalThis.fetch;
 const originalQwenApiKey = process.env.QWEN_API_KEY;

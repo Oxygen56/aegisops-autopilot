@@ -27,7 +27,7 @@ AegisOps targets the operational gap between a read-only chatbot and a fully aut
 | Shortens triage loop | `reports/judge_demo_transcript.md` shows memory recall, tool evidence, diagnosis, plan, approval state, and verification in one run | Synthetic fixtures, not a production MTTR measurement |
 | Prevents unsafe autonomous mutation | `tests/orchestrator.test.ts` proves risky remediation is blocked without approval | Human approval policy is implemented for the demo workflow; production policy integrations would be added per team |
 | Keeps evidence inspectable | Dashboard, OpenAPI, MCP, and transcript expose tool outputs instead of only final answers | External production tools are represented by deterministic fixtures for judge repeatability |
-| Improves over a thin single-agent baseline | `reports/ablation_report.md` shows full workflow average `0.988` versus baseline `0.420` | Local eval measures fixture behavior and safety checks, not live customer incidents |
+| Improves over a thin single-agent baseline | `reports/ablation_report.md` shows full workflow average `0.988` versus baseline `0.420`; `reports/stress_benchmark.md` expands this to 14 scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks | Local eval measures fixture behavior and safety checks, not live customer incidents |
 | Fits Alibaba/Qwen Cloud productization | Live ECS demo `http://101.201.33.56/`, proof endpoint `http://101.201.33.56/api/alibaba/proof`, Docker target, Qwen OpenAI-compatible client, and `reports/alibaba_deployment_proof.md` | Public demo is verified; production adoption still needs customer-owned credentials and controls |
 
 ## KPI Model For A Real Pilot
@@ -56,7 +56,7 @@ The repository does not claim these KPI movements as production-verified. It pro
 
 - It uses Qwen Cloud as the reasoning layer, but the winning value comes from the surrounding system: scoped tools, memory, risk scoring, approval gates, and verification.
 - It exposes the same incident tool surface through Qwen Function Calling, HTTP/OpenAPI, and MCP stdio, making the agent composable instead of dashboard-only.
-- It demonstrates three business-relevant incident categories: reliability latency, privacy/PII handling, and billing-risk workflows.
+- It demonstrates 14 business-relevant incident categories across reliability, privacy, billing, cache, identity, ML, search, notification, export, edge, vendor, database, observability, and approval-bypass workflows.
 - It is designed for conservative production adoption: every risky step is visible, reversible, and accountable.
 
 ## Judge Verification Path
@@ -64,5 +64,6 @@ The repository does not claim these KPI movements as production-verified. It pro
 1. Read `docs/JUDGE_PACKET.md` for the fastest evidence map.
 2. Run `pnpm run judge:transcript` to regenerate the approved and blocked workflow transcript.
 3. Run `pnpm run eval:ablation` to compare the full workflow against the single-agent baseline.
-4. Open the dashboard or StackBlitz workspace and run the checkout latency and support PII incidents.
-5. Inspect `infra/alibaba/DEPLOYMENT.md` for the Alibaba Cloud deployment path and `/api/alibaba/proof` verifier.
+4. Run `pnpm run benchmark:stress` to regenerate the 14-scenario stress benchmark.
+5. Open the dashboard or StackBlitz workspace and run the checkout latency and support PII incidents.
+6. Inspect `infra/alibaba/DEPLOYMENT.md` for the Alibaba Cloud deployment path and `/api/alibaba/proof` verifier.
