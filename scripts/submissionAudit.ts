@@ -77,8 +77,14 @@ const items: AuditItem[] = [
   {
     area: "Human-in-the-loop safety gates",
     status: "verified",
-    evidence: requireEvidence(["tests/orchestrator.test.ts", "src/server/agent/orchestrator.ts", "src/server/agent/qwenClient.ts", "docs/JUDGE_NOTES.md"]),
-    note: "Tests prove risky remediation is blocked without approval, approved remediation stays reversible, and Qwen provider fallback does not bypass the human gate."
+    evidence: requireEvidence([
+      "tests/orchestrator.test.ts",
+      "src/server/agent/orchestrator.ts",
+      "src/server/agent/qwenClient.ts",
+      "reports/adversarial_authority_benchmark.md",
+      "docs/JUDGE_NOTES.md"
+    ]),
+    note: "Tests and the adversarial authority benchmark prove risky remediation is blocked without approval, approved remediation stays reversible, Qwen provider fallback does not bypass the human gate, and corrupted model/tool outputs cannot change authority boundaries."
   },
   {
     area: "Architecture diagram",
@@ -192,12 +198,13 @@ const items: AuditItem[] = [
       "reports/eval_report.md",
       "reports/ablation_report.md",
       "reports/stress_benchmark.md",
+      "reports/adversarial_authority_benchmark.md",
       "reports/live_qwen_smoke_proof.md",
       "reports/experiment_board.md",
       "reports/judge_demo_transcript.md",
       "reports/judge_evidence_bundle.md"
     ]),
-    note: "The project includes deterministic fixture evaluation, 14-scenario stress benchmark, ablation results, contestctl run ledger, verified one-shot live Qwen smoke proof, and a single judge evidence bundle."
+    note: "The project includes deterministic fixture evaluation, 14-scenario stress benchmark, 56-scenario adversarial authority benchmark, ablation results, contestctl run ledger, verified one-shot live Qwen smoke proof, and a single judge evidence bundle."
   },
   {
     area: "Devpost copy and final checklist",
@@ -249,6 +256,9 @@ const requiredTextChecks: Array<[string, string]> = [
   ["reports/model_ops_report.md", "Cost And Latency Controls"],
   ["reports/stress_benchmark.md", "Scenarios: 14"],
   ["reports/stress_benchmark.md", "Human-gate blocked-mutation checks: 14/14"],
+  ["reports/adversarial_authority_benchmark.md", "Adversarial scenarios: 56"],
+  ["reports/adversarial_authority_benchmark.md", "Authority-boundary checks passed: 56/56"],
+  ["reports/adversarial_authority_benchmark.md", "Approval-bypass blocks: 14/14"],
   ["reports/live_qwen_smoke_proof.md", "Live Qwen Smoke Proof"],
   ["reports/judge_evidence_bundle.md", "Judge Evidence Bundle"],
   ["docs/VIDEO_UPLOAD_METADATA.md", "AegisOps Autopilot - Qwen Cloud Track 4 Incident Response Agent"],

@@ -48,6 +48,7 @@ fs.mkdirSync(packageDir, { recursive: true });
 run("pnpm", ["run", "qwen:audit"]);
 run("pnpm", ["run", "model:ops"]);
 run("pnpm", ["run", "benchmark:stress"]);
+run("pnpm", ["run", "benchmark:adversarial"]);
 run("pnpm", ["run", "qwen:live-smoke"]);
 run("pnpm", ["run", "architecture:diagram"]);
 run("pnpm", ["run", "provenance:audit"]);
@@ -130,6 +131,7 @@ zipAdd(buidlZip, [
   "reports/judge_evidence_bundle.md",
   "reports/alibaba_deployment_proof.md",
   "reports/stress_benchmark.md",
+  "reports/adversarial_authority_benchmark.md",
   "reports/live_qwen_smoke_proof.md"
 ]);
 zipAdd(fullZip, [
@@ -137,6 +139,7 @@ zipAdd(fullZip, [
   "reports/judge_evidence_bundle.md",
   "reports/alibaba_deployment_proof.md",
   "reports/stress_benchmark.md",
+  "reports/adversarial_authority_benchmark.md",
   "reports/live_qwen_smoke_proof.md"
 ]);
 

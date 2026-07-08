@@ -20,8 +20,8 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 
 | criterion | weight | strongest evidence | judge verification |
 | --- | ---: | --- | --- |
-| Innovation & AI Creativity | 30% | Qwen Cloud reasoning path, verified one-shot live `qwen-plus` smoke proof, OpenAI-compatible live function tool loop, five custom incident tools, OpenAPI spec, MCP stdio server, persistent memory, agent council, and human approval gate | `reports/live_qwen_smoke_proof.md`, `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `agents/aegisops/cap-manifest.json`, `src/server/mcp/aegisopsMcp.ts`, `reports/judge_demo_transcript.md` |
-| Technical Depth & Engineering | 30% | Typed Node/React architecture, deterministic fixture mode, 14-scenario stress benchmark, risk-scored remediation planner, policy gate, tests, eval, ablation, model ops report, Docker target, release gate | `pnpm run ci`, `tests/orchestrator.test.ts`, `reports/model_ops_report.md`, `reports/eval_report.md`, `reports/ablation_report.md`, `reports/stress_benchmark.md`, `scripts/release_check.sh`, `Dockerfile` |
+| Innovation & AI Creativity | 30% | Qwen Cloud reasoning path, verified one-shot live `qwen-plus` smoke proof, OpenAI-compatible live function tool loop, five custom incident tools, OpenAPI spec, MCP stdio server, persistent memory, agent council, human approval gate, and a 56-scenario adversarial authority benchmark | `reports/live_qwen_smoke_proof.md`, `reports/adversarial_authority_benchmark.md`, `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `agents/aegisops/cap-manifest.json`, `src/server/mcp/aegisopsMcp.ts`, `reports/judge_demo_transcript.md` |
+| Technical Depth & Engineering | 30% | Typed Node/React architecture, deterministic fixture mode, 14-scenario stress benchmark, 56-scenario adversarial authority benchmark, risk-scored remediation planner, policy gate, tests, eval, ablation, model ops report, Docker target, release gate | `pnpm run ci`, `tests/orchestrator.test.ts`, `reports/model_ops_report.md`, `reports/eval_report.md`, `reports/ablation_report.md`, `reports/stress_benchmark.md`, `reports/adversarial_authority_benchmark.md`, `scripts/release_check.sh`, `Dockerfile` |
 | Problem Value & Impact | 25% | Real production incident response workflow with 14 incident classes across reliability, privacy, billing, cache, identity, ML, search, notification, export, edge, vendor, database, observability, and approval-bypass risk; KPI model and adoption path for a controlled production pilot | `docs/IMPACT_CASE.md`, `src/server/agent/fixtures.ts`, `reports/stress_benchmark.md`, `docs/JUDGE_NOTES.md`, `docs/ARCHITECTURE.md`, `reports/judge_demo_transcript.md` |
 | Presentation & Documentation | 15% | Judge quickstart, upload-ready architecture diagram, visible dashboard rubric-evidence panel, demo script, video pack, video asset audit, Devpost copy, submission audit, reproducible run ledger | `docs/JUDGE_QUICKSTART.md`, `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png`, `src/client/main.tsx`, `docs/DEMO_SCRIPT.md`, `docs/VIDEO_SUBMISSION.md`, `reports/video_asset_audit.md`, `submissions/devpost_fields.md`, `reports/submission_audit.md`, `reports/experiment_board.md` |
 
@@ -40,6 +40,7 @@ For official submission-item coverage, see `docs/OFFICIAL_REQUIREMENTS_MATRIX.md
 ```bash
 pnpm run ci
 pnpm run benchmark:stress
+pnpm run benchmark:adversarial
 pnpm run qwen:live-smoke
 pnpm run judge:transcript
 pnpm run submission:audit

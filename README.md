@@ -4,7 +4,7 @@ Qwen Cloud hackathon submission workspace.
 
 AegisOps is a Track 4 Autopilot Agent safety harness, not a passive incident dashboard. Qwen Cloud plans through five external tools, the same tool surface is exposed through OpenAPI and MCP for judge verification, and a human approval gate blocks risky mutations before they touch production.
 
-The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The stress benchmark expands this across 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`. A one-shot live Qwen smoke proof is verified in `reports/live_qwen_smoke_proof.md`: `qwen-plus`, Qwen Cloud mode, five tool schemas, and no saved secret. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
+The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The stress benchmark expands this across 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`. The adversarial authority benchmark adds 56 corrupted model/tool-boundary attacks with 56/56 authority-boundary checks passed, 14/14 active-incident scoping checks, 14/14 approval-bypass blocks, 14/14 unknown-tool rejections, and 14/14 policy hard-stop checks in `reports/adversarial_authority_benchmark.md`. A one-shot live Qwen smoke proof is verified in `reports/live_qwen_smoke_proof.md`: `qwen-plus`, Qwen Cloud mode, five tool schemas, and no saved secret. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
 
 The implementation is designed for two judging modes:
 
@@ -20,6 +20,7 @@ pnpm run build
 pnpm run eval
 pnpm run eval:ablation
 pnpm run benchmark:stress
+pnpm run benchmark:adversarial
 pnpm run dev
 ```
 
@@ -101,6 +102,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
 - Stress benchmark: `reports/stress_benchmark.md`
+- Adversarial authority benchmark: `reports/adversarial_authority_benchmark.md`
 - Verified live Qwen smoke proof: `reports/live_qwen_smoke_proof.md` records `qwen-cloud`, `qwen-plus`, five tool schemas, latency, and redacted credential state
 - Experiment ledger: `reports/experiment_board.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
@@ -122,6 +124,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Judge packet: `docs/JUDGE_PACKET.md`
 - Build provenance: `docs/BUILD_PROVENANCE.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
+- Adversarial authority benchmark: `reports/adversarial_authority_benchmark.md`
 - Judge quickstart: `docs/JUDGE_QUICKSTART.md`
 - Rubric scorecard: `docs/RUBRIC_SCORECARD.md`
 - Rubric evidence UI: dashboard panel titled `Judge rubric evidence`

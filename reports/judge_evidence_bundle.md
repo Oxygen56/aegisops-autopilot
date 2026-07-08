@@ -6,7 +6,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 
 ## Summary
 
-- Verified items: 15
+- Verified items: 16
 - Account-gated items: 0
 - Missing items: 0
 
@@ -17,6 +17,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 - Live Alibaba ECS demo: http://101.201.33.56/
 - Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof
 - Stress benchmark: reports/stress_benchmark.md
+- Adversarial authority benchmark: reports/adversarial_authority_benchmark.md
 - Live Qwen smoke proof: reports/live_qwen_smoke_proof.md
 - Blog/Social Post Prize URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html
 - Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev
@@ -44,6 +45,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Full workflow beats weaker baselines across a 14-scenario stress benchmark | `reports/eval_report.md`<br>`reports/ablation_report.md`<br>`reports/stress_benchmark.md`<br>`reports/experiment_board.md` | Stress and ablation reports quantify the gain from memory, tools, approval, and multi-agent workflow across 14 production-style incidents and 70 approved-path tool calls. |
+| VERIFIED | Deterministic authority boundary resists corrupted model and tool outputs | `reports/adversarial_authority_benchmark.md`<br>`scripts/adversarialAuthorityBenchmark.ts`<br>`src/server/agent/orchestrator.ts`<br>`src/server/agent/toolRegistry.ts` | A credential-free adversarial benchmark attacks Qwen self-reporting, cross-incident tool arguments, unregistered tool names, and policy hard-stop visibility across all 14 incident classes. |
 | VERIFIED | Live Qwen smoke proof is available without making a public token-burning endpoint | `scripts/liveQwenSmokeProof.ts`<br>`reports/live_qwen_smoke_proof.md`<br>`package.json` | The one-shot smoke proof is verified with qwen-cloud, qwen-plus, five Qwen tool schemas, latency, and redacted credential state; public CI preserves the verified report and never writes the key. |
 
 ## Problem Value & Impact
@@ -73,6 +75,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 ```bash
 pnpm run ci
 pnpm run benchmark:stress
+pnpm run benchmark:adversarial
 pnpm run qwen:live-smoke
 pnpm run judge:evidence
 pnpm run final:preflight
@@ -81,5 +84,5 @@ pnpm run submission:validate
 
 ## Claim Boundary
 
-The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, verified one-shot live Qwen smoke proof, packaging, documentation, and live Devpost gallery/contribution polish.
+The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, 56-scenario adversarial authority benchmark, verified one-shot live Qwen smoke proof, packaging, documentation, and live Devpost gallery/contribution polish.
 

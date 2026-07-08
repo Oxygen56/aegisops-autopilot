@@ -134,6 +134,20 @@ const items: EvidenceItem[] = [
   },
   {
     section: "Innovation & AI Creativity",
+    claim: "Deterministic authority boundary resists corrupted model and tool outputs",
+    status: verified(
+      includes("package.json", "\"benchmark:adversarial\"") &&
+        includes("reports/adversarial_authority_benchmark.md", "Adversarial scenarios: 56") &&
+        includes("reports/adversarial_authority_benchmark.md", "Authority-boundary checks passed: 56/56") &&
+        includes("reports/adversarial_authority_benchmark.md", "Active-incident scoping checks: 14/14") &&
+        includes("reports/adversarial_authority_benchmark.md", "Approval-bypass blocks: 14/14") &&
+        includes("reports/adversarial_authority_benchmark.md", "Unknown-tool rejections: 14/14")
+    ),
+    evidence: ["reports/adversarial_authority_benchmark.md", "scripts/adversarialAuthorityBenchmark.ts", "src/server/agent/orchestrator.ts", "src/server/agent/toolRegistry.ts"],
+    proof: "A credential-free adversarial benchmark attacks Qwen self-reporting, cross-incident tool arguments, unregistered tool names, and policy hard-stop visibility across all 14 incident classes."
+  },
+  {
+    section: "Innovation & AI Creativity",
     claim: "Live Qwen smoke proof is available without making a public token-burning endpoint",
     status: verified(
       includes("package.json", "\"qwen:live-smoke\"") &&
@@ -300,6 +314,7 @@ const lines = [
   "- Live Alibaba ECS demo: http://101.201.33.56/",
   "- Live Alibaba proof endpoint: http://101.201.33.56/api/alibaba/proof",
   "- Stress benchmark: reports/stress_benchmark.md",
+  "- Adversarial authority benchmark: reports/adversarial_authority_benchmark.md",
   "- Live Qwen smoke proof: reports/live_qwen_smoke_proof.md",
   "- Blog/Social Post Prize URL: https://oxygen56.github.io/aegisops-autopilot/blog/qwen-cloud-aegisops-autopilot.html",
   "- Fallback runnable workspace: https://stackblitz.com/github/Oxygen56/aegisops-autopilot?startScript=dev",
@@ -324,6 +339,7 @@ const lines = [
   "```bash",
   "pnpm run ci",
   "pnpm run benchmark:stress",
+  "pnpm run benchmark:adversarial",
   "pnpm run qwen:live-smoke",
   "pnpm run judge:evidence",
   "pnpm run final:preflight",
@@ -332,7 +348,7 @@ const lines = [
   "",
   "## Claim Boundary",
   "",
-  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, verified one-shot live Qwen smoke proof, packaging, documentation, and live Devpost gallery/contribution polish.",
+  "The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, 56-scenario adversarial authority benchmark, verified one-shot live Qwen smoke proof, packaging, documentation, and live Devpost gallery/contribution polish.",
   ""
 ];
 

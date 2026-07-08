@@ -22,7 +22,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-08.
 | Handles ambiguous inputs | Verified | `src/server/agent/fixtures.ts`, `docs/DEMO_SCRIPT.md`, `docs/JUDGE_QUICKSTART.md` |
 | Invokes external tools | Verified | `docs/QWEN_TOOLS.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `src/server/agent/toolRegistry.ts` |
 | Incorporates human-in-the-loop checkpoints | Verified | `tests/orchestrator.test.ts`, `src/server/agent/orchestrator.ts`, `reports/judge_demo_transcript.md` |
-| Emphasizes production readiness over toy demos | Verified | `reports/model_ops_report.md`, `infra/alibaba/DEPLOYMENT.md`, `Dockerfile`, `scripts/release_check.sh` |
+| Emphasizes production readiness over toy demos | Verified | `reports/model_ops_report.md`, `reports/adversarial_authority_benchmark.md`, `infra/alibaba/DEPLOYMENT.md`, `Dockerfile`, `scripts/release_check.sh` |
 
 ## Required Submission Items
 
@@ -46,8 +46,8 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-08.
 
 | official criterion | weight | strongest evidence |
 | --- | ---: | --- |
-| Technical Depth & Engineering | 30% | `reports/judge_evidence_bundle.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `src/server/mcp/aegisopsMcp.ts`, `reports/model_ops_report.md` |
-| Innovation & AI Creativity | 30% | `reports/live_qwen_smoke_proof.md`, `reports/judge_evidence_bundle.md`, `docs/ARCHITECTURE.md`, `src/server/agent/orchestrator.ts`, `reports/ablation_report.md`, `reports/judge_demo_transcript.md` |
+| Technical Depth & Engineering | 30% | `reports/judge_evidence_bundle.md`, `reports/qwen_integration_audit.md`, `reports/adversarial_authority_benchmark.md`, `agents/aegisops/openapi.yaml`, `src/server/mcp/aegisopsMcp.ts`, `reports/model_ops_report.md` |
+| Innovation & AI Creativity | 30% | `reports/live_qwen_smoke_proof.md`, `reports/adversarial_authority_benchmark.md`, `reports/judge_evidence_bundle.md`, `docs/ARCHITECTURE.md`, `src/server/agent/orchestrator.ts`, `reports/ablation_report.md`, `reports/judge_demo_transcript.md` |
 | Problem Value & Impact | 25% | `reports/judge_evidence_bundle.md`, `docs/IMPACT_CASE.md`, `src/server/agent/fixtures.ts`, `reports/eval_report.md` |
 | Presentation & Documentation | 15% | `reports/judge_evidence_bundle.md`, `docs/JUDGE_PACKET.md`, `docs/JUDGE_QUICKSTART.md`, `docs/RUBRIC_SCORECARD.md`, `src/client/main.tsx`, `docs/VIDEO_UPLOAD_METADATA.md` |
 

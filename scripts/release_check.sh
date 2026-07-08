@@ -7,6 +7,7 @@ pnpm run build
 pnpm run eval
 pnpm run eval:ablation
 pnpm run benchmark:stress
+pnpm run benchmark:adversarial
 pnpm run qwen:live-smoke
 pnpm run smoke
 pnpm run smoke:mcp
@@ -46,6 +47,7 @@ test -s agents/aegisops/openapi.yaml
 test -s agents/aegisops/cap-manifest.json
 test -s reports/qwen_integration_audit.md
 test -s reports/stress_benchmark.md
+test -s reports/adversarial_authority_benchmark.md
 test -s reports/live_qwen_smoke_proof.md
 test -s reports/model_ops_report.md
 test -s reports/build_provenance.md
@@ -56,6 +58,7 @@ test -s infra/alibaba/ecs.env.example
 bash -n infra/alibaba/deploy-acr-ecs.sh
 test -s scripts/qwenIntegrationAudit.ts
 test -s scripts/modelOpsReport.ts
+test -s scripts/adversarialAuthorityBenchmark.ts
 test -s scripts/generateArchitectureDiagram.ts
 test -s scripts/buildProvenanceReport.ts
 test -s scripts/judgeEvidenceBundle.ts
