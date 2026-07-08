@@ -5,7 +5,7 @@
 - Slug: `qwencloud-hackathon`
 - Platform: `devpost`
 - URL: https://qwencloud-hackathon.devpost.com/
-- Deadline: 2026-07-09 14:00 PDT / 2026-07-10 05:00 Beijing time
+- Deadline: 2026-07-20 14:00 PDT / 2026-07-20 17:00 EDT / 2026-07-21 05:00 Beijing time
 - Task type: AI agent hackathon
 
 ## Metric
@@ -53,4 +53,4 @@
 - Devpost official rules: https://qwencloud-hackathon.devpost.com/rules
 - Devpost resources and Qwen Cloud API base URL: https://qwencloud-hackathon.devpost.com/resources
 - Alibaba Cloud Model Studio OpenAI-compatible API docs: https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope
-- Last live rule refresh: 2026-07-03
+- Last live rule refresh: 2026-07-08

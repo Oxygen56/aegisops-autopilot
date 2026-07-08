@@ -10,6 +10,7 @@ interface Check {
 
 const root = process.cwd();
 const outPath = path.join(root, "reports/final_preflight.md");
+const alibabaProofVideoUrl = "https://youtu.be/KECJK5LgGOA";
 
 function run(command: string, args: string[], timeout = 20_000): string {
   return execFileSync(command, args, {
@@ -126,6 +127,18 @@ add(checks, "Blog/Social Post Prize URL", blogPost.includes(" 200") ? "pass" : "
 const devpostPublicPage = httpStatus("https://devpost.com/software/aegisops-autopilot");
 add(checks, "Devpost public project URL", devpostPublicPage.includes(" 200") ? "pass" : "warn", devpostPublicPage);
 
+const proofVideo = safeRun(
+  "curl",
+  ["-fsS", "--max-time", "20", `https://www.youtube.com/oembed?url=${alibabaProofVideoUrl}&format=json`],
+  25_000
+);
+add(
+  checks,
+  "YouTube Alibaba proof video",
+  proofVideo.ok && proofVideo.output.includes("AegisOps Autopilot - Alibaba Cloud Deployment Proof") ? "pass" : "fail",
+  proofVideo.ok ? `oEmbed verified ${alibabaProofVideoUrl}` : proofVideo.output
+);
+
 const devpostHtml = safeRun("curl", ["-fsSL", "--max-time", "30", "https://devpost.com/software/aegisops-autopilot"], 35_000);
 add(
   checks,
@@ -138,6 +151,12 @@ add(
   "Devpost public Workbench gallery proof",
   devpostHtml.ok && devpostHtml.output.includes("4864863") && devpostHtml.output.includes("Alibaba Cloud ECS proof") ? "pass" : "fail",
   devpostHtml.ok ? "Workbench proof gallery image present on public Devpost page" : devpostHtml.output
+);
+add(
+  checks,
+  "Devpost public Alibaba proof video link",
+  devpostHtml.ok && devpostHtml.output.includes(alibabaProofVideoUrl) ? "pass" : "fail",
+  devpostHtml.ok ? `${alibabaProofVideoUrl} present on public Devpost page` : devpostHtml.output
 );
 
 const alibabaProofUrl = process.env.ALIBABA_PROOF_URL ?? process.env.DEPLOYMENT_URL ?? "http://101.201.33.56";
@@ -197,6 +216,7 @@ const requiredFiles = [
   "docs/screenshots/devpost-gallery/06-judge-rubric-evidence.png",
   "docs/ALIBABA_PROOF_RECORDING.md",
   "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
+  "submissions/alibaba_backend_proof_update.md",
   "reports/qwen_integration_audit.md",
   "reports/model_ops_report.md",
   "reports/build_provenance.md",
@@ -263,7 +283,8 @@ const lines = [
   "## Final External Actions",
   "",
   "1. Confirm the Alibaba Workbench screenshot remains available at `docs/screenshots/alibaba-workbench-proof.png`.",
-  "2. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
+  `2. Confirm the separate Alibaba proof video remains public-viewable: \`${alibabaProofVideoUrl}\`.`,
+  "3. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
   "",
   "Primary live demo:",
   "",
@@ -275,6 +296,12 @@ const lines = [
   "",
   "```text",
   "http://101.201.33.56/api/alibaba/proof",
+  "```",
+  "",
+  "Separate Alibaba proof video:",
+  "",
+  "```text",
+  alibabaProofVideoUrl,
   "```",
   "",
   "Fallback runnable workspace:",

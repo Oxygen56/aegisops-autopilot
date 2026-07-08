@@ -107,12 +107,13 @@ const items: AuditItem[] = [
       "infra/alibaba/ecs.env.example",
       "docs/ALIBABA_PROOF_RECORDING.md",
       "docs/ALIBABA_WORKBENCH_SCREENSHOT.md",
+      "submissions/alibaba_backend_proof_update.md",
       "scripts/verifyAlibabaDeployment.ts",
       "Dockerfile",
       "reports/alibaba_deployment_proof.md",
       "docs/screenshots/alibaba-workbench-proof.png"
     ]),
-    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports Qwen Cloud provider metadata, /api/alibaba/proof returns ECS and DashScope proof without secrets, /api/run was smoke-tested in secret-safe public fixture mode, and a public-safe Workbench screenshot is included."
+    note: "Live Alibaba ECS deployment is public at http://101.201.33.56/, /api/health reports Qwen Cloud provider metadata, /api/alibaba/proof returns ECS and DashScope proof without secrets, /api/run was smoke-tested in secret-safe public fixture mode, a public-safe Workbench screenshot is included, and the separate proof video is public-viewable at https://youtu.be/KECJK5LgGOA."
   },
   {
     area: "Working demo or test build",
@@ -223,9 +224,14 @@ const requiredTextChecks: Array<[string, string]> = [
   ["docs/IMPACT_CASE.md", "KPI Model For A Real Pilot"],
   ["docs/OFFICIAL_REQUIREMENTS_MATRIX.md", "Required Submission Items"],
   ["docs/ALIBABA_PROOF_RECORDING.md", "AegisOps Autopilot - Alibaba Cloud Deployment Proof"],
+  ["docs/ALIBABA_PROOF_RECORDING.md", "https://youtu.be/KECJK5LgGOA"],
+  ["submissions/alibaba_backend_proof_update.md", "https://youtu.be/KECJK5LgGOA"],
+  ["submissions/devpost_fields.md", "https://youtu.be/KECJK5LgGOA"],
+  ["submissions/devpost_submission_receipt.md", "https://youtu.be/KECJK5LgGOA"],
   ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "Alibaba Workbench Screenshot Proof"],
   ["docs/ALIBABA_WORKBENCH_SCREENSHOT.md", "dashscope-intl.aliyuncs.com/compatible-mode/v1"],
   ["docs/JUDGE_PACKET.md", "Five-Minute Judge Path"],
+  ["docs/JUDGE_PACKET.md", "https://youtu.be/KECJK5LgGOA"],
   ["docs/ARCHITECTURE.md", "docs/architecture/aegisops-architecture.svg"],
   ["docs/ARCHITECTURE.md", "docs/architecture/aegisops-architecture.png"],
   ["docs/architecture/aegisops-architecture.svg", "AegisOps Autopilot Architecture"],
@@ -297,7 +303,8 @@ const lines = [
   "## Final External Actions",
   "",
   "1. Confirm the Alibaba Cloud Workbench screenshot remains attached or linked in Devpost.",
-  "2. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
+  "2. Confirm the separate Alibaba proof video remains visible in Devpost: https://youtu.be/KECJK5LgGOA.",
+  "3. Confirm the Blog/Social Post Prize URL remains visible in Devpost.",
   ""
 ];
 

@@ -128,6 +128,10 @@ The CI release gate includes:
 - `submissions/FINAL_SUBMISSION_RUNBOOK.md`: account-owner submit order.
 - `infra/alibaba/DEPLOYMENT.md`: Alibaba Cloud ACR + ECS deployment path and proof verifier.
 
-## Remaining External Upload Item
+## Separate Alibaba Proof Recording
 
-Upload the separate Alibaba proof recording generated from `docs/ALIBABA_PROOF_RECORDING.md` to YouTube, Vimeo, or Facebook and paste the public-viewable URL into Devpost.
+The separate Alibaba proof recording generated from `docs/ALIBABA_PROOF_RECORDING.md` is published and linked from Devpost:
+
+```text
+https://youtu.be/KECJK5LgGOA
+```

@@ -1,13 +1,13 @@
 # Official Requirements Matrix
 
-Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-05.
+Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-08.
 
 ## Contest Facts
 
 | official item | current submission choice |
 | --- | --- |
 | Hackathon | Global AI Hackathon Series with Qwen Cloud |
-| Deadline | 2026-07-09 14:00 PDT / 2026-07-10 05:00 Beijing time |
+| Deadline | 2026-07-20 14:00 PDT / 2026-07-20 17:00 EDT / 2026-07-21 05:00 Beijing time |
 | Project | AegisOps Autopilot |
 | Selected track | Track 4: Autopilot Agent |
 | Submitted Devpost page | `https://devpost.com/software/aegisops-autopilot` |
@@ -33,7 +33,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-05.
 | Functional source code, assets, and instructions | Verified | `README.md`, `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `Dockerfile` |
 | Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
 | New or significantly updated project evidence | Verified | `docs/BUILD_PROVENANCE.md`, `reports/build_provenance.md`, `reports/experiment_board.md` |
-| Proof of Alibaba Cloud deployment/API usage | Repository-ready; public proof video upload pending | Live ECS demo: `http://101.201.33.56/`; live health endpoint with Qwen metadata: `http://101.201.33.56/api/health`; live proof endpoint: `http://101.201.33.56/api/alibaba/proof`; evidence report: `reports/alibaba_deployment_proof.md`; Workbench screenshot: `docs/screenshots/alibaba-workbench-proof.png`; local proof recording asset: `docs/demo/alibaba-backend-proof.mov`; Qwen Base URL proof exists in `src/server/agent/qwenClient.ts`; Alibaba proof code exists in `src/server/cloud/alibabaProof.ts` |
+| Proof of Alibaba Cloud deployment/API usage | Verified | Live ECS demo: `http://101.201.33.56/`; live health endpoint with Qwen metadata: `http://101.201.33.56/api/health`; live proof endpoint: `http://101.201.33.56/api/alibaba/proof`; separate proof video: `https://youtu.be/KECJK5LgGOA`; evidence report: `reports/alibaba_deployment_proof.md`; Workbench screenshot: `docs/screenshots/alibaba-workbench-proof.png`; local proof recording asset: `docs/demo/alibaba-backend-proof.mov`; Qwen Base URL proof exists in `src/server/agent/qwenClient.ts`; Alibaba proof code exists in `src/server/cloud/alibabaProof.ts` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png` |
 | Public demo video about 3 minutes | Verified | YouTube link: `https://youtu.be/eAqfwJn9sr8`; final 59.5-second video exists at `docs/demo/aegisops-demo-reel-fixed.mov`; consistency audit exists at `reports/video_asset_audit.md`; oEmbed access check returned 200 on 2026-07-04 |
 | Text description explaining features and functionality | Verified | `submissions/devpost_fields.md` |
@@ -53,6 +53,4 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-05.
 
 ## Final External Items
 
-These remain outside the repository:
-
-1. Upload `docs/demo/alibaba-backend-proof.mov` to YouTube, Vimeo, or Facebook and paste the public-viewable URL into Devpost.
+No required external submission item remains unresolved as of the 2026-07-08 Devpost refresh.

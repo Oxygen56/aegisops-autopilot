@@ -137,7 +137,7 @@ Proof endpoint code: https://github.com/Oxygen56/aegisops-autopilot/blob/main/sr
 Live health: http://101.201.33.56/api/health
 Live proof: http://101.201.33.56/api/alibaba/proof
 Workbench screenshot: attach docs/screenshots/alibaba-workbench-proof.png or include the uploaded screenshot URL
-Proof recording: https://<public-video-url>
+Proof recording: https://youtu.be/KECJK5LgGOA
 ```
 
 Local generated asset path:

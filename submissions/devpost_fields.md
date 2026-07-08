@@ -68,7 +68,7 @@ Separate proof recording script and upload metadata: `docs/ALIBABA_PROOF_RECORDI
 
 Separate proof recording local asset: `docs/demo/alibaba-backend-proof.mov`
 
-TODO before final Devpost edit: upload `docs/demo/alibaba-backend-proof.mov` to YouTube/Vimeo/Facebook and paste the public-viewable proof URL here.
+Separate public proof recording: https://youtu.be/KECJK5LgGOA
 
 ## Live Demo
 
