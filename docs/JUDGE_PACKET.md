@@ -6,7 +6,7 @@ This is the fastest evidence path for Qwen Cloud Hackathon judges.
 
 AegisOps Autopilot is a Track 4 Autopilot Agent safety harness for production operations, not a passive incident dashboard. Qwen Cloud plans through five external incident tools, the same tools are exposed through OpenAPI and MCP for judge verification, and the human approval gate blocks risky mutation before it touches production.
 
-Ablation result for first-pass judging: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The expanded stress benchmark covers 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks.
+Ablation result for first-pass judging: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The expanded stress benchmark covers 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks. The live Qwen smoke proof is verified in `reports/live_qwen_smoke_proof.md` with Qwen Cloud mode, `qwen-plus`, five tool schemas, and redacted credential state.
 
 Primary repository:
 
@@ -89,7 +89,7 @@ The CI release gate includes:
 - fixture eval
 - ablation eval
 - 14-scenario stress benchmark
-- account-gated live Qwen smoke proof
+- verified one-shot live Qwen smoke proof, preserved without a public token-burning endpoint
 - Qwen integration audit
 - model ops report
 - HTTP API smoke
@@ -104,7 +104,7 @@ The CI release gate includes:
 - Single-agent baseline: `0.420` in `reports/ablation_report.md`.
 - Verified improvement: `+0.568` absolute gain in the ablation report.
 - Stress benchmark: 14 scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`.
-- Live Qwen smoke proof: `pnpm run qwen:live-smoke` writes `reports/live_qwen_smoke_proof.md`; public CI remains account-gated when no private key is present.
+- Live Qwen smoke proof: `reports/live_qwen_smoke_proof.md` is verified with `qwen-cloud`, `qwen-plus`, five tool schemas, and redacted credential state; public CI preserves the report without requiring or exposing a private key.
 - Latest final preflight: `reports/final_preflight.md`.
 
 ## Key Files
@@ -120,7 +120,7 @@ The CI release gate includes:
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, token estimates, latency budget, and fallback behavior.
 - `reports/stress_benchmark.md`: expanded deterministic benchmark across 14 production-style incident classes.
-- `reports/live_qwen_smoke_proof.md`: one-shot live Qwen smoke proof report, account-gated when no private credential is present.
+- `reports/live_qwen_smoke_proof.md`: verified one-shot live Qwen smoke proof report with provider mode, model, base URL, latency, tool-schema count, and no secret value.
 - `docs/VIDEO_UPLOAD_METADATA.md`: public video upload title, description, tags, chapters, and captions.
 - `reports/video_asset_audit.md`: local video, captions, chapters, and recording-script consistency check.
 - `submissions/devpost_submission_receipt.md`: observed Devpost success banner, public project URL, embedded video, and edit window.

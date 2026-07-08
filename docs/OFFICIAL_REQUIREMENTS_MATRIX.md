@@ -31,7 +31,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-08.
 | Public code repository for judging and testing | Verified | `https://github.com/Oxygen56/aegisops-autopilot` |
 | Open-source license visible in repository | Verified | `LICENSE` |
 | Functional source code, assets, and instructions | Verified | `README.md`, `docs/JUDGE_QUICKSTART.md`, `.stackblitzrc`, `Dockerfile` |
-| Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
+| Project uses Qwen models available on Qwen Cloud | Verified | `src/server/agent/qwenClient.ts`, `reports/live_qwen_smoke_proof.md`, `reports/qwen_integration_audit.md`, `reports/model_ops_report.md` |
 | New or significantly updated project evidence | Verified | `docs/BUILD_PROVENANCE.md`, `reports/build_provenance.md`, `reports/experiment_board.md` |
 | Proof of Alibaba Cloud deployment/API usage | Verified | Live ECS demo: `http://101.201.33.56/`; live health endpoint with Qwen metadata: `http://101.201.33.56/api/health`; live proof endpoint: `http://101.201.33.56/api/alibaba/proof`; separate proof video: `https://youtu.be/KECJK5LgGOA`; evidence report: `reports/alibaba_deployment_proof.md`; Workbench screenshot: `docs/screenshots/alibaba-workbench-proof.png`; local proof recording asset: `docs/demo/alibaba-backend-proof.mov`; Qwen Base URL proof exists in `src/server/agent/qwenClient.ts`; Alibaba proof code exists in `src/server/cloud/alibabaProof.ts` |
 | Architecture diagram | Verified | `docs/ARCHITECTURE.md`, `docs/architecture/aegisops-architecture.svg`, `docs/architecture/aegisops-architecture.png` |
@@ -47,7 +47,7 @@ Source: Qwen Cloud Hackathon Devpost page, last checked on 2026-07-08.
 | official criterion | weight | strongest evidence |
 | --- | ---: | --- |
 | Technical Depth & Engineering | 30% | `reports/judge_evidence_bundle.md`, `reports/qwen_integration_audit.md`, `agents/aegisops/openapi.yaml`, `src/server/mcp/aegisopsMcp.ts`, `reports/model_ops_report.md` |
-| Innovation & AI Creativity | 30% | `reports/judge_evidence_bundle.md`, `docs/ARCHITECTURE.md`, `src/server/agent/orchestrator.ts`, `reports/ablation_report.md`, `reports/judge_demo_transcript.md` |
+| Innovation & AI Creativity | 30% | `reports/live_qwen_smoke_proof.md`, `reports/judge_evidence_bundle.md`, `docs/ARCHITECTURE.md`, `src/server/agent/orchestrator.ts`, `reports/ablation_report.md`, `reports/judge_demo_transcript.md` |
 | Problem Value & Impact | 25% | `reports/judge_evidence_bundle.md`, `docs/IMPACT_CASE.md`, `src/server/agent/fixtures.ts`, `reports/eval_report.md` |
 | Presentation & Documentation | 15% | `reports/judge_evidence_bundle.md`, `docs/JUDGE_PACKET.md`, `docs/JUDGE_QUICKSTART.md`, `docs/RUBRIC_SCORECARD.md`, `src/client/main.tsx`, `docs/VIDEO_UPLOAD_METADATA.md` |
 

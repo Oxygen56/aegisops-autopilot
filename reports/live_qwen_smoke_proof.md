@@ -1,13 +1,19 @@
 # Live Qwen Smoke Proof
 
-Status: `account-gated`
+Status: `verified`
 
-No Qwen/DashScope credential was present in the current shell, so the live smoke was not executed. This is intentional for public-safe CI and local review.
+- Provider mode: `qwen-cloud`
+- Model: `qwen-plus`
+- Base URL: `https://dashscope.aliyuncs.com/compatible-mode/v1`
+- Credential: `present-redacted`
+- Latency: `1518 ms`
+- Qwen tool schemas included: `5`
+- Completed at: `2026-07-08T13:46:32.275Z`
 
-To run the one-shot proof in a private shell:
+Response preview:
 
-```bash
-QWEN_API_KEY=... pnpm run qwen:live-smoke
+```text
+AegisOps live Qwen smoke proof is reachable.
 ```
 
-The generated report records provider mode, model, base URL, latency, and tool-schema count. It never writes the secret value.
+No API key or sensitive header is written to this report.

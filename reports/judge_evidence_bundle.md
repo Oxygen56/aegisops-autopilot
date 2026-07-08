@@ -28,7 +28,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Submission fits Track 4: Autopilot Agent | `README.md`<br>`submissions/devpost_fields.md`<br>`reports/brief.md` | Track is named consistently in the public repository, Devpost copy, and contest brief. |
-| VERIFIED | Project uses Qwen Cloud models and API surface | `src/server/agent/qwenClient.ts`<br>`reports/qwen_integration_audit.md`<br>`docs/QWEN_TOOLS.md` | Automated audit verifies endpoint, credentials, offline fallback, live tool-call loop, OpenAPI tools, MCP, and CI coverage. |
+| VERIFIED | Project uses Qwen Cloud models and API surface | `src/server/agent/qwenClient.ts`<br>`reports/live_qwen_smoke_proof.md`<br>`reports/qwen_integration_audit.md`<br>`docs/QWEN_TOOLS.md` | Automated audit verifies endpoint, credentials, offline fallback, live tool-call loop, OpenAPI tools, MCP, and CI coverage; the one-shot live smoke proof verifies qwen-plus without saving a key. |
 | VERIFIED | Judges can run the project without private credentials | `docs/JUDGE_QUICKSTART.md`<br>`.stackblitzrc`<br>`reports/qwen_integration_audit.md` | StackBlitz/local judging uses deterministic fixtures while preserving the same orchestration path. |
 | VERIFIED | Contest-period build provenance is documented | `docs/BUILD_PROVENANCE.md`<br>`reports/build_provenance.md`<br>`reports/experiment_board.md` | Generated provenance report maps Git history to major contest-delivery milestones and evidence files. |
 
@@ -44,7 +44,7 @@ This report gives judges a single stable index of the evidence that maps AegisOp
 | status | claim | evidence | proof |
 | --- | --- | --- | --- |
 | VERIFIED | Full workflow beats weaker baselines across a 14-scenario stress benchmark | `reports/eval_report.md`<br>`reports/ablation_report.md`<br>`reports/stress_benchmark.md`<br>`reports/experiment_board.md` | Stress and ablation reports quantify the gain from memory, tools, approval, and multi-agent workflow across 14 production-style incidents and 70 approved-path tool calls. |
-| VERIFIED | Live Qwen smoke proof is available without making a public token-burning endpoint | `scripts/liveQwenSmokeProof.ts`<br>`reports/live_qwen_smoke_proof.md`<br>`package.json` | The one-shot smoke proof records provider mode, model, base URL, latency, and Qwen tool-schema count when a private credential is present, while public CI stays account-gated and never writes the key. |
+| VERIFIED | Live Qwen smoke proof is available without making a public token-burning endpoint | `scripts/liveQwenSmokeProof.ts`<br>`reports/live_qwen_smoke_proof.md`<br>`package.json` | The one-shot smoke proof is verified with qwen-cloud, qwen-plus, five Qwen tool schemas, latency, and redacted credential state; public CI preserves the verified report and never writes the key. |
 
 ## Problem Value & Impact
 
@@ -81,5 +81,5 @@ pnpm run submission:validate
 
 ## Claim Boundary
 
-The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, live Qwen smoke-proof entrypoint, packaging, documentation, and live Devpost gallery/contribution polish.
+The repository proves the submitted Devpost project page, live Alibaba ECS deployment, Workbench screenshot proof, public Blog/Social Post Prize page, runnable local/StackBlitz workflow, Qwen-compatible integration surface, deterministic evaluations, 14-scenario stress benchmark, verified one-shot live Qwen smoke proof, packaging, documentation, and live Devpost gallery/contribution polish.
 

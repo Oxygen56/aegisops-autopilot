@@ -12,11 +12,24 @@ function hasCredential(): boolean {
 }
 
 const startedAt = new Date().toISOString();
-const client = new QwenClient();
 
 fs.mkdirSync(outDir, { recursive: true });
 
 if (!hasCredential()) {
+  if (fs.existsSync(jsonPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(jsonPath, "utf8")) as { status?: string };
+      if (existing.status === "verified") {
+        console.log(`Preserved existing verified live Qwen smoke proof at ${jsonPath}`);
+        console.log(`Preserved existing verified live Qwen smoke proof at ${mdPath}`);
+        process.exit(0);
+      }
+    } catch {
+      // Fall through and write a fresh account-gated report.
+    }
+  }
+
+  const client = new QwenClient();
   const payload = {
     status: "account-gated",
     startedAt,
@@ -54,24 +67,69 @@ if (!hasCredential()) {
 process.env.QWEN_OFFLINE = "0";
 process.env.QWEN_STRICT = "1";
 
-const result = await client.complete(
-  [
+const client = new QwenClient();
+let result;
+
+try {
+  result = await client.complete(
+    [
+      {
+        role: "system",
+        content: "You are a smoke-test responder. Keep the answer short and do not include secrets."
+      },
+      {
+        role: "user",
+        content: "Return one short sentence confirming AegisOps live Qwen smoke proof is reachable."
+      }
+    ],
+    () => "fallback should not run in strict live smoke",
     {
-      role: "system",
-      content: "You are a smoke-test responder. Keep the answer short and do not include secrets."
-    },
-    {
-      role: "user",
-      content: "Return one short sentence confirming AegisOps live Qwen smoke proof is reachable."
+      tools: listQwenToolSchemas(),
+      toolChoice: "none",
+      maxToolRounds: 0
     }
-  ],
-  () => "fallback should not run in strict live smoke",
-  {
-    tools: listQwenToolSchemas(),
-    toolChoice: "none",
-    maxToolRounds: 0
-  }
-);
+  );
+} catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
+  const payload = {
+    status: "failed",
+    startedAt,
+    completedAt: new Date().toISOString(),
+    providerMode: client.mode(),
+    baseUrl: client.baseUrl,
+    model: client.model,
+    credential: "present-redacted",
+    qwenToolSchemaCount: listQwenToolSchemas().length,
+    error: message
+  };
+  fs.writeFileSync(jsonPath, JSON.stringify(payload, null, 2), "utf8");
+  fs.writeFileSync(
+    mdPath,
+    [
+      "# Live Qwen Smoke Proof",
+      "",
+      "Status: `failed`",
+      "",
+      `- Provider mode: \`${payload.providerMode}\``,
+      `- Model: \`${payload.model}\``,
+      `- Base URL: \`${payload.baseUrl}\``,
+      `- Credential: \`${payload.credential}\``,
+      `- Qwen tool schemas included: \`${payload.qwenToolSchemaCount}\``,
+      `- Completed at: \`${payload.completedAt}\``,
+      "",
+      "Failure summary:",
+      "",
+      "```text",
+      payload.error,
+      "```",
+      "",
+      "No API key or sensitive header is written to this report."
+    ].join("\n"),
+    "utf8"
+  );
+  console.error(`Live Qwen smoke proof failed: ${message}`);
+  process.exit(1);
+}
 
 const payload = {
   status: result.providerMode === "qwen-cloud" ? "verified" : "failed",

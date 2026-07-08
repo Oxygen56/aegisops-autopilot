@@ -48,11 +48,12 @@ const items: AuditItem[] = [
     evidence: requireEvidence([
       "src/server/agent/qwenClient.ts",
       "docs/QWEN_TOOLS.md",
+      "reports/live_qwen_smoke_proof.md",
       "reports/qwen_integration_audit.md",
       "reports/model_ops_report.md",
       "submissions/devpost_fields.md"
     ]),
-    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and has automated integration and model-ops evidence."
+    note: "The server accepts QWEN_API_KEY or DASHSCOPE_API_KEY, defaults to the Qwen/DashScope OpenAI-compatible endpoint, and now has a verified one-shot live Qwen smoke proof plus automated integration and model-ops evidence."
   },
   {
     area: "New and existing project provenance",
@@ -196,7 +197,7 @@ const items: AuditItem[] = [
       "reports/judge_demo_transcript.md",
       "reports/judge_evidence_bundle.md"
     ]),
-    note: "The project includes deterministic fixture evaluation, 14-scenario stress benchmark, ablation results, contestctl run ledger, live Qwen smoke proof entrypoint, and a single judge evidence bundle."
+    note: "The project includes deterministic fixture evaluation, 14-scenario stress benchmark, ablation results, contestctl run ledger, verified one-shot live Qwen smoke proof, and a single judge evidence bundle."
   },
   {
     area: "Devpost copy and final checklist",

@@ -16,7 +16,7 @@ Qwen Cloud autopilot safety harness: five tools, MCP/OpenAPI proof, and a human 
 
 AegisOps is not a passive incident dashboard. It is a production autopilot safety harness that tests when an AI agent should be allowed to act: Qwen Cloud plans through five external tools, OpenAPI and MCP expose the same tool surface for judge verification, and a human approval gate blocks risky mutations before they touch production.
 
-The ablation result is the headline: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The expanded stress benchmark covers 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks. The product story is adversarial by design: make the Qwen-powered autopilot useful enough to remediate real incidents, but constrained enough that it cannot silently ship unsafe changes.
+The ablation result is the headline: full workflow `0.988` versus single-agent baseline `0.420`, a `+0.568` absolute gain from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating. The expanded stress benchmark covers 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks. A one-shot live Qwen smoke proof is verified in `reports/live_qwen_smoke_proof.md`: `qwen-plus`, Qwen Cloud mode, five tool schemas, 1518 ms latency, and no saved secret. The product story is adversarial by design: make the Qwen-powered autopilot useful enough to remediate real incidents, but constrained enough that it cannot silently ship unsafe changes.
 
 The traced workflow recalls relevant incident memory, gathers log/metric/change/policy evidence, asks Qwen Cloud to diagnose and plan, convenes specialized agent roles, proposes reversible remediation, requires human approval for risky actions, and stores post-incident lessons.
 
@@ -30,7 +30,7 @@ The app uses a TypeScript Node API, a React dashboard, and a Qwen Cloud client c
 
 ## Qwen Cloud Usage
 
-`src/server/agent/qwenClient.ts` accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY` and calls Qwen Cloud through the DashScope OpenAI-compatible API. The Alibaba ECS deployment exposes Qwen Cloud provider metadata at `/api/health`, including model, base URL, timestamp, and redacted credential state. Public reviewer mode can run deterministic fixtures so judges can test the same workflow without a private key; setting `DASHSCOPE_API_KEY` or `QWEN_API_KEY` flips the same backend into live Qwen Cloud mode.
+`src/server/agent/qwenClient.ts` accepts `QWEN_API_KEY` or `DASHSCOPE_API_KEY` and calls Qwen Cloud through the DashScope OpenAI-compatible API. The one-shot live Qwen smoke report in `reports/live_qwen_smoke_proof.md` is verified with `qwen-cloud`, `qwen-plus`, five tool schemas, latency, and redacted credential state. The Alibaba ECS deployment exposes Qwen Cloud provider metadata at `/api/health`, including model, base URL, timestamp, and redacted credential state. Public reviewer mode can run deterministic fixtures so judges can test the same workflow without a private key; setting `DASHSCOPE_API_KEY` or `QWEN_API_KEY` flips the same backend into live Qwen Cloud mode.
 
 The live Qwen path sends five OpenAI-compatible function tool schemas in the Qwen `tools` field with `tool_choice=auto`. When Qwen returns `tool_calls`, the server executes only incident-scoped tools, overrides any model-supplied incident ID with the active workflow incident, appends `role=tool` outputs, and asks Qwen for the final diagnosis. Offline mode uses deterministic fixtures so judges can test the same workflow without private credentials.
 
@@ -154,7 +154,7 @@ Then open the local Vite URL and run the incident workflow. Focused verification
 - `reports/eval_report.md`: full workflow average `0.988`.
 - `reports/ablation_report.md`: full workflow average `0.988` versus single-agent baseline `0.420`.
 - `reports/stress_benchmark.md`: 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks.
-- `reports/live_qwen_smoke_proof.md`: one-shot live Qwen smoke proof entrypoint, account-gated when no private credential is present.
+- `reports/live_qwen_smoke_proof.md`: verified one-shot live Qwen smoke proof with `qwen-cloud`, `qwen-plus`, five Qwen tool schemas, 1518 ms latency, and no saved secret.
 - `reports/qwen_integration_audit.md`: automated Qwen endpoint, Function Calling loop, custom tool, OpenAPI, and MCP integration audit.
 - `reports/model_ops_report.md`: model/provider choices, estimated token footprint, latency budget, and fallback behavior.
 - `reports/build_provenance.md`: generated Git-history milestone report for contest-period implementation evidence.

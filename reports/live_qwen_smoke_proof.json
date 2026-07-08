@@ -1,9 +1,12 @@
 {
-  "status": "account-gated",
-  "startedAt": "2026-07-08T06:27:06.932Z",
-  "providerMode": "offline-fixture",
-  "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+  "status": "verified",
+  "startedAt": "2026-07-08T13:46:30.756Z",
+  "completedAt": "2026-07-08T13:46:32.275Z",
+  "providerMode": "qwen-cloud",
+  "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
   "model": "qwen-plus",
-  "credential": "not-present",
-  "note": "Set QWEN_API_KEY or DASHSCOPE_API_KEY to run a one-shot live Qwen smoke proof. No secret is written to this report."
+  "credential": "present-redacted",
+  "latencyMs": 1518,
+  "qwenToolSchemaCount": 5,
+  "responsePreview": "AegisOps live Qwen smoke proof is reachable."
 }

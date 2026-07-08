@@ -4,7 +4,7 @@ Qwen Cloud hackathon submission workspace.
 
 AegisOps is a Track 4 Autopilot Agent safety harness, not a passive incident dashboard. Qwen Cloud plans through five external tools, the same tool surface is exposed through OpenAPI and MCP for judge verification, and a human approval gate blocks risky mutations before they touch production.
 
-The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The stress benchmark expands this across 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
+The ablation evidence is front-loaded for judging: the full workflow scores `0.988` versus `0.420` for the single-agent baseline in `reports/ablation_report.md`. The stress benchmark expands this across 14 production-style incident scenarios, 14 services, 70 approved-path tool calls, and 14/14 blocked-mutation checks in `reports/stress_benchmark.md`. A one-shot live Qwen smoke proof is verified in `reports/live_qwen_smoke_proof.md`: `qwen-plus`, Qwen Cloud mode, five tool schemas, and no saved secret. The gain comes from memory, tool-backed evidence, policy checks, dry-run remediation, and approval gating rather than a single free-form agent response.
 
 The implementation is designed for two judging modes:
 
@@ -69,11 +69,11 @@ The Alibaba ECS deployment runs the full Node API and exposes Qwen Cloud provide
 
 ```bash
 QWEN_API_KEY=sk-...
-QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+QWEN_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 QWEN_MODEL=qwen-plus
 ```
 
-`DASHSCOPE_API_KEY` is also accepted. Do not commit `.env` files.
+`DASHSCOPE_API_KEY` is also accepted. China mainland DashScope keys should use `https://dashscope.aliyuncs.com/compatible-mode/v1`; international DashScope keys can use `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`. Do not commit `.env` files.
 
 ## Qwen Tools And MCP
 
@@ -101,7 +101,7 @@ curl -sS http://127.0.0.1:8787/api/tools/policy_check \
 - Fixture eval: `reports/eval_report.md`
 - Ablation eval: `reports/ablation_report.md`
 - Stress benchmark: `reports/stress_benchmark.md`
-- Live Qwen smoke proof entrypoint: `pnpm run qwen:live-smoke` writes `reports/live_qwen_smoke_proof.md`
+- Verified live Qwen smoke proof: `reports/live_qwen_smoke_proof.md` records `qwen-cloud`, `qwen-plus`, five tool schemas, latency, and redacted credential state
 - Experiment ledger: `reports/experiment_board.md`
 - Judge evidence bundle: `reports/judge_evidence_bundle.md`
 - Judge demo transcript: `reports/judge_demo_transcript.md`
